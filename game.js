@@ -20,6 +20,8 @@ function wpick(list) { const tot = list.reduce((s, x) => s + x.w, 0); let r = Ma
 let S = null;          // состояние текущей жизни
 const EXTRA_PANELS = {}, EXTRA_TITLES = {}, YEAR_HOOKS = [], DEATH_HOOKS = [], MENU_HOOKS = [];
 let sfx = () => {};
+let taxRate = () => 0.13;
+let creditOk = () => true;
 let Q = [];            // очередь модальных событий
 let globalAch = loadAch();
 
@@ -125,7 +127,7 @@ function makePerson(role, o = {}) {
     age: o.age ?? 0, close: o.close ?? rnd(55, 90), alive: true,
     looks: o.looks ?? rnd(20, 95), smarts: o.smarts ?? rnd(20, 95),
     job: o.job || '', status: o.status || '', country: o.country || S?.country,
-    money: o.money ?? 0
+    money: o.money ?? 0, parentName: o.parentName || ''
   };
   return p;
 }
@@ -303,7 +305,7 @@ function yearWork() {
   if (j) {
     const def = JOBS.find((x) => x.id === j.id);
     const sal = jobSalary(j);
-    const net = Math.round(sal * 0.87);
+    const net = Math.round(sal * (1 - taxRate()));
     S.money += net;
     j.years++; j.lvlYears++;
     j.perf = clamp(j.perf + rnd(-9, 5) + Math.round((S.stats.happy - 50) / 20));
@@ -349,7 +351,7 @@ function yearBiz() {
 function yearMoney() {
   if (S.age < 18 || S.prison) return;
   const livesWithParents = S.age < 20 && S.people.some((p) => (p.role === 'mother' || p.role === 'father') && p.alive) && !S.ownHome;
-  const home = S.assets.some((a) => a.type === 'house');
+  const home = S.assets.some((a) => a.type === 'house' && !a.rented);
   const poor = !S.job && !S.biz && !S.retired && !S.edu.stage;
   let cost = price(poor ? 90000 : 140000); // еда и быт
   if (!home && !livesWithParents) cost += price(poor ? 20000 : S.edu.stage ? 60000 : 220000);
@@ -431,6 +433,7 @@ function yearPeople() {
     if (p.role === 'child' && p.age === 25 && chance(0.5)) { log(`💐 ${p.name} ${gv(p, 'женился', 'вышла замуж', 'вступил(а) в брак')}!`, 'good'); eff({ happy: 6 }); }
     if (p.role === 'child' && p.age >= 24 && p.age <= 40 && chance(0.12)) {
       p.grandkids = (p.grandkids || 0) + 1;
+      const gg = npcGender(); S.people.push(makePerson('grandchild', { gender: gg, age: 0, close: 80, surname: p.surname, parentName: p.name }));
       log(`👶 У ${p.name} родился ребёнок. Вы стали ${S.gender === 'm' ? 'дедушкой' : S.gender === 'f' ? 'бабушкой' : 'старшим поколением'}!`, 'good'); eff({ happy: 10 });
     }
     if (p.role === 'partner') {
@@ -632,7 +635,7 @@ function roleName(p) {
   const r = {
     mother: gv(p, 'Отец', 'Мама', 'Родитель'), father: gv(p, 'Папа', 'Мама', 'Родитель'),
     sibling: gv(p, 'Брат', 'Сестра', 'Сиблинг'), child: gv(p, 'Сын', 'Дочь', 'Ребёнок'),
-    friend: gv(p, 'Друг', 'Подруга', 'Друг'), ex: gv(p, 'Бывший', 'Бывшая', 'Бывш.'), late: 'Покойный партнёр'
+    friend: gv(p, 'Друг', 'Подруга', 'Друг'), grandchild: gv(p, 'Внук', 'Внучка', 'Внук(чка)'), rival: gv(p, 'Соперник', 'Соперница', 'Соперник'), neighbor: gv(p, 'Сосед', 'Соседка', 'Сосед'), ex: gv(p, 'Бывший', 'Бывшая', 'Бывш.'), late: 'Покойный партнёр'
   };
   if (p.role === 'partner') return p.status === 'married' ? gv(p, 'Муж', 'Жена', 'Супруг(а)') : p.status === 'engaged' ? gv(p, 'Жених', 'Невеста', 'Партнёр') : gv(p, 'Парень', 'Девушка', 'Партнёр');
   return r[p.role] || '';
@@ -1017,8 +1020,9 @@ function panelAssets() {
   const own = section('Моё имущество');
   if (!S.assets.length) own.appendChild(el('<div class="empty">Пока ничего нет</div>'));
   for (const a of S.assets) {
-    item(own, { e: a.e, t: a.name, d: `Стоимость: ${fmt(a.value)} · куплено за ${fmt(a.price)}`, onClick: () => Q.push({ e: a.e, title: a.name, text: `Текущая стоимость: ${fmt(a.value)}.`, choices: [
+    item(own, { e: a.e, t: a.name + (a.rented ? ' · сдаётся' : ''), d: `Стоимость: ${fmt(a.value)} · куплено за ${fmt(a.price)}`, onClick: () => Q.push({ e: a.e, title: a.name, text: `Текущая стоимость: ${fmt(a.value)}.`, choices: [
       { t: `Продать за ${fmt(a.value)}`, f: () => { S.money += a.value; S.assets = S.assets.filter((x) => x !== a); return `Вы продали: ${a.name}.`; } },
+      ...(a.type === 'house' ? [{ t: a.rented ? '🔑 Перестать сдавать' : `🔑 Сдавать в аренду (~${fmt(Math.round(a.value * 0.05))} в год)`, f: () => { a.rented = !a.rented; return a.rented ? `Вы сдаёте в аренду: ${a.name}.` : `Вы больше не сдаёте: ${a.name}.`; } }] : []),
       { t: 'Оставить', f: () => null }] }) && pump() });
   }
   // fix chained onClick above: Q.push returns length, so pump is called
@@ -1030,7 +1034,7 @@ function panelAssets() {
     for (const x of SHOP[k]) {
       if (x.yr && S.year < x.yr) continue;
       const p = price(x.price);
-      const canMort = k === 'house' && S.job && !S.loan && S.money >= p * 0.2 && S.money < p;
+      const canMort = k === 'house' && S.job && !S.loan && creditOk() && S.money >= p * 0.2 && S.money < p;
       item(l, { e: x.e, t: x.name, d: fmt(p) + (canMort ? ' · доступна ипотека' : ''), disabled: S.money < p && !canMort, onClick: () => buyModal(k, x, p, canMort) });
     }
   }
@@ -1038,7 +1042,7 @@ function panelAssets() {
 function buyModal(type, x, p, canMort) {
   const ch = [];
   if (S.money >= p) ch.push({ t: `Купить за ${fmt(p)}`, f: () => buy(type, x, p, false) });
-  if (canMort || (type === 'house' && S.job && !S.loan && S.money >= p * 0.2)) ch.push({ t: `Ипотека: взнос ${fmt(Math.round(p * 0.2))}`, f: () => buy(type, x, p, true) });
+  if (canMort || (type === 'house' && S.job && !S.loan && creditOk() && S.money >= p * 0.2)) ch.push({ t: `Ипотека: взнос ${fmt(Math.round(p * 0.2))}`, f: () => buy(type, x, p, true) });
   ch.push({ t: 'Отмена', f: () => null });
   Q.push({ e: x.e, title: x.name, text: `Цена: ${fmt(p)}.`, choices: ch }); pump();
 }
@@ -1066,6 +1070,8 @@ function panelPeople() {
     ['Любовь', (p) => p.role === 'partner'],
     ['Дети', (p) => p.role === 'child'],
     ['Друзья', (p) => p.role === 'friend'],
+    ['Внуки', (p) => p.role === 'grandchild'],
+    ['Соперники и соседи', (p) => p.role === 'rival' || p.role === 'neighbor'],
     ['Бывшие', (p) => p.role === 'ex' || p.role === 'late']
   ];
   let any = false;
@@ -1269,6 +1275,8 @@ function continueAs(k) {
       s.money = inherit; s.visited = [...old.visited];
       if (otherParent) s.people.push({ ...otherParent, role: otherParent.gender === 'm' ? 'father' : 'mother', close: k.close });
       for (const sb of siblings) s.people.push({ ...sb, role: 'sibling' });
+      for (const gk of old.people.filter((p) => p.role === 'grandchild' && p.alive && p.parentName === k.name)) s.people.push({ ...gk, role: 'child', close: 85 });
+      s.stat.kids = s.people.filter((p) => p.role === 'child').length;
       if (k.age >= 18) { s.edu.level = k.age >= 23 && chance(0.6) ? 'bachelor' : 'school'; if (s.edu.level === 'bachelor') s.edu.majors.push(pick(MAJORS).id); }
       else if (k.age >= 6) { s.edu.stage = 'school'; s.edu.grade = clamp(k.smarts + rnd(-10, 10)); }
       s.ach = {};
