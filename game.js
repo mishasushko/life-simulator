@@ -18,6 +18,8 @@ const yrs = (n) => `${n} ${plural(n, ['год', 'года', 'лет'])}`;
 function wpick(list) { const tot = list.reduce((s, x) => s + x.w, 0); let r = Math.random() * tot; for (const x of list) { if ((r -= x.w) < 0) return x; } return list[list.length - 1]; }
 
 let S = null;          // состояние текущей жизни
+const EXTRA_PANELS = {}, EXTRA_TITLES = {}, YEAR_HOOKS = [], DEATH_HOOKS = [], MENU_HOOKS = [];
+let sfx = () => {};
 let Q = [];            // очередь модальных событий
 let globalAch = loadAch();
 
@@ -88,7 +90,7 @@ function unlock(id) {
   const a = ACHIEVEMENTS.find((x) => x.id === id); if (!a) return;
   const isNew = !globalAch[id];
   globalAch[id] = true; saveAch();
-  toast(`${a.e} Достижение: ${a.t}${isNew ? ' · новое!' : ''}`);
+  toast(`${a.e} Достижение: ${a.t}${isNew ? ' · новое!' : ''}`); sfx('ach');
   log(`${a.e} Достижение «${a.t}»`, 'good');
 }
 function checkAch() {
@@ -200,6 +202,7 @@ function ageUp() {
   yearPets();
   yearDiseases();
   yearEvents();
+  for (const h of YEAR_HOOKS) h();
   yearDeath();
 
   S.stat.maxNet = Math.max(S.stat.maxNet, netWorth());
@@ -488,7 +491,10 @@ function die(cause) {
   S.alive = false; S.cause = cause;
   log(`🪦 Вы умерли в возрасте ${yrs(S.age)}. Причина: ${cause}.`, 'bad');
   if (S.age < 30) unlock('young');
-  checkAch(); save();
+  checkAch();
+  for (const h of DEATH_HOOKS) h();
+  sfx('death');
+  save();
 }
 
 /* ===================== Случайные события ===================== */
@@ -844,6 +850,7 @@ function showModal(m) {
     b.className = 'btn ' + (ch.cls || (i === 0 ? 'primary' : 'ghost'));
     b.textContent = ch.t; b.disabled = !!ch.disabled;
     b.onclick = () => {
+      sfx('click');
       closeModal();
       const r = ch.f();
       if (!S) return;
@@ -867,10 +874,10 @@ function result(r) {
 let currentPanel = null;
 function openPanel(name) {
   currentPanel = name;
-  const titles = { job: '💼 Учёба и работа', assets: '🏠 Имущество и финансы', people: '💞 Отношения', activities: '🎯 Занятия', menu: '☰ Меню', profile: '🪪 Профиль', ach: '🏆 Достижения', map: '🌍 Карта мира' };
+  const titles = Object.assign({ job: '💼 Учёба и работа', assets: '🏠 Имущество и финансы', people: '💞 Отношения', activities: '🎯 Занятия', menu: '☰ Меню', profile: '🪪 Профиль', ach: '🏆 Достижения', map: '🌍 Карта мира' }, EXTRA_TITLES);
   $('#sheetTitle').textContent = titles[name] || '';
   $('#sheetBody').innerHTML = '';
-  ({ job: panelJob, assets: panelAssets, people: panelPeople, activities: panelActivities, menu: panelMenu, profile: panelProfile, ach: panelAch, map: panelMap })[name]();
+  Object.assign({ job: panelJob, assets: panelAssets, people: panelPeople, activities: panelActivities, menu: panelMenu, profile: panelProfile, ach: panelAch, map: panelMap }, EXTRA_PANELS)[name]();
   $('#sheetWrap').hidden = false;
 }
 function refreshSheet() { if (!$('#sheetWrap').hidden && currentPanel) { const st = $('#sheetBody').scrollTop; openPanel(currentPanel); $('#sheetBody').scrollTop = st; } }
@@ -1195,6 +1202,7 @@ function panelMenu() {
   item(l, { e: '🪪', t: 'Профиль', d: 'Страна, вера, ориентация, статистика', onClick: () => openPanel('profile') });
   item(l, { e: '🌍', t: 'Карта мира', d: 'Где вы были и куда можно поехать', onClick: () => openPanel('map') });
   item(l, { e: '🏆', t: 'Достижения', d: `${Object.keys(globalAch).length} из ${ACHIEVEMENTS.length}`, onClick: () => openPanel('ach') });
+  for (const h of MENU_HOOKS) h(l);
   item(l, { e: '🌱', t: 'Начать новую жизнь', d: 'Текущая будет потеряна', onClick: () => { Q.push({ e: '🌱', title: 'Новая жизнь?', text: 'Текущий прогресс будет удалён.', choices: [{ t: 'Да, начать заново', cls: 'danger', f: () => { toStart(); return null; } }, { t: 'Отмена', f: () => null }] }); closeSheet(); pump(); } });
 }
 function panelProfile() {
@@ -1237,6 +1245,7 @@ function showDeath() {
     <div><small>Карма</small><b>${S.karma}</b></div><div><small>Стран</small><b>${S.visited.length}</b></div></div>`;
   const ch = [];
   if (kids.length) ch.push({ t: '🧬 Продолжить за ребёнка', f: () => { setTimeout(pickHeir, 30); return null; } });
+  ch.push({ t: '📤 Поделиться итогом', cls: 'ghost', f: () => { setTimeout(() => { shareLife(); showDeath(); }, 30); return null; } });
   ch.push({ t: '🌱 Новая жизнь', cls: kids.length ? 'ghost' : 'primary', f: () => { toStart(); return null; } });
   showModal({ e: '🪦', title: 'Покойтесь с миром', html, choices: ch });
 }
@@ -1245,14 +1254,15 @@ function pickHeir() {
   showModal({ e: '🧬', title: 'Наследник', text: `Наследство: ${fmt(netWorth())} (минус налог 13%). За кого продолжите?`, choices: kids.map((k) => ({ t: `${personEmoji(k)} ${k.name}, ${yrs(k.age)}`, f: () => { continueAs(k); return null; } })) });
 }
 function continueAs(k) {
-  const old = S;
-  const inherit = Math.round(netWorth() * 0.87);
+  const old = S; const oldNet = netWorth(); const oldFlag = C().flag;
+  const inherit = Math.round(oldNet * 0.87);
   const otherParent = old.people.find((p) => p.id === k.otherParent && p.alive);
   const siblings = old.people.filter((p) => p.role === 'child' && p.alive && p.id !== k.id);
   newLife({
     country: old.country, gender: k.gender, first: k.name, surname: old.surnameBase, religion: old.religion,
     generation: old.generation + 1, noParents: true,
     after: (s) => {
+      s.lineage = [...(old.lineage || []), { name: `${old.first} ${old.surname}`, gender: old.gender, y1: old.birthYear, y2: old.year, age: old.age, gen: old.generation, flag: oldFlag, job: old.career.length ? JOBS.find((j) => j.id === old.career[old.career.length - 1])?.titles[0] : '', net: oldNet, cause: old.cause, kids: old.stat.kids }];
       s.age = k.age; s.year = old.year; s.birthYear = old.year - k.age; s.city = old.city;
       s.stats.looks = k.looks; s.stats.smarts = k.smarts; s.stats.happy = 40; s.stats.health = rnd(60, 100);
       s.money = inherit; s.visited = [...old.visited];
@@ -1394,7 +1404,7 @@ $('#continueBtn').addEventListener('click', () => {
   catch (e) { console.error(e); try { localStorage.removeItem(SAVE_KEY); } catch (_) {} S = null; $('#continueBtn').hidden = true; $('#game').classList.remove('active'); $('#start').classList.add('active'); alert('Старое сохранение несовместимо с новой версией. Начните новую жизнь.'); }
 });
 window.addEventListener('error', (e) => { try { toast('⚠️ Ошибка: ' + (e.message || 'неизвестно')); } catch (_) {} });
-$('#ageBtn').addEventListener('click', ageUp);
+$('#ageBtn').addEventListener('click', () => { ageUp(); sfx('age'); });
 $('#menuBtn').addEventListener('click', () => openPanel('menu'));
 $('#mapBtn').addEventListener('click', () => { if (S) openPanel('map'); });
 $('#sheetClose').addEventListener('click', closeSheet);

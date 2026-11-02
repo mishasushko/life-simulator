@@ -181,6 +181,29 @@ input, select { font: inherit; color: inherit; }
   .timeline { padding-bottom: 120px; }
 }
 
+/* +5 лет */
+.age-wrap { position: relative; display: inline-block; }
+.age5-btn { position: absolute; top: -8px; right: -12px; min-width: 34px; height: 26px; padding: 0 7px; border-radius: 99px; background: var(--ink); color: var(--bg); font-family: var(--display); font-weight: 700; font-size: 12px; border: 2px solid var(--surface); box-shadow: var(--shadow); transition: transform .15s; }
+.age5-btn:hover { transform: scale(1.08); }
+.age5-btn:active { transform: scale(.92); }
+.age-btn:disabled + .age5-btn { display: none; }
+
+/* Древо рода */
+.tree { display: grid; gap: 0; margin-top: 8px; }
+.tnode { position: relative; padding: 14px 16px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); margin-left: 22px; }
+.tnode + .tnode { margin-top: 22px; }
+.tnode + .tnode::before { content: ""; position: absolute; left: 28px; top: -23px; width: 2px; height: 22px; background: var(--line-strong); }
+.tnode.me { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tnode.me .tmeta, .tnode.me .tgen { color: var(--bg-65); }
+.tgen { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.tname { font-family: var(--display); font-weight: 600; font-size: 17px; margin: 3px 0; letter-spacing: -.01em; }
+.tmeta { font-size: 13px; color: var(--muted); }
+.tkids { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0 22px; position: relative; }
+.tkids::before { content: ""; position: absolute; left: 28px; top: -23px; width: 2px; height: 22px; background: var(--line-strong); }
+.tkid { display: grid; justify-items: center; gap: 2px; padding: 10px 12px; min-width: 92px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); font-size: 24px; }
+.tkid b { font-size: 13px; }
+.tkid small { font-size: 11px; color: var(--muted); }
+
 /* ============ Шторка ============ */
 .sheet-wrap, .modal-wrap { position: fixed; inset: 0; background: var(--scrim); z-index: 10; display: flex; align-items: flex-end; justify-content: center; animation: fade .2s; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
 .sheet-wrap[hidden], .modal-wrap[hidden] { display: none; }
@@ -301,6 +324,7 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
   .age-btn { width: 62px; height: 62px; border-radius: 21px; margin-top: -26px; }
   .age-btn:hover { transform: none; }
   .age-btn .plus { font-size: 19px; }
+  .age5-btn { top: -36px; right: -14px; height: 24px; font-size: 11px; }
 
   .sheet { max-height: 90dvh; border-radius: 24px 24px 0 0; }
   .sheet-head { padding: 8px 16px 4px; }
