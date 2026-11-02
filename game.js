@@ -1374,7 +1374,26 @@ $('#startForm').addEventListener('submit', (e) => {
   });
   showGame();
 });
-$('#continueBtn').addEventListener('click', () => { const s = loadSave(); if (s) { S = s; showGame(); } });
+function migrate(s) {
+  s.stats = Object.assign({ happy: 50, health: 50, smarts: 50, looks: 50 }, s.stats || {});
+  s.inv = Object.assign({ deposit: 0, stocks: 0, crypto: 0 }, s.inv || {});
+  s.edu = Object.assign({ level: 'none', stage: '', major: '', years: 0, grade: 60, majors: [] }, s.edu || {});
+  s.edu.majors = s.edu.majors || [];
+  for (const k of ['people', 'pets', 'assets', 'diseases', 'log', 'career']) s[k] = Array.isArray(s[k]) ? s[k] : [];
+  s.visited = Array.isArray(s.visited) && s.visited.length ? s.visited : [s.country];
+  s.stat = Object.assign({ maxNet: 0, partners: 0, jobs: 0, kids: 0 }, s.stat || {});
+  s.used = s.used || {}; s.ach = s.ach || {}; s.seen = s.seen || {};
+  s.birthCountry = s.birthCountry || s.country; s.surnameBase = s.surnameBase || s.surname;
+  if (!COUNTRIES.some((c) => c.id === s.country)) s.country = 'ru';
+  if (!s.orient) s.orient = 'hetero'; if (!s.religion) s.religion = 'Атеизм'; if (!s.generation) s.generation = 1;
+  return s;
+}
+$('#continueBtn').addEventListener('click', () => {
+  const s = loadSave(); if (!s) return;
+  try { S = migrate(s); showGame(); }
+  catch (e) { console.error(e); try { localStorage.removeItem(SAVE_KEY); } catch (_) {} S = null; $('#continueBtn').hidden = true; $('#game').classList.remove('active'); $('#start').classList.add('active'); alert('Старое сохранение несовместимо с новой версией. Начните новую жизнь.'); }
+});
+window.addEventListener('error', (e) => { try { toast('⚠️ Ошибка: ' + (e.message || 'неизвестно')); } catch (_) {} });
 $('#ageBtn').addEventListener('click', ageUp);
 $('#menuBtn').addEventListener('click', () => openPanel('menu'));
 $('#mapBtn').addEventListener('click', () => { if (S) openPanel('map'); });
