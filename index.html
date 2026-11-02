@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0d17">
+  <title>Жизнь — симулятор</title>
+  <meta name="description" content="Проживи целую жизнь: учёба, карьера, любовь, деньги и случайности. Каждое решение важно.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <!-- Стартовый экран -->
+  <section id="start" class="screen active">
+    <div class="start-card glass">
+      <div class="logo">🌱</div>
+      <h1>Жизнь</h1>
+      <p class="muted">Одна жизнь. Тысячи решений. Проживи её так, как хочешь.</p>
+      <form id="startForm" class="start-form">
+        <label>Имя
+          <input id="inName" placeholder="Случайное" maxlength="20" autocomplete="off">
+        </label>
+        <label>Фамилия
+          <input id="inSurname" placeholder="Случайная" maxlength="24" autocomplete="off">
+        </label>
+        <label>Год рождения
+          <input id="inYear" type="number" min="1920" max="2060" step="1" inputmode="numeric">
+        </label>
+        <label>Страна
+          <select id="inCountry"></select>
+        </label>
+        <div class="two">
+          <label>Пол
+            <select id="inGender"></select>
+          </label>
+          <label>Ориентация
+            <select id="inOrient"></select>
+          </label>
+        </div>
+        <label>Религия
+          <select id="inReligion"></select>
+        </label>
+        <button class="btn primary big" type="submit">Начать жизнь</button>
+        <button class="btn ghost" type="button" id="continueBtn" hidden>Продолжить сохранённую</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Игровой экран -->
+  <section id="game" class="screen">
+    <header class="topbar glass">
+      <div class="avatar" id="avatar">👶</div>
+      <div class="who">
+        <div class="name" id="pName">—</div>
+        <div class="sub" id="pSub">—</div>
+      </div>
+      <div class="money">
+        <div class="label">Баланс</div>
+        <div class="value" id="pMoney">0 ₽</div>
+      </div>
+      <button class="icon-btn" id="mapBtn" title="Карта мира" aria-label="Карта мира">🌍</button>
+      <button class="icon-btn" id="menuBtn" title="Меню" aria-label="Меню">⋯</button>
+    </header>
+
+    <main class="layout">
+      <section class="log glass" id="log" aria-live="polite"></section>
+
+      <aside class="stats glass">
+        <div class="stat" data-k="happy"><span>😊 Счастье</span><b></b><i><em></em></i></div>
+        <div class="stat" data-k="health"><span>❤️ Здоровье</span><b></b><i><em></em></i></div>
+        <div class="stat" data-k="smarts"><span>🧠 Ум</span><b></b><i><em></em></i></div>
+        <div class="stat" data-k="looks"><span>✨ Внешность</span><b></b><i><em></em></i></div>
+      </aside>
+    </main>
+
+    <nav class="dock glass">
+      <button class="dock-btn" data-panel="job"><span>💼</span>Работа</button>
+      <button class="dock-btn" data-panel="assets"><span>🏠</span>Имущество</button>
+      <button class="age-btn" id="ageBtn"><span class="plus">+</span><span class="lbl">Год</span></button>
+      <button class="dock-btn" data-panel="people"><span>💞</span>Люди</button>
+      <button class="dock-btn" data-panel="activities"><span>🎯</span>Занятия</button>
+    </nav>
+  </section>
+
+  <!-- Панель (шторка) -->
+  <div class="sheet-wrap" id="sheetWrap" hidden>
+    <div class="sheet glass" role="dialog" aria-modal="true">
+      <div class="sheet-head">
+        <h2 id="sheetTitle"></h2>
+        <button class="icon-btn" id="sheetClose" aria-label="Закрыть">✕</button>
+      </div>
+      <div class="sheet-body" id="sheetBody"></div>
+    </div>
+  </div>
+
+  <!-- Событие (модалка) -->
+  <div class="modal-wrap" id="modalWrap" hidden>
+    <div class="modal glass" role="dialog" aria-modal="true">
+      <div class="modal-emoji" id="modalEmoji"></div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalText"></p>
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="data.js"></script>
+  <script src="news.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
