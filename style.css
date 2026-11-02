@@ -373,3 +373,21 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
 .sw i { width: 26px; height: 26px; border-radius: 50%; display: inline-block; border: 1px solid var(--line-strong); }
 .sw.on { outline: 2px solid var(--accent); outline-offset: 1px; }
 .sw:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ===== Графики, бизнес, путешествия, династия ===== */
+.chart { margin-top: 8px; }
+.chart svg, .spark { width: 100%; height: auto; display: block; overflow: visible; }
+.chart svg { aspect-ratio: 320 / 140; }
+.chart polyline, .spark polyline { fill: none; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.spark { margin-top: 8px; height: 44px; }
+.spark polyline { stroke: var(--accent); }
+.chart line.grid { stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.chart line.zero, .spark line.zero { stroke: var(--line-strong); stroke-dasharray: 4 4; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 8px; font-size: 13px; color: var(--muted); }
+.chart-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.souv { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 0; }
+.souv span { background: var(--surface2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 14px; }
+.dyn-crest { font-size: 56px; text-align: center; line-height: 1.1; margin: 4px 0; }
+.death-extra { margin-top: 12px; display: grid; gap: 4px; font-size: 14px; color: var(--muted); text-align: left; }
+#dailyBtn { margin-top: -4px; }
+.icon-btn.lang-btn.floating { right: 68px; font-weight: 800; font-size: 13px; letter-spacing: .02em; }

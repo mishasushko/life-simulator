@@ -123,8 +123,8 @@ shareLife = function () {
   ensureLooks();
   const svg = portraitSVG(S.look, S.age, S.alive ? S.stats.happy : 50, S.gender).replace('<svg ', '<svg width="300" height="300" ');
   const img = new Image();
-  img.onload = () => { S._portraitImg = img; _shareLife(); S._portraitImg = null; };
-  img.onerror = () => _shareLife();
+  img.onload = () => { if (!S) return; S._portraitImg = img; _shareLife(); if (S) S._portraitImg = null; };
+  img.onerror = () => { if (S) _shareLife(); };
   img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
 };
 const _lifeCard = lifeCardCanvas;

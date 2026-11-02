@@ -18,7 +18,7 @@ const yrs = (n) => `${n} ${plural(n, ['год', 'года', 'лет'])}`;
 function wpick(list) { const tot = list.reduce((s, x) => s + x.w, 0); let r = Math.random() * tot; for (const x of list) { if ((r -= x.w) < 0) return x; } return list[list.length - 1]; }
 
 let S = null;          // состояние текущей жизни
-const EXTRA_PANELS = {}, EXTRA_TITLES = {}, YEAR_HOOKS = [], DEATH_HOOKS = [], MENU_HOOKS = [];
+const EXTRA_PANELS = {}, EXTRA_TITLES = {}, YEAR_HOOKS = [], DEATH_HOOKS = [], MENU_HOOKS = [], CAREER_HOOKS = [];
 let sfx = () => {};
 let taxRate = () => 0.13;
 let creditOk = () => true;
@@ -938,28 +938,8 @@ function panelJob() {
     item(l, { e: '🌅', t: 'Выйти на пенсию', d: `Пенсия: ${fmt(Math.max(wageOf(180000), S.job ? Math.round(jobSalary(S.job) * 0.45) : 0))} в год`, onClick: act(() => { S.pension = Math.max(wageOf(180000), S.job ? Math.round(jobSalary(S.job) * 0.45) : 0); S.job = null; S.retired = true; unlock('retired'); eff({ happy: 12 }); return `Вы вышли на пенсию. Ежегодная выплата: ${fmt(S.pension)}.`; }) });
   }
 
-  // Бизнес
-  if (S.age >= 18) {
-    const l = section('Бизнес');
-    if (S.biz) {
-      const b = S.biz;
-      item(l, { e: b.e, t: b.name, d: `Оценка: ${fmt(b.value)} · ${yrs(b.years)}`, r: '' });
-      btnRow($('#sheetBody'), [
-        { t: `📣 Маркетинг (${fmt(Math.round(b.value * 0.1))})`, disabled: S.used.biz, f: act(() => { S.used.biz = 1; const c = Math.round(b.value * 0.1); S.money -= c; b.boost = rf(0.05, 0.25); return 'Рекламная кампания запущена.'; }) },
-        { t: `💸 Продать за ${fmt(b.value)}`, f: act(() => { S.money += b.value; const n = b.name; S.biz = null; eff({ happy: 8 }); return `Вы продали «${n}».`; }) }
-      ]);
-    } else {
-      const BIZ = [
-        { e: '☕', name: 'Кофейня', cost: 1500000 }, { e: '🛍️', name: 'Интернет-магазин', cost: 800000 },
-        { e: '🍕', name: 'Ресторан', cost: 8000000 }, { e: '💻', name: 'IT-стартап', cost: 5000000 },
-        { e: '🏋️', name: 'Фитнес-клуб', cost: 15000000 }, { e: '🏭', name: 'Завод', cost: 120000000 }
-      ];
-      for (const b of BIZ) {
-        const c = price(b.cost);
-        item(l, { e: b.e, t: b.name, d: `Вложения: ${fmt(c)}`, disabled: S.money < c, onClick: act(() => { S.money -= c; S.biz = { e: b.e, name: b.name, value: c, start: c, years: 0 }; unlock('business'); eff({ happy: 8 }); return `Вы открыли бизнес: ${b.name}! 🚀`; }) });
-      }
-    }
-  }
+  // Своё дело, политика, армия, разведка
+  if (S.age >= 16) { const l = section('Карьерные пути'); for (const h of CAREER_HOOKS) h(l); }
 
   // Вакансии
   const l = section(S.job ? 'Другие вакансии' : 'Вакансии');
@@ -1390,7 +1370,7 @@ $('#startForm').addEventListener('submit', (e) => {
     gender: $('#inGender').value || undefined,
     orient: $('#inOrient').value || undefined,
     religion: $('#inReligion').value || undefined,
-    year: clamp(parseInt($('#inYear').value, 10) || new Date().getFullYear(), 1920, 2060)
+    year: clamp(parseInt($('#inYear').value, 10) || new Date().getFullYear(), 1900, 2060)
   });
   showGame();
 });

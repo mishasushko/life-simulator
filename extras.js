@@ -125,10 +125,10 @@ function lifeCardCanvas() {
 function roundRect(x, a, b, w, h, r) { x.beginPath(); x.moveTo(a + r, b); x.arcTo(a + w, b, a + w, b + h, r); x.arcTo(a + w, b + h, a, b + h, r); x.arcTo(a, b + h, a, b, r); x.arcTo(a, b, a + w, b, r); x.closePath(); }
 function wrapText(x, t, a, b, maxW, lh) { const words = t.split(' '); let line = ''; for (const w of words) { const test = line ? line + ' ' + w : w; if (x.measureText(test).width > maxW && line) { x.fillText(line, a, b); line = w; b += lh; } else line = test; } x.fillText(line, a, b); }
 function shareLife() {
-  const c = lifeCardCanvas();
+  const c = lifeCardCanvas(); const nm = S.first;
   c.toBlob(async (blob) => {
     if (!blob) return;
-    const file = new File([blob], `zhizn-${S.first}.png`, { type: 'image/png' });
+    const file = new File([blob], `zhizn-${nm}.png`, { type: 'image/png' });
     try { if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: 'Моя жизнь в симуляторе' }); return; } } catch (e) { if (e && e.name === 'AbortError') return; }
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = file.name; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
