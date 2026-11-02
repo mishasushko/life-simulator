@@ -359,3 +359,17 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ===== Портреты и конструктор внешности ===== */
+#avatar { cursor: pointer; }
+#avatar svg, .item .ico svg, .modal-emoji.portrait svg { width: 100%; height: 100%; display: block; }
+.item .ico { overflow: hidden; }
+.modal-emoji.portrait { padding: 0; overflow: hidden; background: var(--surface2); }
+.look-preview { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 4px 0 14px; }
+.look-preview svg { width: 160px; height: 160px; border-radius: 50%; background: var(--surface2); }
+.look-preview small { color: var(--muted); font-size: 13px; }
+.swatches { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 14px; }
+.sw { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; }
+.sw i { width: 26px; height: 26px; border-radius: 50%; display: inline-block; border: 1px solid var(--line-strong); }
+.sw.on { outline: 2px solid var(--accent); outline-offset: 1px; }
+.sw:disabled { opacity: .45; cursor: not-allowed; }

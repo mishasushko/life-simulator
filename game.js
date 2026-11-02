@@ -22,6 +22,7 @@ const EXTRA_PANELS = {}, EXTRA_TITLES = {}, YEAR_HOOKS = [], DEATH_HOOKS = [], M
 let sfx = () => {};
 let taxRate = () => 0.13;
 let creditOk = () => true;
+let playerPortrait = null, personPortrait = null;
 let Q = [];            // очередь модальных событий
 let globalAch = loadAch();
 
@@ -806,7 +807,7 @@ function statusLine() {
 
 function render() {
   const c = C();
-  $('#avatar').textContent = avatar();
+  if (playerPortrait && S.alive && !S.prison) $('#avatar').innerHTML = playerPortrait(); else $('#avatar').textContent = avatar();
   $('#pName').textContent = `${S.first} ${S.surname}`;
   $('#pChips').innerHTML = [`<span class="chip hl">${yrs(S.age)}</span>`, `<span class="chip">${S.year}</span>`, `<span class="chip">${c.flag} ${esc(S.city)}</span>`, `<span class="chip">${esc(statusLine())}</span>`].join('');
   const m = $('#pMoney'); m.textContent = fmt(S.money); m.classList.toggle('neg', S.money < 0);
@@ -843,7 +844,7 @@ function pump() {
   if (!S.alive) return showDeath();
 }
 function showModal(m) {
-  $('#modalEmoji').textContent = m.e || '';
+  const me = $('#modalEmoji'); if (m.e && m.e.startsWith('<svg')) { me.innerHTML = m.e; me.classList.add('portrait'); } else { me.textContent = m.e || ''; me.classList.remove('portrait'); }
   $('#modalTitle').textContent = m.title || '';
   const T = $('#modalText');
   if (m.html) T.innerHTML = m.html; else T.textContent = m.text || '';
@@ -1079,7 +1080,7 @@ function panelPeople() {
     const ps = S.people.filter(f); if (!ps.length) continue; any = true;
     const l = section(t);
     for (const p of ps) {
-      item(l, { e: p.alive ? personEmoji(p) : '🕯️', t: `${p.name}${p.surname ? ' ' + p.surname : ''}`, d: `${roleName(p)} · ${p.alive ? yrs(p.age) : 'скончал' + gv(p, 'ся', 'ась', 'ся(ась)')}${p.job && p.alive ? ' · ' + p.job : ''}`, bar: p.alive && p.role !== 'ex' ? p.close : null, onClick: p.alive ? () => personModal(p) : null });
+      item(l, { e: p.alive ? (personPortrait ? personPortrait(p) : personEmoji(p)) : '🕯️', t: `${p.name}${p.surname ? ' ' + p.surname : ''}`, d: `${roleName(p)} · ${p.alive ? yrs(p.age) : 'скончал' + gv(p, 'ся', 'ась', 'ся(ась)')}${p.job && p.alive ? ' · ' + p.job : ''}`, bar: p.alive && p.role !== 'ex' ? p.close : null, onClick: p.alive ? () => personModal(p) : null });
     }
   }
   const pets = S.pets.filter((p) => p.alive);
@@ -1117,7 +1118,7 @@ function personModal(p) {
   if (p.role === 'friend') ch.push({ t: '🚫 Перестать общаться', cls: 'danger', f: () => { p.role = 'ex_friend'; S.people = S.people.filter((x) => x !== p); return `${p.name} больше не в вашей жизни.`; } });
   if (p.role !== 'partner') ch.push({ t: '😤 Поссориться', cls: 'danger', disabled: S.used[key('fight')], f: once('fight', () => { p.close = clamp(p.close - rnd(10, 25)); eff({ karma: -2 }); return `Громкая ссора. ${p.name} ${gv(p, 'обижен', 'обижена', 'обижен(а)')}.`; }) });
   ch.push({ t: 'Закрыть', f: () => null });
-  Q.push({ e: personEmoji(p), title: `${p.name}${p.surname ? ' ' + p.surname : ''}`, text: `${roleName(p)} · ${yrs(p.age)}${p.job ? ' · ' + p.job : ''}\nОтношения: ${p.close}%`, choices: ch });
+  Q.push({ e: personPortrait ? personPortrait(p) : personEmoji(p), title: `${p.name}${p.surname ? ' ' + p.surname : ''}`, text: `${roleName(p)} · ${yrs(p.age)}${p.job ? ' · ' + p.job : ''}\nОтношения: ${p.close}%`, choices: ch });
   pump();
 }
 function tryBaby(p) {
