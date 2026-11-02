@@ -316,7 +316,7 @@ function yearWork() {
     if (def.maxAge && S.age > def.maxAge + 5 && chance(0.4) && S.job) { log('⏳ Возраст берёт своё: карьера в спорте завершена.', 'info'); S.job = null; }
     if (def.part && S.age >= 22 && !S.edu.stage) eff({ happy: -2 });
   }
-  if (!S.job && !S.retired && S.age >= 18 && !S.edu.stage && !S.biz) { const b = wageOf(110000); S.money += b; log(`🏛️ Пособие по безработице: ${fmt(b)}.`, 'info'); }
+  if (!S.job && !S.retired && S.age >= 18 && !S.edu.stage && !S.biz) { const b = wageOf(110000); S.money += b; S.welfare = b; } else S.welfare = 0;
   if (S.edu.stage && S.edu.stage !== 'school' && !S.job) { const st = wageOf(40000); S.money += st; }
   if (S.retired && S.pension) S.money += S.pension;
   else if (!S.retired && S.age >= 67 && !S.job) { S.retired = true; S.pension = wageOf(180000); log(`🌅 Вы вышли на государственную пенсию: ${fmt(S.pension)} в год.`, 'info'); unlock('retired'); }
@@ -358,7 +358,7 @@ function yearMoney() {
   cost += kids * price(120000);
   cost += S.pets.filter((p) => p.alive).length * price(25000);
   S.money -= cost;
-  log(`🧾 Расходы на жизнь: ${fmt(cost)}${!home && !livesWithParents ? ' (включая аренду)' : ''}.`, 'info');
+  log(`🧾 Расходы на жизнь: ${fmt(cost)}${!home && !livesWithParents ? ' (с арендой)' : ''}${S.welfare ? ` · пособие +${fmt(S.welfare)}` : ''}.`, 'info');
   if (S.loan) {
     S.loan.bal = Math.round(S.loan.bal * 1.07);
     const pay = Math.min(S.loan.bal, S.loan.pay);
@@ -571,9 +571,9 @@ const EVENTS = [
       { t: 'С семьёй и общиной', f: () => { eff({ happy: 8, karma: 3 }); S.people.filter((p) => p.alive && ['mother', 'father', 'sibling', 'child', 'partner'].includes(p.role)).forEach((p) => (p.close = clamp(p.close + 5))); return 'Тёплый день с близкими.'; } },
       { t: 'Как обычный день', f: () => 'Вы провели день как обычно.' }]) },
   { min: 16, max: 60, w: 5, cond: () => !partner() && S.orient !== 'ace', run: () => { const g = loveGender(); const n = randFirst(g); ev('💘', 'Новое знакомство', `${n} (${S.age + rnd(-3, 3)}) явно с вами флиртует.`, [
-      { t: 'Пригласить на свидание', f: () => chance(0.45 + S.stats.looks / 250) ? (addPartner(g, n), `Вы начали встречаться с ${n}! 💕`) : (eff({ happy: -5 }), `${n} отказал(а).`) },
+      { t: 'Пригласить на свидание', f: () => chance(0.45 + S.stats.looks / 250) ? (addPartner(g, n), `${n} теперь ваша пара! 💕`) : (eff({ happy: -5 }), `${n} отказал(а).`) },
       { t: 'Не сейчас', f: () => 'Вы улыбнулись и пошли дальше.' }]); } },
-  { min: 20, max: 70, w: 4, cond: () => partner()?.status === 'married', run: () => { const p = partner(); ev('🌹', 'Годовщина', `Сегодня годовщина свадьбы с ${p.name}.`, [
+  { min: 20, max: 70, w: 4, cond: () => partner()?.status === 'married', run: () => { const p = partner(); ev('🌹', 'Годовщина', `Сегодня годовщина вашей свадьбы. ${p.name} ждёт праздника.`, [
       { t: `Ужин в ресторане (${fmt(price(15000))})`, f: () => { S.money -= price(15000); p.close = clamp(p.close + 15); eff({ happy: 8 }); return 'Романтичный вечер.'; } },
       { t: 'Забыть о ней', f: () => { p.close = clamp(p.close - 20); return `${p.name} очень обидел${gv(p, 'ся', 'ась', 'ся(ась)')}.`; } }]); } },
   { min: 25, max: 75, w: 3, cond: () => partner(), run: () => { const p = partner(); ev('😳', 'Искушение', 'Коллега на корпоративе откровенно вас соблазняет.', [
@@ -595,7 +595,7 @@ const EVENTS = [
       { t: 'Ударить', f: () => chance(0.3) ? (crimeCaught('Драка', 1), 'Приехала полиция.') : (eff({ health: -rnd(0, 10), karma: -3 }), 'Драка закончилась ничьей.') },
       { t: 'Попросить извиниться', f: () => { eff({ karma: 2 }); return 'Он извинился и купил вам новый напиток.'; } },
       { t: 'Уйти', f: () => 'Вы ушли домой.' }]) },
-  { min: 10, max: 60, w: 3, run: () => { const fr = makePerson('friend', { age: Math.max(5, S.age + rnd(-3, 3)), close: rnd(40, 70) }); S.people.push(fr); log(`👋 Вы познакомились с ${fr.name}. Кажется, это начало дружбы.`, 'good'); } },
+  { min: 10, max: 60, w: 3, run: () => { const fr = makePerson('friend', { age: Math.max(5, S.age + rnd(-3, 3)), close: rnd(40, 70) }); S.people.push(fr); log(`👋 Новое знакомство: ${fr.name}. Кажется, это начало дружбы.`, 'good'); } },
   { min: 12, max: 30, w: 3, cond: () => !S.out && S.orient !== 'hetero', run: () => ev('🏳️‍🌈', 'Быть собой', 'Вы давно чувствуете, что хотите рассказать близким о своей ориентации.', [
       { t: 'Совершить каминг-аут', f: () => comingOut() },
       { t: 'Пока подождать', f: () => { eff({ happy: -3 }); return 'Вы решили подождать подходящего момента.'; } }]) },
@@ -718,13 +718,13 @@ const ACTIVITIES = [
   { id: 'charity', cat: 'Разум и дух', e: '💝', t: 'Пожертвовать 10% капитала', d: '+карма, +счастье', min: 18, cond: () => S.money > 100000, run: () => { const d = Math.round(S.money * 0.1); S.money -= d; eff({ karma: 12, happy: 8 }); S.followers += Math.round(d / 1000); return ['💝', 'Благотворительность', `Вы пожертвовали ${fmt(d)}. Мир стал немного лучше.`]; } },
   // развлечения
   { id: 'games', cat: 'Развлечения', e: '🎮', t: 'Видеоигры', d: '+счастье', min: 5, yr: 1975, run: () => { eff({ happy: rnd(3, 7), health: -1 }); return ['🎮', 'Геймер', `Вы прошли ${pick(['новую RPG', 'кооператив с друзьями', 'хоррор', 'гонки', 'стратегию на 200 часов'])}.`]; } },
-  { id: 'party', cat: 'Развлечения', e: '🎉', t: 'Вечеринка', d: 'Новые знакомства', min: 15, run: () => { eff({ happy: rnd(5, 12), health: -rnd(0, 4) }); if (chance(0.35)) { const f = makePerson('friend', { age: S.age + rnd(-3, 3), close: rnd(40, 70) }); S.people.push(f); return ['🎉', 'Вечеринка', `Вы отлично повеселились и подружились с ${f.name}!`]; } return ['🎉', 'Вечеринка', 'Было громко и весело!']; } },
+  { id: 'party', cat: 'Развлечения', e: '🎉', t: 'Вечеринка', d: 'Новые знакомства', min: 15, run: () => { eff({ happy: rnd(5, 12), health: -rnd(0, 4) }); if (chance(0.35)) { const f = makePerson('friend', { age: S.age + rnd(-3, 3), close: rnd(40, 70) }); S.people.push(f); return ['🎉', 'Вечеринка', `Вы отлично повеселились. Новый друг: ${f.name}!`]; } return ['🎉', 'Вечеринка', 'Было громко и весело!']; } },
   { id: 'concert', cat: 'Развлечения', e: '🎵', t: 'Концерт', d: '+счастье', min: 12, cost: 8000, run: () => { eff({ happy: rnd(6, 12) }); return ['🎸', 'Концерт', 'Вы сорвали голос, подпевая любимой группе.']; } },
   { id: 'travel', cat: 'Развлечения', e: '✈️', t: 'Путешествие', d: 'Новая страна', min: 18, cost: 180000, run: () => { const opts = COUNTRIES.filter((c) => c.id !== S.country); const c = pick(opts); if (!S.visited.includes(c.id)) S.visited.push(c.id); eff({ happy: rnd(10, 18), smarts: 2 }); return [c.flag, 'Путешествие', `Вы слетали в страну ${c.name} и посетили ${pick(c.cities)}. Посещено стран: ${S.visited.length}.`]; } },
   { id: 'blog', cat: 'Развлечения', e: '📱', t: 'Снять видео для блога', d: 'Подписчики и доход', min: 12, yr: 2005, run: () => { const base = Math.max(30, Math.round(S.followers * rf(0.04, 0.25))); const viral = chance(0.06); const g = Math.round(base * (0.5 + S.stats.looks / 100 + S.stats.smarts / 200) * (viral ? rnd(8, 30) : 1)); S.followers += g; S.blogged = true; eff({ happy: 3 }); return ['📱', viral ? 'Вирусное видео! 🔥' : 'Новое видео', `+${g.toLocaleString('ru-RU')} подписчиков. Всего: ${S.followers.toLocaleString('ru-RU')}.`]; } },
   // любовь
   { id: 'dating', cat: 'Любовь и общение', e: '💘', t: 'Знакомства', label: () => S.year >= 2009 ? 'Приложение для знакомств' : 'Пойти на танцы', d: 'Найти пару', min: 16, cond: () => !partner(), run: () => findLove() },
-  { id: 'friend', cat: 'Любовь и общение', e: '👋', t: 'Найти друга', d: 'Новое знакомство', min: 5, run: () => { const f = makePerson('friend', { age: Math.max(5, S.age + rnd(-4, 4)), close: rnd(45, 75) }); S.people.push(f); eff({ happy: 4 }); return ['👋', 'Новый друг', `Вы познакомились с ${f.name}. ${f.gender === 'f' ? 'Она' : 'Он'} кажется классн${f.gender === 'f' ? 'ой' : 'ым'}!`]; } },
+  { id: 'friend', cat: 'Любовь и общение', e: '👋', t: 'Найти друга', d: 'Новое знакомство', min: 5, run: () => { const f = makePerson('friend', { age: Math.max(5, S.age + rnd(-4, 4)), close: rnd(45, 75) }); S.people.push(f); eff({ happy: 4 }); return ['👋', 'Новый друг', `Новое знакомство: ${f.name}. ${f.gender === 'f' ? 'Она' : 'Он'} кажется классн${f.gender === 'f' ? 'ой' : 'ым'}!`]; } },
   { id: 'pet', cat: 'Любовь и общение', e: '🐾', t: 'Завести питомца', d: 'Пушистый друг', min: 6, run: () => { setTimeout(openPetShop, 30); return null; } },
   { id: 'comingout', cat: 'Любовь и общение', e: '🏳️‍🌈', t: 'Каминг-аут', d: 'Рассказать близким', min: 12, cond: () => !S.out && S.orient !== 'hetero', run: () => ['🏳️‍🌈', 'Быть собой', comingOut()] },
   // риск
@@ -774,7 +774,6 @@ function findLove() {
 }
 
 /* ===================== Интерфейс ===================== */
-function statColor(v) { return v < 30 ? 'linear-gradient(90deg,#f43f5e,#fb7185)' : v < 60 ? 'linear-gradient(90deg,#f59e0b,#fbbf24)' : 'linear-gradient(90deg,#10b981,#34d399)'; }
 function avatar() {
   if (!S.alive) return '🪦';
   if (S.prison) return '⛓️';
@@ -799,12 +798,12 @@ function render() {
   const c = C();
   $('#avatar').textContent = avatar();
   $('#pName').textContent = `${S.first} ${S.surname}`;
-  $('#pSub').textContent = `${yrs(S.age)} · ${S.year} · ${c.flag} ${S.city} · ${statusLine()}`;
+  $('#pChips').innerHTML = [`<span class="chip hl">${yrs(S.age)}</span>`, `<span class="chip">${S.year}</span>`, `<span class="chip">${c.flag} ${esc(S.city)}</span>`, `<span class="chip">${esc(statusLine())}</span>`].join('');
   const m = $('#pMoney'); m.textContent = fmt(S.money); m.classList.toggle('neg', S.money < 0);
-  for (const el of document.querySelectorAll('.stat')) {
-    const v = S.stats[el.dataset.k];
-    el.querySelector('b').textContent = v + '%';
-    const em = el.querySelector('em'); em.style.width = v + '%'; em.style.background = statColor(v);
+  for (const el of document.querySelectorAll('.ring')) {
+    const v = S.stats[el.dataset.k]; const rc = el.querySelector('.ring-c');
+    el.querySelector('b').textContent = v;
+    rc.style.setProperty('--v', v); rc.style.setProperty('--c', v < 30 ? 'var(--bad)' : v < 60 ? 'var(--warn)' : 'var(--good)');
   }
   const kv = $('#karmaVal'); if (kv) { kv.textContent = S.karma + '%'; }
   const fv = $('#fameVal'); if (fv) fv.textContent = S.followers.toLocaleString('ru-RU');
@@ -812,7 +811,15 @@ function render() {
   $('#ageBtn').disabled = !S.alive;
   // лог
   const L = $('#log');
-  L.innerHTML = S.log.map((b) => `<div class="year"><h4>${b.age === 0 ? 'Рождение' : yrs(b.age)} · ${b.year}</h4>${b.items.map((i) => `<p class="${i.c}">${esc(i.t)}</p>`).join('')}</div>`).join('');
+  const n = S.log.length;
+  L.innerHTML = S.log.map((b, idx) => `<div class="yr${idx === n - 1 ? ' last' : ''}"><div class="yr-age"><b>${b.age === 0 ? '0' : b.age}</b><small>${b.year}</small></div><div class="yr-body">${b.items.map(evHtml).join('')}</div></div>`).join('');
+}
+const EMO_RE = /^((?:\p{Extended_Pictographic}|\p{Regional_Indicator})(?:[\uFE0F\u200D\u20E3]|\p{Extended_Pictographic}|\p{Regional_Indicator}|\p{Emoji_Modifier})*)\s*/u;
+function evHtml(i) {
+  const m = i.t.match(EMO_RE);
+  const e = m ? m[1] : '';
+  const t = m ? i.t.slice(m[0].length) : i.t;
+  return `<div class="ev ${i.c || ''}"><span class="e${e ? '' : ' dot'}">${e}</span><span>${esc(t)}</span></div>`;
 }
 function scrollLog() { const L = $('#log'); requestAnimationFrame(() => { L.style.scrollBehavior = 'auto'; L.scrollTop = L.scrollHeight; L.style.scrollBehavior = ''; }); }
 
@@ -1064,7 +1071,7 @@ function panelPeople() {
   const pets = S.pets.filter((p) => p.alive);
   if (pets.length) {
     const l = section('Питомцы'); any = true;
-    for (const p of pets) { const d = PETS.find((x) => x.id === p.type); item(l, { e: d.e, t: p.name, d: `${d.name} · ${yrs(p.age)}`, bar: p.close, onClick: act(() => { if (S.used['pet_' + p.id]) return `${p.name} уже наигрался сегодня.`; S.used['pet_' + p.id] = 1; p.close = clamp(p.close + 10); eff({ happy: rnd(3, 6) }); return `Вы поиграли с ${p.name}. ${d.e}❤️`; }) }); }
+    for (const p of pets) { const d = PETS.find((x) => x.id === p.type); item(l, { e: d.e, t: p.name, d: `${d.name} · ${yrs(p.age)}`, bar: p.close, onClick: act(() => { if (S.used['pet_' + p.id]) return `${p.name} уже наигрался сегодня.`; S.used['pet_' + p.id] = 1; p.close = clamp(p.close + 10); eff({ happy: rnd(3, 6) }); return `${p.name} в восторге от игры с вами. ${d.e}❤️`; }) }); }
   }
   if (!any) $('#sheetBody').appendChild(el('<div class="empty">Вы совсем одни... Найдите друзей в «Занятиях».</div>'));
 }
@@ -1078,23 +1085,23 @@ function personModal(p) {
   const key = (a) => `${a}_${p.id}`;
   const ch = [];
   const once = (a, fn) => () => { S.used[key(a)] = 1; return fn(); };
-  ch.push({ t: '☕ Провести время вместе', disabled: S.used[key('time')], f: once('time', () => { p.close = clamp(p.close + rnd(5, 12)); eff({ happy: rnd(2, 6) }); return `Вы чудесно провели время с ${p.name}.`; }) });
+  ch.push({ t: '☕ Провести время вместе', disabled: S.used[key('time')], f: once('time', () => { p.close = clamp(p.close + rnd(5, 12)); eff({ happy: rnd(2, 6) }); return `Вы чудесно провели время вместе. ${p.name} ${gv(p, 'доволен', 'довольна', 'доволен(льна)')}.`; }) });
   if (S.age >= 14) ch.push({ t: `🎁 Подарок (${fmt(price(10000))})`, disabled: S.used[key('gift')], f: once('gift', () => { S.money -= price(10000); p.close = clamp(p.close + rnd(8, 15)); return `${p.name} в восторге от подарка!`; }) });
-  ch.push({ t: '💬 Поговорить по душам', disabled: S.used[key('talk')], f: once('talk', () => { p.close = clamp(p.close + rnd(2, 8)); eff({ happy: 2 }); return `Вы поговорили с ${p.name} обо всём на свете.`; }) });
+  ch.push({ t: '💬 Поговорить по душам', disabled: S.used[key('talk')], f: once('talk', () => { p.close = clamp(p.close + rnd(2, 8)); eff({ happy: 2 }); return `Душевный разговор: ${p.name} ${gv(p, 'открылся', 'открылась', 'открылся(ась)')} вам.`; }) });
   if ((p.role === 'mother' || p.role === 'father') && S.age >= 8) ch.push({ t: '💵 Попросить денег', disabled: S.used[key('money')], f: once('money', () => { if (chance(p.close / 140)) { const s = price(rnd(1, S.age < 18 ? 5 : 50) * 1000); S.money += s; return `${p.name} дал${gv(p, '', 'а', '(а)')} вам ${fmt(s)}.`; } p.close = clamp(p.close - 4); return `${p.name} отказал${gv(p, '', 'а', '(а)')}.`; }) });
   if (p.role === 'child' && S.age >= 18) ch.push({ t: `💸 Дать денег (${fmt(price(50000))})`, f: () => { S.money -= price(50000); p.close = clamp(p.close + 10); eff({ karma: 2 }); return `${p.name} благодарит вас!`; } });
   if (p.role === 'partner') {
     if (p.status === 'dating' && S.age >= 18) ch.push({ t: '💍 Сделать предложение', disabled: S.used[key('prop')], f: once('prop', () => { if (chance(p.close / 110)) { p.status = 'engaged'; eff({ happy: 15 }); return `${p.name} сказал${gv(p, '', 'а', '(а)')} «ДА»! 💍`; } p.close = clamp(p.close - 15); eff({ happy: -12 }); return `${p.name} не готов${gv(p, '', 'а', '(а)')} к такому шагу.`; }) });
     if (p.status === 'engaged') {
-      ch.push({ t: `💒 Пышная свадьба (${fmt(price(1500000))})`, f: () => { S.money -= price(1500000); p.status = 'married'; p.close = clamp(p.close + 15); unlock('married'); eff({ happy: 25 }); return `Свадьба века! Вы с ${p.name} теперь в браке. 💒`; } });
-      ch.push({ t: '📝 Скромная роспись', f: () => { p.status = 'married'; unlock('married'); eff({ happy: 15 }); return `Вы с ${p.name} расписались. Горько! 🥂`; } });
+      ch.push({ t: `💒 Пышная свадьба (${fmt(price(1500000))})`, f: () => { S.money -= price(1500000); p.status = 'married'; p.close = clamp(p.close + 15); unlock('married'); eff({ happy: 25 }); return `Свадьба века! Теперь вы в браке. 💒`; } });
+      ch.push({ t: '📝 Скромная роспись', f: () => { p.status = 'married'; unlock('married'); eff({ happy: 15 }); return `Вы расписались. Горько! 🥂`; } });
     }
     if (S.age >= 18 && S.age <= 55) ch.push({ t: '👶 Завести ребёнка', disabled: S.used.baby, f: () => { S.used.baby = 1; return tryBaby(p); } });
     ch.push({ t: '🌹 Романтическое свидание', disabled: S.used[key('date')], f: once('date', () => { S.money -= price(8000); p.close = clamp(p.close + rnd(8, 16)); eff({ happy: 6 }); return 'Ужин при свечах удался. ❤️'; }) });
-    ch.push({ t: p.status === 'married' ? '💔 Развестись' : '💔 Расстаться', cls: 'danger', f: () => { const loss = p.status === 'married' ? Math.max(0, Math.round(S.money * 0.4)) : 0; S.money -= loss; p.role = 'ex'; p.status = ''; eff({ happy: -12 }); return `Вы расстались с ${p.name}.${loss ? ` Раздел имущества: −${fmt(loss)}.` : ''}`; } });
+    ch.push({ t: p.status === 'married' ? '💔 Развестись' : '💔 Расстаться', cls: 'danger', f: () => { const loss = p.status === 'married' ? Math.max(0, Math.round(S.money * 0.4)) : 0; S.money -= loss; p.role = 'ex'; p.status = ''; eff({ happy: -12 }); return `Отношения окончены: ${p.name}.${loss ? ` Раздел имущества: −${fmt(loss)}.` : ''}`; } });
   }
-  if (p.role === 'friend') ch.push({ t: '🚫 Перестать общаться', cls: 'danger', f: () => { p.role = 'ex_friend'; S.people = S.people.filter((x) => x !== p); return `Вы перестали общаться с ${p.name}.`; } });
-  if (p.role !== 'partner') ch.push({ t: '😤 Поссориться', cls: 'danger', disabled: S.used[key('fight')], f: once('fight', () => { p.close = clamp(p.close - rnd(10, 25)); eff({ karma: -2 }); return `Вы громко поругались с ${p.name}.`; }) });
+  if (p.role === 'friend') ch.push({ t: '🚫 Перестать общаться', cls: 'danger', f: () => { p.role = 'ex_friend'; S.people = S.people.filter((x) => x !== p); return `${p.name} больше не в вашей жизни.`; } });
+  if (p.role !== 'partner') ch.push({ t: '😤 Поссориться', cls: 'danger', disabled: S.used[key('fight')], f: once('fight', () => { p.close = clamp(p.close - rnd(10, 25)); eff({ karma: -2 }); return `Громкая ссора. ${p.name} ${gv(p, 'обижен', 'обижена', 'обижен(а)')}.`; }) });
   ch.push({ t: 'Закрыть', f: () => null });
   Q.push({ e: personEmoji(p), title: `${p.name}${p.surname ? ' ' + p.surname : ''}`, text: `${roleName(p)} · ${yrs(p.age)}${p.job ? ' · ' + p.job : ''}\nОтношения: ${p.close}%`, choices: ch });
   pump();
@@ -1299,7 +1306,7 @@ function ensureMapLibs() {
 }
 function panelMap() {
   const B = $('#sheetBody');
-  const legend = el(`<div class="map-legend"><span><i style="background:#22d3ee"></i>Сейчас</span><span><i style="background:#f472b6"></i>Родина</span><span><i style="background:#8b5cf6"></i>Посещено</span><span><i style="background:#3b3f63"></i>Можно поехать</span></div>`);
+  const legend = el(`<div class="map-legend"><span><i style="background:var(--map-cur)"></i>Сейчас</span><span><i style="background:var(--map-home)"></i>Родина</span><span><i style="background:var(--map-visited)"></i>Посещено</span><span><i style="background:var(--map-play)"></i>Можно поехать</span></div>`);
   const box = el('<div class="map-box"><div class="empty">Загружаем карту… 🌍</div></div>');
   B.appendChild(legend); B.appendChild(box);
   const l = section(`Посещено стран: ${S.visited.length} из ${COUNTRIES.length}`);
@@ -1311,13 +1318,13 @@ function panelMap() {
     const proj = d3.geoNaturalEarth1().fitSize([W, H], { type: 'Sphere' });
     const path = d3.geoPath(proj);
     const byNum = {}; for (const c of COUNTRIES) byNum[ISO_NUM[c.id]] = c;
-    const color = (c) => !c ? '#1c1f36' : c.id === S.country ? '#22d3ee' : c.id === S.birthCountry ? '#f472b6' : S.visited.includes(c.id) ? '#8b5cf6' : '#3b3f63';
+    const cls = (c) => !c ? 'c' : 'c play' + (c.id === S.country ? ' cur' : c.id === S.birthCountry ? ' home' : S.visited.includes(c.id) ? ' visited' : '');
     box.innerHTML = '';
     const svg = d3.select(box).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('class', 'world');
-    svg.append('path').attr('d', path({ type: 'Sphere' })).attr('fill', 'rgba(255,255,255,.03)');
-    svg.append('path').attr('d', path(d3.geoGraticule10())).attr('fill', 'none').attr('stroke', 'rgba(255,255,255,.05)');
-    svg.selectAll('path.c').data(feats).join('path').attr('class', (d) => 'c' + (byNum[d.id] ? ' play' : ''))
-      .attr('d', path).attr('fill', (d) => color(byNum[d.id])).attr('stroke', '#0b0d17').attr('stroke-width', 0.5)
+    svg.append('path').attr('d', path({ type: 'Sphere' })).attr('class', 'sphere');
+    svg.append('path').attr('d', path(d3.geoGraticule10())).attr('class', 'grat');
+    svg.selectAll('path.c').data(feats).join('path').attr('class', (d) => cls(byNum[d.id]))
+      .attr('d', path)
       .on('click', (e, d) => { const c = byNum[d.id]; if (c) countryModal(c); })
       .append('title').text((d) => byNum[d.id] ? `${byNum[d.id].flag} ${cname(byNum[d.id])}` : (d.properties && d.properties.name) || '');
     const cur = feats.find((f) => f.id === ISO_NUM[S.country]);
@@ -1373,7 +1380,15 @@ $('#menuBtn').addEventListener('click', () => openPanel('menu'));
 $('#mapBtn').addEventListener('click', () => { if (S) openPanel('map'); });
 $('#sheetClose').addEventListener('click', closeSheet);
 $('#sheetWrap').addEventListener('click', (e) => { if (e.target.id === 'sheetWrap') closeSheet(); });
-document.querySelectorAll('.dock-btn').forEach((b) => b.addEventListener('click', () => { if (S && S.alive) openPanel(b.dataset.panel); }));
+function applyThemeIcon() { const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; document.querySelectorAll('[data-theme-toggle]').forEach((b) => (b.textContent = dark ? '☀️' : '🌙')); const m = document.querySelector('meta[name=theme-color]'); if (m) m.content = dark ? '#101018' : '#f5f1ea'; }
+document.querySelectorAll('[data-theme-toggle]').forEach((b) => b.addEventListener('click', () => {
+  const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('lifesim_theme', document.documentElement.dataset.theme); } catch (e) {}
+  applyThemeIcon();
+}));
+applyThemeIcon();
+document.querySelectorAll('[data-panel]').forEach((b) => b.addEventListener('click', () => { if (S && S.alive) openPanel(b.dataset.panel); }));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSheet(); if ((e.key === ' ' || e.key === 'Enter') && S && $('#modalWrap').hidden && $('#sheetWrap').hidden && $('#game').classList.contains('active') && document.activeElement.tagName !== 'INPUT') { e.preventDefault(); ageUp(); } });
 
 fillStartForm();
