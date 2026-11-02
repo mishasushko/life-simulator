@@ -316,10 +316,15 @@ function yearWork() {
     if (def.maxAge && S.age > def.maxAge + 5 && chance(0.4) && S.job) { log('⏳ Возраст берёт своё: карьера в спорте завершена.', 'info'); S.job = null; }
     if (def.part && S.age >= 22 && !S.edu.stage) eff({ happy: -2 });
   }
+  if (!S.job && !S.retired && S.age >= 18 && !S.edu.stage && !S.biz) { const b = wageOf(110000); S.money += b; log(`🏛️ Пособие по безработице: ${fmt(b)}.`, 'info'); }
+  if (S.edu.stage && S.edu.stage !== 'school' && !S.job) { const st = wageOf(40000); S.money += st; }
   if (S.retired && S.pension) S.money += S.pension;
   else if (!S.retired && S.age >= 67 && !S.job) { S.retired = true; S.pension = wageOf(180000); log(`🌅 Вы вышли на государственную пенсию: ${fmt(S.pension)} в год.`, 'info'); unlock('retired'); }
-  if (S.followers >= 10000) {
-    const inc = Math.round(S.followers * 4 * C().wage);
+  if (!S.blogged && !(S.job && JOBS.find((j) => j.id === S.job.id).fame)) S.followers = Math.round(S.followers * 0.85);
+  const active = S.blogged || (S.job && JOBS.find((j) => j.id === S.job.id).fame);
+  S.blogged = false;
+  if (S.followers >= 10000 && active) {
+    const inc = Math.round(S.followers * 2.5 * C().wage);
     S.money += inc; log(`📱 Доход от блога: ${fmt(inc)}.`, 'info');
   }
   if (S.biz) yearBiz();
@@ -341,8 +346,13 @@ function yearMoney() {
   if (S.age < 18 || S.prison) return;
   const livesWithParents = S.age < 20 && S.people.some((p) => (p.role === 'mother' || p.role === 'father') && p.alive) && !S.ownHome;
   const home = S.assets.some((a) => a.type === 'house');
-  let cost = price(140000); // еда и быт
-  if (!home && !livesWithParents) cost += price(220000);
+  const poor = !S.job && !S.biz && !S.retired && !S.edu.stage;
+  let cost = price(poor ? 90000 : 140000); // еда и быт
+  if (!home && !livesWithParents) cost += price(poor ? 20000 : S.edu.stage ? 60000 : 220000);
+  if (S.money < 0 && S.assets.length && S.money < -netWorth()) {
+    const a = S.assets.sort((x, y) => y.value - x.value)[0]; S.money += a.value; S.assets = S.assets.filter((x) => x !== a);
+    log(`🏦 Приставы изъяли за долги: ${a.name}.`, 'bad'); eff({ happy: -12 });
+  }
   for (const a of S.assets) cost += Math.round(a.value * (a.type === 'house' ? 0.005 : a.type === 'car' ? 0.03 : ['yacht', 'jet'].includes(a.id) ? 0.05 : 0));
   const kids = S.people.filter((p) => p.role === 'child' && p.alive && p.age < 18).length;
   cost += kids * price(120000);
@@ -357,8 +367,12 @@ function yearMoney() {
     else log(`🏦 Платёж по ипотеке: ${fmt(pay)}. Осталось: ${fmt(S.loan.bal)}.`, 'info');
   }
   if (S.money < 0) {
-    const pct = Math.round(-S.money * 0.18);
+    const pct = Math.round(-S.money * 0.12);
     S.money -= pct; log(`💳 Проценты по долгу: ${fmt(pct)}.`, 'bad'); eff({ happy: -3 });
+    if (S.money < -price(3000000) && !S.assets.length) {
+      log('⚖️ Вы объявлены банкротом. Долги списаны, но кредитная история испорчена.', 'bad');
+      S.money = 0; S.inv = { deposit: 0, stocks: 0, crypto: 0 }; eff({ happy: -20 }); S.bankrupt = (S.bankrupt || 0) + 1;
+    }
   }
   // активы
   for (const a of S.assets) {
@@ -374,9 +388,11 @@ function yearMoney() {
 
 function yearBody() {
   const s = S.stats;
-  if (S.age > 40) eff({ health: -rnd(0, 2), looks: -rnd(0, 2) });
-  if (S.age > 60) eff({ health: -rnd(1, 4) });
-  if (S.age > 75) eff({ health: -rnd(1, 5), smarts: -rnd(0, 2) });
+  // здоровье стремится к возрастной норме
+  const target = S.age < 45 ? 82 : Math.max(5, 82 - (S.age - 45) * 1.3);
+  s.health = clamp(Math.round(s.health + (target - s.health) * 0.12 + rnd(-2, 2)));
+  if (S.age > 40) eff({ looks: -rnd(0, 2) });
+  if (S.age > 75) eff({ smarts: -rnd(0, 2) });
   if (S.age < 25) eff({ looks: rnd(-1, 2) });
   // счастье стремится к базе
   let base = 55;
@@ -392,7 +408,7 @@ function yearPeople() {
   for (const p of S.people) {
     if (!p.alive) continue;
     if (['ex'].includes(p.role)) continue;
-    p.close = clamp(p.close - rnd(0, p.role === 'partner' ? 6 : 4));
+    p.close = clamp(p.close - rnd(0, p.role === 'partner' ? 5 : ['mother', 'father', 'child'].includes(p.role) ? 2 : 4));
     // смерть NPC
     const d = p.age > 60 ? ((p.age - 60) ** 2) * 0.0005 : 0.0007;
     if (chance(d)) {
@@ -440,10 +456,11 @@ function yearDiseases() {
   const s = S.stats;
   for (const d of [...S.diseases]) {
     const def = DISEASES.find((x) => x.id === d.id);
-    eff({ health: -def.dmg, happy: def.happy || 0, smarts: def.smarts || 0 });
+    if (S.age < 18 && parentsAlive().length && chance(0.7)) { S.diseases = S.diseases.filter((x) => x !== d); log(`👩‍⚕️ Родители отвели вас к врачу. ${def.name} вылечена.`, 'good'); continue; }
+    eff({ health: -Math.round(def.dmg * 0.7), happy: def.happy || 0, smarts: def.smarts || 0 });
     if (chance(def.heal)) { S.diseases = S.diseases.filter((x) => x !== d); log(`💪 Вы поправились: ${def.name.toLowerCase()} отступил${/а$|ь$/.test(def.name) ? 'а' : ''}.`, 'good'); }
   }
-  const p = 0.08 + (100 - s.health) / 400 + (S.age > 50 ? (S.age - 50) / 150 : 0);
+  const p = 0.05 + (100 - s.health) / 700 + (S.age > 50 ? (S.age - 50) / 250 : 0);
   if (chance(p)) {
     const pool = DISEASES.filter((d) => (d.minAge || 0) <= S.age && !S.diseases.some((x) => x.id === d.id));
     const wpool = pool.map((d) => ({ v: d, w: d.dmg > 12 ? 1 : d.dmg > 6 ? 3 : 8 }));
@@ -456,12 +473,12 @@ function yearDiseases() {
 }
 
 function yearDeath() {
-  if (S.stats.health <= 0) return die(S.diseases.length ? DISEASES.find((d) => d.id === S.diseases[0].id).name : 'Слабое здоровье');
+  if (S.stats.health <= 0) { const sd = S.diseases.map((d) => DISEASES.find((x) => x.id === d.id)).sort((a, b) => b.dmg - a.dmg)[0]; return die(sd && sd.dmg >= 8 ? sd.name : S.age > 70 ? 'Естественные причины' : 'Истощение организма'); }
   const life = C().life;
   let p = 0.0004 + Math.max(0, S.age - (life - 14)) ** 2 * 0.0004;
   p *= 1.6 - S.stats.health / 100;
   if (chance(p)) {
-    const serious = S.diseases.map((d) => DISEASES.find((x) => x.id === d.id)).filter((d) => d.dmg >= 4);
+    const serious = S.diseases.map((d) => DISEASES.find((x) => x.id === d.id)).filter((d) => d.dmg >= 8);
     die(serious.length ? pick(serious).name : S.age > 70 ? 'Естественные причины' : pick(['Несчастный случай', 'Сердечный приступ', 'ДТП']));
   }
 }
@@ -481,9 +498,9 @@ function parentsAlive() { return S.people.filter((p) => (p.role === 'mother' || 
 
 const EVENTS = [
   // детство
-  { min: 1, max: 1, w: 50, run: () => log(`👣 Вы сделали первые шаги!`, 'good') },
-  { min: 1, max: 2, w: 40, run: () => log(`🗣️ Ваше первое слово: «${pick(['мама', 'папа', 'дай', 'кот', 'нет', 'ням', 'баба', 'машина'])}».`) },
-  { min: 2, max: 5, w: 20, run: () => { log('🐛 Вы съели жука. Мама была в ужасе.'); eff({ health: -2, happy: 3 }); } },
+  { min: 1, max: 1, w: 50, once: 'steps', run: () => log(`👣 Вы сделали первые шаги!`, 'good') },
+  { min: 1, max: 2, w: 40, once: 'word', run: () => log(`🗣️ Ваше первое слово: «${pick(['мама', 'папа', 'дай', 'кот', 'нет', 'ням', 'баба', 'машина'])}».`) },
+  { min: 2, max: 5, w: 20, once: 'bug', run: () => { log('🐛 Вы съели жука. Мама была в ужасе.'); eff({ health: -2, happy: 3 }); } },
   { min: 3, max: 6, w: 15, run: () => ev('🧸', 'Чужая игрушка', 'В садике другой ребёнок не даёт вам свою игрушку.', [
       { t: 'Отобрать', f: () => { eff({ karma: -4, happy: 3 }); return 'Вы отобрали игрушку. Воспитательница поставила вас в угол.'; } },
       { t: 'Предложить поменяться', f: () => { eff({ karma: 3, smarts: 2 }); return 'Вы обменялись игрушками и подружились.'; } },
@@ -523,7 +540,7 @@ const EVENTS = [
   { min: 18, max: 80, w: 7, run: () => { const f = randFirst(); ev('🤝', 'Просьба друга', `Старый знакомый ${f} просит одолжить ${fmt(price(100000))}.`, [
       { t: 'Одолжить', f: () => { S.money -= price(100000); if (chance(0.55)) { S.money += price(110000); eff({ karma: 3 }); return `${f} вернул(а) долг с процентами!`; } eff({ karma: 3, happy: -4 }); return `${f} так и не вернул(а) деньги.`; } },
       { t: 'Отказать', f: () => 'Вы отказали.' }]); } },
-  { min: 20, max: 85, w: 3, run: () => { const sum = price(rnd(5, 80) * 100000); S.money += sum; log(`📜 Дальний родственник оставил вам наследство: ${fmt(sum)}!`, 'good'); eff({ happy: 10 }); } },
+  { min: 20, max: 85, w: 1.2, run: () => { const sum = price(rnd(3, 50) * 100000); S.money += sum; log(`📜 Дальний родственник оставил вам наследство: ${fmt(sum)}!`, 'good'); eff({ happy: 10 }); } },
   { min: 18, max: 85, w: 5, cond: () => S.assets.some((a) => a.type === 'car'), run: () => ev('🚗', 'Авария', 'Вы попали в ДТП на перекрёстке.', [
       { t: 'Вызвать полицию', f: () => { eff({ health: -rnd(0, 15) }); return 'Оформили по закону. Страховка всё покрыла.'; } },
       { t: 'Скрыться с места', f: () => chance(0.5) ? (eff({ karma: -12 }), 'Вам удалось уехать незамеченным...') : (crimeCaught('Оставление места ДТП', 1), 'Вас нашли по камерам.') }]) },
@@ -540,7 +557,7 @@ const EVENTS = [
   { min: 18, max: 60, w: 4, run: () => ev('🏃', 'Марафон', 'В городе проходит марафон. Участвуете?', [
       { t: 'Бежать', f: () => chance(S.stats.health / 110) ? (eff({ health: 5, happy: 10 }), 'Вы добежали до финиша! 🏅') : (eff({ health: -5 }), 'Вы сошли с дистанции на 20-м километре.') },
       { t: 'Болеть за других', f: () => { eff({ happy: 2 }); return 'Вы поддерживали бегунов с трибуны.'; } }]) },
-  { min: 14, max: 60, w: 4, run: () => { const g = rnd(5000, 400000); S.followers += g; log(`🔥 Ваше видео стало вирусным! +${g.toLocaleString('ru-RU')} подписчиков.`, 'good'); eff({ happy: 8 }); } },
+  { min: 14, max: 60, w: 3, cond: () => S.year >= 2005, run: () => { const g = rnd(2000, 80000); S.followers += g; log(`🔥 Ваше видео стало вирусным! +${g.toLocaleString('ru-RU')} подписчиков.`, 'good'); eff({ happy: 8 }); } },
   { min: 25, max: 80, w: 3, cond: () => S.money > 0, run: () => { const f = Math.round(S.money * rf(0.05, 0.2)); S.money -= f; log(`🧾 Налоговая проверка нашла ошибки. Штраф: ${fmt(f)}.`, 'bad'); eff({ happy: -6 }); } },
   { min: 5, max: 90, w: 3, run: () => log(pick(['🛸 Вы видели странные огни в небе. НЛО?', '🌈 Вы увидели двойную радугу.', '👻 В вашем доме по ночам что-то скрипит.', '🍀 Вы нашли четырёхлистный клевер.', '⭐ Вы загадали желание на падающую звезду.', '🐈 Чёрная кошка перебежала вам дорогу.'])) },
   { min: 18, max: 75, w: 4, run: () => ev('🎤', 'Конкурс талантов', 'По телевизору открыт кастинг в шоу талантов.', [
@@ -594,11 +611,12 @@ function yearEvents() {
   if (S.prison) { if (chance(0.2)) ev('⛓️', 'Сокамерник', 'Сокамерник предлагает план побега.', [
     { t: 'Участвовать', f: () => tryEscape() }, { t: 'Отказаться', f: () => { S.prison.years = Math.max(1, S.prison.years - (chance(0.3) ? 1 : 0)); return 'Вы отказались. Охрана это заметила.'; } }]); return; }
   const n = chance(0.65) ? 1 : chance(0.3) ? 2 : 0;
-  const pool = EVENTS.filter((e) => S.age >= e.min && S.age <= e.max && (!e.cond || e.cond()));
+  S.seen = S.seen || {};
+  const pool = EVENTS.filter((e) => S.age >= e.min && S.age <= e.max && (!e.once || !S.seen[e.once]) && (!e.cond || e.cond()));
   const used = new Set();
   for (let i = 0; i < n && pool.length; i++) {
     const e = wpick(pool.filter((x) => !used.has(x)));
-    if (!e) break; used.add(e); e.run();
+    if (!e) break; used.add(e); if (e.once) S.seen[e.once] = 1; e.run();
   }
 }
 
@@ -703,7 +721,7 @@ const ACTIVITIES = [
   { id: 'party', cat: 'Развлечения', e: '🎉', t: 'Вечеринка', d: 'Новые знакомства', min: 15, run: () => { eff({ happy: rnd(5, 12), health: -rnd(0, 4) }); if (chance(0.35)) { const f = makePerson('friend', { age: S.age + rnd(-3, 3), close: rnd(40, 70) }); S.people.push(f); return ['🎉', 'Вечеринка', `Вы отлично повеселились и подружились с ${f.name}!`]; } return ['🎉', 'Вечеринка', 'Было громко и весело!']; } },
   { id: 'concert', cat: 'Развлечения', e: '🎵', t: 'Концерт', d: '+счастье', min: 12, cost: 8000, run: () => { eff({ happy: rnd(6, 12) }); return ['🎸', 'Концерт', 'Вы сорвали голос, подпевая любимой группе.']; } },
   { id: 'travel', cat: 'Развлечения', e: '✈️', t: 'Путешествие', d: 'Новая страна', min: 18, cost: 180000, run: () => { const opts = COUNTRIES.filter((c) => c.id !== S.country); const c = pick(opts); if (!S.visited.includes(c.id)) S.visited.push(c.id); eff({ happy: rnd(10, 18), smarts: 2 }); return [c.flag, 'Путешествие', `Вы слетали в страну ${c.name} и посетили ${pick(c.cities)}. Посещено стран: ${S.visited.length}.`]; } },
-  { id: 'blog', cat: 'Развлечения', e: '📱', t: 'Снять видео для блога', d: 'Подписчики и доход', min: 12, yr: 2005, run: () => { const base = Math.max(30, Math.round(S.followers * rf(0.04, 0.25))); const viral = chance(0.06); const g = Math.round(base * (0.5 + S.stats.looks / 100 + S.stats.smarts / 200) * (viral ? rnd(8, 30) : 1)); S.followers += g; eff({ happy: 3 }); return ['📱', viral ? 'Вирусное видео! 🔥' : 'Новое видео', `+${g.toLocaleString('ru-RU')} подписчиков. Всего: ${S.followers.toLocaleString('ru-RU')}.`]; } },
+  { id: 'blog', cat: 'Развлечения', e: '📱', t: 'Снять видео для блога', d: 'Подписчики и доход', min: 12, yr: 2005, run: () => { const base = Math.max(30, Math.round(S.followers * rf(0.04, 0.25))); const viral = chance(0.06); const g = Math.round(base * (0.5 + S.stats.looks / 100 + S.stats.smarts / 200) * (viral ? rnd(8, 30) : 1)); S.followers += g; S.blogged = true; eff({ happy: 3 }); return ['📱', viral ? 'Вирусное видео! 🔥' : 'Новое видео', `+${g.toLocaleString('ru-RU')} подписчиков. Всего: ${S.followers.toLocaleString('ru-RU')}.`]; } },
   // любовь
   { id: 'dating', cat: 'Любовь и общение', e: '💘', t: 'Знакомства', label: () => S.year >= 2009 ? 'Приложение для знакомств' : 'Пойти на танцы', d: 'Найти пару', min: 16, cond: () => !partner(), run: () => findLove() },
   { id: 'friend', cat: 'Любовь и общение', e: '👋', t: 'Найти друга', d: 'Новое знакомство', min: 5, run: () => { const f = makePerson('friend', { age: Math.max(5, S.age + rnd(-4, 4)), close: rnd(45, 75) }); S.people.push(f); eff({ happy: 4 }); return ['👋', 'Новый друг', `Вы познакомились с ${f.name}. ${f.gender === 'f' ? 'Она' : 'Он'} кажется классн${f.gender === 'f' ? 'ой' : 'ым'}!`]; } },
@@ -796,7 +814,7 @@ function render() {
   const L = $('#log');
   L.innerHTML = S.log.map((b) => `<div class="year"><h4>${b.age === 0 ? 'Рождение' : yrs(b.age)} · ${b.year}</h4>${b.items.map((i) => `<p class="${i.c}">${esc(i.t)}</p>`).join('')}</div>`).join('');
 }
-function scrollLog() { const L = $('#log'); L.scrollTop = L.scrollHeight; }
+function scrollLog() { const L = $('#log'); requestAnimationFrame(() => { L.style.scrollBehavior = 'auto'; L.scrollTop = L.scrollHeight; L.style.scrollBehavior = ''; }); }
 
 let toastT;
 function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('show'), 2600); }
@@ -821,6 +839,7 @@ function showModal(m) {
     b.onclick = () => {
       closeModal();
       const r = ch.f();
+      if (!S) return;
       if (typeof r === 'string') { log(r); if (!m.silent) toast(r.length > 70 ? r.slice(0, 68) + '…' : r); }
       checkAch(); save(); render(); scrollLog(); refreshSheet();
       pump();
@@ -1273,9 +1292,9 @@ let mapLibs = null;
 function loadScript(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
 function ensureMapLibs() {
   if (!mapLibs) mapLibs = Promise.all([
-    loadScript('https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js'),
-    loadScript('https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js')
-  ]).then(() => fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json')).then((r) => r.json());
+    loadScript('vendor/d3.min.js'),
+    loadScript('vendor/topojson-client.min.js')
+  ]).then(() => fetch('vendor/countries-110m.json')).then((r) => r.json()).catch((e) => { mapLibs = null; throw e; });
   return mapLibs;
 }
 function panelMap() {

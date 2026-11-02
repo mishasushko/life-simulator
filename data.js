@@ -291,7 +291,7 @@ const DISEASES = [
   { id:'hypertension', name:'Гипертония', dmg:4, cure:0.4, heal:0, minAge:35 },
   { id:'heart', name:'Болезнь сердца', dmg:10, cure:0.45, heal:0, minAge:45 },
   { id:'cancer', name:'Онкология', dmg:18, cure:0.4, heal:0.02, minAge:30 },
-  { id:'alzheimer', name:'Болезнь Альцгеймера', dmg:6, cure:0.05, heal:0, minAge:65, smarts:-8 }
+  { id:'alzheimer', name:'Болезнь Альцгеймера', dmg:8, cure:0.05, heal:0, minAge:65, smarts:-8 }
 ];
 
 const ACHIEVEMENTS = [
