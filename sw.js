@@ -1,6 +1,6 @@
 /* Офлайн-режим: сначала сеть, при её отсутствии — кэш */
-const CACHE = 'lifesim-v7';
-const ASSETS = ['./', 'index.html', 'style.css?v=7', 'data.js?v=7', 'news.js?v=7', 'game.js?v=7', 'extras.js?v=7', 'manifest.webmanifest',
+const CACHE = 'lifesim-v8';
+const ASSETS = ['./', 'index.html', 'style.css?v=8', 'data.js?v=8', 'news.js?v=8', 'game.js?v=8', 'extras.js?v=8', 'features.js?v=8', 'manifest.webmanifest',
   'icons/icon-192.png', 'icons/icon-512.png', 'vendor/d3.min.js', 'vendor/topojson-client.min.js', 'vendor/countries-110m.json'];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim())); });

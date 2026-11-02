@@ -231,6 +231,7 @@ function yearEducation() {
   }
   if (e.stage === 'college' || e.stage === 'uni' || e.stage === 'master' || e.stage === 'phd') {
     if (e.tuition) { S.money -= e.tuition; log(`Плата за обучение: ${fmt(e.tuition)}.`, 'info'); }
+    if (e.stage === 'uni' && (e.exam || 0) >= 90) { const st = wageOf(90000); S.money += st; log(`🎖️ Повышенная стипендия: ${fmt(st)}.`, 'good'); }
     eff({ smarts: rnd(1, 4), happy: S.job ? -2 : 0 });
     e.grade = clamp(e.grade + rnd(-8, 6));
     e.years--;
@@ -268,7 +269,7 @@ function enroll(stage, majorId) {
   if (stage === 'uni') {
     const m = MAJORS.find((x) => x.id === majorId);
     if (S.stats.smarts + rnd(-8, 8) < m.minSmarts) { log(`😞 Вы не прошли на «${m.name}». Не хватило баллов.`, 'bad'); eff({ happy: -8 }); return null; }
-    const budget = S.stats.smarts >= m.minSmarts + 15;
+    const budget = S.stats.smarts >= m.minSmarts + 15 || (S.edu.exam || 0) >= 80;
     e.stage = 'uni'; e.major = m.id; e.years = m.years; e.grade = 60;
     e.tuition = budget ? 0 : price(320000);
     log(`🏛️ Вы поступили на «${m.name}» ${budget ? 'на бюджет! 🎉' : `на платное (${fmt(e.tuition)} в год).`}`, 'good');
