@@ -1,0 +1,256 @@
+0|to the temple
+1|to church
+2|to church
+3|to the mosque
+4|to the synagogue
+5|to the Buddhist temple
+6|to the mandir
+7|to the shrine
+8|to the Taoist temple
+9|to the gurdwara
+10|The League of Nations began its work.
+11|The Union of Soviet Socialist Republics was formed.
+12|The first Winter Olympics were held in Chamonix.
+13|Mechanical television was demonstrated in public for the first time.
+14|Charles Lindbergh made the first solo flight across the Atlantic.
+15|Alexander Fleming discovered penicillin.
+16|The New York stock market crashed. The Great Depression begins.
+17|Pluto was discovered. Uruguay hosted the first FIFA World Cup.
+18|The Empire State Building opened in New York.
+19|The neutron was discovered.
+20|Moscow opened its first metro line.
+21|The Summer Olympics were held in Berlin.
+22|The Hindenburg airship disaster. Chkalov flew over the North Pole to America.
+23|Nuclear fission of uranium was discovered.
+24|World War II began.
+25|The Battle of Britain raged in the skies over England.
+26|Germany attacked the USSR. Japan attacked Pearl Harbor.
+27|The Battle of Stalingrad began.
+28|The Battle of Kursk, the largest tank battle in history.
+29|The Allies landed in Normandy.
+30|World War II is over. The UN was founded.
+31|ENIAC, one of the first electronic computers, was unveiled.
+32|The transistor was invented. Chuck Yeager broke the sound barrier.
+33|The UN adopted the Universal Declaration of Human Rights.
+34|NATO was created. The People's Republic of China was proclaimed.
+35|The Korean War began.
+36|Electricity was generated from a nuclear reactor for the first time (in the USA).
+37|The DNA double helix was discovered. Everest was conquered.
+38|The world's first grid-connected nuclear power plant started up in Obninsk.
+39|A polio vaccine was created.
+40|The first Winter Olympics with the USSR took place in Cortina d'Ampezzo.
+41|The first artificial Earth satellite was launched.
+42|NASA was founded.
+43|The Soviet probe Luna 3 photographed the far side of the Moon.
+44|The laser was invented.
+45|Yuri Gagarin is the first human in space! The Berlin Wall was built.
+46|Cuban Missile Crisis: the world is on the brink of nuclear war.
+47|Valentina Tereshkova is the first woman in space. US President Kennedy was assassinated.
+48|Alexei Leonov made the first spacewalk.
+49|Luna 9 made the first soft landing on the Moon.
+50|The world's first heart transplant was performed.
+51|Student protests around the world. The Prague Spring.
+52|A human walked on the Moon for the first time.
+53|Earth Day is celebrated for the first time.
+54|Salyut 1, the first orbital station, was launched. The first microprocessor was created.
+55|The USSR–Canada hockey Summit Series.
+56|Global oil crisis. The first mobile phone call was made.
+57|The Vietnam War ended. Soyuz and Apollo docked in orbit.
+58|The first regular supersonic passenger flights began.
+59|The Voyager probes were launched.
+60|The first IVF baby was born.
+61|Revolution in Iran.
+62|The Summer Olympics were held in Moscow.
+63|The first Space Shuttle flight. The first mass-market personal computer was released.
+64|The internet switches to the TCP/IP protocol.
+65|The first mass-market computer with a graphical interface and a mouse went on sale.
+66|The ozone hole over Antarctica was discovered. Tetris was invented.
+67|The Chernobyl disaster. The Mir station was launched.
+68|The INF Treaty eliminating intermediate-range missiles was signed.
+69|A powerful earthquake struck Armenia.
+70|The Berlin Wall fell. The idea of the World Wide Web was proposed.
+71|Germany reunified. The Hubble telescope was launched.
+72|The USSR collapsed.
+73|The European Union was created. The first SMS was sent.
+74|The first graphical web browser makes the internet accessible to everyone.
+75|The Channel Tunnel opened. Apartheid ended in South Africa.
+76|The online shopping boom begins.
+77|Dolly the sheep was cloned.
+78|A computer beat world chess champion Garry Kasparov.
+79|The first ISS module was launched. Russia defaulted.
+80|The cashless euro was introduced. The world fears the "Y2K bug".
+81|A new millennium! The Y2K bug never happened.
+82|The September 11 attacks in the USA. Wikipedia was launched.
+83|Euro banknotes entered circulation.
+84|The human genome was decoded.
+85|Indian Ocean tsunami. The first social networks launch.
+86|The first major video-sharing site was launched.
+87|Pluto is no longer considered a planet.
+88|A new-generation touchscreen smartphone was unveiled.
+89|Global financial crisis. The Large Hadron Collider was launched.
+90|Bitcoin, the first cryptocurrency, was launched.
+91|Earthquake in Haiti. The first mass-market tablet came out.
+92|The Fukushima nuclear disaster. The world population reached 7 billion.
+93|The Curiosity rover landed on Mars. The Higgs boson was discovered.
+94|A meteor exploded over Chelyabinsk.
+95|The Winter Olympics in Sochi. The Rosetta probe landed on a comet.
+96|The Paris climate agreement was signed. Gravitational waves were detected.
+97|An AI program beat the world Go champion.
+98|Bitcoin rose to almost $20,000.
+99|Russia hosted the FIFA World Cup.
+100|The first image of a black hole. A fire at Notre-Dame de Paris.
+101|The COVID-19 pandemic. The world goes into lockdown.
+102|The James Webb Space Telescope was launched.
+103|The world population passed 8 billion. AI chatbots went mainstream.
+104|India landed a probe near the Moon's south pole.
+105|The Summer Olympics were held in Paris.
+106|Neural networks write code, compose music and make films.
+107|The first commercial flight to Mars has been postponed another year.
+108|Scientists created a battery that charges in 10 seconds.
+109|Delivery robots have flooded the streets of big cities.
+110|Driverless taxis now operate in 300 cities worldwide.
+111|The first hotel opened on the Moon.
+112|A fusion power plant delivered its first power to the grid.
+113|A vaccine for the common cold has finally been approved.
+114|Average life expectancy rose by 2 years.
+115|A neural network won a literary prize. The debate goes on.
+116|Flying cars were legalized in five countries.
+117|Scientists grew a transplantable organ from stem cells.
+118|An exoplanet with surface water was discovered.
+119|The esports world championship drew more viewers than the football one.
+120|Three more countries abolished paper money.
+121|Humanity has landed on Mars for the first time!
+122|An underwater city opened to its first residents.
+123|A dolphin-language translator was created. It still makes mistakes.
+124|World leaders signed a treaty on asteroid mining.
+125|A hyperloop connected two capitals in 40 minutes.
+126|A quantum computer cracked an old cipher, and banks are upgrading security.
+131|· new!
+132|You started kindergarten. 🧸
+133|You started first grade!
+134|with a gold medal 🥇
+135|You were expelled for poor grades.
+136|college
+137|a master's program
+138|a PhD program and defended your dissertation
+139|School is behind you. The whole world is ahead. What will you do?
+140|Go to university
+141|Go to college (3 years)
+142|Start working right away
+143|You decided not to study any further and to look for a job.
+144|Take a gap year
+145|You took a year off to rest and think about life.
+146|You got into college.
+147|on a scholarship! 🎉
+148|You started a master's program.
+149|You started a PhD program.
+150|You've been released. A fresh start.
+151|You were attacked in the cafeteria.
+152|Age takes its toll: your sports career is over.
+153|(with rent)
+154|The mortgage is fully paid off!
+155|You were declared bankrupt. Your debts were written off, but your credit history is ruined.
+156|died
+157|died
+158|left
+159|grew up and became
+160|grew up and became
+161|grew up and became
+162|got married
+163|got married
+164|got married
+165|a grandfather
+166|a grandmother
+167|the older generation
+168|Exhaustion
+169|You took your first steps!
+170|mama
+171|dada
+172|grandma
+173|car
+174|You ate a bug. Mom was horrified.
+175|Someone else's toy
+176|At kindergarten another kid won't share their toy.
+177|Take it
+178|You took the toy. The teacher put you in the corner.
+179|Offer a swap
+180|You swapped toys and became friends.
+181|Cry
+182|You burst into tears.
+183|Your drawing was hung on the wall of best works!
+184|The bully
+185|Hit back
+186|You won the fight. The bully leaves you alone now.
+187|You lost the fight and walked around with a bruise.
+188|Tell the teacher
+189|The teacher talked to the bully. Things calmed down.
+190|Ignore it
+191|You put up with the teasing all year.
+192|The test
+193|Your deskmate offers to let you copy the answers on a test.
+194|Copy
+195|You copied and got an A.
+196|You got caught! An F and your parents called in.
+197|Solve it yourself
+198|You worked it out yourself, honestly and usefully.
+199|Olympiad
+200|You're invited to a math olympiad.
+201|You took first place! 🥇
+202|You didn't win, but you gained valuable experience.
+203|You decided not to waste your weekend on it.
+204|Behind the garages
+205|Friends offer you a cigarette.
+206|You coughed. Gross.
+207|You politely declined.
+208|The note
+209|Someone slipped a note with a heart into your backpack.
+210|Find the author
+211|It was your friends' joke, but it was still nice.
+212|Throw it away
+213|You threw the note away.
+214|The school play
+215|You're offered the lead role in the school play.
+216|A standing ovation! 👏
+217|You forgot your lines in the middle of the stage...
+218|You stayed in the audience.
+219|You're invited to a party, but your parents won't let you go.
+220|Sneak out the window
+221|Best night of your life!
+222|Your parents caught you. Grounded.
+223|Stay home
+224|You stayed home with your parents.
+225|Prom
+226|Prom is coming. Who will you go with?
+227|With your crush
+228|They said "yes"! An unforgettable evening.
+229|You were turned down. You went with friends.
+230|With friends
+231|You had a blast at prom with your friends.
+232|You skipped prom.
+233|A find
+234|The owner was so grateful they gave you a reward!
+235|You returned the wallet. Karma +
+236|You kept the money.
+237|A friend's request
+238|You said no.
+239|Accident
+240|You were in a car crash at an intersection.
+241|You handled it by the book. Insurance covered everything.
+242|You managed to drive away unnoticed...
+243|Leaving the scene of an accident
+244|You were tracked down via cameras.
+245|A call from the "bank"
+246|The "bank security service" calls and asks for the code from an SMS.
+247|You spotted the scammers. Well done!
+248|Headhunter
+249|You switched companies with a promotion!
+250|You stayed. Management appreciated your loyalty.
+251|Investment tip
+252|A colleague swears the new "MoonCoin" will grow 100x.
+253|The coin skyrocketed! You made a fortune! 🚀
+254|The coin went to zero. The money is gone.
+255|Don't risk it
+256|You walked past.
+257|Marathon
+258|There's a marathon in town. Will you run?
+259|Run

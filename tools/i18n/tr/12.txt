@@ -1,0 +1,290 @@
+3040|Landscape
+3041|Abstract
+3042|Still life
+3043|Street art
+3044|Film
+3045|Video game
+3046|Platformer
+3047|Shooter
+3048|Puzzle
+3049|Indie adventure
+3050|shore
+3051|train
+3052|horizon
+3053|light
+3054|wind
+3055|ocean
+3056|dance
+3057|storm
+3058|lighthouse
+3059|A Hundred Days
+3060|Letters
+3061|Shadows
+3062|Dreams
+3063|Songs
+3064|Lights
+3065|Footprints
+3066|of a Bygone Summer
+3067|of the Big City
+3068|of the Old Lighthouse
+3069|of a Foreign Land
+3070|of the Last Winter
+3071|of the Warm Sea
+3072|of One Family
+3073|of Empty Streets
+3074|"A masterpiece that will last for decades"
+3075|"Bold, subtle, truly genuine"
+3076|"The best thing I've seen all year"
+3077|"The author is the voice of a generation"
+3078|"Impossible to put down"
+3079|"Solid, but no revelations"
+3080|"Has some good moments"
+3081|"For fans of the genre"
+3082|"Promising, looking forward to the next one"
+3083|"Boring and derivative"
+3084|"A waste of time"
+3085|"The author should take a break"
+3086|"Even the cover is better than the content"
+3087|Herald critic
+3088|Reviewer blogger
+3089|Culture magazine
+3090|Film critic
+3091|Music magazine
+3092|Literary columnist
+3093|Not enough money for production. 💸
+3094|· 🔥 hit!
+3095|How much effort to put in?
+3096|⚡ Quickly, for the money
+3097|🙂 Conscientiously
+3098|✏️ Your own title
+3099|Title:
+3100|💎 Masterpiece
+3101|🎨 Creative work
+3102|work
+3103|works
+3104|works
+3105|Blank page
+3106|Books, albums, paintings, films and games. Skills are in "Talents".
+3107|Create
+3108|Portfolio
+3109|"Golden Pen" literary prize
+3110|Music Award of the Year
+3111|Biennale Grand Prix
+3112|Film festival grand prize
+3113|Game of the Year
+3114|🎤 Give a speech
+3115|🙈 Skip the ceremony
+3116|🙈 You didn't show up for the award. The press loves your mystique.
+3117|Creative work
+3118|Books, albums, paintings, films, games
+3119|Create
+3120|A book, album, painting, film or game
+3121|Rental apartment
+3122|Short-term rental apartment
+3123|Retail space
+3124|Office floor
+3125|Warehouse
+3126|Mini-hotel
+3127|Land plot for development
+3128|Shopping mall
+3129|Residential complex
+3130|🏘️ Real estate
+3131|property
+3132|properties
+3133|properties
+3134|📉 crisis, prices are falling
+3135|📈 boom, prices are rising
+3136|➡️ stable
+3137|<div class="empty">You can invest in real estate from age 18.</div>
+3138|🔨 renovating for sale
+3139|risky tenant
+3140|reliable tenant
+3141|vacant
+3142|awaiting development
+3143|Change tenant
+3144|Rent out
+3145|A reliable tenant pays less, a risky one more
+3146|Who do we rent to?
+3147|🚪 Evict, leave it vacant
+3148|The property is vacated.
+3149|Renovate for resale
+3150|Build a residential complex
+3151|Buy a property
+3152|· can be developed
+3153|Rentals, flipping, construction
+3154|Sign a sports contract
+3155|Win Olympic gold
+3156|Win the World Championship
+3157|Become a legend
+3158|Godfather
+3159|Become a gang boss
+3160|Patent
+3161|Get your first patent
+3162|Get 5 patents
+3163|Eureka!
+3164|Make a scientific discovery
+3165|Laureate
+3166|Win a Nobel (or equivalent) prize
+3167|Masterpiece
+3168|Create a work rated 9+
+3169|Hit
+3170|Create a bestseller or box-office hit
+3171|Prolific author
+3172|Create 5 works
+3173|Award winner
+3174|Win a creative award
+3175|Own 5 real estate properties
+3176|Developer
+3177|Flipper
+3178|Sell a property with 30%+ profit
+3179|Mall owner
+3180|Buy a shopping mall
+3181|{0} Achievement: {1}{2}
+3182|{0} Achievement "{1}"
+3183|You were born in {0} in {1}, {2} {3}.
+3184|Your parents: {0}.
+3185|Generation {0} of your dynasty.
+3186|🎓 You graduated from school{0}! GPA: {1}.
+3187|Tuition: {0}.
+3188|🎖️ Increased scholarship: {0}.
+3189|university ({0})
+3190|🎓 You graduated from {0}!
+3191|😞 You didn't get into "{0}". Not enough points.
+3192|on a paid place ({0} a year).
+3193|🏛️ You were admitted to "{0}" {1}
+3194|⛓️ You're in prison. Remaining: {0}.
+3195|📈 Promotion! You're now a {0}.
+3196|🚪 You were fired from the position of "{0}".
+3197|🌅 You retired on a state pension: {0} a year.
+3198|📱 Blog income: {0}.
+3199|🏭 "{0}" made a profit of {1}.
+3200|🏭 "{0}" is at a loss: {1}.
+3201|💥 The business "{0}" went bankrupt.
+3202|🏦 Bailiffs seized for debts: {0}.
+3203| · benefit +{0}
+3204|🧾 Living expenses: {0}{1}{2}.
+3205|🏦 Mortgage payment: {0}. Remaining: {1}.
+3206|💳 Interest on debt: {0}.
+3207|📊 Stocks: {0}{1}%.
+3208|🪙 Crypto: {0}{1}%.
+3209|🕯️ {0} {1} {2} at the age of {3}.
+3210|📜 You received an inheritance: {0}.
+3211|🎓 {0} {1} an independent person.
+3212|👶 {0} had a baby. You became a {1}!
+3213|💔 {0} filed for divorce. You lost {2} in the division of property.
+3214|💔 {0} dumped you.
+3215|🌈 Your pet {0} ({1}) crossed the rainbow bridge.
+3216|👩‍⚕️ Your parents took you to the doctor. {0} cured.
+3217|💪 You recovered: {0} is gone.
+3218|🤒 You were diagnosed with: {0}.
+3219|🪦 You died at the age of {0}. Cause: {1}.
+3220|🗣️ Your first word: "{0}".
+3221|A classmate named {0} keeps bullying you at recess.
+3222|You found a wallet on the street. Inside are {0} and documents.
+3223|An old acquaintance, {0}, asks to borrow {1}.
+3224|{0} paid back the debt with interest!
+3225|{0} never returned the money.
+3226|📜 A distant relative left you an inheritance: {0}!
+3227| and took {0}
+3228|🦹 You were robbed on the street{0}.
+3229|They were scammers. You lost {0}.
+3230|A rival company offers you the position of "{0}" with a 30% higher salary.
+3231|Invest {0}
+3232|🔥 Your video went viral! +{0} followers.
+3233|🧾 A tax audit found errors. Fine: {0}.
+3234|A major holiday of your faith is coming ({0}). How will you spend the day?
+3235|{0} ({1}) is clearly flirting with you.
+3236|{0} is now your partner! 💕
+3237|{0} said no.
+3238|Today is your wedding anniversary. {0} is expecting a celebration.
+3239|Dinner at a restaurant ({0})
+3240|{0} is very hurt.
+3241|{0} found out everything... The relationship is on the brink.
+3242|Go through ({0})
+3243|👨‍👩‍👧 {0} brought the grandchildren to visit.
+3244|The book is out! Royalties: {0}.
+3245|👋 New acquaintance: {0}. Looks like the start of a friendship.
+3246|{0} supported you
+3247|{0} reacted coldly
+3248|You told your loved ones who you are. {0}.
+3249|You are accused of: {0}. The prosecutor demands {1}.
+3250|Hire a lawyer ({0})
+3251|💔 {0} left you.
+3252|Sentence: {0} in prison. ⛓️
+3253|The escape failed. Sentence increased to {0}.
+3254|🎉 JACKPOT! You won {0}!
+3255|Winnings: {0}!
+3256|You won {0}. Almost broke even.
+3257|, looks +{0}
+3258|Great workout! Health +{0}{1}.
+3259|New look! Looks +{0}.
+3260|The surgery went great. Looks +{0}.
+3261|You read a few books. Smarts +{0}.
+3262|You improved {0}.
+3263|You found inner peace. Happiness +{0}.
+3264|Go {0}
+3265|You went {0}. You feel lighter inside.
+3266|You helped {0}.
+3267|You donated {0}. The world got a little better.
+3268|You completed {0}.
+3269|You had a great time. New friend: {0}!
+3270|You flew to {0} and visited {1}. Countries visited: {2}.
+3271|+{0} followers. Total: {1}.
+3272|New acquaintance: {0}. Seems really cool!
+3273|Sentence reduced! {0} left.
+3274|You pulled off a job and got {0}. Don't get caught.
+3275|Cured: {0}.
+3276|{0}, {1}. Looks: {2}/100. {3}
+3277|The date went wonderfully! You and {0} are now a couple. 💕
+3278|{0} no longer replies to messages.
+3279|In prison · {0} more
+3280|Schoolkid · grade {0}
+3281|<div class="big">⛓️ You're in prison</div><div class="muted">Charge: {0}. Remaining: {1}.</div>
+3282|School · grade {0}
+3283|University · {0}
+3284| · {0} left
+3285|<div class="muted">Grades: {0}%{1}</div><div class="bar-mini"><em style="width:{2}%"></em></div>
+3286|<div class="muted">Degrees: {0}</div>
+3287|<div class="muted">🎓 Education</div><div class="big">{0}</div>{1}{2}
+3288|<div class="muted">{0} {1} · {2} of experience</div><div class="big">{3}</div><div class="muted">Salary: {4} a year</div><div class="muted">Performance: {5}%</div><div class="bar-mini"><em style="width:{6}%"></em></div>
+3289|You quit the position of "{0}".
+3290|Pension: {0} a year
+3291|You retired. Annual payment: {0}.
+3292|{0} · {1} a year
+3293|This profession will appear in {0}
+3294|Since {0}
+3295|Until {0}
+3296|Requires: {0}
+3297|Degree required: {0}
+3298|Requires smarts {0}+
+3299|Requires health {0}+
+3300|Requires looks {0}+
+3301|Job interview for the position of "{0}". How will you behave?
+3302|You were rejected for the position of "{0}".
+3303|🎉 You got the job! You're now a {0} ({1} a year).
+3304|{0} {1} · from {2}
+3305| · Mortgage: {0}
+3306|<div class="muted">💳 Net worth</div><div class="big">{0}</div><div class="muted">Cash: {1}{2}</div><div class="muted">Deposit: {3} · Stocks: {4} · Crypto: {5}</div>
+3307|Pay off the mortgage ({0})
+3308|You paid {0} toward the mortgage.
+3309|{0} · now {1}
+3310|Value: {0} · bought for {1}
+3311|Current value: {0}.
+3312|Sell for {0}
+3313|You sold: {0}.
+3314|🔑 Rent out (~{0} a year)
+3315|You are renting out: {0}.
+3316|You no longer rent out: {0}.
+3317|Buy for {0}
+3318|Mortgage: down payment {0}
+3319|Price: {0}.
+3320|🛍️ You bought: {0}{1}!
+3321|You invested {0}: {1}.
+3322|Withdraw everything ({0})
+3323|You withdrew {0}.
+3324|{0}.\nCurrently invested: {1}.
+3325|{0} has played enough today.
+3326|{0} loves playing with you. {1}❤️
+3327|You had a wonderful time together. {0} {1}.
+3328|🎁 Gift ({0})
+3329|{0} loves the gift!

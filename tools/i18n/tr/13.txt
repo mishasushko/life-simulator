@@ -1,0 +1,290 @@
+3330|Heart-to-heart talk: {0} {1} you.
+3331|{0} gave you {2}.
+3332|{0} refused.
+3333|💸 Give money ({0})
+3334|{0} thanks you!
+3335|{0} said "YES"! 💍
+3336|{0} isn't ready for such a step.
+3337|💒 Lavish wedding ({0})
+3338| Division of property: −{0}.
+3339|The relationship is over: {0}.{1}
+3340|{0} is no longer in your life.
+3341|A loud argument. {0} {1}.
+3342|{0} · {1}{2}\nRelationship: {3}%
+3343|You can adopt a child. Paperwork: {0}.
+3344|👶 You have a {0} {1}: {2}!
+3345|Cost: {0}
+3346|{0} You have a new pet: a {1} named {2}!
+3347|Bet {0}
+3348|🎉 You won! +{0}
+3349|😩 You lost. −{0}
+3350|Moving costs {0}. You will lose your job.
+3351|{0} You moved: {1}, city of {2}. A new chapter of life!
+3352|Currently: {0}.
+3353|You adopted a new worldview: {0}.
+3354| Not everyone accepted it right away: {0}.
+3355|You live in harmony with yourself. Gender: {0}.{1}
+3356|{0} of {1}
+3357|<div class="big">{0} {1} {2}</div><div class="muted">Generation {3} · from {4} {5}</div>
+3358|City: {0} · currency {1}
+3359|Year {0} · now {1}
+3360|Unlocked {0} of {1}
+3361| · in this life in {0}
+3362|<span>{0} {1} · {2}–{3}</span><br><span>Cause: {4}</span><div class="summary" style="margin-top:14px">\n    <div><small>Age</small><b>{5}</b></div><div><small>Life score</small><b>{6} · {7}</b></div>\n    <div><small>Net worth</small><b>{8}</b></div><div><small>Children</small><b>{9}</b></div>\n    <div><small>Career</small><b>{10}</b></div><div><small>Achievements</small><b>{11}</b></div>\n    <div><small>Karma</small><b>{12}</b></div><div><small>Countries</small><b>{13}</b></div></div>
+3363|Inheritance: {0} (minus 13% tax). Who will you continue as?
+3364|🕯️ You buried your parent, {0}. Inheritance: {1}.
+3365|{0} (USSR)
+3366|Countries visited: {0} of {1}
+3367|{0}Life expectancy {1} · income ×{2}
+3368|✈️ Go on vacation ({0})
+3369|{0} You had a vacation: {1}, {2}.
+3370|🛫 Move for good ({0})
+3371|{0} You moved: {1}, city of {2}.
+3372|{0}Cities: {1}\nCurrency: {2} · income level ×{3}\nLife expectancy: {4}\nMain religions: {5}
+3373|<div class="muted">Lives lived: {0}</div><div class="big">{1} {2} in total</div><div class="muted">Longest: {3} · richest: {4}</div>
+3374| · generation {0}
+3375|{0} – {1} · {2} · this is you
+3376|Cause: {0}
+3377|Generation {0}
+3378|Lives lived: {0}
+3379|🌟 Your teachers noticed: you have an innate talent for "{0}". Develop it in the "Talents & hobbies" section.
+3380|<div class="muted">Innate talent</div><div class="big">{0}</div><div class="muted">Skills grow with practice and help with careers, contests and side gigs. Without practice they slowly fade.</div>
+3381|Level {0} · already practiced this year
+3382|Level {0} · tap to practice
+3383|Enter: {0}
+3384|Chance of winning depends on level ({0})
+3385|Side gig: {0}
+3386|You {0}. Skill +{1} (now {2}).
+3387|You won {0}! Prize: {1}.
+3388|You entered the "{0}" contest, but the jury chose someone else. The experience will still come in handy (+2).
+3389|You earned {0} with your skill ({1}).
+3390|🛡️ Health insurance: {0}.
+3391|<div class="muted">Stress</div><div class="big">{0}/100 {1}</div><div class="bar-mini"><em style="width:{2}%;background:{3}"></em></div><div class="muted" style="margin-top:8px">Smoking: {4}% · Alcohol: {5}% · Sleep: {6}{7}</div>
+3392|Since {0}. Treatment: "Doctor" or "Private clinic" in activities
+3393|Sleep schedule: {0}.
+3394|Addiction {0}%: the higher, the harder
+3395|Addiction {0}%
+3396|Get rid of addictions · {0}
+3397|{0} a year: doctor is free, clinic is 4 times cheaper
+3398|You donated blood for the {0}th time. Thank you!
+3399|What shall we play? Cash: {0}.
+3400|Bet {0}. What are you betting on?
+3401|It landed on {0}!
+3402|You won {0}! 🎉
+3403|🎡 Roulette: landed on {0}, won {1}.
+3404|It landed on {0}
+3405|Bet of {0} lost.
+3406|🎡 Roulette: landed on {0}, lost {1}.
+3407|Bad luck. −{0}.
+3408|<div class="cards-row"><small>Dealer · {0}</small>{1}</div><div class="cards-row"><small>You · {2}</small>{3}</div><div>{4}</div>
+3409|🃏 Blackjack: {0} ({1} vs {2}).
+3410|Blackjack · bet {0}
+3411|<div class="cards-row"><small>Dealer</small>{0}<span class="card-p back">🂠</span></div><div class="cards-row"><small>You · {1}</small>{2}</div>
+3412|The guards spotted you. Sentence increased to {0}.
+3413|The escape failed. Sentence: {0}.
+3414|Escape · step {0} of 3
+3415|Exam: {0}
+3416|Time to take {0}. Answer 5 questions: the result decides a free place and a scholarship.
+3417|Result: {0} points
+3418|Correct answers: {0} of 5.{1}
+3419|📝 {0}: {1} points.
+3420|Interview: {0}
+3421|💳 Loan payment: {0}. Remaining {1}.
+3422|🏚️ The tenants trashed "{0}". Repairs: {1}.
+3423|🔑 Rental income from "{0}": {1}.
+3424|📈 Stock portfolio: {0}.
+3425|<div class="muted">Your portfolio</div><div class="big">{0}</div><div class="muted">Cash: {1}. Prices change once a year. Crises and booms depend on the era.</div>
+3426|Goes public in {0}
+3427| · you have {0} shares ({1})
+3428|{0} per share{1}{2}
+3429|Buy {0} shares ({1})
+3430|📈 Bought {0} shares of "{1}".
+3431|Sell all {0} shares ({1})
+3432|📉 Sold "{0}" shares for {1}.
+3433|Price: {0} · over the year {1}{2}%\nVolatility: {3}
+3434|<div class="muted">Credit score</div><div class="big">{0} · {1}</div><div class="bar-mini"><em style="width:{2}%"></em></div><div class="muted" style="margin-top:8px">It grows when you pay on time and don't go into the red. Mortgages (580+ required) and loan rates depend on it.</div>
+3435|Debt: {0}
+3436|Rate {0}% per year
+3437|Repay {0}
+3438|You paid {0}.
+3439|Borrow {0}
+3440|{0}% per year, repaid over ~4 years
+3441|💳 You took a loan of {0}.
+3442|{0} A year in the "{1}" club. Your skill grew and you made a friend: {2}.
+3443|{0} A year in the "{1}" club. Your skill grew noticeably.
+3444|A university in {0}. Requirements are 8 points higher.
+3445|😞 The foreign university rejected your application to "{0}".
+3446|{0} You were accepted! Studying abroad: {1} a year.
+3447|🎒 You made friends with a classmate: {0}.
+3448|{0} years have passed since school. Former classmates are gathering at a restaurant.
+3449|The reunion was a success. {0} And your old school crush, {1}, is now your partner! 💕
+3450|The reunion was a success. {0} You made peace with an old rival: {1}.
+3451|The reunion was a success. {0}
+3452|😤 You have a rival in class: {0}. Always wants to be better than you.
+3453|😏 You beat your rival ({0}) {1}.
+3454|😒 {0} beat you again {1}.
+3455|🏠 You met your neighbor: {0}.
+3456|{0} is throwing a party at 3 a.m.
+3457|Your upstairs neighbor ({0}) flooded your apartment.
+3458|🧂 {0} came by to borrow some salt. You had a nice chat.
+3459|<div class="muted">Your profile</div><div class="big">{0} followers</div><div class="muted">Like your loved ones' posts to get closer. Post to grow.</div>
+3460|You liked a post: {0}.
+3461|{0} (you)
+3462|{0} likes, +{1} followers.
+3463|🚀 A friend's startup ({0}) was bought by a big corporation! Your share: {1}.
+3464|💥 A friend's startup ({0}) shut down. Your {1} went up in smoke.
+3465|💼 A friend's startup grew and bought out your share for {0}.
+3466|🚀 A friend's startup ({0}) is still holding on.
+3467|{0} is launching a startup and asks you to invest {1} in exchange for a share.
+3468|You became an investor in a startup ({0}).
+3469|💘 An office romance turned into a relationship: you and your coworker {0} are now a couple.
+3470|A coworker named {0} is clearly interested in you. You ended up next to each other at the office party.
+3471|{0} found out everything. Scandal!
+3472|⚖️ You won the lawsuit against your neighbor! Compensation: {0}.
+3473|⚖️ You lost the lawsuit against your neighbor. Legal costs: {0}.
+3474|Sue ({0})
+3475|You met {0}. It turns out you're very much alike!
+3476|A chest of coins was found under the old apple tree! {0}.
+3477|{0}, an experienced {1}, offers to be your mentor.
+3478|You now have a mentor: {0}.
+3479|Open ({0})
+3480|The factory survived and went up in value! {0}.
+3481|Pay ({0} a year)
+3482|You sold for {0}.
+3483|Your company survived and became a giant! {0}.
+3484|Buy ({0})
+3485|Implant ({0})
+3486|💇 New hairstyle: {0}.
+3487|🏙️ Your city was renamed: {0} → {1}.
+3488|⚔️ {0} has begun.
+3489|{0} has begun
+3490|Killed in the war
+3491|You fled the country: {0} {1}.
+3492|Retirement age: {0}
+3493|💸 Hyperinflation of {0}%: savings have lost their value.
+3494|🦠 Pandemic: {0}. People wear masks, schools are closed.
+3495|Pandemic: {0}
+3496|🤒 You got sick: {0}.
+3497|Power has changed hands. Red flags and gunfire in the streets.{0}
+3498|You fled with a single suitcase. A new life: {0} {1}.
+3499|You left to build factories: {0}.
+3500|You managed to escape: {0} {1}.
+3501|You can travel to {0} for goods and sell them at the market. Investment: {1}.
+3502|You sold all the leather jackets and down coats. Revenue: {0}.
+3503|<div class="muted">🦠 Pandemic: {0}</div>
+3504|<div class="muted">⚔️ The country is at war: {0}</div>
+3505|<div class="muted">{0} {1} · {2}</div><div class="big">{3}</div><div class="muted">Inflation: {4}% · Unemployment: {5}%</div>{6}{7}
+3506|{0} · you were {1}
+3507|{0} "{1}": {2} {3} · rating {4}.
+3508|A competitor with lower prices opened across from "{0}".
+3509|An accountant's error was found. Fine {0}.
+3510|🌟 A blogger with a million followers praised "{0}". Lines since the morning!
+3511|Raise salaries ({0})
+3512|🤝 "{0}" signed a major contract: +{1}.
+3513|An investor wants to buy 25% of "{0}" for {1}.
+3514|😡 A scandalous review of "{0}" spread across the city.
+3515|Investment: {0} · margin {1}% · risk {2}
+3516|<div class="muted">{0} {1} · {2} · your share {3}%</div><div class="big">{4}</div><div class="muted">Valuation: {5} · profit this year: {6}</div><div class="muted">Branches: {7} · employees: {8} · strategy: {9}{10}</div><div class="muted" style="margin-top:6px">Quality {11}%</div><div class="bar-mini"><em style="width:{12}%"></em></div><div class="muted">Reputation {13}%</div><div class="bar-mini"><em style="width:{14}%"></em></div>{15}
+3517|Salary ~{0} a year
+3518|"{0}" team: {1} people
+3519|Team: {0} people
+3520|Improve quality ({0})
+3521|Ad campaign ({0})
+3522|Open a branch ({0})
+3523|Current branches: {0}
+3524|Branch #{0} opened! 🎉
+3525|The IPO was a success! You received {0}.
+3526|Sell the business ({0})
+3527|You sold "{0}" for {1}.
+3528|The business is closed. The leftovers sold for {0}.
+3529|Investment: {0}. What will you name it?
+3530|You opened the business "{0}"! 🚀
+3531|"{0} & Partners"
+3532|{0} & Partners
+3533|You opened "{0} & Partners"! 🚀
+3534|Scandal! You had to pay {0} in a lawsuit.
+3535|The tabloids write that you {0}.
+3536|📺 You were invited to advertise {0}: +{1}.
+3537|<div class="muted">⭐ Fame</div><div class="big">{0}</div><div class="muted">Fame: {1}/100 · followers: {2}{3}</div><div class="bar-mini"><em style="width:{4}%"></em></div>
+3538|T-shirts with your face brought in {0}.
+3539|Your book became a bestseller: {0}.
+3540|Hire a PR agent ({0}/year)
+3541|🏛️ Impeachment! You lost the post of "{0}".
+3542|Your term as "{0}" has ended. Approval: {1}%.
+3543|You were re-elected! Term #{0}.
+3544|The envelope turned out to be thick: {0}. The park will be cut down.
+3545|Term: {0}/{1} years
+3546|<div class="muted">🏛️ {0}</div><div class="big">{1}</div><div class="muted">Salary: {2} a year · approval {3}%</div><div class="bar-mini"><em style="width:{4}%"></em></div>
+3547|The {0} reform succeeded!
+3548|You "earned" {0}.
+3549|Run for: {0}
+3550|Seek the post: {0}
+3551|Age: {0}+
+3552|<div class="muted">🏛️ {0}</div><div class="big">Out of politics</div><div class="muted">{1}</div>
+3553|Enlist: {0}
+3554|Age: {0}+{1}
+3555|You were appointed: {0}.
+3556|Election: {0}
+3557|The campaign costs {0}. How will you fight?
+3558|🎉 Victory! You were elected: {0}.
+3559|You lost the election ({0}). Your opponent got more votes.
+3560|{0} · approval {1}%
+3561|You joined the army for {0}.
+3562|{0}. Your unit has received orders.
+3563| · awards: {0}
+3564|<div class="muted">🎖️ Military history</div><div class="big">{0}</div><div class="muted">{1}{2}{3}</div>
+3565|Health 60+ · {0} a year
+3566|You graduated from the academy. New rank: {0}!
+3567|Six months on a UN mission: {0} {1}. +{2}.
+3568|<div class="muted">🕵️ Top secret · {0} of service</div><div class="big">{1}</div><div class="muted">Operations: {2}{3}</div><div class="muted">Cover {4}%</div><div class="bar-mini"><em style="width:{5}%"></em></div>
+3569|Risk of blown cover {0}%
+3570|{0} Promotion: {1}! 🎖️
+3571|{0}–{1} years
+3572|<div class="muted">Stats · {0}</div>{1}
+3573|<div class="muted">Net worth · peak {0}</div>{1}
+3574|<div class="muted">Karma</div>{0}
+3575|{0} · at {1} · happiness {2}
+3576|{0} · at {1}
+3577|{0} · children: {1}
+3578| · business "{0}"
+3579| · souvenirs: {0}
+3580|🏁 Challenge completed: "{0}"!
+3581|🏁 Challenge "{0}" completed!
+3582|❌ Challenge "{0}" failed.
+3583|<div class="muted">🗓️ Daily challenge {0}</div>
+3584|<div class="muted">Current challenge</div><div class="big">{0}</div><div class="muted">{1}</div>{2}
+3585|All challenges · completed {0} of {1}
+3586|🏁 New challenge: "{0}". {1}.
+3587|🗓️ Daily challenge {0}: every player has the same start today.
+3588|🗓️ Daily challenge · record {0} {1}
+3589|👑 The {0} dynasty is founded. Coat of arms: {1}.
+3590|🏁 Challenge for this life: "{0}". {1}.
+3591|🎖️ {0}'s medals
+3592|📕 {0}'s memoirs
+3593|🏛️ {0}'s portrait in parliament
+3594|👑 The family fund passed to you tax-free: {0}.
+3595|🏭 The family business "{0}" is now yours.
+3596|🏡 You inherited the family estate: {0}.
+3597|The {0} dynasty is founded. Coat of arms: {1}.
+3598|<div class="dyn-crest">{0}</div><div class="big" style="text-align:center">House {1}</div><div class="muted" style="text-align:center">Founded in {2} · generations: {3} · family honor: {4}</div>
+3599|In the fund: {0}
+3600|You deposited {0} into the family fund.
+3601|You took {0} from the fund. Your ancestors look on disapprovingly from their portraits.
+3602|New coat of arms: {0}
+3603|House {0} · fund {1}
+3604|🏁 Challenge "{0}": {1}
+3605| · previous record {0}
+3606|🗓️ Daily {0}: {1} points{2}
+3607|👑 House {0} · family honor {1}
+3608|<div class="muted">🧳 Countries visited: {0} of {1}</div><div class="big">Where shall we go?</div><div class="muted">Traveling {2}. Trips this year: {3}{4}</div>
+3609|Souvenirs · {0}
+3610| You made friends with a local named {0}.
+3611|{0} {1}: {2} {3}{4}. Souvenir: {5}.{6}
+3612|🎰 A ticket found on the sidewalk won the jackpot: {0}!
+3613|A strange man in a silver cloak whispers: "In {0}, sell everything and buy gold!" and vanishes.
+3614|You wrote the date {0} in your notebook.
+3615|<b>{0}</b><span>Empty</span><small>new life</small>
+3616|Currently slot {0}. This life will be saved
+3617|🗓️ Daily challenge {0}: {1} points ({2}), lived {3}. Can you do better?
+3618|🏁 A friend's result ({0}): {1} points. Play the same day!
+3619|📔 To the album of lives: {0} {1}

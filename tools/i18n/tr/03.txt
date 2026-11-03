@@ -1,0 +1,280 @@
+520|Default: the ruble has collapsed.
+521|You had COVID.
+522|Now¦Homeland¦Visited¦Can travel
+523|Loading the map… 🌍
+524|You are here ·
+525|Visited ·
+526|Couldn't load the map. Check your internet connection.
+527|You live here.
+528|🎲 Random country
+529|🎲 Random
+530|🎲 By country
+531|The old save is incompatible with the new version. Start a new life.
+532|⚠️ Error:
+533|unknown
+534|Live 5 years (until the next big event)
+535|Live 5 years
+536|Graveyard & ranking
+537|No one here yet. Live your first life to the end.
+538|Best lives
+539|no profession
+540|Recently departed
+541|Clear the graveyard
+542|Delete the whole history of past lives?
+543|Family tree
+544|Generation
+545|present
+546|· grandchildren:
+547|No children yet. The dynasty will only continue if you have an heir.
+548|LIFE · simulator
+549|Score
+550|My life in the simulator
+551|Image saved
+552|Sound & vibration: on
+553|Sound & vibration: off
+554|Tap to toggle
+555|rehearsed
+556|music contest
+557|Sports
+558|trained
+559|competition
+560|Drawing
+561|drew
+562|art exhibition
+563|Programming
+564|wrote code
+565|hackathon
+566|Literature
+567|wrote
+568|literary contest
+569|cooked
+570|cooking show
+571|Dance
+572|danced
+573|dance battle
+574|Languages
+575|studied languages
+576|language olympiad
+577|Acting
+578|performed on stage
+579|casting
+580|Entrepreneurship
+581|studied business
+582|startup competition
+583|Talents & hobbies
+584|Not yet known
+585|Skills
+586|Use your talent
+587|Already competed this year
+588|Already did a side gig
+589|Earn money with your skill
+590|Victory!
+591|Not this time
+592|Side gig
+593|You're on the verge of burnout. Stress is off the charts.
+594|Smoking took its toll: the doctors found a tumor.
+595|You came to work hungover. Management is unhappy.
+596|Chronic stress has turned into depression.
+597|You were diagnosed with heart disease.
+598|Health & habits
+599|little
+600|normal
+601|a lot
+602|· 🛡️ insured
+603|Diagnoses
+604|Sleep
+605|Sleep little
+606|You get more done at work, but health and stress suffer
+607|Normal sleep
+608|7–8 hours, the golden mean
+609|Sleep in
+610|Less stress, but you're a bit slower
+611|Habits
+612|Start smoking
+613|Harmful, expensive and addictive
+614|You lit your first cigarette. The start of a bad habit.
+615|Quit smoking
+616|You quit smoking! Your lungs say thanks.
+617|You relapsed after a week. But the addiction weakened a bit.
+618|Smoke more
+619|Relieves stress, ruins health
+620|A pack a day. The stress is gone, and so is your health.
+621|Drink with friends
+622|The night ended in the ER. Never again.
+623|A great night at the bar.
+624|Rehab center
+625|Rehab completed. You're free of addictions.
+626|It only helped partly. Try again.
+627|Cancel health insurance
+628|Buy health insurance
+629|Now: the doctor is free, the clinic is 4 times cheaper
+630|You bought health insurance.
+631|You canceled your insurance.
+632|Donate blood
+633|+karma, you save lives
+634|Take a vacation
+635|Greatly reduces stress
+636|Two weeks of silence. Your head is clear again.
+637|Roulette
+638|Blackjack
+639|Slots
+640|No money
+641|Security politely shows you to the exit.
+642|Bet
+643|How much are you betting?
+644|Red
+645|Black
+646|Even
+647|Odd
+648|Number 7
+649|Bust 💥
+650|Victory! 🎉
+651|Draw 🤝
+652|The dealer won
+653|Bet returned
+654|win
+655|bust
+656|loss
+657|draw
+658|Hit
+659|Stand
+660|Double down
+661|You slipped out of your cell into a dark corridor. You hear the guards' footsteps.
+662|The laundry room. Three exits, and one of them leads to the wall.
+663|The yard. The searchlight is about to turn your way!
+664|Freedom!
+665|You climbed over the wall and vanished into the night.
+666|You escaped from prison! 🏃
+667|Caught
+668|Left
+669|Straight
+670|Right
+671|How many planets are in the Solar System?
+672|The longest river in the world?
+673|Nile
+674|Volga
+675|Danube
+676|What is 15 × 4?
+677|Who wrote "War and Peace"?
+678|Tolstoy
+679|Pushkin
+680|Chekhov
+681|The chemical formula of water?
+682|The capital of Australia?
+683|Canberra
+684|How many degrees are in a right angle?
+685|The largest ocean?
+686|Atlantic
+687|Indian
+688|Who discovered the law of universal gravitation?
+689|Newton
+690|Einstein
+691|Galileo
+692|How many minutes are in a day?
+693|Which gas do plants absorb during photosynthesis?
+694|Carbon dioxide
+695|Oxygen
+696|Nitrogen
+697|Who wrote "Romeo and Juliet"?
+698|Shakespeare
+699|Goethe
+700|Dante
+701|The highest mountain in the world?
+702|Everest
+703|Elbrus
+704|Kilimanjaro
+705|How many chromosomes do humans have?
+706|In what year did a human first fly into space?
+707|What is our galaxy called?
+708|The Milky Way
+709|Andromeda
+710|The Orion Nebula
+711|2 to the 10th power?
+712|How many continents are on Earth?
+713|The main organ of circulation?
+714|Heart
+715|Liver
+716|Lungs
+717|How many sides does a hexagon have?
+718|The speed of light is roughly…
+719|300,000 km/s
+720|30,000 km/s
+721|3,000 km/s
+722|Who painted the "Mona Lisa"?
+723|Leonardo da Vinci
+724|Michelangelo
+725|Raphael
+726|What is π to two decimal places?
+727|USE
+728|CT
+729|UNT
+730|NMT
+731|final exams
+732|Gaokao
+733|Suneung
+734|unified entrance exam
+735|Excellent! A free place is guaranteed, and with 90+ you'll get a scholarship.
+736|Not bad, but you might not get a free place.
+737|Weak. It will be hard to get in.
+738|You didn't show up for the exams.
+739|Why do you want to work for us in particular?
+740|Your mission inspires me and I've studied the company
+741|I need money
+742|I was just passing by
+743|What is your biggest weakness?
+744|Sometimes I take on too much, I'm learning to delegate
+745|I have no weaknesses
+746|I'm late. All the time.
+747|Where do you see yourself in 5 years?
+748|As a grown professional on your team
+749|In your chair
+750|On a beach with a cocktail
+751|Tell us about a conflict and how you resolved it
+752|I listened to both sides and found a compromise
+753|I proved I was right
+754|There are no conflicts, I just stay quiet with everyone
+755|What salary do you expect?
+756|Market rate, open to discussion
+757|Twice what you're offering
+758|Whatever you'll give
+759|Final interview
+760|Last question: how do you present yourself?
+761|Jack of all trades
+762|Level any skill to 50
+763|Level a skill to 100
+764|Champion
+765|Win a talent contest
+766|Willpower
+767|Kick a bad habit
+768|Blood donor
+769|Donate blood 10 times
+770|Straight-A student
+771|Score 90+ on the final exams
+772|You missed a loan payment. Your score is dropping.
+773|The loan is fully paid off!
+774|NeoTech
+775|Synapse AI
+776|Pixel Games
+777|Star Way
+778|Galaxy Auto
+779|Green Energy
+780|MedGen
+781|Northern Steel
+782|Black Gold
+783|Tasty World
+784|Global Bank
+785|Stock market
+786|Companies
+787|· dividends
+788|very high
+789|high
+790|medium
+791|low
+792|Loans
+793|excellent
+794|good
+795|fair
+796|poor
+797|Consumer loan
+798|The loan was paid off early!
+799|The bank refuses: your score or age is too low.

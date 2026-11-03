@@ -1,0 +1,280 @@
+2480|· 🥇 gold medal
+2481|· 👑 prom king/queen
+2482|This year
+2483|Improve a subject
+2484|With a tutor or on your own
+2485|Which subject?
+2486|Choose what you'll work on this year.
+2487|Your chance depends on your grade in the subject
+2488|Which subject will you compete in?
+2489|school
+2490|city
+2491|national
+2492|international
+2493|school
+2494|city
+2495|country
+2496|Run for school president
+2497|You need charisma and friends
+2498|You won the school election! You're now school president.
+2499|You lost the election. Your opponent promised a soda machine.
+2500|Skip classes
+2501|+happiness, but you might get caught
+2502|Your homeroom teacher called your parents. Grounded for a month.
+2503|You and your friends skipped classes and went to the movies. No one found out.
+2504|Cheat on a test
+2505|Risky
+2506|School life
+2507|Grades, olympiads, elections, prom
+2508|Yearbook
+2509|Iguana
+2510|Python
+2511|Tarantula
+2512|Fennec fox
+2513|Owl
+2514|Capybara
+2515|Monkey
+2516|Mutt
+2517|Labrador
+2518|Husky
+2519|Corgi
+2520|German Shepherd
+2521|Pug
+2522|Border Collie
+2523|Doberman
+2524|Samoyed
+2525|Mixed breed
+2526|Maine Coon
+2527|Sphynx
+2528|British Shorthair
+2529|Siamese
+2530|Bengal
+2531|Scottish Fold
+2532|Draft horse
+2533|Orlov Trotter
+2534|Arabian
+2535|Akhal-Teke
+2536|Budgie
+2537|Cockatiel
+2538|African Grey
+2539|Macaw
+2540|sit
+2541|lie down
+2542|shake a paw
+2543|fetch
+2544|roll over
+2545|beg
+2546|bring slippers
+2547|dance on hind legs
+2548|come when called
+2549|give a paw
+2550|jump through a hoop
+2551|open doors
+2552|say "hello"
+2553|whistle a tune
+2554|call you by name
+2555|imitate a phone
+2556|count to three
+2557|gallop
+2558|jump a fence
+2559|dressage
+2560|bow
+2561|respond to its name
+2562|take food from your hand
+2563|Choose who to ask your parents for.
+2564|Purebreds do better at shows.
+2565|Back
+2566|New pet
+2567|Where shall we get a friend?
+2568|🏠 Adopt from a shelter · free
+2569|🐶 Dogs by breed
+2570|🐱 Cats by breed
+2571|🐹 Small pets
+2572|Small pets
+2573|🦜 Parrots by species
+2574|🐴 Horses
+2575|🦎 Exotic
+2576|Exotic pets
+2577|Requires special care and a license.
+2578|Pets
+2579|Get a pet
+2580|No pets yet. The shelter is waiting!
+2581|· 🤒 sick
+2582|· from a shelter
+2583|· Breed champion
+2584|Play and go for a walk
+2585|+bond, +happiness
+2586|Training
+2587|Vet
+2588|Show
+2589|Give to a good home
+2590|If you can't cope
+2591|The pet will live with a new family.
+2592|Give away
+2593|Training, vet, shows, shelter, exotic pets
+2594|Earthquake
+2595|The ground is shaking, buildings are collapsing.
+2596|Hurricane
+2597|The wind is tearing off roofs, the power is out.
+2598|Flood
+2599|The water is rising, the streets are flooded.
+2600|Wildfires
+2601|The fire is creeping toward residential areas, smoke covers the sky.
+2602|Tsunami
+2603|A huge wave is heading for the coast!
+2604|Volcanic eruption
+2605|Ash has blotted out the sun, lava flows down the slopes.
+2606|Tornado
+2607|The funnel is heading straight for your district.
+2608|Blizzard
+2609|The city is buried in snow, the roads are closed.
+2610|Drought
+2611|Crop failure, food prices are rising, water is scarce.
+2612|Extreme heat
+2613|Forty degrees in the shade, hospitals are overflowing.
+2614|The eruption of Mount Pelée on Martinique
+2615|The San Francisco earthquake
+2616|The Messina earthquake
+2617|The Tunguska explosion over the taiga
+2618|The Great Kantō earthquake
+2619|The Great Mississippi Flood
+2620|The great Yangtze flood
+2621|The Dust Bowl on the Great Plains
+2622|The Erzincan earthquake
+2623|The Ashgabat earthquake
+2624|The North Sea flood
+2625|The Great Chilean earthquake
+2626|The Tashkent earthquake
+2627|The Ancash earthquake
+2628|Cyclone Bhola
+2629|The Tangshan earthquake
+2630|The Mexico City earthquake
+2631|The eruption of Nevado del Ruiz
+2632|The Spitak earthquake
+2633|The eruption of Pinatubo
+2634|The Kobe earthquake
+2635|The Neftegorsk earthquake
+2636|The Yangtze flood
+2637|The İzmit earthquake
+2638|The Prague flood
+2639|The European heat wave
+2640|The Indian Ocean tsunami
+2641|Hurricane Katrina
+2642|The Kashmir earthquake
+2643|The Sichuan earthquake
+2644|"Black Saturday" in Victoria
+2645|The fires and smog of summer 2010
+2646|The Maule earthquake
+2647|The eruption of Eyjafjallajökull
+2648|The Pakistan floods
+2649|The Tōhoku earthquake and tsunami
+2650|The Christchurch earthquake
+2651|Hurricane Sandy
+2652|The Krymsk flood
+2653|Typhoon Haiyan
+2654|The Nepal earthquake
+2655|The Puebla earthquake
+2656|The Attica wildfires
+2657|The Palu tsunami
+2658|The "Black Summer" season
+2659|The Ahr valley flood
+2660|The Turkey earthquake
+2661|The Morocco earthquake
+2662|The Derna flood
+2663|Insurance covered the damage to your home.
+2664|Your parents are deciding what to do.
+2665|What will you do?
+2666|Hold on to your parents
+2667|Evacuate
+2668|Stay and defend the house
+2669|The disaster proved stronger.
+2670|Help the rescuers
+2671|Will
+2672|No heirs yet¦Without a will everything goes to the state or distant relatives. You can make a will once you have children or a spouse.
+2673|No will: by law everything is split equally.
+2674|(must be 100%)
+2675|Who gets what
+2676|Fund for children and science
+2677|The will was certified by a notary.
+2678|Equally
+2679|Cancel the will
+2680|The will was canceled.
+2681|Will
+2682|Decide who gets what
+2683|share
+2684|shares
+2685|shares
+2686|Inheritance dispute
+2687|Sue
+2688|The court upheld the will. But you and your sibling no longer speak.
+2689|The court revised the will against you.
+2690|Ignore it
+2691|You didn't respond. The relationship is ruined.
+2692|The inheritance was divided without disputes. The family only grew closer.
+2693|Cozy nest
+2694|Furnish your home with 10 items
+2695|Head of the building
+2696|Lead a residents' meeting
+2697|I know my genes
+2698|Take a DNA test
+2699|Second chance
+2700|Survive an organ transplant
+2701|Get 3 implants
+2702|Eternal youth
+2703|Undergo rejuvenation therapy
+2704|See you in the future
+2705|Have yourself frozen after death
+2706|Digital immortality
+2707|Copy your mind
+2708|Gold medal
+2709|Graduate from school with top marks
+2710|Olympiad star
+2711|Win a national-level olympiad
+2712|School president
+2713|Win the school election
+2714|Prom royalty
+2715|Become prom king or queen
+2716|A friend from the shelter
+2717|Adopt a pet from a shelter
+2718|Exotic
+2719|Get an exotic pet
+2720|Trainer
+2721|Teach a pet 5 tricks
+2722|Breed champion
+2723|3 wins at shows
+2724|Home zoo
+2725|6 pets at once
+2726|Survived the elements
+2727|Survive 3 natural disasters
+2728|Rescuer
+2729|Help rescuers during a disaster
+2730|Last will
+2731|Certify a will
+2732|Football
+2733|Hockey
+2734|Basketball
+2735|Tennis
+2736|Boxing
+2737|Swimming
+2738|Athletics
+2739|Gymnastics
+2740|Figure skating
+2741|Biathlon & skiing
+2742|Cycling
+2743|Wrestling
+2744|Esports
+2745|Club
+2746|Junior
+2747|Professional
+2748|National team
+2749|Sports
+2750|Sports career¦Choose a sport¦It's best to start as a child. A talent for sports and good health speed up your growth.
+2751|It's a bit late for professional sports, but an amateur club is always welcoming.
+2752|Join a club
+2753|winter
+2754|summer
+2755|World championships
+2756|Retired
+2757|This season
+2758|Train to exhaustion
+2759|+form, risk of injury

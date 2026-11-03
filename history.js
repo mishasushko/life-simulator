@@ -212,7 +212,7 @@ const worldWars = () => [...new Set(WARS.filter((w) => S.year >= w.a && S.year <
 function warYear() {
   const w = warNow(); if (!w) return;
   S.wars = S.wars || {};
-  if (S.year === w.a) { log(`⚔️ Началась ${w.n.toLowerCase()}.`, 'bad'); chron('⚔️', `Началась ${w.n.toLowerCase()}`); }
+  if (S.year === w.a) { log(`⚔️ Война началась: ${w.n}.`, 'bad'); chron('⚔️', `Война началась: ${w.n}`); }
   eff({ happy: -rnd(w.draft ? 1 : 4, w.draft ? 4 : 10), health: w.draft ? 0 : -rnd(0, 4) });
   if (S.age < 18) { if (!w.draft) log(pick(['🕯️ Идёт война. Детство пришлось на тяжёлые годы.', '🍞 Хлеб выдают по карточкам. Вы постоянно хотите есть.', '🚂 Семью эвакуировали в глубокий тыл.', '✉️ Вы ждёте писем с фронта.']), 'bad'); return; }
   if (S.prison || S.age > 50 || S.wars[w.n] || S.mil?.inWar) return;

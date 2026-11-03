@@ -1,0 +1,280 @@
+1920|Green
+1921|Purple
+1922|Orange
+1923|Brown
+1924|The largest ocean on Earth?
+1925|Arctic
+1926|Who wrote "Eugene Onegin"?
+1927|Lermontov
+1928|Gogol
+1929|How many seconds are in one hour?
+1930|Which animal is called the "ship of the desert"?
+1931|Camel
+1932|Elephant
+1933|Ostrich
+1934|In which country are the pyramids of Giza?
+1935|Sudan
+1936|Hydrogen
+1937|Carbon dioxide
+1938|How many colors are in a rainbow?
+1939|The chemical symbol for gold?
+1940|Dostoevsky
+1941|Turgenev
+1942|The longest river in Europe?
+1943|Rhine
+1944|In what year did Gagarin fly into space?
+1945|Which organ produces insulin?
+1946|Kidneys
+1947|Spleen
+1948|Pancreas
+1949|Who painted the "Mona Lisa"?
+1950|Botticelli
+1951|K2
+1952|The smallest country in the world?
+1953|Monaco
+1954|Vatican City
+1955|San Marino
+1956|Liechtenstein
+1957|How many players per team are on a football pitch?
+1958|Kepler
+1959|How many strings does a classical guitar have?
+1960|What is Japan's currency?
+1961|Yuan
+1962|Won
+1963|Yen
+1964|Baht
+1965|How many time zones does Russia have?
+1966|How many bones are in the adult human body?
+1967|Who wrote "The Master and Margarita"?
+1968|Pasternak
+1969|Nabokov
+1970|Bulgakov
+1971|Sholokhov
+1972|The speed of light in a vacuum is roughly…
+1973|150,000 km/s
+1974|1,000,000 km/s
+1975|In what year did the Berlin Wall fall?
+1976|Who discovered the periodic law of chemical elements?
+1977|Lomonosov
+1978|Mendeleev
+1979|Butlerov
+1980|Lavoisier
+1981|Which planet has the longest day?
+1982|Jupiter
+1983|The capital of Canada?
+1984|The deepest lake in the world?
+1985|Baikal
+1986|Caspian
+1987|Superior
+1988|Who composed the ballet "Swan Lake"?
+1989|Rimsky-Korsakov
+1990|Mussorgsky
+1991|Tchaikovsky
+1992|Rachmaninoff
+1993|How many chromosomes are in a human cell?
+1994|Which metal is liquid at room temperature?
+1995|Gallium
+1996|Mercury
+1997|Tin
+1998|Lead
+1999|Who was the first to walk on the Moon?
+2000|Buzz Aldrin
+2001|Yuri Gagarin
+2002|Neil Armstrong
+2003|John Glenn
+2004|What is the study of fungi called?
+2005|Myology
+2006|Mycology
+2007|Phycology
+2008|Bryology
+2009|Which country gave the USA the Statue of Liberty?
+2010|How many hearts does an octopus have?
+2011|In what year did World War I begin?
+2012|Which element is the most abundant in the Universe?
+2013|Helium
+2014|Carbon
+2015|Which city used to be called Constantinople?
+2016|🏆 You answered all 10 questions! The grand prize is yours!
+2017|50:50
+2018|Phone a friend
+2019|pretty sure
+2020|but I'm not certain
+2021|Ask the audience
+2022|You took the money and left the game.
+2023|The "Erudite" TV quiz
+2024|Play!
+2025|Karting
+2026|Safe and fun
+2027|Amateur championship
+2028|Entry fee and prize money
+2029|Night street racing
+2030|You need your own car
+2031|Racing
+2032|It's a bit early for racing. Grow up a little!
+2033|Attack
+2034|Hold the pace
+2035|Save the tires
+2036|Crash in a street race
+2037|A fatal crash on the night track.
+2038|The car is wrecked.
+2039|A rival is pushing you into the barrier!
+2040|A sharp turn ahead.
+2041|It started raining, the track is slippery.
+2042|The crowd roars in the stands!
+2043|You see a gap to overtake.
+2044|Victory
+2045|Start! The engines roar.
+2046|Roach
+2047|Perch
+2048|Crucian carp
+2049|Bream
+2050|Pike
+2051|Zander
+2052|Catfish
+2053|Old boot
+2054|Goldfish
+2055|Mackerel
+2056|Dorado
+2057|Squid
+2058|Tuna
+2059|Marlin
+2060|Shark
+2061|The river by the house
+2062|Lake by boat
+2063|Ice fishing
+2064|Deep-sea fishing by boat
+2065|Fishing
+2066|none yet
+2067|🪝 Strike!
+2068|❗ A bite! Strike now!
+2069|It got away… The fish is gone.
+2070|🎣 Cast
+2071|Too early, the fish got scared.
+2072|It begs to be released and promises to grant a wish…
+2073|You barely hauled it in and let it go.
+2074|🧺 Home
+2075|nothing
+2076|🐡 The wish came true: money landed in your account!
+2077|Tap "Cast", wait for a bite and strike in time.¦🎣 Cast
+2078|Reel in
+2079|fish
+2080|fish
+2081|You sat with a fishing rod in the fresh air.
+2082|Mini-games
+2083|Play chess
+2084|A real game against an opponent
+2085|10 questions, a grand prize and lifelines
+2086|Karting, a championship or street races
+2087|Strike in time, beat your record
+2088|Gramophone: waltzes and ragtime
+2089|Swing and jazz bands
+2090|Rock'n'roll and beat
+2091|Synth-pop and disco
+2092|Pop and electronic
+2093|Ambient of the future
+2094|🔇 Music off
+2095|the gramophone plays waltzes and the first records
+2096|everyone dances the foxtrot and the Charleston
+2097|the radio plays jazz bands and war songs
+2098|in the yard they listen to rock'n'roll on "bones"
+2099|everyone is crazy about beat groups
+2100|disco thunders at the dance clubs
+2101|synth-pop and rock on cassettes
+2102|pop and rap play from CD players
+2103|hundreds of tracks on the phone's player
+2104|streaming picks music for you
+2105|a neural network composes songs to fit your mood
+2106|off
+2107|a wooden horse
+2108|a rag doll
+2109|a tin car
+2110|a teddy bear
+2111|building blocks
+2112|a construction set
+2113|a doll
+2114|a toy railway
+2115|a remote-control car
+2116|an interactive toy
+2117|a kids' tablet
+2118|a robot
+2119|a huge construction set
+2120|ice skates
+2121|a book of fairy tales
+2122|a pocket watch
+2123|a bicycle
+2124|a camera
+2125|a football
+2126|a cassette player
+2127|jeans
+2128|a game console
+2129|a music player
+2130|a cell phone
+2131|a smartphone
+2132|headphones
+2133|VR goggles
+2134|a robot helper
+2135|a smartwatch
+2136|perfume
+2137|a watch
+2138|a book
+2139|a spa voucher
+2140|a weekend trip
+2141|a painting
+2142|a coffee machine
+2143|a hand-knitted sweater
+2144|socks (again)
+2145|Your parents gave you
+2146|You dreamed of something completely different.
+2147|Nailed it perfectly!
+2148|loved one
+2149|loved ones
+2150|The party was a success! The guests danced until morning.
+2151|A quiet family dinner
+2152|A warm evening with your closest people. The best gift.
+2153|Don't celebrate
+2154|You pretended it was just an ordinary day.
+2155|a vampire
+2156|a ghost
+2157|a superhero
+2158|a pumpkin
+2159|a witch
+2160|Maslenitsa: pancakes, a straw effigy and sledding.
+2161|Holi: you came home colorful from head to toe.
+2162|Carnival! You danced samba all night.
+2163|Winter: you went sledding until dark.
+2164|You built a huge snowman in the yard.
+2165|Spring: you raced paper boats down the streams.
+2166|Summer at grandma's: the river, raspberries and mosquitoes.
+2167|Autumn: you gathered chestnuts and leaves for a herbarium.
+2168|A summer thunderstorm caught you on the way home. It was fun!
+2169|The winter was harsh but cozy.
+2170|In spring, for the first time in ages, you went for a walk with no destination.
+2171|In summer you managed to get away to the sea.
+2172|In autumn a mild melancholy set in.
+2173|This summer was truly hot.
+2174|A rainy autumn. Lots of tea and TV shows.
+2175|In spring you planted seedlings on the windowsill.
+2176|Summer on the bench in the yard with the neighbors.
+2177|In autumn you harvested apples.
+2178|In winter you knitted scarves for the grandkids.
+2179|Victory Day
+2180|fireworks, a parade and grandfathers' immortal stories
+2181|Independence Day
+2182|embroidered shirts and concerts on the square
+2183|a parade and fireworks
+2184|Nauryz
+2185|the whole family ate nauryz kozhe
+2186|Independence Day
+2187|barbecue and fireworks on the Fourth of July
+2188|Guy Fawkes Night
+2189|bonfires and fireworks
+2190|Bastille Day
+2191|a parade on the Champs-Élysées
+2192|Oktoberfest
+2193|steins, sausages and a brass band
+2194|La Tomatina
+2195|the whole town pelted each other with tomatoes
+2196|Ferragosto
+2197|all of Italy at the beach
+2198|Hanami
+2199|a picnic under blooming sakura

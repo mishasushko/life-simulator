@@ -717,20 +717,117 @@ const RULES = [
 function tr(s) {
   if (!s) return s;
   if (EN.has(s)) return EN.get(s);
+  if (EN_T.length) { const t = trTpl(s); if (t != null) return t; }
   for (const [re, f] of RULES) { const m = s.match(re); if (m) return f(...m); }
   return null;
 }
+
+/* ---------- Полный словарь (en-data.js): шаблоны, транслитерация ---------- */
+let EN_T = [], trDepth = 0;
+const CYR_RE = /[А-Яа-яЁёІіЇїЄєҐґЎўӘәҒғҚқҢңӨөҰұҮүҺһ]/;
+const TL = { а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ё: 'yo', ж: 'zh', з: 'z', и: 'i', й: 'y', к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r', с: 's', т: 't', у: 'u', ф: 'f', х: 'kh', ц: 'ts', ч: 'ch', ш: 'sh', щ: 'shch', ъ: '', ы: 'y', ь: '', э: 'e', ю: 'yu', я: 'ya', і: 'i', ї: 'yi', є: 'ye', ґ: 'g', ў: 'w', ә: 'a', ғ: 'gh', қ: 'q', ң: 'ng', ө: 'o', ұ: 'u', ү: 'u', һ: 'h' };
+function translit(s) {
+  return s.replace(/(^|[^А-Яа-яЁё])Е/g, '$1Ye').replace(/(^|[^А-Яа-яЁё])е/g, '$1ye').replace(/[ьъ]е/g, 'ye').replace(/ий\b/g, 'iy').replace(/Дж/g, 'J').replace(/дж/g, 'j')
+    .replace(/[\u0400-\u04FF]/g, (ch) => { const l = ch.toLowerCase(), t = TL[l]; if (t == null) return ch; return ch === l ? t : t.charAt(0).toUpperCase() + t.slice(1); });
+}
+const NAME_RE = /^[А-ЯЁІЇЄҐ][А-Яа-яЁёІіЇїЄєҐґЎўӘәҒғҚқҢңӨөҰұҮүҺһ'’-]*(?: [А-ЯЁІЇЄҐ][А-Яа-яЁёІіЇїЄєҐґЎўӘәҒғҚқҢңӨөҰұҮүҺһ'’-]*){0,3}$/;
+function loadEnData() {
+  if (typeof EN_DATA === 'undefined' || EN_T.length) return;
+  for (const [r, e] of EN_DATA.c) add(r, e);
+  for (const [r, e] of EN_DATA.s) if (!EN.has(r) || CYR_RE.test(EN.get(r))) EN.set(r, e);
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  EN_T = EN_DATA.t.map(([parts, ph, en]) => ({ lead: parts[0] === '' && parts.length > 1 && parts[1].startsWith(' '), weak: (parts.join('').match(/[А-Яа-яЁё]/g) || []).length < 9, re: new RegExp('^' + parts.map((p, i) => (i ? (/[а-яё]$/.test(parts[i - 1]) && !en.includes('{' + ph[i - 1] + '}') ? '([а-яё()]{0,3})' : '([\\s\\S]*?)') : '') + esc(p)).join('') + '$'), anchor: parts.reduce((a, b) => (b.length > a.length ? b : a), ''), ph, en }));
+}
+function capTr(x) {
+  if (!x || !CYR_RE.test(x) || trDepth > 4) return x;
+  trDepth++; try {
+    let t = trFull(x); if (t != null) return t;
+    const up = x.charAt(0).toUpperCase() + x.slice(1);
+    if (up !== x && (t = tr(up)) != null) return /^.[a-z]/.test(t) ? t.charAt(0).toLowerCase() + t.slice(1) : t;
+    return x;
+  } finally { trDepth--; }
+}
+function trTpl(s, alt) {
+  for (const t of EN_T) {
+    if (alt && !t.lead) continue;
+    if (t.anchor && !s.includes(t.anchor)) continue;
+    const m = s.match(t.re); if (!m) continue;
+    if (t.weak && m.slice(1).some((c) => CYR_RE.test(c) && capTr(c) === c)) continue;
+    const caps = {}; t.ph.forEach((n, i) => { caps[n] = m[i + 1]; });
+    const r = t.en.replace(/\{(\d+)\}/g, (_, n) => capTr(caps[n] == null ? '' : caps[n]));
+    return alt ? r.trim() : r;
+  }
+  return alt || s.startsWith(' ') ? null : trTpl(' ' + s, true);
+}
 const EMO_LEAD = /^((?:\p{Extended_Pictographic}|\p{Regional_Indicator})(?:[️‍⃣]|\p{Extended_Pictographic}|\p{Regional_Indicator}|\p{Emoji_Modifier})*\s*)/u;
+const TR_CACHE = new Map();
 function trFull(raw) {
-  const lead = raw.match(/^\s*/)[0], tail = raw.match(/\s*$/)[0];
-  let s = raw.trim(); if (!s || !/[А-Яа-яЁё]/.test(s)) return null;
-  const em = s.match(EMO_LEAD); const pre = em ? em[1] : ''; if (em) s = s.slice(pre.length);
+  if (TR_CACHE.has(raw)) return TR_CACHE.get(raw);
+  const r = trFull0(raw);
+  if (TR_CACHE.size > 30000) TR_CACHE.clear();
+  TR_CACHE.set(raw, r); return r;
+}
+const CUR_EN = { сум: 'UZS', сом: 'KGS', лв: 'BGN', ден: 'MKD', дин: 'RSD', смн: 'TJS', риал: 'rial' };
+const fixMoney = (x) => x.replace(/(\d) млрд/g, '$1B').replace(/(\d) млн/g, '$1M').replace(/(\d) тыс\./g, '$1K').replace(/(\d[MBK]?) (сум|сом|лв|ден|дин|смн|риал)(?![а-яё])/g, (m, a, c) => `${a} ${CUR_EN[c]}`);
+const EMO_TAIL = /(\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator})(?:[️‍⃣]|\p{Extended_Pictographic}|\p{Regional_Indicator}|\p{Emoji_Modifier})*)$/u;
+let NAME_SET = null;
+function isName(s) {
+  if (!NAME_SET) {
+    NAME_SET = new Set();
+    try { for (const k in NAMES) for (const f of ['m', 'f', 's']) for (const n of NAMES[k][f] || []) NAME_SET.add(n); } catch (e) {}
+    try { for (const n of PET_NAMES) NAME_SET.add(n); } catch (e) {}
+    try { for (const b in CITY_NAMES) { NAME_SET.add(b); for (const [, n] of CITY_NAMES[b]) NAME_SET.add(n); } } catch (e) {}
+  }
+  const w = s.split(' ');
+  if (NAME_SET.has(w[0])) return true;
+  if (w.length > 1) return false;
+  const base = s.replace(/(ова|ева|ёва|ина|ая|а)$/, (m) => ({ ова: 'ов', ева: 'ев', ёва: 'ёв', ина: 'ин', ая: 'ий', а: '' }[m]));
+  return NAME_SET.has(base) || /(ов|ев|ин|ко|ук|юк|ич|ский|цкий|ова|ева|ина|ская|цкая|швили|дзе|ян|ли|ұлы|ов|енко)$/.test(s);
+}
+function trFull0(raw) {
+  const lead = raw.match(/^(?:\s|·\s|,\s)*/)[0], tail = raw.match(/\s*$/)[0];
+  let s = raw.slice(lead.length).trim(); if (!s || !CYR_RE.test(s)) return null;
+  const em = s.match(EMO_LEAD); let pre = em ? em[1] : ''; if (em) s = s.slice(pre.length);
+  let post = '';
+  const fm = fixMoney(s); if (fm !== s && !CYR_RE.test(fm)) return lead + pre + fm + tail;
   let out = tr(s);
-  if (out == null && s.includes(' · ')) { const parts = s.split(' · '); const t = parts.map((p) => tr(p) ?? p); if (t.some((x, i) => x !== parts[i])) out = t.join(' · '); }
-  if (out == null && /^(.+) \((.+)\)$/.test(s)) { const [, a, b] = s.match(/^(.+) \((.+)\)$/); const ta = tr(a); if (ta) out = `${ta} (${tr(b) ?? b})`; }
+  if (out == null && pre && EN_T.length) { out = trTpl(pre + s); if (out != null) pre = ''; }
+  const et = s.match(EMO_TAIL); if (out == null && et && et[1].length < s.length) { post = et[1]; s = s.slice(0, -post.length); out = tr(s); }
+  if (out == null && pre && EN_T.length) { out = trTpl(pre + s); if (out != null) pre = ''; }
+  if (out == null && s.includes(' · ')) { const parts = s.split(' · '); const t = parts.map((p) => (EN_T.length ? capTr(p) : tr(p) ?? p)); if (t.some((x, i) => x !== parts[i])) out = t.join(' · '); }
+  if (out == null && /^(.+) \((.+)\)$/.test(s)) { const [, a, b] = s.match(/^(.+) \((.+)\)$/); const ta = tr(a); if (ta) out = `${ta} (${tr(b) ?? b})`; else if (EN_T.length) { const x = `${capTr(a)} (${capTr(b)})`; if (x !== s) out = x; } }
+  if (out == null && EN_T.length && trDepth < 4) {
+    for (const sep of [': ', ', ', ' и ', ' — ']) {
+      const i = s.indexOf(sep); if (i < 1) continue;
+      const parts = sep === ': ' ? [s.slice(0, i), s.slice(i + 2)] : s.split(sep);
+      const t = parts.map((p) => capTr(p)); if (t.some((x) => CYR_RE.test(x))) continue;
+      out = t.join(sep === ' и ' ? ' and ' : sep); break;
+    }
+  }
+  if (out == null && EN_T.length && trDepth < 4) {
+    const parts = s.split(/(?<=[.!?…])\s+(?=\S)/);
+    if (parts.length > 1) { trDepth++; try { const t = parts.map((p) => { const x = trFull(p); return x != null ? x : p; }); if (t.some((x, i) => x !== parts[i])) out = t.join(' '); } finally { trDepth--; } }
+  }
+  if (out == null && EN_T.length && trDepth < 5) {
+    trDepth++;
+    try {
+      let m;
+      if (/[.!]$/.test(s) && s.length > 2) { const x = trFull(s.slice(0, -1)); if (x != null) out = x + s.slice(-1); }
+      if (out == null && (m = s.match(/^«(.+)»$/))) { const x = capTr(m[1]); if (x !== m[1]) out = `"${x}"`; }
+      if (out == null && (m = s.match(/^([−+-]?\d[\d\s,.]*(?:млн|млрд)?) (\D.*)$/))) { const x = capTr(m[2]); if (!CYR_RE.test(x)) out = fixMoney(m[1]) + ' ' + x; }
+      if (out == null && s.length < 48 && /^[^\s]+( [^\s]+){1,4}$/.test(s)) {
+        const w = s.split(' ');
+        for (let i = 1; i < w.length && out == null; i++) {
+          const a = capTr(w.slice(0, i).join(' ')), c = capTr(w.slice(i).join(' '));
+          if (!CYR_RE.test(a) && !CYR_RE.test(c)) out = a + ' ' + (/^[A-ZА-Я]/.test(s) && !c.includes(' ') ? c.charAt(0).toUpperCase() + c.slice(1) : c);
+        }
+      }
+    } finally { trDepth--; }
+  }
+  if (out == null && EN_T.length && s.length < 48 && NAME_RE.test(s) && isName(s)) out = translit(s);
   if (out == null) return null;
-  out = out.replace(/(\d) млрд/g, '$1B').replace(/(\d) млн/g, '$1M');
-  return lead + pre + out + tail;
+  out = fixMoney(out);
+  return lead + pre + out + post + tail;
 }
 function trNode(n) {
   const v = n.nodeValue; const t = trFull(v); if (t != null && t !== v) n.nodeValue = t;
@@ -738,11 +835,13 @@ function trNode(n) {
 function trTree(root) {
   if (root.nodeType === 3) return trNode(root);
   if (root.nodeType !== 1) return;
-  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); let n; while ((n = w.nextNode())) trNode(n);
+  const w = (root.ownerDocument || document).createTreeWalker(root, NodeFilter.SHOW_TEXT); let n; while ((n = w.nextNode())) trNode(n);
   for (const elx of [root, ...root.querySelectorAll('[placeholder],[aria-label],[title]')]) for (const a of ['placeholder', 'aria-label', 'title']) { const v = elx.getAttribute && elx.getAttribute(a); if (v) { const t = trFull(v); if (t) elx.setAttribute(a, t); } }
 }
 function startEnglish() {
   buildDataDict();
+  loadEnData();
+  for (const fn of ['confirm', 'prompt', 'alert']) { const o = window[fn]; window[fn] = function (m, ...r) { return o.call(window, typeof m === 'string' ? (trFull(m) || m) : m, ...r); }; }
   document.documentElement.lang = 'en';
   document.title = 'Life — simulator';
   const p = document.querySelector('.hero p'); if (p) p.textContent = `From your first step to your last breath. ${COUNTRIES.length} countries, a century and a half of history and thousands of choices that all matter.`;
@@ -759,5 +858,9 @@ function setLang(l) { try { localStorage.setItem(LANG_KEY, l); } catch (e) {} lo
   b.setAttribute('aria-label', 'Language'); b.onclick = () => setLang(LANG === 'en' ? 'ru' : 'en');
   document.getElementById('start').appendChild(b);
 })();
-MENU_HOOKS.push((l) => item(l, { e: '🌐', t: LANG === 'en' ? 'Язык: русский' : 'Language: English (beta)', d: LANG === 'en' ? 'Switch to Russian' : 'Переключить интерфейс на английский', onClick: () => setLang(LANG === 'en' ? 'ru' : 'en') }));
-if (LANG === 'en') startEnglish();
+MENU_HOOKS.push((l) => item(l, { e: '🌐', t: LANG === 'en' ? 'Язык: русский' : 'Language: English', d: LANG === 'en' ? 'Switch to Russian' : 'Переключить интерфейс на английский', onClick: () => setLang(LANG === 'en' ? 'ru' : 'en') }));
+if (LANG === 'en') {
+  const sc = document.createElement('script'); sc.src = 'en-data.js?v=14';
+  sc.onload = sc.onerror = () => startEnglish();
+  document.head.appendChild(sc);
+}

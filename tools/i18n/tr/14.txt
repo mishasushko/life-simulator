@@ -1,0 +1,291 @@
+3620|<div class="muted">Who you've been across all your lives</div><div class="big">{0} of {1} roles</div><div class="bar-mini"><em style="width:{2}%"></em></div>
+3621|{0} of {1} roles
+3622|, to {0}
+3623|My name is {0} {1}. I was born in {3}{4}.
+3624|Education: {0}.
+3625|I devoted most of my life to one profession: {1}.
+3626|I have {0} {1}: {2}.
+3627| and lived through {1} {2}
+3628|I have been to {1} {2}{3}.
+3629|I am now {0}, the year is {1}, I live in {2}, {3}.
+3630|My life ended in {0}, at {1}. Cause: {2}.
+3631|<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Diary: {0} {1}</title><style>body{font:17px/1.65 Georgia,serif;max-width:680px;margin:40px auto;padding:0 20px;color:#2a2622;background:#fbf8f2}h1{font-size:34px;margin-bottom:4px}h2{margin-top:36px;font-size:22px;border-bottom:1px solid #e5ddd0;padding-bottom:6px}.sub{color:#8a8178}.good{color:#1f7a3d}.bad{color:#a8322a}b{font-weight:700}</style></head><body><h1>{2} {3}</h1><div class="sub">{4}–{5} · {6} {7}</div>{8}{9}<p class="sub" style="margin-top:40px">Recorded in the game "Life Simulator"</p></body></html>
+3632|💳 Your parents help with money every year: {0}.
+3633|🤒 A hard life took its toll on your health: {0}.
+3634|Slot {0} holds the life of {1} {2}. Overwrite it?
+3635|Your rating: {0}. Who shall we play? You play white.\nSimplified rules: no castling and no en passant.
+3636| Prize: {0}.
+3637|♟️ Checkmate! You beat {0}. Rating {1}.{2}
+3638|♟️ Draw with your opponent ({0}). Rating {1}.
+3639|♟️ Defeat: {0} was stronger. Rating {1}.
+3640|Game: {0}
+3641|♟️ You resigned the game against your opponent ({0}).
+3642| Winnings: {0}.
+3643|Question {0} of 10 · {1}
+3644|🧠 Wrong! The correct answer: {0}.
+3645|{0}: "I think it's {1}… {2}".
+3646|Audience: {0}
+3647|💰 Take {0}
+3648|10 questions, top prize {0}. Guaranteed sum: {1}. Three lifelines. Ready?
+3649|Your car: {0}. Illegal!
+3650|Driving skill: {0}/100.
+3651|{0} · lap {1} of 3
+3652|{0}<div class="race-track">{1}</div><div class="muted">You're in place {2} of {3}</div>
+3653|💥 Crash on lap {0}! Health −{1}.{2}
+3654|🚓 The police busted the race! Fine {0}. You finished in place {1}.
+3655|🥈 Place {0}
+3656|🏁 Place {0}
+3657|. Prize money: {0}
+3658|{0} in the "{1}" race{2}.
+3659|{0}, {1} kg
+3660|Record: {0}. Where shall we go?
+3661|Cast! Waiting for a bite… Casts left: {0}
+3662|{0} Caught: {1}, {2} kg!{3}
+3663| 🏅 New personal record: {0}, {1} kg!
+3664| ({0} kg, can be sold for {1})
+3665|🎣 Fishing: {0}. Catch: {1}{2}.{3}{4}
+3666|🎣 Catch: {0} {1}, sold for {2}.
+3667|🎵 Now playing: {0}
+3668|🎵 A new era in music: {0}
+3669|🎶 Music of the {0}s: {1}.
+3670|Music of the era: {0}
+3671|{0} gave you
+3672|🎂 Birthday! {0} {1}.{2}
+3673|🎁 For your birthday {0} gave you {2}.{3}
+3674|Anniversary: {0}!
+3675| You can invite {0} {1}.
+3676|A milestone birthday. How shall we celebrate?{0}
+3677|🥳 Big party ({0})
+3678|🥳 The party was a success! The guests danced till morning. New acquaintance: {0}.
+3679|✈️ Fly off on a trip ({0})
+3680|{0} You celebrated {1} in {2}. Unforgettable!
+3681|🎃 Halloween! You dressed up as {0} and collected a bag of candy.
+3682|{0} {1} at home. A present was waiting for you under the tree: {2}.
+3683|{0} {1} with family. Warm, noisy and delicious.
+3684|{0} {1} with friends. The fun lasted until morning.
+3685|🎁 Gifts for everyone ({0})
+3686|{0} You showered everyone with gifts. Your loved ones are touched.
+3687|{0} A holiday at work. But +{1}.
+3688|{0} {1} alone. Sad, but quiet.
+3689|<div class="muted">Home</div><div class="big">{0}</div><div class="muted">Buy a house or an apartment in the "Assets" section to make it your nest.</div>
+3690|<div class="muted">{0} Main home</div><div class="big">{1}</div><div class="muted">{2} {3} · {4} · condition {5}%</div><div class="bar-mini"><em style="width:{6}%"></em></div><div class="muted">Comfort: {7} · Value: {8}{9}</div>
+3691|🏡 You moved: {0}. You'll have to buy furniture again.
+3692|{0} · the home's value will rise
+3693|🧱 {0} dragged on for half a year: the crew kept vanishing and repainting everything. But the result was worth it.
+3694|✨ {0} is done! The house is unrecognizable.
+3695|Furniture & amenities · comfort {0}
+3696|{0} · +{1} comfort
+3697|{0} Your home now has: {1}.
+3698|{0} · you are here
+3699|Move: {0}
+3700|{0} · moving {1}
+3701|{0} You moved to the "{1}" district. New neighbors, new life.
+3702|Neighbor · {0}{1}
+3703|{0} · meet everyone
+3704|🥂 The housewarming was a success! You met {0} more {1}.
+3705|{0} a year · fires, floods, earthquakes
+3706|{0} · comfort {1} · {2}
+3707|🚿 The house is falling apart: a pipe burst. Urgent repairs: {0}.
+3708|{0} claims your fence stands on their land.
+3709|🐈 {0} helped get your cat down from a tree. Or someone else's.
+3710|🍲 {0} treated you to a home-cooked dinner.
+3711|🧬 Heredity caught up: {0}.
+3712|✂️ Gene fixed: "{0}" is no longer a threat.
+3713|<div class="muted">🧬 Your DNA profile</div><div class="genes">{0}</div>
+3714|The family had cases of: {0}.
+3715|<div class="muted">🧬 Heredity</div><div class="big">Your genes are still a mystery</div><div class="muted">{0}</div>
+3716|🧪 Take a DNA test ({0})
+3717| · risk {0}%
+3718|Complications after surgery: {0}
+3719|😷 Complications after the "{0}" surgery. Recovery will be long.
+3720|Will appear around {0}
+3721|🍎 You have a favorite teacher: {0} ({1}). Their classes fly by.
+3722|🚌 Class field trip: {0}.
+3723|😩 You failed a test in "{0}". There'll be a talk at home.
+3724|📸 The school photographer took a picture of your class. {0}
+3725|{0} The school's top talent
+3726|🥇 You graduated from school with a gold medal! GPA {0}.
+3727|🎓 The yearbook is ready. GPA {0}. Superlatives: {1}.
+3728| · grade {0}
+3729|<div class="muted">Favorite teacher: {0}</div>
+3730|<div class="muted">🏆 Olympiads: {0}</div>
+3731|<div class="muted">📒 Report card{0}</div><div class="report">{1}</div>{2}{3}{4}
+3732|<div class="section-title">Yearbook {0}</div>
+3733|<div class="yearbook"><div class="yb-photo">{0}</div><div><div class="big">{1} {2}</div><div class="muted">{3}</div><div class="yb-noms">{4}</div><div class="muted">GPA: {5}{6}{7}</div></div></div>
+3734|{0} You improved in "{1}".
+3735|{0} "{1}" olympiad: no prize. But good experience.
+3736|🌍 Victory at the international "{0}" olympiad! A {1} prize and nationwide fame.
+3737|🏆 You won the {0} "{1}" olympiad!
+3738|📋 You got caught with a cheat sheet. An F in "{0}".
+3739|📋 You cheated successfully. An A in "{0}".
+3740|{0}: breed
+3741|{0} You have a {1} named {2}!
+3742|{0} You adopted from a shelter: a {1} named {2}. Eyes full of gratitude.
+3743|{0} An unusual resident moved in: a {1} named {2}!
+3744|<div class="muted">Knows: {0}</div>
+3745|<div class="muted">🏆 Show wins: {0}{1}</div>
+3746|<div class="muted">{0} · {1}{2}{3}</div><div class="pet-bars"><span>❤️ Bond</span><div class="bar-mini"><em style="width:{4}%"></em></div><span>🎓 Training</span><div class="bar-mini"><em style="width:{5}%"></em></div></div>{6}{7}
+3747|{0} {1} is happy! A great day together.
+3748|{0} · learn a trick
+3749|🎓 {0} learned a new trick: "{2}"!
+3750|🎓 Training with {0}. There's progress, but the trick isn't working yet.
+3751|{0} · treatment and prevention
+3752|🩺 The vet cured {0}. Lively again!
+3753|🩺 {0} is healthy. Checkups extend life.
+3754|{0} · chance depends on breed and training
+3755|🏆 {0} took first place at the show! Prize {2}.
+3756|🥈 {0}: an honorable second place.
+3757|{0} {1} was more interested in the judges than the runway. No placing.
+3758|Give away {0}?
+3759|{0} {1} went to a new family. Sad.
+3760|🌈 {0} never recovered and crossed the rainbow bridge.
+3761|🤒 {0} got sick. A vet is needed!
+3762|🐕 {0} saved you: barked at night when a fire started in the kitchen.
+3763|🐕 {0} chewed up your favorite shoes.
+3764|🐕 {0} made friends with the neighbor's dog.
+3765|🐈 {0} brought you a "gift": a mouse on your pillow.
+3766|🐈 {0} knocked over a vase while looking you in the eye.
+3767|🐈 {0} sleeps on you every night. Purring.
+3768|🦜 {0} learned a rude word and said it in front of guests.
+3769|🦜 {0} imitates your alarm clock.
+3770|{0} {1} brings you joy every day.
+3771|{0} {1} ran away but was found in the evening.
+3772|📱 A video with {0} went viral: +{1} followers.
+3773|My pets · {0}
+3774| Damage to the home: {0}.
+3775|{0} You and your family rode out the disaster in a shelter.{1} It was terrifying.
+3776|{0} You evacuated in time.{1}
+3777|Killed in a natural disaster: {1}
+3778|{0} You were injured while saving your home.{1}
+3779|{0} You saved your home.{1}
+3780|{0} You spent several days clearing rubble and saved people. The newspaper wrote about you.{1}
+3781|💝 Donate {0}
+3782|{0} You helped the victims with money.{1}
+3783|The will was notarized in {0}.
+3784|<div class="muted">Estate right now</div><div class="big">{0}</div><div class="muted">{1} Allocated: <b>{2}%</b>{3}</div>
+3785|{0} · relationship {1}%
+3786|✍️ Notarize it ({0})
+3787|📜 The will is notarized. Somehow {0} found out about their share and got offended.
+3788|Notarized in {0}
+3789|Under the will you received {0}%.
+3790|There was no will: by law the estate was split among {0} {1}.
+3791| {0}% went to charity, and a park named after {1} opened in the city.
+3792|{0} thinks the will is unfair and threatens to sue.
+3793|🤝 Give them a part ({0})
+3794|🤝 You shared with {0}. The family kept the peace.
+3795|Olympic sport · {0}
+3796|{0} You joined a club: {1}. The coach says you have potential.
+3797| · 🤕 injury ({0})
+3798| · 🚫 ban ({0})
+3799|<div class="muted">Contract: {0} a year</div>
+3800|<div class="muted">{0} {1}{2}</div><div class="big">{3}</div><div class="muted">Form: {4}/100{5}{6}</div><div class="bar-mini"><em style="width:{7}%"></em></div><div class="medals">🥇 {8} · 🥈 {9} · 🥉 {10} · 🏆 Worlds: {11} · titles {12}</div>{13}
+3801|🤕 Injured in training. Recovery: {0}.
+3802|🏋️ Grueling training. Form +{0}.
+3803|{0} · steady growth of form
+3804|{0} · contract ×{1}
+3805|✍️ You signed a contract with the club "{0}". Signing bonus: {1}.
+3806|{0} You're done with sports.
+3807|{0} You made the youth team. Your first real competitions!
+3808|The club offers you your first professional contract: {0}.{1}
+3809|✍️ You're a pro now! Club "{0}".
+3810|🇺🇳 You were called up to the national team! {0}
+3811|🐐 They call you a legend. {0}: every fan knows your name.
+3812|"{0}" takes the championship title!
+3813|{0} A dream season: {1}
+3814|{0} A disastrous season. The fans are unhappy.
+3815|{0} A steady season: {1}.
+3816|🏆 You're the world champion! {0}, {1}.
+3817|🥇 GOLD! Your country's anthem plays in your honor. {0}, Olympics {1}.
+3818|😔 Olympics: place {0}. Fell short of a medal.
+3819|Olympic Games {0}
+3820|You're on the national team at the Games in {0}. The final is in an hour. What's the tactic?
+3821|🕴️ You were accepted into {0}. Nobody leaves here easily.
+3822|<div class="muted">The dark side</div><div class="big">{0}</div><div class="muted">The money is fast, but prison, showdowns and the police are close.</div>
+3823| · {0} to promotion
+3824|<div class="muted">{0}</div><div class="big">{1}</div><div class="muted">Authority {2}/100{3}</div><div class="bar-mini"><em style="width:{4}%"></em></div><div class="muted">🚨 Police heat: {5}% · 👥 soldiers: {6} · ⚖️ lawyer: {7}</div><div class="bar-mini heat"><em style="width:{8}%"></em></div>
+3825|{0}–{1} · risk {2}%
+3826|{0}: your cut is {1}. Your authority grows.
+3827|{0} · −35% heat
+3828|Hire a {0} lawyer
+3829|{0} a year · will save you in court
+3830|⚖️ You now have a {0} lawyer. Expensive, but wins cases.
+3831|{0} · passive income and protection
+3832|👥 Your crew has grown: {0} people.
+3833|💼 Buy your way out ({0})
+3834|A man in a leather jacket offers an "easy job" with {0}.
+3835|💼 Your cut from the crew's rackets: {0}.
+3836|👑 You're now the boss: {0}. The city is at your feet.
+3837|🕴️ Promotion in the gang: you're now {0}.
+3838|Rivals from {0} showed up on your turf.
+3839|🤝 You divided the spheres of influence. It cost {0}.
+3840|The court found you guilty: {0}. Sentence: {1}.
+3841|📑 File an appeal ({0})
+3842|📑 The appeal was partially granted! {0}
+3843|📑 The appeal was rejected. {0}
+3844|⚖️ {0}: the jury returned a not-guilty verdict! You're free.
+3845|💼 Your {0} lawyer
+3846|👔 Experienced lawyer ({0})
+3847|⭐ Star lawyer ({0})
+3848|💵 "Make a deal" with the judge ({0})
+3849|You are accused of: {0}. The prosecutor demands {1}. Who will defend you?
+3850|<div class="muted">🏷️ Named after you: {0}</div>
+3851|<div class="muted">{0} {1}</div><div class="big">{2}</div><div class="muted">📄 Papers: {3} · 📈 citations: {4} · 💡 patents: {5}</div>{6}{7}
+3852|<div class="muted">Science</div><div class="big">{0}</div><div class="muted">{1}</div>
+3853|{0} You devoted yourself to science: {1}.
+3854|📄 You published {0} {1}.
+3855|💶 Grant approved: {0}. For the next two years your chances of a discovery are higher.
+3856|🎤 Your talk in {0} drew a full house.
+3857|🔧 You tried to create {0}, but the prototype exploded. Never mind, Edison made mistakes too.
+3858|You invented {0}. What next?
+3859|📜 Patent it ({0})
+3860|📜 Patent #{0} granted! Companies pay you royalties.
+3861|💰 You sold the rights for {0}.
+3862|<div class="muted" style="padding:6px 4px">Your inventions: {0}</div>
+3863|a new result in "{0}"
+3864|You discovered {0}. Colleagues suggest giving the discovery a name.
+3865|🏷️ "{0}" made it into the textbooks.
+3866|💐 The discovery bears the name "{0}". Mom cried with pride.
+3867|You are awarded the {0} for {1}!
+3868|🏅 {0}! You received {1} and worldwide recognition.
+3869|🏅 {0}! You gave all the money to children's hospitals.
+3870|{0} · discoveries {1} · patents {2}
+3871|<div class="muted">{0} · {1} · {2}</div><div class="work-rating">{3}{4} <b>{5}/10</b></div>{6}<div class="muted">First-year income: {7}{8}</div>
+3872|{0} Your {3} "{4}" is out: {5}/10, income {6}.
+3873|{0}: genre
+3874|Currently trending: {0}. Skill: {1}/100.
+3875|Title: "{0}"
+3876|💎 Masterpiece (double budget{0})
+3877|Average rating: {0} · earned {1}
+3878|<div class="muted">Your creative work</div><div class="big">{0}</div><div class="muted">{1}</div>
+3879| · budget {0}
+3880|Skill: {0}/100{1} · trending {2}
+3881|<div class="muted">{0} · {1} · {2}</div><div class="work-rating">{3}{4} <b>{5}/10</b></div>{6}{7}<div class="muted">Total earned: {8}</div>
+3882|{0} "{1}" wins the top award!
+3883|🏆 {0} for "{1}". The audience gave a standing ovation.
+3884|{0} works · latest "{1}"
+3885|<div class="muted">Real estate portfolio</div><div class="big">{0}</div><div class="muted">{1} {2} · rent ~{3} a year · market: {4}</div>
+3886|🏗️ under construction, {0} left
+3887|🔑 rented · {0}
+3888|Value {0}
+3889|Bought for {0} · {1}
+3890|{0}. Base yield {1}% a year.
+3891|🧑‍💼 Reliable tenant · ~{0}
+3892|🔑 {0}: a lease signed with a reliable tenant.
+3893|🎲 Risky tenant · ~{0}
+3894|🔑 {0}: the tenant pays more, but who knows…
+3895|{0} · can be sold for more in a year
+3896|🔨 {0}: renovation for sale has started.
+3897|{0} · 2 years of construction, value ×5
+3898|🏗️ Construction has started on the "{0}" plot!
+3899|Capital gains tax {0}%
+3900|💰 You sold "{0}" for {1} (after tax).
+3901| · yield ~{0}%
+3902|{0} You bought: {1} ({2}).
+3903|Residential complex on the plot ({0})
+3904|🏗️ Construction complete! The residential complex is worth {0}.
+3905|🔨 Renovation of "{0}" is complete. New valuation: {1}.
+3906|😤 The tenant of "{0}" ran off without paying.
+3907|💥 The tenant trashed "{0}". Repairs: {1}.
+3908|🧾 Inspection at "{0}": fine.
+3909|🏘️ Rental income for the year: {0}.
+3910|{0} properties · {1}

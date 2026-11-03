@@ -1,0 +1,280 @@
+2200|Chuseok
+2201|the family gathered over rice cakes
+2202|PRC National Day
+2203|a week off
+2204|Diwali
+2205|thousands of lights and sweets
+2206|a military parade
+2207|Day of the Dead
+2208|altars, sugar skulls and flowers
+2209|asado with friends
+2210|Republic Day
+2211|flags on every balcony
+2212|St. Patrick's Day
+2213|everything turned green
+2214|Canada Day
+2215|maple flags and fireworks
+2216|Australia Day
+2217|barbecue on the beach
+2218|a march through Warsaw
+2219|Czechoslovak Independence Day
+2220|festive concerts
+2221|Rtveli
+2222|the grape harvest and a feast
+2223|Vardavar
+2224|everyone drenched each other with water
+2225|Navruz
+2226|sumalak was cooked all night
+2227|Purim
+2228|a carnival and sweets
+2229|Songkran
+2230|water fights in the streets
+2231|Tết
+2232|the family Lunar New Year
+2233|Midsummer
+2234|dancing around the maypole
+2235|Constitution Day
+2236|children marched with little flags
+2237|Easter
+2238|red eggs and lamb on a spit
+2239|King's Day
+2240|the whole city in orange
+2241|National Day
+2242|bonfires in the mountains
+2243|Juhannus
+2244|sauna and a bonfire by the lake
+2245|Sham el-Nessim
+2246|a picnic on the banks of the Nile
+2247|music in the streets
+2248|Freedom Day
+2249|concerts and barbecues
+2250|Lunar New Year
+2251|Red envelopes, fireworks and dumplings.
+2252|Eid al-Fitr
+2253|The feast after the fast: treats and gifts for the children.
+2254|The festival of lights: lamps, sweets and family visits.
+2255|Hanukkah
+2256|Eight candles, latkes and a game of dreidel.
+2257|The spring New Year: sprouted wheat and jumping over a bonfire.
+2258|New Year
+2259|Christmas trees aren't customary, but the holiday is still in the air.
+2260|A New Year tree, tangerines, salads and the chimes at midnight.
+2261|Christmas
+2262|A tree, presents and the whole family at one table.
+2263|Celebrate with family
+2264|With friends
+2265|Work a double-pay shift
+2266|Spend it alone
+2267|Checkmate
+2268|Win a game of chess
+2269|Grandmaster slayer
+2270|Beat a grandmaster
+2271|Chief erudite
+2272|Answer all 10 quiz questions
+2273|Racer
+2274|Win a race
+2275|Fish of a lifetime
+2276|Catch a fish weighing 50+ kg
+2277|Catch a goldfish
+2278|Residential district
+2279|Quiet, schools and shops nearby
+2280|Historic center
+2281|Everything's close, but noisy
+2282|Suburbs
+2283|Fresh air and your own yard, a long commute
+2284|Gated community
+2285|Security, millionaire neighbors
+2286|Old industrial district
+2287|Cheap, but unsafe
+2288|No renovation
+2289|Cosmetic renovation
+2290|Major renovation
+2291|Designer renovation
+2292|Big sofa
+2293|Orthopedic bed
+2294|Kitchen set
+2295|Fireplace
+2296|Home theater
+2297|Home library
+2298|Home gym
+2299|Garden with a gazebo
+2300|Swimming pool
+2301|Sauna
+2302|Grand piano
+2303|Robot vacuum
+2304|Smart home
+2305|Game room
+2306|Home android
+2307|My home
+2308|You live with your family
+2309|You rent a place
+2310|🛍️ Go shopping
+2311|· 🛡️ insured
+2312|Where we live
+2313|Main residence
+2314|Make it the main one
+2315|Renovation
+2316|Small DIY repairs
+2317|+condition, free
+2318|You fell off the stepladder. The repairs can wait.
+2319|Tightened, painted, replaced. Good as new!
+2320|Already have it
+2321|District
+2322|Neighbors & insurance
+2323|Throw a housewarming for the neighbors
+2324|neighbor
+2325|neighbors
+2326|Cancel home insurance
+2327|Insure your home
+2328|Protects against fires and natural disasters
+2329|Your home is insured.
+2330|Insurance canceled.
+2331|Home
+2332|My home
+2333|Your district is unsafe again: someone broke into the basement.
+2334|Fence dispute
+2335|Give up half a meter
+2336|Peace is worth more. The neighbor brought a pie as thanks.
+2337|Sue
+2338|The court sided with you. The neighbor no longer says hello.
+2339|You lost the case. The fence had to be moved.
+2340|Residents' meeting
+2341|They're discussing repairs to the stairwell and a new playground.
+2342|Lead the initiative
+2343|You were elected head of the building. The playground got built!
+2344|Vote and leave
+2345|You voted "yes" and went off to drink tea.
+2346|Don't go
+2347|They decided to raise the fees without you.
+2348|Longevity genes
+2349|A chance to live longer
+2350|Athletic genetics
+2351|+health from birth
+2352|Bright mind
+2353|+smarts from birth
+2354|Inherited beauty
+2355|Perfect pitch
+2356|Music comes easily
+2357|Nearsightedness
+2358|Treatable with laser correction
+2359|Weak heart
+2360|Risk of heart disease after 40
+2361|Prone to diabetes
+2362|Risk of diabetes after 30
+2363|Cancer risk
+2364|Risk after 35, screening helps
+2365|Alzheimer's risk
+2366|After 60
+2367|Allergic
+2368|Spring is hard
+2369|Hemophilia
+2370|Injuries are dangerous
+2371|An ordinary cut landed you in the hospital. Hemophilia.
+2372|Laser eye surgery
+2373|You see the world clearly without glasses!
+2374|Heart bypass surgery
+2375|The surgery was a success, your heart is like new.
+2376|The surgery didn't help. The doctors are at a loss.
+2377|Tumor removal surgery
+2378|The tumor was removed. Remission!
+2379|The tumor wasn't fully removed.
+2380|Organ transplant
+2381|The donor organ took. You got a second chance.
+2382|Joint replacement
+2383|New joints. You walk without pain again.
+2384|Regular cancer screening
+2385|You signed up for annual screening. Cancer risk is under control.
+2386|Dental implants
+2387|A Hollywood smile!
+2388|Pacemaker
+2389|Your heart beats steadily, the risks are lower.
+2390|Hearing implant
+2391|You can hear birds singing again.
+2392|Exoskeleton
+2393|The exoskeleton gave you back your ease of movement.
+2394|Neural chip
+2395|The neural chip sped up your thinking, but sometimes you hear ads in your sleep.
+2396|The neural chip is installed. You think faster.
+2397|Bionic eye
+2398|The bionic eye sees in the dark and zooms 10x.
+2399|Gene therapy
+2400|Remove one hereditary disease
+2401|Rejuvenation therapy
+2402|Health and longevity
+2403|Your cells have been rejuvenated. You look 10 years younger.
+2404|Nanobots in the blood
+2405|Cure everything and extend life
+2406|Nanobots cleaned out your body. The diseases are gone.
+2407|Cryonics contract
+2408|After death your body will be frozen
+2409|Contract signed. Maybe the future will be able to wake you up.
+2410|Digital copy of your mind
+2411|Your mind will live on in the network
+2412|Your consciousness has been copied. Digital you is already writing you letters.
+2413|Genetics & medicine
+2414|Nothing remarkable. An ordinary genome.
+2415|Your family history suggests nothing worrying.
+2416|Your DNA test results are ready. Now you know your risks.
+2417|DNA tests will appear in the early 2000s.
+2418|Surgeries
+2419|Implants
+2420|Life extension
+2421|Genetics & medicine
+2422|DNA, surgeries, implants, longevity
+2423|Your body is frozen in a cryo-chamber. Waiting for the future.
+2424|Your digital copy lives on in the network and is writing memoirs.
+2425|Mathematics
+2426|Native language
+2427|History
+2428|Science
+2429|Foreign language
+2430|PE
+2431|Music & art
+2432|Bullying
+2433|A group of older students started picking on you during breaks.
+2434|Stand up to them
+2435|You stood up to them. They backed off and even started respecting you.
+2436|You were beaten up. Hurtful and painful.
+2437|Tell a teacher
+2438|The teacher stepped in. Things calmed down.
+2439|Endure it
+2440|You endured it. Every day at school became an ordeal.
+2441|to a museum
+2442|to a factory
+2443|to the zoo
+2444|to the planetarium
+2445|to the theater
+2446|to another city
+2447|During a break someone slipped you a note: "I like you." Unsigned.
+2448|You blinked.
+2449|You came out the best of everyone.
+2450|Someone made bunny ears.
+2451|The last school night. How will you spend it?
+2452|Dance until dawn
+2453|The whole class watched the sunrise together. The best night of school life.
+2454|Compete for prom king/queen
+2455|You were crowned prom king/queen!
+2456|Someone else got the title, but the evening was still great.
+2457|Leave early
+2458|You left prom early and caught up on sleep.
+2459|🧠 Smartest
+2460|😍 Most striking looks
+2461|🎉 Life of the party
+2462|🏅 Athlete of the class
+2463|😈 Class troublemaker
+2464|🏛️ Most likely to become president
+2465|🏆 Olympiad star
+2466|🤫 Most mysterious
+2467|😴 Master of sleeping in class
+2468|🍔 King of the cafeteria
+2469|💰 Most likely to become a millionaire
+2470|"It's only the beginning"
+2471|"I'll be back"
+2472|"Thanks for putting up with me"
+2473|"Dream boldly"
+2474|"No risk, no lemonade"
+2475|"See you at the reunion"
+2476|School
+2477|School starts at age 6.
+2478|· class of
+2479|🏛️ School president

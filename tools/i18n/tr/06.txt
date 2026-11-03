@@ -1,0 +1,279 @@
+1360|Professional sports will appear in the 1920s
+1361|This job will appear in the 1930s
+1362|Taxis will appear in 1907
+1363|Through elections: see "Politics"
+1365|Russian Empire (Bessarabia)
+1366|Bessarabia (Romania)
+1367|Emirate of Bukhara
+1368|Kingdom of Montenegro
+1369|Kingdom of Romania
+1370|Socialist Romania
+1371|Tsardom of Bulgaria
+1372|Cyprus (British colony)
+1373|Malta (British colony)
+1374|Ottoman Mesopotamia
+1375|Iraq (British mandate)
+1376|Transjordan
+1377|Lebanon (French mandate)
+1378|Syria (French mandate)
+1379|Qatar (British protectorate)
+1380|Kuwait (British protectorate)
+1381|Muscat and Oman
+1382|East Pakistan
+1383|Ceylon (colony)
+1384|British Malaya
+1385|Federation of Malaya
+1386|British Burma
+1387|Taiwan (Japanese colony)
+1388|Colombia (Panama department)
+1389|Jamaica (British colony)
+1390|Ethiopian Empire
+1391|German East Africa
+1392|Tanganyika
+1393|Tanganyika and Zanzibar
+1394|Uganda Protectorate
+1395|French West Africa
+1396|German Kamerun
+1397|Cameroon (mandate)
+1398|French Algeria
+1399|Tunisia (protectorate)
+1400|Portuguese Angola
+1401|Portuguese Mozambique
+1402|Southern Rhodesia
+1403|French Madagascar
+1404|Fiji (British colony)
+1405|Independence has been declared!
+1406|The country was incorporated into the USSR.
+1407|The Baltic Way: two million people joined hands across three countries.
+1408|Revolution: the Ceaușescu regime fell.
+1409|The Hungarian uprising was crushed.
+1410|The Islamic Revolution: the Shah fled the country.
+1411|Iraq invaded Kuwait.
+1412|The government of the Republic of China moved to Taiwan.
+1413|The Khmer Rouge took power. Terrible years.
+1414|Burma gained independence.
+1415|Ghana became the first country in Black Africa to gain independence.
+1416|Algeria became independent.
+1417|Emperor Haile Selassie was overthrown.
+1418|Zimbabwe gained independence.
+1419|Hyperinflation: a 100-trillion-dollar banknote.
+1420|The Panama Canal opened.
+1421|Costa Rica abolished its army.
+1422|The Jasmine Revolution started the Arab Spring.
+1423|The country joined the European Union.
+1424|An armistice. The country closed itself off from the world.
+1425|The USSR was formed.
+1426|A devastating earthquake in Nepal.
+1427|Corner shop
+1428|Bakery
+1429|Tailor's workshop
+1430|Tavern
+1431|Coffee shop
+1432|Restaurant
+1433|Car repair shop
+1434|Fitness club
+1435|Ad agency
+1436|Online store
+1437|IT startup
+1438|Hotel
+1439|Factory
+1440|AI startup
+1441|Space company
+1442|profit
+1443|loss
+1444|You got dragged into a price war.
+1445|Customers appreciated the quality.
+1446|Some customers left.
+1447|A tax audit came to you.
+1448|No violations were found.
+1449|The inspector left happy.
+1450|Bribery
+1451|It was a setup.
+1452|Your best employee got an offer from a competitor.
+1453|The employee stayed and is grateful to you.
+1454|He left and took a couple of clients with him.
+1455|Your stake is too small.
+1456|Deal closed. The money is in the account.
+1457|You kept control of the company.
+1458|Own business
+1459|You can start a business from age 18
+1460|🚀 Start your own business¦Choose a niche¦The higher the risk, the bigger the profit swings. You can take a loan in "Loans".
+1461|high
+1462|low
+1463|cheap
+1464|normal
+1465|premium
+1466|· listed on the exchange 📈
+1467|+quality
+1468|New equipment and staff training.
+1469|+growth this year
+1470|The ad campaign is live.
+1471|Cheap means more customers and lower margins. Premium is the opposite, but needs quality.
+1472|Cheap
+1473|Prices lowered.
+1474|Normal
+1475|Market prices.
+1476|Premium
+1477|Premium only.
+1478|Next Door
+1479|Groceries
+1480|Minute
+1481|Bread House
+1482|Warm Bun
+1483|Wheat Ear
+1484|Grain
+1485|The Cup
+1486|Morning
+1487|Eggplant
+1488|Tasty
+1489|Fire
+1490|Neuron
+1491|Codex
+1492|Cloud
+1493|Synapse
+1494|Alpha
+1495|Progress
+1496|Metal
+1497|Vostok
+1498|Basket
+1499|Click
+1500|Parcel
+1501|Summit
+1502|Vector
+1503|Impulse
+1504|Paparazzi caught you outside your building in pajamas.
+1505|Smile and wave
+1506|The photo became a meme. The public adores you.
+1507|Smash the camera
+1508|The superfan
+1509|A fan sent you a sweater with your face on it and a 40-page poem.
+1510|Reply with thanks
+1511|The fan is happy.
+1512|Hire security
+1513|Now two people in black follow you around.
+1514|are secretly married to an alien
+1515|don't pay taxes
+1516|have had five plastic surgeries
+1517|have fallen out with all your colleagues
+1518|The denial worked.
+1519|The more you made excuses, the more people believed the rumors.
+1520|Play along for the hype
+1521|Hype! The whole country is talking about you.
+1522|soda
+1523|shampoo
+1524|a bank
+1525|sneakers
+1526|mayonnaise
+1527|You're invited onto the most popular talk show in the country.
+1528|Go and crack jokes
+1529|You were irresistible!
+1530|The jokes fell flat. Awkward.
+1531|You protect your personal space.
+1532|Fame
+1533|· has a PR agent
+1534|You got a role in a TV series! 🎬
+1535|The director said: "We'll call you."
+1536|A standing ovation!
+1537|There were three people in the audience, and one was asleep.
+1538|You won the reality show! 🏆
+1539|You were voted off mid-season, but everyone remembers you.
+1540|+fame
+1541|You said too much. The quote was turned into memes.
+1542|The interview was quoted everywhere.
+1543|You raised money for a children's hospital.
+1544|Your look dominates the society pages.
+1545|Fashion critics called your outfit "bold".
+1546|The PR agent took control of your social media.
+1547|You're responsible for your own words again.
+1548|Collegiate Registrar
+1549|Titular Councillor
+1550|Collegiate Councillor
+1551|State Councillor
+1552|Privy Councillor
+1553|Chancellor
+1554|Komsomol organizer
+1555|Party committee secretary
+1556|First secretary of the district committee
+1557|First secretary of the regional committee
+1558|Politburo member
+1559|General Secretary
+1560|Party member
+1561|Party official
+1562|City committee secretary
+1563|Politburo member
+1564|Leader of the country
+1565|You lost the election.
+1566|You left politics with your head held high.
+1567|You were removed from office and sent "into retirement".
+1568|A developer left an envelope on your desk: he wants permission to build in the park.
+1569|Taking a bribe
+1570|It was an anti-corruption sting!
+1571|You publicly refused. Your approval rose.
+1572|Emergency
+1573|A flood has submerged whole districts. People are waiting for you to act.
+1574|Lead the rescue in person
+1575|Photos of you in rubber boots went around the country.
+1576|Record a video address
+1577|People are outraged: "Where were you?"
+1578|Journalists dug up a story from your youth.
+1579|Your honesty was appreciated.
+1580|The story was forgotten.
+1581|Witnesses turned up. Your approval collapsed.
+1582|Politics
+1583|Nomenklatura
+1584|education
+1585|healthcare
+1586|transport
+1587|housing and utilities
+1588|The reform failed, people are unhappy.
+1589|Every newspaper is quoting the speech.
+1590|You misspoke, and it became a meme.
+1591|Several officials went on trial.
+1592|Corruption
+1593|You were arrested right in your office.
+1594|You resigned.
+1595|Democracy: elections
+1596|Empire: civil service
+1597|One-party system
+1598|Victory depends on smarts, looks, karma, fame and campaign money.
+1599|Your career depends on loyalty, smarts and connections.
+1600|· diploma required
+1601|The higher-ups decided you're not ready yet.
+1602|Ministers are appointed. You need high approval and connections.
+1603|Honest campaign
+1604|Populism and promises
+1605|Dirty tricks
+1606|Win the debate
+1607|Elections from deputy to head of state
+1608|A party and state career
+1609|You're serving in the army. Reveille at 6:00.
+1610|Training at the range. You learned to shoot and mop floors.
+1611|Kitchen duty: three sacks of potatoes.
+1612|You got a letter from home and reread it ten times.
+1613|The barracks
+1614|The senior soldiers demand that you wash their uniforms.
+1615|You were beaten up, but left alone after that.
+1616|They came to respect you.
+1617|Obey
+1618|You washed the uniforms. Humiliating.
+1619|Complain to the commander
+1620|The commander restored order.
+1621|The commander brushed it off.
+1622|Your service is over! What next?
+1623|You came home. Mom cried at the station.
+1624|You signed a contract. You're a sergeant now.
+1625|Go and serve
+1626|Enroll in university (deferment)
+1627|Evading military service
+1628|You "got lost" for the draft office.
+1629|Lead the soldiers into the attack
+1630|Killed in action
+1631|You were killed in action.
+1632|Mission accomplished. You were recommended for an order. 🎖️
+1633|Hold the line
+1634|You held your positions.
+1635|Rescue the wounded
+1636|You carried three comrades off the battlefield.
+1637|High treason
+1638|Blown
+1639|Your cover was blown. You're being watched.

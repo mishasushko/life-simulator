@@ -1,0 +1,258 @@
+260|You made it to the finish line! 🏅
+261|You dropped out at kilometer 20.
+262|Cheer for others
+263|You cheered the runners from the stands.
+264|You saw strange lights in the sky. A UFO?
+265|You saw a double rainbow.
+266|Something creaks in your house at night.
+267|You found a four-leaf clover.
+268|You made a wish on a shooting star.
+269|A black cat crossed your path.
+270|Talent show
+271|A TV talent show is holding auditions.
+272|Go to the audition
+273|You won the show! Fame and a prize! 🌟
+274|The judges said "no". It happens.
+275|Watch on TV
+276|You watched the show with popcorn.
+277|Stray dog
+278|A hungry puppy sits by your door and looks at you.
+279|Take it home
+280|Now you have a loyal friend!
+281|Feed it
+282|You bought it a sausage.
+283|Walk past
+284|Religious holiday
+285|With family and community
+286|A warm day with loved ones.
+287|Like any other day
+288|You spent the day as usual.
+289|Ask them out
+290|You smiled and walked on.
+291|Anniversary
+292|A romantic evening.
+293|Forget about it
+295|Temptation
+296|A coworker is openly flirting with you at the office party.
+297|Give in
+298|Nobody found out. Yet.
+299|Stay faithful
+300|You stayed faithful.
+301|Checkup
+302|The doctor recommends a full checkup.
+303|Problems were caught and treated in time.
+304|All good! Your health is excellent.
+305|Nah, I'm fine
+306|You decided not to waste time.
+307|You reread your old diary and remembered your youth.
+309|Memoirs
+310|A publisher offers you a deal to write a book about your life.
+311|Write it
+312|Your stories will stay with you.
+313|Lottery ticket
+314|The cashier offers you a lottery ticket instead of change.
+315|You took your change.
+316|There's a flu epidemic in the country. You caught it.
+317|Bar
+318|A drunk patron shoved you and spilled your drink.
+319|Hit him
+320|Fight
+321|The police arrived.
+322|The fight ended in a draw.
+323|Ask for an apology
+324|He apologized and bought you a new drink.
+325|You went home.
+326|For a long time you've felt you want to tell your loved ones about your orientation.
+327|Wait for now
+328|You decided to wait for the right moment.
+329|Fire
+330|The wiring in your house caught fire!
+331|Put it out yourself
+332|You put out the fire with an extinguisher. A hero!
+333|You got burned and the house was damaged.
+334|Call 911
+335|The firefighters came quickly. Little damage.
+336|Your parents got divorced.
+337|Cellmate
+338|Your cellmate suggests an escape plan.
+339|You refused. The guards noticed.
+340|Father
+341|Sibling
+342|Grandchild
+343|Ex
+344|Spouse
+345|Studying
+346|Court
+347|The lawyer won an acquittal! 🎉
+348|Plead guilty
+349|Public defender
+350|A miracle! You were acquitted.
+351|You were fired.
+352|You escaped from prison! 🏃 Now the main thing is not to get caught.
+353|The ticket was a dud.
+354|Workout
+355|Jogging
+356|Fresh air and energy.
+357|Diet
+358|You ate healthy all year. You feel better.
+359|Salon
+360|Success!
+361|Failure
+362|The surgeon made a mistake. The result is worse than before.
+363|Cramming
+364|Your grades went up.
+365|Language
+366|English
+367|Spanish
+368|Chinese
+369|Japanese
+370|French
+371|German
+372|Korean
+373|Arabic
+374|Chess
+375|You won the club tournament!
+376|The game was tense.
+377|Therapy
+378|You feel much better. The depression has lifted.
+379|Talking to a therapist helped a lot.
+380|Good deed
+381|at an animal shelter
+382|at a nursing home
+383|at a community cleanup
+384|at a children's charity
+385|at a soup kitchen
+386|Charity
+387|Gamer
+388|a new RPG
+389|a co-op game with friends
+390|a horror game
+391|a racing game
+392|a 200-hour strategy game
+393|It was loud and fun!
+394|You lost your voice singing along with your favorite band.
+395|A new country
+396|A viral video! 🔥
+397|A new video
+398|A new friend
+399|She
+400|He
+401|Theft
+402|Car theft
+403|Cyber fraud
+404|Armed robbery
+405|+health
+406|Prison yard
+407|You did push-ups until exhaustion.
+408|Books
+409|You read everything on the shelf.
+410|Parole
+411|Behavior
+412|The guards noted your behavior.
+413|Busted!
+414|The police arrested you.
+415|Success
+416|Checkup
+417|The doctor said you're healthy. Prevention paid off.
+418|Treatment
+419|The treatment didn't help. Try again next year.
+420|You chatted with a few people, but there was no spark. And that's okay.
+421|It's a match!
+422|Job:
+423|Ask them out
+424|Keep swiping
+425|You kept looking.
+426|Master's student
+427|PhD student
+428|School & work
+429|Property & finance
+430|Relationships
+431|Activities
+432|Menu
+433|Profile
+434|Achievements
+435|World map
+436|You dropped out.
+437|University
+438|College
+439|You got into college.
+440|Master's program
+441|PhD program
+442|Get a diploma (night school)
+443|You passed the exams externally and got your diploma.
+444|Work harder
+445|You worked like crazy. Management noticed.
+446|Ask for a raise
+447|A 12% raise approved! 🎉
+448|Your boss refused and gave you a funny look.
+449|Bond with coworkers
+450|The office party was a success. Your coworkers appreciate you.
+451|Quit
+452|Confident
+453|Modest and honest
+454|Embellish your résumé
+455|The mortgage was paid off early! 🎉
+456|Nothing here yet
+457|· rented out
+458|Stop renting it out
+459|You can buy property from age 18 🙂
+460|· mortgage available
+461|(with a mortgage)
+462|passed away
+463|You're all alone... Find friends in "Activities".
+464|Spend time together
+465|happy
+466|happy
+467|happy
+468|Have a heart-to-heart
+469|opened up
+470|opened up
+471|opened up
+472|Ask for money
+473|Propose
+474|The wedding of the century! You're now married. 💒
+475|A small registry wedding
+476|You got married. Cheers! 🥂
+477|Have a baby
+478|Romantic date
+479|The candlelit dinner was a success. ❤️
+480|Divorce
+481|Break up
+482|Stop talking
+483|Pick a fight
+484|offended
+485|offended
+486|offended
+487|It didn't work out yet. Try again next year.
+488|joined the family
+489|was born
+490|daughter
+491|child
+492|You're still too little. Just grow! 🍼
+493|Who shall we get?
+494|Ask your parents!
+495|Your parents said "no". 😢
+496|Security won't let you in without money.
+497|Roulette: red or black? The bet doubles if you win.
+498|Where are we moving?
+499|What gender do you feel you are?
+500|Your loved ones supported you.
+501|· unlocked
+502|· hidden
+503|Continue as your child
+504|Share the summary
+505|New life
+506|There's a war. You've received a draft notice.
+507|Killed in the war
+508|You died defending your country. Eternal memory.
+509|You went through the war and came home a veteran. 🎖️
+510|You worked 12-hour shifts at a factory, helping the front.
+511|Draft evasion
+512|They found you.
+513|You managed to hide.
+514|There's a war. Your childhood fell on hard years.
+515|The Great Depression wiped out your stocks.
+516|You were laid off due to the crisis.
+517|Financial crisis: stocks fell 40%.
+518|Crisis: you were laid off.
+519|Hyperinflation ate almost all your savings.

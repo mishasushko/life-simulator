@@ -1,0 +1,159 @@
+{0} Выш{1} ваш{2} {3} «{4}»: {5}/10, доход {6}.|{0} Your {3} "{4}" is out: {5}/10, income {6}.
+Война началась: {0}.|War has begun: {0}.
+Война началась: {0}|War has begun: {0}
+мама|mama
+папа|dada
+дай|gimme
+кот|kitty
+нет|no
+ням|yum
+баба|grandma
+машина|car
+(с арендой)|(with rent)
+с арендой|with rent
+пособие +{0}|benefit +{0}
+Учитель|Teacher
+Инженер|Engineer
+Врач|Doctor
+Продавец|Salesperson
+Водитель|Driver
+Бухгалтер|Accountant
+Программист|Programmer
+Повар|Cook
+Медсестра|Nurse
+Строитель|Builder
+Менеджер|Manager
+Юрист|Lawyer
+Дизайнер|Designer
+Полицейский|Police officer
+Фермер|Farmer
+Предприниматель|Entrepreneur
+Архитектор|Architect
+Фотограф|Photographer
+Безработный|Unemployed
+Музыкант|Musician
+Учёный|Scientist
+Пилот|Pilot
+Бариста|Barista
+Журналист|Journalist
+деревянную лошадку|a wooden horse
+тряпичную куклу|a rag doll
+юлу|a spinning top
+жестяную машинку|a tin toy car
+плюшевого мишку|a teddy bear
+кубики|building blocks
+конструктор|a construction set
+куклу|a doll
+железную дорогу|a toy railway
+радиоуправляемую машинку|a remote-control car
+интерактивную игрушку|an interactive toy
+детский планшет|a kids' tablet
+робота|a robot
+огромный конструктор|a huge construction set
+коньки|skates
+книгу сказок|a book of fairy tales
+карманные часы|a pocket watch
+велосипед|a bicycle
+фотоаппарат|a camera
+футбольный мяч|a soccer ball
+кассетный магнитофон|a cassette player
+джинсы|jeans
+игровую приставку|a game console
+плеер|a music player
+мобильник|a cell phone
+смартфон|a smartphone
+наушники|headphones
+VR-очки|VR glasses
+робота-помощника|a robot helper
+умные часы|a smartwatch
+духи|perfume
+часы|a watch
+книгу|a book
+сертификат в спа|a spa voucher
+поездку на выходные|a weekend trip
+картину|a painting
+кофемашину|a coffee machine
+свитер ручной вязки|a hand-knitted sweater
+носки (опять)|socks (again)
+{0} «{1}»: прибыль {2} · оценка {3}.|{0} "{1}": profit {2} · valuation {3}.
+{0} «{1}»: убыток {2} · оценка {3}.|{0} "{1}": loss {2} · valuation {3}.
+(новая страна!)|(new country!)
+новая страна!|new country!
+выпуск {0}|class of {0}
+золотая медаль|gold medal
+король/королева бала|prom king/queen
+Дети|Children
+Последний|Last
+Тихий|Quiet
+Красный|Red
+Невидимый|Invisible
+Северный|Northern
+Стеклянный|Glass
+Бесконечный|Endless
+Забытый|Forgotten
+Золотой|Golden
+Ночной|Night
+Дикий|Wild
+Седьмой|Seventh
+город|city
+сад|garden
+дом|house
+Город|City
+Сад|Garden
+Роман|Novel
+Поп|Pop
+Рок|Rock
+Джаз|Jazz
+Рэп|Rap
+Электроника|Electronic
+Классика|Classical
+Фолк|Folk
+Инди|Indie
+Драма|Drama
+Комедия|Comedy
+Боевик|Action
+Ужасы|Horror
+Мелодрама|Melodrama
+Арт-хаус|Art house
+Документальный|Documentary
+Мультфильм|Animation
+с золотой медалью 🥇|with a gold medal 🥇
+с золотой медалью|with a gold medal
+предмет «{0}»|{0}
+на бюджет! 🎉|on a free place! 🎉
+на бюджет!|on a free place!
+стране|country
+странах|countries
+историческое событие|historical event
+исторических события|historical events
+исторических событий|historical events
+вкл|on
+выкл|off
+Динамо|Dynamo
+Спартак|Spartak
+Олимп|Olympus
+Атлант|Atlas
+Звезда|Star
+Торпедо|Torpedo
+Метеор|Meteor
+Феникс|Phoenix
+Вулкан|Volcano
+Титан|Titan
+Буревестник|Petrel
+Ракета|Rocket
+Гражданская война в Таджикистане|Tajik Civil War
+Гражданская война в Сирии|Syrian Civil War
+Гражданская война в Ливане|Lebanese Civil War
+Гражданская война в Анголе|Angolan Civil War
+Гражданская война в Мозамбике|Mozambican Civil War
+Гражданская война в Гватемале|Guatemalan Civil War
+Гражданская война в Финляндии|Finnish Civil War
+Гражданская война в Испании|Spanish Civil War
+Гражданская война в Китае|Chinese Civil War
+Войны в Югославии|Yugoslav Wars
+Война в Ираке|Iraq War
+Эфиопо-эритрейская война|Eritrean–Ethiopian War
+Я побывал{0} в {1} {2} и пережил{3} {4} {5}.|I have been to {1} {2} and lived through {4} {5}.
+Причина:|Cause:
+музыка и изо|music & art
+Музыка и изо|Music & art

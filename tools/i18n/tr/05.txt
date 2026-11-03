@@ -1,0 +1,280 @@
+1080|The Moscow Olympics. Misha the bear flew away.
+1081|The Solidarity trade union challenged the government.
+1082|Gorbachev announced perestroika and glasnost.
+1083|The Chernobyl nuclear disaster.
+1084|The Berlin Wall has fallen!
+1085|The Velvet Revolution.
+1086|Germany reunified.
+1087|The Soviet Union collapsed. Your country is an independent state.
+1088|Czechoslovakia peacefully split into two states.
+1089|Nelson Mandela was elected president. Apartheid is over.
+1090|Hong Kong was handed over to China. Princess Diana died.
+1091|The country has a new president. The New Year's address will be remembered for a long time.
+1092|The September 11 attacks shook the country.
+1093|Euro cash entered circulation.
+1094|The Indian Ocean tsunami took hundreds of thousands of lives.
+1095|The Beijing Olympics.
+1096|An earthquake, a tsunami and the Fukushima nuclear disaster.
+1097|The Arab Spring: mass protests.
+1098|The Sochi Olympics.
+1099|A referendum on leaving the European Union.
+1100|A full-scale war began.
+1101|Argentina are world football champions!
+1102|Ukraine (Civil War)
+1103|Belarus (Civil War)
+1104|Turkestan (Civil War)
+1105|Russian Empire (Turkestan)
+1106|Democratic Republic of Georgia
+1107|First Republic of Armenia
+1108|Azerbaijan Democratic Republic
+1109|Polish lands (under empires)
+1110|Grand Duchy of Finland
+1111|Ireland (United Kingdom)
+1112|Vietnam (divided)
+1113|Korean Empire
+1114|Ottoman Palestine
+1115|Nejd and Hejaz
+1116|Trucial Oman
+1117|British Nigeria
+1118|British Kenya
+1119|Morocco (protectorate)
+1120|Egypt (British protectorate)
+1121|Philippines (USA)
+1122|Singapore (colony)
+1123|Kingdom of Serbia
+1124|Outer Mongolia
+1125|Cape Colony
+1126|Union of South Africa
+1127|Australian colonies
+1128|Iceland (Denmark)
+1129|Kingdom of Iceland
+1130|Norway (union with Sweden)
+1131|Petrograd
+1132|Leningrad
+1133|Sverdlovsk
+1134|Novonikolaevsk
+1135|Yekaterinodar
+1136|Yekaterinoslav
+1137|Dnipropetrovsk
+1138|Verny
+1139|Alma-Ata
+1140|Akmolinsk
+1141|Tselinograd
+1142|Akmola
+1143|Nur-Sultan
+1144|Chimkent
+1145|Fort-Shevchenko (village)
+1146|Alexandropol
+1147|Leninakan
+1148|Karaklis
+1149|Kirovakan
+1150|Elizavetpol
+1151|Kirovabad
+1152|Tiflis
+1153|Urga
+1154|Saigon
+1155|Bombay
+1156|Madras
+1157|Constantinople
+1158|Beiping
+1159|Baku (outskirts)
+1160|Bao'an (fishing village)
+1161|Bulgan
+1162|Selenge
+1163|Bread is rationed. You're always hungry.
+1164|Your family was evacuated deep into the rear.
+1165|You're waiting for letters from the front.
+1166|You received a draft notice from the military office.
+1167|You died in the war. Eternal memory.
+1168|You went through the war and came home with a medal. 🎖️
+1169|You went through the war and came home a veteran.
+1170|Deferment for studies or health
+1171|You got a deferment.
+1172|No deferment. You served, but came back alive.
+1173|You were detained at the border.
+1174|Spanish flu
+1175|Asian flu
+1176|Hong Kong flu
+1177|H7 bird flu
+1178|The "Omega" virus
+1179|A new coronavirus
+1180|The country is in an economic crisis: layoffs, wages are falling.
+1181|Economic crisis
+1182|The economy is booming: plenty of jobs, wages are rising.
+1183|Economic growth: you got a 5% raise.
+1184|billions
+1185|Same-sex marriage has been legalized in the country.
+1186|Smoking was banned in cafés and bars.
+1187|The country abolished the death penalty.
+1188|Women got the right to vote!
+1189|Financial crisis: stocks fell by a third.
+1190|world
+1191|Patriotic
+1192|The war is over! People are hugging in the streets.
+1193|End of the war
+1194|The Titanic
+1195|You're offered a ticket on the biggest liner in the world: its maiden voyage across the Atlantic!
+1196|The sinking of the Titanic
+1197|The liner hit an iceberg. You didn't make it into a lifeboat.
+1198|The liner sank, but you got a seat in a lifeboat. You survived.
+1199|A week later you read about the disaster in the paper and couldn't sleep for a long time.
+1200|Strike
+1201|Workers declared a general strike and took to the streets.
+1202|Participation in riots
+1203|Cossacks dispersed the demonstration.
+1204|You stood shoulder to shoulder with the workers.
+1205|Wait it out at home
+1206|You waited out the storm at home.
+1207|The new government declared that your property now belongs to the people.
+1208|Support the Reds
+1209|You gave all your property to the new government.
+1210|You joined the Red Guard.
+1211|Support the Whites
+1212|You fought for the Whites. Your house was burned.
+1213|You left with the White army and survived.
+1214|Emigrate
+1215|A gangster acquaintance offers you a job smuggling whiskey from Canada.
+1216|Run whiskey
+1217|Bootlegging
+1218|Go to a speakeasy
+1219|Jazz, cocktails in teacups and police raids. Fun!
+1220|Obey the law
+1221|You drink lemonade.
+1222|Famine
+1223|Famine. There's nothing to eat in the villages, people are swollen with hunger.
+1224|Collectivization
+1225|A collective farm is being created in the village. Everyone is told to hand over livestock and land.
+1226|Join the collective farm
+1227|You handed over your cow and became a collective farmer.
+1228|Leave for a construction site in the city
+1229|You were declared a kulak and dispossessed.
+1230|They haven't touched you yet.
+1231|A knock at night
+1232|Your neighbor in the communal flat was taken away at night in a black car. The investigator asks you to sign testimony against him.
+1233|Sign
+1234|You signed. Your conscience will torment you all your life.
+1235|Article 58 (political)
+1236|You were arrested next. The camp.
+1237|The investigator let you go. You were lucky.
+1238|The Siege of Leningrad
+1239|The city is surrounded. 125 grams of bread a day. Winter, no heating.
+1240|Evacuate via the Road of Life
+1241|The truck went under the ice.
+1242|You were taken out across the ice of Lake Ladoga. You're alive.
+1243|Stay in the city
+1244|You didn't survive the siege winter.
+1245|You survived the siege. You'll value bread for the rest of your life.
+1246|Persecution
+1247|The occupation authorities are persecuting Jewish families. You need to escape.
+1248|Flee overseas
+1249|The Holocaust
+1250|You were caught at the border.
+1251|Hide with neighbors
+1252|Kind people hid you in their attic until the end of the war. You survived.
+1253|You were betrayed.
+1254|Amnesty! You've been released.
+1255|The radio announced Stalin's death. Many are crying, some secretly rejoice.
+1256|Virgin Lands
+1257|The Komsomol is calling volunteers to cultivate the virgin lands in the Kazakh steppes.
+1258|Go
+1259|You went to the virgin lands and met your love there!
+1260|Tents, steppe and endless wheat fields.
+1261|The Youth Festival
+1262|Thousands of foreigners came to Moscow. Jeans, jazz and conversations in broken English.
+1263|Meet a foreigner
+1264|You befriended a festival guest and corresponded for many years.
+1265|You exchanged badges and addresses.
+1266|Watch from the sidelines
+1267|You watched the celebration from the window.
+1268|Cuban Missile Crisis: the radio talks about missiles. The family stocks up on buckwheat and matches.
+1269|Beatlemania
+1270|A friend got Beatles recordings on X-ray films, "music on bones".
+1271|The radio plays the Beatles. Everyone's going crazy.
+1272|Listen until it wears out
+1273|You learned all the songs by heart.
+1274|That's noise, not music
+1275|You stayed true to the classics.
+1276|Woodstock
+1277|Three days of peace and music on a farm near New York!
+1278|Mud, rain, Jimi Hendrix and half a million friends.
+1279|You regretted it all your life.
+1280|Protests
+1281|Students are building barricades and demanding change.
+1282|To the barricades
+1283|You were detained.
+1284|You feel like you're making history.
+1285|Keep studying
+1286|You stayed in the library.
+1287|Six hundred square meters
+1288|The trade union is handing out garden plots. A plot for potatoes and a hut you build yourself!
+1289|Take a plot
+1290|Dacha (garden plot)
+1291|Every weekend is now at the dacha: garden beds, barbecues, mosquitoes.
+1292|You don't like digging potatoes.
+1293|An accident at a nuclear plant. Cleanup workers are needed, good money promised.
+1294|Go as a cleanup worker
+1295|You saved people. Your health will never be the same.
+1296|You stayed home and followed the news.
+1297|The wall has fallen!
+1298|Thousands of people are walking through the checkpoints. Berlin is one again!
+1299|Chip off a piece of the wall
+1300|A piece of the Berlin Wall
+1301|A piece of the wall now sits on your shelf.
+1302|Hug strangers
+1303|Tears, champagne and hugs until morning.
+1304|"Swan Lake" is on TV, and then the news: the Union is no more.
+1305|You believe the best is ahead.
+1306|You started gathering documents.
+1307|You keep your party card in the closet.
+1308|Shuttle trader
+1309|Turkey
+1310|Poland
+1311|Go with big bags
+1312|The goods were confiscated at customs.
+1313|You decided not to get involved.
+1314|The Y2K problem
+1315|They say that on New Year's Eve all computers will go crazy and planes will fall.
+1316|Stock up on canned meat and water
+1317|Nothing happened. You ate the canned meat for another year.
+1318|Laugh it off
+1319|You welcomed 2000 with champagne. Everything works.
+1320|Everyone is staying home. How will you spend the lockdown?
+1321|Bake bread and learn something new
+1322|You mastered sourdough and an online course.
+1323|Shows and delivery
+1324|You watched every show in the world.
+1325|Help elderly neighbors
+1326|You carried groceries to your retired neighbors.
+1327|A coronavirus vaccine has appeared.
+1328|Shot done. Your arm hurt for a day.
+1329|You decided to wait.
+1330|A neural network can now do your job. The company offers retraining.
+1331|You learned to manage AI agents and kept your job.
+1332|You were replaced by an algorithm.
+1333|They haven't touched you yet.
+1334|An extreme heat wave: 45 °C in the shade. Air conditioners are sold out.
+1335|A flood submerged half the city.
+1336|A hurricane tore off roofs all over the district.
+1337|Unprecedented frosts, even though the climate is warming.
+1338|Recruitment of Mars colonists is underway. One-way ticket.
+1339|You were chosen! You flew to Mars. Your homeland is the red planet. 🚀
+1340|You weren't picked. A million applicants per place.
+1341|You stay on Earth.
+1342|Unsinkable
+1343|Survive the Titanic
+1344|Survivor
+1345|Survive the siege or persecution
+1346|Liquidator
+1347|Save people at Chernobyl
+1348|Flower child
+1349|Go to Woodstock
+1350|Martian
+1351|Fly to Mars as a colonist
+1352|Child of the century
+1353|Be born in the 1900s and live to 2000
+1354|The world today
+1355|Crisis
+1356|Boom
+1357|Stable
+1358|Peace. No one is shooting anywhere 🕊️
+1359|History is passing you by for now

@@ -191,7 +191,7 @@ showDeath = function () {
   if (S.dyn && !S.people.some((p) => p.role === 'child' && p.alive)) mk('🧬 Найти дальнего родственника', () => {
     closeModal();
     const g = npcGender(); const k = makePerson('child', { gender: g, age: rnd(18, 30), surname: surnameFor(S.surnameBase, g, C().names), looks: rnd(30, 90), smarts: rnd(30, 90), close: 30 });
-    S.people.push(k); S.dyn.honor -= 20; continueAs(k); log('🧬 Династию продолжил дальний родственник. Честь рода немного пострадала.', 'info');
+    S.people.push(k); if (S.dyn) S.dyn.honor -= 20; continueAs(k); log('🧬 Династию продолжил дальний родственник. Честь рода немного пострадала.', 'info');
   });
 };
 ACHIEVEMENTS.push(

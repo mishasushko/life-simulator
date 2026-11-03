@@ -1,0 +1,280 @@
+800|Music school
+801|Football club
+802|Art school
+803|Robotics
+804|Drama club
+805|Dance studio
+806|Language courses
+807|Literary club
+808|Where will you sign up?
+809|One club per year. Skills grow faster than at home.
+810|Classmate
+811|Tuition is paid and higher than usual, but the diploma is valued more.
+812|Major
+813|School reunion
+814|Everyone asked how you managed to be so successful.
+815|It was warm and a little sad.
+816|You stayed home.
+817|on a test
+818|on an exam
+819|in their career
+820|at a beauty contest
+821|in popularity
+822|on social media
+823|in PE class
+824|in a marathon
+825|at the gym
+826|Noisy neighbor
+827|Join in
+828|You were the best guest at the party!
+829|Knock on the wall
+830|They turned the music down. For a while.
+831|The police came. The neighbor now glares at you.
+832|Flood
+833|Demand compensation
+834|The neighbor apologized and paid for everything.
+835|The neighbor refused to pay. The repairs are on you.
+836|You did the repairs yourself. The neighbor owes you.
+837|What a wonderful day! ☀️
+838|Does anyone know a good dentist?
+839|Finally, vacation! ✈️
+840|Started running in the mornings. Day 1 🏃
+841|Look at this sunset 🌅
+842|Baked a pie, it came out crooked but tasty 🥧
+843|Mondays are hard 😩
+844|New haircut! What do you think? 💇
+845|Reading a great book, recommend it to everyone 📚
+846|Who's going to the concert on Saturday? 🎸
+847|Got an A! 📝
+848|Mom won't let me get a dog 😭
+849|Best day at camp ⛺
+850|Holidays soon!!! 🎉
+851|The grandkids visited, they've grown so big ❤️
+852|The garden did great this year 🍅
+853|Remembering my youth… 📷
+854|Learned to use this social network of yours 👴
+855|Love you! ❤️
+856|The best person in the world is by my side 💕
+857|Our dinner together 🍝
+858|Bought a new car, just because 😎
+859|Another promotion. Let's go! 💼
+860|Ran a marathon 🏅
+861|Relaxing in the Maldives 🏝️
+862|Feed
+863|Photo
+864|Thought
+865|Meme
+866|Empty for now. Posts from your friends and family will appear here.
+867|New photo 📸
+868|The morning starts with coffee ☕
+869|Me and the sunset 🌅
+870|Sometimes you just need to stop and think 💭
+871|The main thing is not to give up
+872|Sharing my thoughts on life…
+873|When it's Monday 😂
+874|Me at work vs me on Friday 🤣
+875|The cat is staring into my soul 😹
+876|your post
+877|Posted
+878|A friend's startup
+879|Invest
+880|Coworker
+881|The whole office found out about the affair. Management is unhappy, coworkers whisper.
+882|You were asked to resign "voluntarily".
+883|Glances at the water cooler
+884|Reciprocate
+885|A spark flew between you…
+886|Keep your distance
+887|Work is work.
+888|The fence feud
+889|Your neighbor built a fence half a meter onto your land and refuses to move it.
+890|Lawsuit filed. The verdict will come in a year.
+891|Settle it peacefully
+892|The neighbor thought it over and moved the fence.
+893|The neighbor didn't budge, but you saved your nerves.
+894|Tear the fence down at night
+895|The fence disappeared. The neighbor couldn't prove a thing.
+896|Property damage
+897|The neighbor's camera caught you.
+898|DNA test
+899|You took a DNA test for fun. The system found a match: you have a half-sibling!
+900|Let the past be
+901|You closed the tab.
+902|An old map
+903|Clearing out the attic, you found a yellowed map of the land with an X on it.
+904|Dig!
+905|You dug up half the plot. You only found an old horseshoe.
+906|Hang the map on the wall
+907|A beautiful piece of decor.
+908|Mentor
+909|Gladly
+910|You decided to go your own way.
+911|Your mentor put in a good word for you. Management is impressed.
+912|Your mentor said they taught you everything they knew.
+913|Shortage
+914|The store "threw out" imported boots. The line stretches three blocks.
+915|Stand in line
+916|Got them! The last pair.
+917|They ran out right before you.
+918|Buy from a black marketeer
+919|Three times the price, but no line.
+920|The old ones will do.
+921|Cooperative
+922|Perestroika! Now you can open your own cooperative.
+923|You opened a cooperative. The time of the first entrepreneurs!
+924|You decided to see what happens next.
+925|Voucher
+926|You were issued a privatization voucher. What will you do with it?
+927|The factory went bankrupt. The voucher turned into scrap paper.
+928|The fund vanished along with its founders.
+929|Sell it at the metro
+930|You traded the voucher for a couple of bottles and some cash.
+931|Pyramid scheme
+932|TV ads promise 1000% a year. The neighbors have already invested.
+933|You managed to cash out double before the crash!
+934|The pyramid collapsed. All your savings are lost.
+935|Six months later the pyramid collapsed. You were right.
+936|Protection racket
+937|Tough guys in leather jackets come to your office offering "protection".
+938|Now you have a "roof".
+939|They wrecked the office and beat you up.
+940|It worked out. They must have found an easier target.
+941|Go to the police
+942|The gangsters were arrested!
+943|The police just shrugged.
+944|Internet fever
+945|Everyone's buying internet stocks. A neighbor made a million on a dog food website.
+946|You invested in dot-coms!
+947|Stay out
+948|You stayed on the sidelines.
+949|The bubble burst
+950|Internet stocks are crashing one after another.
+951|Sell now
+952|Hold to the end
+953|The company went bankrupt.
+954|Television
+955|TVs have appeared in the store! The whole family dreams of one.
+956|Now the neighbors come over to watch movies.
+957|You'll be going to the neighbors'.
+958|VCR
+959|Friends got hold of a VCR and action movie tapes.
+960|Watch all night
+961|You watched every tape. The nasal voice-over is etched in memory forever.
+962|Sleep
+963|You got a good night's sleep.
+964|Smartphone
+965|Touchscreen smartphones are out. Everyone's talking about them.
+966|You fell in love with your new phone.
+967|My button phone is fine
+968|Your phone holds a charge for a week. That's a plus too.
+969|Neural implant
+970|A clinic offers a neural implant: better memory and faster thinking.
+971|The world became brighter and clearer. Smarts +15.
+972|Your body rejected the implant. A difficult surgery.
+973|I'm against it
+974|You stayed one hundred percent human.
+975|Robot helper
+976|Home robots are on sale: they cook, clean and walk the dog.
+977|A robot named Vasya is now part of the family.
+978|You still wash the dishes yourself.
+979|The whole country is glued to the radio: a man in space! You'll remember this day forever.
+980|You watched the Moon landing broadcast holding your breath.
+981|Student of the world
+982|Go to university abroad
+983|Business angel
+984|Profit from a friend's startup
+985|Treasure hunter
+986|Find a treasure
+987|Cyborg
+988|Get a neural implant
+989|A stock portfolio worth over 10M ₽
+990|Short
+991|Buzz cut
+992|Side part
+993|Curls
+994|Long
+995|Bob
+996|Bun
+997|Ponytail
+998|Mohawk
+999|Afro
+1000|Bald
+1001|Appearance
+1002|this is how you'll look as an adult
+1003|· from birth
+1004|No glasses
+1005|With glasses
+1006|No beard
+1007|With a beard
+1008|Hairstyle, hair color, clothes, glasses
+1009|A new century! The World's Fair opened in Paris, featuring a moving sidewalk.
+1010|The first Nobel Prizes were awarded. Queen Victoria died.
+1011|Georges Méliès made the film "A Trip to the Moon".
+1012|The Wright brothers made the first controlled airplane flight.
+1013|The Russo-Japanese War began. The New York subway opened.
+1014|Einstein published the theory of relativity. Russia's first revolution.
+1015|An earthquake destroyed San Francisco. Russia convened its first State Duma.
+1016|A stock market panic in the USA. Louis Lumière patented color photography.
+1017|The Tunguska meteorite exploded over Siberia. Ford released the Model T.
+1018|Louis Blériot flew across the English Channel in an airplane.
+1019|Halley's Comet passed close to Earth, and many expected the end of the world.
+1020|Roald Amundsen was the first to reach the South Pole. The "Mona Lisa" was stolen from the Louvre.
+1021|The Titanic sank. More than 1,500 people died.
+1022|Ford launched the assembly line: a car is built in an hour and a half.
+1023|Archduke Franz Ferdinand was assassinated. World War I began.
+1024|Chemical weapons were used for the first time. The Panama Canal opened.
+1025|The battles of Verdun and the Somme claimed more than a million lives.
+1026|Revolution in Russia: the monarchy fell and the Bolsheviks took power.
+1027|World War I is over. The "Spanish flu" has swept the world.
+1028|The Treaty of Versailles was signed. The first non-stop flight across the Atlantic.
+1029|Insulin was discovered. Famine began in the Volga region.
+1030|Hyperinflation in Germany: a loaf of bread costs billions of marks.
+1031|A prototype television was invented. The Charleston became the craze.
+1032|The US repealed Prohibition. The Nazis came to power in Germany.
+1033|The world's first laundromat opened. The Chelyuskin crew was rescued from an ice floe.
+1034|The first hydrogen bomb was tested. Elizabeth II became queen.
+1035|Beatlemania swept America. The Shinkansen bullet train opened.
+1036|"Lucy", the skeleton of a human ancestor, was found. The Rubik's Cube was invented.
+1037|The first CD was sold. The film "E.T." came out.
+1038|The Australian colonies united into a federation.
+1039|Norway became independent from Sweden.
+1040|Finnish women were the first in Europe to get the vote.
+1041|The Mexican Revolution began.
+1042|Portugal became a republic.
+1043|The Qing Empire fell, and the Republic of China was proclaimed.
+1044|Finland declared independence.
+1045|Your country declared independence.
+1046|American women got the vote. Prohibition is in force.
+1047|The Irish Free State was established.
+1048|The Republic of Turkey was proclaimed, led by Atatürk.
+1049|Women got equal voting rights with men.
+1050|Terrible famine in the villages after collectivization.
+1051|The metro opened in Moscow.
+1052|The Spanish Civil War began.
+1053|The Great Terror: arrests at night, people are afraid to speak aloud.
+1054|Germany attacked. The Great Patriotic War began.
+1055|The attack on Pearl Harbor. The US entered World War II.
+1056|The atomic bombings of Hiroshima and Nagasaki. Japan surrendered.
+1057|India gained independence. Partition and mass migrations.
+1058|The State of Israel was proclaimed.
+1059|The People's Republic of China was proclaimed.
+1060|Germany was divided into West and East Germany.
+1061|Stalin died. The "Thaw" and an amnesty begin.
+1062|The Virgin Lands campaign began: hundreds of thousands of volunteers head to the steppe.
+1063|Rosa Parks refused to give up her bus seat. The fight for civil rights.
+1064|The Suez Crisis: Egypt nationalized the canal.
+1065|The first artificial satellite was launched. The Youth Festival in Moscow.
+1066|The Cuban Revolution triumphed.
+1067|Nigeria gained independence.
+1068|The Berlin Wall was built.
+1069|Kenya became independent.
+1070|Martin Luther King: "I have a dream".
+1071|Singapore became an independent state.
+1072|The "Cultural Revolution" began.
+1073|The Prague Spring was crushed by tanks.
+1074|The "Red May" student protests paralyzed France.
+1075|A military coup in Chile.
+1076|The war is over, Vietnam is reunified.
+1077|A military junta took power in Argentina.
+1078|Deng Xiaoping's reforms began: China opens up to the world.
+1079|Soviet troops entered Afghanistan.

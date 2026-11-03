@@ -323,7 +323,7 @@ function createWork(t) {
     if (rating >= 9) unlock('masterpiece'); if (S.works.length >= 5) unlock('prolific');
     if (earn >= price(t.sale * 3)) { unlock('bestseller'); w.hit = true; }
     Q.push({ e: t.e, title: `«${w.title}»`, html: `<div class="muted">${t.n} · ${esc(genre)} · ${S.year}</div><div class="work-rating">${'★'.repeat(Math.round(rating / 2))}${'☆'.repeat(5 - Math.round(rating / 2))} <b>${rating}/10</b></div>${w.rev.map((r) => `<div class="review">${esc(r)}</div>`).join('')}<div class="muted">Доход за первый год: ${fmt(earn)}${w.hit ? ' · 🔥 хит!' : ''}</div>` });
-    return `${t.e} Вышел${t.id === 'book' || t.id === 'painting' || t.id === 'game' ? 'а' : ''} ваш${t.id === 'book' || t.id === 'painting' || t.id === 'game' ? 'а' : ''} ${t.n.toLowerCase()} «${w.title}»: ${rating}/10, доход ${fmt(earn)}.`;
+    return `${t.e} Выш${t.id === 'book' || t.id === 'painting' || t.id === 'game' ? 'ла' : 'ел'} ваш${t.id === 'book' || t.id === 'painting' || t.id === 'game' ? 'а' : ''} ${t.n.toLowerCase()} «${w.title}»: ${rating}/10, доход ${fmt(earn)}.`;
   };
   Q.push({ e: t.e, title: `${t.n}: жанр`, text: `Сейчас в моде: ${hotGenre(t).toLowerCase()}. Навык: ${skillOf(t.skill)}/100.`, choices: t.genres.map((g) => ({ t: g === hotGenre(t) ? `🔥 ${g}` : g, f: () => {
     Q.push({ e: t.e, title: 'Сколько сил вложить?', text: `Название: «${S._wt || (S._wt = workTitle())}»`, choices: [

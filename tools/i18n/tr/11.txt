@@ -1,0 +1,280 @@
+2760|Mountain training camp
+2761|⛺ The camp went great: fresh air and a strict routine.
+2762|Look for a new club
+2763|A transfer for money or titles
+2764|Transfer offers
+2765|Your agent brought three options.
+2766|You decided to stay with your home team. The fans are thrilled.
+2767|Retire
+2768|Become a coach or commentator
+2769|Quit sports
+2770|Retire?
+2771|There will be no coming back.
+2772|Yes, it's time
+2773|🎙️ Farewell match! You left the sport a legend and became a commentator.
+2774|Still got fight left
+2775|Professional contract
+2776|You'll have to quit your current job.
+2777|Sign it!
+2778|Stay an amateur
+2779|You chose studies and stability.
+2780|📉 You're no longer called up to the national team.
+2781|you won the main tournament of the year!
+2782|the team is mid-table
+2783|several finals and semifinals
+2784|Suspicious offer
+2785|The team doctor hints at "vitamins" that would give +10 to fitness. Nobody will find out…
+2786|You stayed clean. Your conscience is at peace.
+2787|🚫 Positive doping test! A 2-year ban and your medal is stripped. Disgrace.
+2788|💉 Your form skyrocketed. So far nobody has noticed anything.
+2789|🏅 World Championship: you're among the medalists.
+2790|🌍 World Championship: no medals.
+2791|Age takes its toll
+2792|Your body isn't what it used to be. Maybe it's time to retire?
+2793|Retire in style
+2794|🎙️ You played a farewell match and left to a standing ovation.
+2795|One more season!
+2796|You decided to keep fighting.
+2797|Athens
+2798|Paris
+2799|London
+2800|Stockholm
+2801|Berlin
+2802|Melbourne
+2803|Rome
+2804|Munich
+2805|Montreal
+2806|Moscow
+2807|Seoul
+2808|Barcelona
+2809|Atlanta
+2810|Sydney
+2811|Beijing
+2812|Los Angeles
+2813|Brisbane
+2814|🤕 You took a risk and got injured right in the final. No medal.
+2815|🥈 Olympic silver! Just a hair short of gold.
+2816|🥉 Olympic bronze! You're on the podium.
+2817|💯 Give it a hundred percent
+2818|🧠 Cold calculation
+2819|🎲 Risk it for gold
+2820|Retired
+2821|Clubs, pros, national team, Olympics
+2822|Sports career
+2823|Youth club, pro club, national team, Olympics
+2824|Errand boy
+2825|Soldier
+2826|Overseer
+2827|Right hand
+2828|Boss
+2829|"Black Wolves"
+2830|the "Raven" syndicate
+2831|"Dockers"
+2832|the Marchelli family
+2833|"Riverside Three"
+2834|"Velvet Gloves"
+2835|"Iron Circle"
+2836|"Night Kings"
+2837|the "Scorpion" clan
+2838|"North Wind"
+2839|Collect tribute from kiosks
+2840|Deliver a "package"
+2841|Steal a batch of cars
+2842|Put the market under "protection"
+2843|Smuggling through the port
+2844|Armored car heist
+2845|Underground casino
+2846|Hostile takeover of a factory
+2847|🕴️ Underworld
+2848|You've left the business
+2849|You're not in a gang
+2850|🕴️ Join a gang
+2851|experienced
+2852|star
+2853|<div class="empty">You're behind bars. The gang remembers you and sends care packages.</div>
+2854|Jobs
+2855|Raid!
+2856|The job went wrong, you were caught red-handed.
+2857|Shootout
+2858|Everything went wrong. You're wounded but alive.
+2859|Job done
+2860|Connections
+2861|Pay off the police
+2862|Bribing an official
+2863|Setup
+2864|The cop turned out to be honest.
+2865|🤝 "Problem solved." The police look the other way.
+2866|Lie low
+2867|−20% heat, but no income
+2868|🕳️ You laid low for this year.
+2869|star
+2870|experienced
+2871|A star lawyer on the payroll
+2872|The best defense in the country
+2873|Recruit soldiers
+2874|Leave the business
+2875|Not everyone gets let go
+2876|Leave the gang?
+2877|The higher the rank, the more dangerous. You can buy your way out or disappear.
+2878|🚪 You bought your way out of the business. Starting an honest life.
+2879|🌫️ Just disappear
+2880|Revenge of former partners
+2881|Your old friends found you.
+2882|🔪 They found you and "had a talk". You barely survived, but you're free.
+2883|🌫️ You changed your number and moved away. The gang forgot about you.
+2884|Offer
+2885|Who will be boss?
+2886|The old boss is fading. You can take his place, but you'll have to remove the rivals.
+2887|👑 Seize power
+2888|🔫 The coup failed. You're wounded and lost authority.
+2889|Stay the right hand
+2890|You decided not to go for the throne.
+2891|Gang war
+2892|🔫 Fight back
+2893|🔫 You defended your turf. Your authority skyrocketed.
+2894|Killed in a gang shootout
+2895|The showdown ended tragically.
+2896|🩸 A heavy defeat. You're in the hospital.
+2897|🤝 Negotiate
+2898|🕳️ Sit it out
+2899|They called you a coward.
+2900|🚔 The police conducted a search. You were detained.
+2901|Organizing a criminal community
+2902|Verdict
+2903|Accept the verdict
+2904|Gang lawyer
+2905|Experienced lawyer
+2906|Star lawyer
+2907|🤝 Plea deal
+2908|🐀 You testified against your partners. The gang won't forgive this.
+2909|💵 The case unexpectedly fell apart "for lack of evidence".
+2910|🧑‍⚖️ Public defender
+2911|Revenge of former partners
+2912|🐀 Your former partners sent their "regards". You barely got away.
+2913|Underworld
+2914|Gangs, "jobs", trials and lawyers
+2915|Physics
+2916|Nobel Prize in Physics
+2917|room-temperature superconductivity
+2918|a new elementary particle
+2919|a law of quantum system behavior
+2920|a method of controlled nuclear fusion
+2921|the source of dark energy
+2922|a new kind of radiation
+2923|Chemistry
+2924|Nobel Prize in Chemistry
+2925|a new chemical element
+2926|a catalyst that makes fertilizer cheaper
+2927|a plastic that decomposes in a month
+2928|an ultra-high-capacity battery
+2929|a material stronger than diamond
+2930|Nobel Prize in Medicine
+2931|a new antibiotic
+2932|a vaccine against a dangerous disease
+2933|the mechanism of cell aging
+2934|a cure for a rare form of cancer
+2935|a way to grow organs
+2936|a pill for Alzheimer's disease
+2937|Fields Medal
+2938|a proof of a famous conjecture
+2939|a new branch of topology
+2940|a fast integer factorization algorithm
+2941|a solution to a Millennium Prize problem
+2942|Turing Award
+2943|a new programming language
+2944|a data compression algorithm
+2945|a neural network architecture
+2946|a quantum algorithm
+2947|safe artificial intelligence
+2948|Nobel Prize in Economics
+2949|a theory of market behavior
+2950|a model for fighting inflation
+2951|a theory of behavioral biases
+2952|a model of an economy without poverty
+2953|Astronomy
+2954|a new comet
+2955|a planet around a nearby star
+2956|signs of life on a moon of Jupiter
+2957|gravitational waves from distant stars
+2958|a new galaxy
+2959|a folding umbrella
+2960|a self-cleaning frying pan
+2961|a mechanical vegetable slicer
+2962|a hand-crank pocket flashlight
+2963|Velcro shoe fasteners
+2964|an electric toothbrush
+2965|a child car seat
+2966|an egg-shaped kitchen timer
+2967|a portable radio
+2968|a calculator watch
+2969|a GPS dog collar
+2970|a parking-finder app
+2971|a smart bottle
+2972|a medicine delivery drone
+2973|a flexible screen
+2974|a holographic phone
+2975|a home 3D food printer
+2976|translator glasses
+2977|a personal robot chef
+2978|an anti-gravity skateboard
+2979|🔬 Science & inventions
+2980|discovery
+2981|discoveries
+2982|discoveries
+2983|Researcher
+2984|Discoveries
+2985|You can start a scientific career
+2986|Amateur inventor
+2987|Choose a field. Discoveries, papers, effects named after you and maybe a Nobel Prize.
+2988|Science requires a job as a scientist, doctor, engineer or programmer, or a master's degree. Anyone can invent!
+2989|Choose a field
+2990|Research
+2991|Safe project
+2992|Papers and citations
+2993|paper
+2994|papers
+2995|papers
+2996|Breakthrough project
+2997|A chance of discovery, but you might waste a year
+2998|Apply for a grant
+2999|Money for the lab
+3000|💶 Grant rejected. "Not relevant enough."
+3001|Speak at a conference
+3002|+citations, connections
+3003|Inventions
+3004|Invent something
+3005|The chance depends on smarts and skills
+3006|It worked!
+3007|📜 The patent office found a similar invention from 1987. Rejected.
+3008|💰 Sell the idea to a company
+3009|🎁 Give it to the world for free
+3010|🎁 You published the blueprints openly. The world is grateful.
+3011|🧪 A year of experiments yielded nothing. Science takes patience.
+3012|Effect
+3013|Reaction
+3014|Method
+3015|Theorem
+3016|Algorithm
+3017|Comet
+3018|A great discovery!
+3019|Discovery!
+3020|💐 Name it after your mom
+3021|🔢 Modestly, just a number
+3022|You stayed modest. Your colleagues respect you for it.
+3023|A call from Stockholm
+3024|🎤 Give the Nobel lecture
+3025|💝 Donate the prize to charity
+3026|Science & inventions
+3027|Discoveries, patents, Nobel Prize
+3028|Invent and research
+3029|Patents, discoveries, awards
+3030|Book
+3031|Detective story
+3032|Science fiction
+3033|Fantasy
+3034|Poetry
+3035|Children's book
+3036|Non-fiction
+3037|Music album
+3038|Painting
+3039|Portrait

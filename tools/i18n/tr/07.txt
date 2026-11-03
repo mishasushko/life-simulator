@@ -1,0 +1,280 @@
+1640|Evacuate immediately
+1641|You were smuggled out in the trunk of a diplomatic car.
+1642|You're out of the game. Only memoirs now (after declassification).
+1643|The man in gray
+1644|After work a man in a gray suit approached you: "Your country needs people with your talents."
+1645|You completed training and became an intelligence officer. Not a word to anyone.
+1646|The man nodded and vanished into the crowd.
+1647|The informant agreed to work for you.
+1648|You found out who the target is meeting.
+1649|The documents are yours. HQ is pleased.
+1650|You broke into a foreign network and left no traces.
+1651|They took you for one of their own. You're part of their circle.
+1652|The agent has been rescued and is already home.
+1653|Army & intelligence
+1654|Served
+1655|· veteran
+1656|You failed the medical board.
+1657|You signed a contract. Private!
+1658|Excellent results at the shooting range.
+1659|Requires smarts 55+ · promotion
+1660|You failed the entrance exams.
+1661|There's nowhere higher to go.
+1662|You're already in special forces.
+1663|You didn't pass the forced march.
+1664|You're in special forces! Beret earned. 💪
+1665|Killed on a peacekeeping mission
+1666|You were killed on the mission.
+1667|You're retired. Only three people know about your service.
+1668|They never called back. Word is, the background check found something in your past.
+1669|You're in. From now on you have two lives.
+1670|Rejected without explanation.
+1671|· double agent 🎭
+1672|Killed in the line of duty. Details are classified
+1673|The operation ended tragically.
+1674|Espionage (abroad)
+1675|Counterintelligence arrested you. Wait for an exchange.
+1676|The operation failed. Your cover is at risk.
+1677|You're working for both sides. Be careful.
+1678|You turned in your ID. The secrets will stay with you.
+1679|Top secret 🕵️
+1680|Military career
+1681|Service, special forces, intelligence
+1682|Chain
+1683|Open 10 branches
+1684|The opening bell
+1685|Take a company public
+1686|Bestselling author
+1687|Complete military service
+1688|Hero
+1689|Special forces
+1690|Pass special forces selection
+1691|Join the intelligence service
+1692|Life charts
+1693|Live at least a couple of years to see the charts 📈
+1694|Relationships
+1695|Challenges
+1696|· ✅ completed
+1697|· ❌ failed
+1698|· in progress
+1699|No challenge¦🎲 Random
+1700|Dynasty
+1701|👑 Dynasty mode¦Are you the first of your line?¦Founding a dynasty gives you a family fund free of inheritance tax, a coat of arms, heirlooms, and your house and business pass to your children.
+1702|Found a dynasty
+1703|+5% a year, passes to the heir tax-free
+1704|Deposit 25% of cash
+1705|Withdraw 10%
+1706|generation
+1707|generations
+1708|generations
+1709|None yet. Heirlooms come from your ancestors' awards, memoirs and travels.
+1710|✅ completed
+1711|❌ not completed
+1712|· first result!
+1713|Find a distant relative
+1714|A distant relative continued the dynasty. The family's honor suffered a little.
+1715|Challenge accepted
+1716|Complete any challenge
+1717|Old bloodline
+1718|5 generations of the dynasty
+1719|Century-old dynasty
+1720|The family is 100 years old
+1721|Family fortune
+1722|Dynasty fund of 1B ₽
+1723|Old money
+1724|Seashell
+1725|Sunglasses
+1726|Surfboard
+1727|Hawaiian shirt
+1728|Tower keychain
+1729|Fridge magnet
+1730|Mug with a view
+1731|Painting by a street artist
+1732|Carabiner
+1733|Wool scarf
+1734|Mountain honey
+1735|Anchor keychain
+1736|Compass
+1737|Photo with the captain
+1738|Wooden giraffe
+1739|Djembe drum
+1740|Marabou feather
+1741|Ski resort pin
+1742|Mittens
+1743|Moon dust in a vial
+1744|Crew patch
+1745|Jar of jam
+1746|Postcard
+1747|Matryoshka doll
+1748|Travel
+1749|by steamship and train
+1750|by train and early airlines
+1751|by plane
+1752|· abroad only to socialist countries and with a good reference
+1753|The shelf is empty for now
+1754|You can't get there right now 🚫
+1755|· new!
+1756|orbit
+1757|You orbited the Earth. The planet is so small and fragile...
+1758|The airline lost your luggage. You wore one T-shirt for a week.
+1759|The local cuisine was too exotic: two days in your room.
+1760|You met a celebrity at a café and took a selfie!
+1761|You twisted your ankle on the trail. Rescuers carried you down.
+1762|The pickpockets at the market were real pros.
+1763|The sunset was such that for the first time in ages you thought about nothing.
+1764|You learned a couple of phrases in the local language.
+1765|(new country!)
+1766|Space tourist
+1767|Fly to orbit
+1768|Globetrotter
+1769|Visit 30 countries
+1770|At night a glowing saucer hovered over the field. A beam is beckoning you.
+1771|You came to three days later in another city. For some reason you now know quantum physics.
+1772|You ran all the way home. No one believed you.
+1773|In the subway you met someone who looks exactly like you.
+1774|Swap lives for a day
+1775|You spent a day as a bank director. No one noticed the switch!
+1776|You lived someone else's life for a day. Turns out your double has three cats and a mother-in-law.
+1777|Take a photo together
+1778|The "doubles" photo went viral.
+1779|Time traveler
+1780|Some lunatic
+1781|You shrugged.
+1782|You were struck by lightning! You survived, and now your hair stands on end.
+1783|Dinosaur bone
+1784|Digging a garden bed, you found a dinosaur bone! A museum bought it for good money.
+1785|A black cat by the door clearly said: "Don't go to work tomorrow."
+1786|The next day a construction cradle fell on the office. Thanks, cat!
+1787|Nothing happened, but you got some sleep.
+1788|The cat looked at you with pity.
+1789|A genealogy test showed you're a distant descendant of a royal family! They sent you a family ring and a check.
+1790|You're 42. They say it's the answer to the ultimate question of life, the universe and everything.
+1791|Morpheus
+1792|A man in dark glasses holds out two pills.
+1793|Red
+1794|You woke up in a pod. Welcome to the real world.
+1795|Blue
+1796|You woke up in your bed and believe whatever you want to believe.
+1797|You remembered the time traveler's words and sold your stocks.
+1798|Konami code! +
+1799|Abducted
+1800|Step into the UFO beam
+1801|Meet your double
+1802|From the future
+1803|Meet a time traveler
+1804|Lightning rod
+1805|Survive a lightning strike
+1806|Paleontologist
+1807|Find a dinosaur bone
+1808|Blue blood
+1809|Discover royal ancestors
+1810|The Chosen One
+1811|A secret for those named Neo
+1812|Secret code
+1813|Millennium child
+1814|Be born in 2000
+1815|⚠️ Couldn't save: not enough space in the browser
+1816|Save slot
+1817|Difficulty¦⚖️ Normal¦🍼 Easy: rich parents¦💀 Hardcore: poverty and illness
+1818|📥 Load a save from another device
+1819|💾 File downloaded, code copied
+1820|💾 Save file downloaded
+1821|Load a save
+1822|Choose a file downloaded on another device, or paste a code.
+1823|Choose a file
+1824|Paste a code
+1825|Paste the save code:
+1826|✅ Save loaded
+1827|⚠️ Couldn't read the save
+1828|Move to another device
+1829|Download a file or code with all slots and achievements
+1830|Switch slot
+1831|Life — simulator
+1832|🔗 Link copied. Send it to a friend!
+1833|Copy the link:
+1834|Friends' records
+1835|How it works¦One day, one start¦Play the daily challenge and send your friend a link with your result. When your friend opens the link, your result appears in their table, and they can reply with their own.
+1836|No results yet. Start with the "Daily challenge" on the start screen.
+1837|You
+1838|Today
+1839|Add a result by code
+1840|Paste your friend's link or code:
+1841|✅ Added
+1842|Already added or invalid code
+1843|⚠️ Invalid code
+1844|Friends' records
+1845|Daily challenge: compare results
+1846|🏆 Friends' records
+1847|Spy
+1848|Veteran
+1849|Business owner
+1850|Blogger with a million followers
+1851|Nobel laureate
+1852|Inventor
+1853|Writer
+1854|Film director
+1855|Olympic champion
+1856|Athlete
+1857|Crime boss
+1858|Prisoner
+1859|Fugitive
+1860|Parent of a big family
+1861|Emigrant
+1862|Dynasty founder
+1863|Died young
+1864|World champion
+1865|Album of lives
+1866|Album of lives
+1867|Early childhood
+1868|School years
+1869|Youth
+1870|Adulthood
+1871|Experience
+1872|Old age
+1873|Studying just wasn't my thing.
+1874|children
+1875|children
+1876|country
+1877|countries
+1878|historical event
+1879|historical events
+1880|historical events
+1881|Life diary
+1882|Download the diary
+1883|present day
+1884|📖 Diary downloaded
+1885|Life diary
+1886|An autobiography by chapters, downloadable
+1887|Banker
+1888|Diplomat
+1889|Easy life: you were born into a well-off family.
+1890|Janitor
+1891|Hardcore: a poor family and weak health. Good luck.
+1892|The heating was cut off in winter.
+1893|Once again the money ran out before payday.
+1894|The roof leaked.
+1895|You had to wear someone else's hand-me-down jacket.
+1896|Send the result to a friend
+1897|Kid from the yard
+1898|Club chess player
+1899|Grandmaster
+1900|Checkmate! You won 🎉
+1901|You've been checkmated.
+1902|Stalemate. A draw.
+1903|The game dragged on and was scored on material.
+1904|Only the kings are left. A draw.
+1905|You're in check!
+1906|Check!
+1907|Your opponent is thinking…
+1908|Your move
+1909|Your move. Tap a piece, then a square.
+1910|Resign
+1911|How many days are in a leap year?
+1912|Which planet is closest to the Sun?
+1913|Venus
+1914|Mars
+1915|Mercury
+1916|Earth
+1917|The capital of Japan?
+1918|How many legs does a spider have?
+1919|What color do you get from blue and yellow?
