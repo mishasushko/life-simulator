@@ -657,3 +657,9 @@ test('graduation invitation localizes the scene and preserves all four choices',
     assert.equal(run('Q[0].choices.length'),4);
   }
 });
+
+test('family guitar preserves its first owner and dated pictures through succession',()=>{
+ const {run}=coupleGame();run("S.money=1e6;buyGuitar();guitarMoment();var owner=S.first;var kid=makePerson('child',{age:21});S.people.push(kid);continueAs(kid);guitarMoment()");
+ assert.equal(run('homeHistory().guitar.owner'),run('owner'));
+ assert.equal(run('homeHistory().relicPhotos.length'),2);
+});
