@@ -262,6 +262,7 @@ function resolveFamilyOccasion(event, choice) {
   }
   narrativeNote('family', `${FAMILY_OCCASIONS[event.kind]}: ${p.name}. ${choice === 'skip' ? 'Вы не участвовали.' : choice === 'remote' ? 'Вы поздравили на расстоянии.' : 'Вы участвовали в празднике.'}`);
   saveFamilyPhoto(event, p, choice);
+  playAtReunion(event);
   checkLifeDream(false);
   return choice === 'skip' ? 'Близкий человек запомнил ваше отсутствие.' : 'Ваше внимание осталось в семейной памяти.';
 }
@@ -269,7 +270,7 @@ function openFamilyOccasion(event) {
   if (!narrativeState().family.events.includes(event) || event.status !== 'pending') return;
   const p = S.people.find(p => p.id === event.person), valid = p?.alive && event.year === S.year;
   const travel = price(p?.country && p.country !== S.country ? 40000 : 10000);
-  Q.push({ e: '🎉', title: FAMILY_OCCASIONS[event.kind], text: `${event.name} приглашает вас на семейное событие ${event.year} года. Можно поддержать лично или поздравить на расстоянии.`, choices: [
+  Q.push({ e: '🎉', title: FAMILY_OCCASIONS[event.kind], html: event.kind === 'graduation' && p?.alive ? graduationScene(event,p) : undefined, text: `${event.name} приглашает вас на семейное событие ${event.year} года. Можно поддержать лично или поздравить на расстоянии.`, choices: [
     { t: `Приехать (${fmt(travel)})`, disabled: !valid || !!S.prison || S.money < travel, f: () => resolveFamilyOccasion(event, 'attend') },
     { t: `Помочь с организацией (${fmt(price(80000))})`, disabled: !valid || !!S.prison || S.money < price(80000), f: () => resolveFamilyOccasion(event, 'organize') },
     { t: 'Поздравить на расстоянии', disabled: !valid, f: () => resolveFamilyOccasion(event, 'remote') },

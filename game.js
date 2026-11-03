@@ -1327,6 +1327,7 @@ function panelMap() {
       .attr('d', path)
       .on('click', (e, d) => { const c = byNum[d.id]; if (c) countryModal(c); })
       .append('title').text((d) => byNum[d.id] ? `${byNum[d.id].flag} ${cname(byNum[d.id])}` : (d.properties && d.properties.name) || '');
+    drawPlaceRoute(svg,feats,path);
     const cur = feats.find((f) => f.id === ISO_NUM[S.country]);
     if (cur) { const [x, y] = path.centroid(cur); svg.append('text').attr('x', x).attr('y', y).attr('text-anchor', 'middle').attr('dominant-baseline', 'central').attr('font-size', 26).attr('class', 'pin').text('📍'); }
   }).catch(() => { box.innerHTML = '<div class="empty">Не удалось загрузить карту. Проверьте интернет.</div>'; });
