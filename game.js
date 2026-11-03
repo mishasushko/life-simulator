@@ -354,7 +354,7 @@ function yearMoney() {
   const livesWithParents = S.age < 20 && S.people.some((p) => (p.role === 'mother' || p.role === 'father') && p.alive) && !S.ownHome;
   const home = S.assets.some((a) => a.type === 'house' && !a.rented);
   const poor = !S.job && !S.biz && !S.retired && !S.edu.stage;
-  let cost = price(poor ? 90000 : 140000); // еда и быт
+  let cost = Math.round(price(poor ? 90000 : 140000) * worldState().food); // еда и быт
   if (!home && !livesWithParents) cost += price(poor ? 20000 : S.edu.stage ? 60000 : 220000);
   if (S.money < 0 && S.assets.length && S.money < -netWorth()) {
     const a = S.assets.sort((x, y) => y.value - x.value)[0]; S.money += a.value; S.assets = S.assets.filter((x) => x !== a);
@@ -367,7 +367,7 @@ function yearMoney() {
   S.money -= cost;
   log(`🧾 Расходы на жизнь: ${fmt(cost)}${!home && !livesWithParents ? ' (с арендой)' : ''}${S.welfare ? ` · пособие +${fmt(S.welfare)}` : ''}.`, 'info');
   if (S.loan) {
-    S.loan.bal = Math.round(S.loan.bal * 1.07);
+    S.loan.bal = Math.round(S.loan.bal * (1 + (S.loan.rate ?? 0.07)));
     const pay = Math.min(S.loan.bal, S.loan.pay);
     S.loan.bal -= pay; S.money -= pay;
     if (S.loan.bal <= 0) { S.loan = null; log('🏦 Ипотека полностью выплачена!', 'good'); eff({ happy: 10 }); }
@@ -844,6 +844,7 @@ function pump() {
   if (!S.alive) return showDeath();
 }
 function showModal(m) {
+  currentExpansionEvent = m;
   const me = $('#modalEmoji'); if (m.e && m.e.startsWith('<svg')) { me.innerHTML = m.e; me.classList.add('portrait'); } else { me.textContent = m.e || ''; me.classList.remove('portrait'); }
   $('#modalTitle').textContent = m.title || '';
   const T = $('#modalText');
@@ -853,8 +854,9 @@ function showModal(m) {
   choices.forEach((ch, i) => {
     const b = document.createElement('button');
     b.className = 'btn ' + (ch.cls || (i === 0 ? 'primary' : 'ghost'));
-    b.textContent = ch.t; b.disabled = !!ch.disabled;
+    b.textContent = ch.t + (ch.preview ? ' · '+ch.preview : ''); b.title = i < 4 ? 'Клавиша '+(i+1) : ''; b.disabled = !!ch.disabled;
     b.onclick = () => {
+      if ((ch.dangerPrompt || ch.expense) && !confirmAction(ch.dangerPrompt, ch.expense)) return;
       sfx('click');
       closeModal();
       const r = ch.f();
@@ -1023,12 +1025,13 @@ function panelAssets() {
 function buyModal(type, x, p, canMort) {
   const ch = [];
   if (S.money >= p) ch.push({ t: `Купить за ${fmt(p)}`, f: () => buy(type, x, p, false) });
-  if (canMort || (type === 'house' && S.job && !S.loan && creditOk() && S.money >= p * 0.2)) ch.push({ t: `Ипотека: взнос ${fmt(Math.round(p * 0.2))}`, f: () => buy(type, x, p, true) });
+  if (canMort || (type === 'house' && S.job && !S.loan && creditOk() && S.money >= p * 0.2)) ch.push({ t: `Ипотека: взнос ${fmt(Math.round(p * 0.2))} · ${(mortgageRate()*100).toFixed(1)}%`, f: () => buy(type, x, p, true) });
   ch.push({ t: 'Отмена', f: () => null });
   Q.push({ e: x.e, title: x.name, text: `Цена: ${fmt(p)}.`, choices: ch }); pump();
 }
 function buy(type, x, p, mort) {
-  if (mort) { const down = Math.round(p * 0.2); S.money -= down; S.loan = { bal: p - down, pay: Math.round((p - down) / 15 + (p - down) * 0.07) }; }
+  if (!confirmAction('',mort ? Math.round(p * 0.2) : p)) return null;
+  if (mort) { const down = Math.round(p * 0.2); S.money -= down; S.loan = { bal: p - down, rate: mortgageRate(), pay: Math.round((p - down) / 15 + (p - down) * mortgageRate()) }; }
   else S.money -= p;
   S.assets.push({ uid: uid(), type, id: x.id, e: x.e, name: x.name, value: p, price: p });
   if (type === 'house') { unlock('homeowner'); S.ownHome = true; }
@@ -1038,7 +1041,7 @@ function buy(type, x, p, mort) {
 }
 function investModal(x) {
   const I = S.inv; const ch = [];
-  for (const k of [0.1, 0.5, 1]) { const a = Math.round(Math.max(0, S.money) * k); if (a > 0) ch.push({ t: `Вложить ${fmt(a)}`, f: () => { S.money -= a; I[x.k] += a; return `Вы вложили ${fmt(a)}: ${x.t.toLowerCase()}.`; } }); }
+  for (const k of [0.1, 0.5, 1]) { const a = Math.round(Math.max(0, S.money) * k); if (a > 0) ch.push({ expense: a, t: `Вложить ${fmt(a)}`, f: () => { S.money -= a; I[x.k] += a; return `Вы вложили ${fmt(a)}: ${x.t.toLowerCase()}.`; } }); }
   if (I[x.k] > 0) ch.push({ t: `Вывести всё (${fmt(I[x.k])})`, cls: 'ghost', f: () => { S.money += I[x.k]; const v = I[x.k]; I[x.k] = 0; return `Вы вывели ${fmt(v)}.`; } });
   ch.push({ t: 'Отмена', f: () => null });
   Q.push({ e: x.e, title: x.t, text: `${x.d}.\nСейчас вложено: ${fmt(I[x.k])}.`, choices: ch }); pump();
@@ -1081,19 +1084,19 @@ function personModal(p) {
   const ch = [];
   const once = (a, fn) => () => { if (S.used[key(a)]) return null; S.used[key(a)] = 1; return fn(); };
   ch.push({ relationshipAction: 'time', t: '☕ Провести время вместе', disabled: S.used[key('time')], f: once('time', () => { p.close = clamp(p.close + rnd(5, 12)); eff({ happy: rnd(2, 6) }); return `Вы чудесно провели время вместе. ${p.name} ${gv(p, 'доволен', 'довольна', 'доволен(льна)')}.`; }) });
-  if (S.age >= 14) ch.push({ relationshipAction: 'gift', t: `🎁 Подарок (${fmt(price(10000))})`, disabled: S.used[key('gift')], f: once('gift', () => { S.money -= price(10000); p.close = clamp(p.close + rnd(8, 15)); return `${p.name} в восторге от подарка!`; }) });
+  if (S.age >= 14) ch.push({ expense: price(10000), preview: '−'+fmt(price(10000))+' · близость ↑', relationshipAction: 'gift', t: `🎁 Подарок (${fmt(price(10000))})`, disabled: S.used[key('gift')], f: once('gift', () => { S.money -= price(10000); p.close = clamp(p.close + rnd(8, 15)); return `${p.name} в восторге от подарка!`; }) });
   ch.push({ relationshipAction: 'talk', t: '💬 Поговорить по душам', disabled: S.used[key('talk')], f: once('talk', () => { p.close = clamp(p.close + rnd(2, 8)); eff({ happy: 2 }); return `Душевный разговор: ${p.name} ${gv(p, 'открылся', 'открылась', 'открылся(ась)')} вам.`; }) });
   if ((p.role === 'mother' || p.role === 'father') && S.age >= 8) ch.push({ t: '💵 Попросить денег', disabled: S.used[key('money')], f: once('money', () => { if (chance(p.close / 140)) { const s = price(rnd(1, S.age < 18 ? 5 : 50) * 1000); S.money += s; return `${p.name} дал${gv(p, '', 'а', '(а)')} вам ${fmt(s)}.`; } p.close = clamp(p.close - 4); return `${p.name} отказал${gv(p, '', 'а', '(а)')}.`; }) });
   if (p.role === 'child' && S.age >= 18) ch.push({ t: `💸 Дать денег (${fmt(price(50000))})`, f: () => { S.money -= price(50000); p.close = clamp(p.close + 10); eff({ karma: 2 }); return `${p.name} благодарит вас!`; } });
   if (p.role === 'partner') {
     if (p.status === 'dating' && S.age >= 18) ch.push({ t: '💍 Сделать предложение', disabled: S.used[key('prop')], f: once('prop', () => { if (chance(p.close / 110)) { p.status = 'engaged'; eff({ happy: 15 }); return `${p.name} сказал${gv(p, '', 'а', '(а)')} «ДА»! 💍`; } p.close = clamp(p.close - 15); eff({ happy: -12 }); return `${p.name} не готов${gv(p, '', 'а', '(а)')} к такому шагу.`; }) });
     if (p.status === 'engaged') {
-      ch.push({ relationshipAction: 'wedding', t: `💒 Пышная свадьба (${fmt(price(1500000))})`, f: () => { S.money -= price(1500000); p.status = 'married'; p.marriedYear = S.year; p.close = clamp(p.close + 15); unlock('married'); eff({ happy: 25 }); return `Свадьба века! Теперь вы в браке. 💒`; } });
+      ch.push({ expense: price(1500000), preview: 'счастье ↑', relationshipAction: 'wedding', t: `💒 Пышная свадьба (${fmt(price(1500000))})`, f: () => { S.money -= price(1500000); p.status = 'married'; p.marriedYear = S.year; p.close = clamp(p.close + 15); unlock('married'); eff({ happy: 25 }); return `Свадьба века! Теперь вы в браке. 💒`; } });
       ch.push({ relationshipAction: 'wedding', t: '📝 Скромная роспись', f: () => { p.status = 'married'; p.marriedYear = S.year; unlock('married'); eff({ happy: 15 }); return `Вы расписались. Горько! 🥂`; } });
     }
     if (S.age >= 18 && S.age <= 55) ch.push({ t: '👶 Завести ребёнка', disabled: S.used.baby, f: () => { S.used.baby = 1; return tryBaby(p); } });
-    ch.push({ relationshipAction: 'date', t: '🌹 Романтическое свидание', disabled: S.used[key('date')], f: once('date', () => { S.money -= price(8000); p.close = clamp(p.close + rnd(8, 16)); eff({ happy: 6 }); return 'Ужин при свечах удался. ❤️'; }) });
-    ch.push({ relationshipAction: 'breakup', t: p.status === 'married' ? '💔 Развестись' : '💔 Расстаться', cls: 'danger', f: () => { const loss = p.status === 'married' ? Math.max(0, Math.round(S.money * 0.4)) : 0; S.money -= loss; p.role = 'ex'; p.status = ''; eff({ happy: -12 }); return `Отношения окончены: ${p.name}.${loss ? ` Раздел имущества: −${fmt(loss)}.` : ''}`; } });
+    ch.push({ expense: price(8000), preview: '−'+fmt(price(8000))+' · счастье ↑', relationshipAction: 'date', t: '🌹 Романтическое свидание', disabled: S.used[key('date')], f: once('date', () => { S.money -= price(8000); p.close = clamp(p.close + rnd(8, 16)); eff({ happy: 6 }); return 'Ужин при свечах удался. ❤️'; }) });
+    ch.push({ dangerPrompt: 'Завершить отношения?', preview: p.status === 'married' ? 'раздел имущества −'+fmt(Math.max(0, Math.round(S.money*0.4))) : 'отношения завершатся', relationshipAction: 'breakup', t: p.status === 'married' ? '💔 Развестись' : '💔 Расстаться', cls: 'danger', f: () => { const loss = p.status === 'married' ? Math.max(0, Math.round(S.money * 0.4)) : 0; S.money -= loss; p.role = 'ex'; p.status = ''; eff({ happy: -12 }); return `Отношения окончены: ${p.name}.${loss ? ` Раздел имущества: −${fmt(loss)}.` : ''}`; } });
   }
   if (p.role === 'friend') ch.push({ t: '🚫 Перестать общаться', cls: 'danger', f: () => { p.role = 'ex_friend'; S.people = S.people.filter((x) => x !== p); return `${p.name} больше не в вашей жизни.`; } });
   if (p.role !== 'partner') ch.push({ relationshipAction: 'fight', t: '😤 Поссориться', cls: 'danger', disabled: S.used[key('fight')], f: once('fight', () => { p.close = clamp(p.close - rnd(10, 25)); eff({ karma: -2 }); return `Громкая ссора. ${p.name} ${gv(p, 'обижен', 'обижена', 'обижен(а)')}.`; }) });
@@ -1106,7 +1109,7 @@ function tryBaby(p) {
   const motherAge = S.gender === 'f' ? S.age : p.age;
   if (!bio || motherAge > 46) {
     Q.push({ e: '🍼', title: 'Усыновление', text: `Вы можете усыновить ребёнка. Оформление: ${fmt(price(400000))}.`, choices: [
-      { t: 'Усыновить', disabled: S.money < price(400000), f: () => { if (!coupleValid(p) || S.money < price(400000)) return 'Сейчас усыновление недоступно: обстоятельства или средства изменились.'; S.money -= price(400000); return addChild(p, rnd(0, 6)); } }, { t: 'Не сейчас', f: () => null }] });
+      { expense: price(400000), t: 'Усыновить', disabled: S.money < price(400000), f: () => { if (!coupleValid(p) || S.money < price(400000)) return 'Сейчас усыновление недоступно: обстоятельства или средства изменились.'; S.money -= price(400000); return addChild(p, rnd(0, 6)); } }, { t: 'Не сейчас', f: () => null }] });
     return null;
   }
   if (chance(motherAge < 35 ? 0.6 : 0.3)) return addChild(p, 0);
@@ -1139,6 +1142,7 @@ function panelActivities() {
       const used = S.used[a.id];
       item(l, { e: a.e, t: a.label ? a.label() : a.t, d: used ? 'Уже в этом году' : a.d + (cost ? ` · ${fmt(cost)}` : ''), disabled: used, onClick: act(() => {
         if (cost && S.money < cost && S.age >= 18) { toast('Не хватает денег 💸'); return null; }
+        if (!confirmAction(a.crime ? 'Совершить преступление? Возможны суд и тюрьма.' : '', cost)) return null;
         S.used[a.id] = 1; if (cost) S.money -= cost;
         return a.run();
       }) });

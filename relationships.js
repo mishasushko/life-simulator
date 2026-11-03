@@ -131,6 +131,7 @@ function couplePerformMove(country, p, together) {
   if (!destination || country === S.country) return 'Вы уже живёте в этой стране.';
   if (S.age < 18 || S.prison || S.money < cost) return 'Сейчас переезд недоступен: нужны свобода действий и деньги на дорогу.';
   if (p && !coupleValid(p)) return 'Обстоятельства пары изменились. Обсудите переезд заново.';
+  if (!confirmAction('', cost)) return 'Вы отложили переезд.';
   const from = S.country;
   lifeSystems();
   S.money -= cost; S.country = country; S.city = pick(destination.cities); S.job = null;

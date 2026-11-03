@@ -36,6 +36,7 @@ function game() {
     matchMedia: () => ({ matches: false }), setTimeout: () => 1, clearTimeout() {}, setInterval: () => 1, clearInterval() {}, requestAnimationFrame: () => {}, addEventListener() {},
   });
   context.window = context;
+  context.confirm = () => true;
   const run = s => vm.runInContext(s, context);
   const scripts = [...fs.readFileSync(path.join(root, 'index.html'), 'utf8').matchAll(/<script src="([^"?]+)(?:\?[^\"]*)?"><\/script>/g)].map(x => x[1]);
   for (const filename of scripts) vm.runInContext(fs.readFileSync(path.join(root, filename), 'utf8'), context, { filename });
@@ -606,4 +607,25 @@ test('home screen renders age chapters and finalized annual changes without a po
   assert.match(run('chapterTimeline()'),/Юность/);
   run("lifeSystems().pending={year:2014,age:14,cash:[],steps:[{label:'Учёба',changes:{stress:4}}]};pump()");
   assert.match(run("document.querySelector('#statChanges').innerHTML"),/Учёба/);
+});
+
+test('a simulated year can be undone once, but iron mode never creates a rewind point',()=>{
+  const {run}=game();run('var original=S.year;ageUp();rewindLife()');assert.equal(run('S.year'),run('original'));
+  run('S.iron=true;ageUp();rewindLife()');assert.equal(run('S.year'),run('original+1'));
+});
+test('mortgage pricing follows credit and adult degree adds a second major',()=>{
+  const {run}=game();run("S.age=45;S.edu.level='bachelor';S.edu.majors=['art'];S.money=1e6;S.credit=800;var rate=mortgageRate();S.credit=600;");
+  assert.ok(run('rate<mortgageRate()'));run("enrollAdult('eng');for(let i=0;i<3;i++){S.year++;worldYear();}");
+  assert.equal(run("S.edu.majors.includes('eng')"),true);
+});
+test('world collections deduplicate offices and every playable country belongs to one continent',()=>{
+  const {run}=game();run("collectWorld('leaders','by');collectWorld('leaders','by')");
+  assert.equal(run("readLocal('life_world_collection',{}).leaders.length"),1);
+  assert.equal(run("COUNTRIES.every(c=>Object.values(continents).filter(ids=>ids.split(' ').includes(c.id)).length===1)"),true);
+});
+
+test('rejecting divorce does not change the partner or record a breakup',()=>{
+  const {run,context}=coupleGame();context.confirm=()=>false;
+  run('personModal(p)');clickChoice(run,'Развестись');assert.equal(run('p.role'),'partner');
+  assert.equal(run("relationshipState(p).entries.some(e=>e.kind==='breakup')"),false);
 });

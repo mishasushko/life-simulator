@@ -251,6 +251,7 @@ function resolveFamilyOccasion(event, choice) {
   if (event.year !== S.year) return 'Это событие уже осталось в прошлом.';
   const cost = choice === 'organize' ? price(80000) : choice === 'attend' ? price(p.country && p.country !== S.country ? 40000 : 10000) : 0;
   if (cost && (S.prison || S.money < cost)) return 'Сейчас не получится приехать или оплатить праздник. Можно поздравить на расстоянии.';
+  if (cost && !confirmAction('', cost)) return 'Вы пока не оплатили участие.';
   S.money -= cost; event.status = choice;
   if (choice === 'skip') {
     p.close = clamp(p.close - 8); relationshipRemember(p, 'missed:' + event.id, `Вы пропустили важное событие: ${FAMILY_OCCASIONS[event.kind]}.`, 0, 8);
