@@ -663,3 +663,15 @@ test('family guitar preserves its first owner and dated pictures through success
  assert.equal(run('homeHistory().guitar.owner'),run('owner'));
  assert.equal(run('homeHistory().relicPhotos.length'),2);
 });
+
+test('intimate choices require adults, opt-in and agreement from both partners',()=>{
+ const {run}=coupleGame();
+ assert.equal(run('intimacyAvailable(p)'),false);
+ run("writeLocal('life_adult_stories',true);p.age=17");assert.equal(run('intimacyAvailable(p)'),false);
+ run("p.age=28;var i=intimacyState(p);i.limit=3;i.preference=0;var before=p.close;askAffection(p,3)");
+ assert.equal(run("document.querySelector('#modalActions').children.length"),1);
+ clickChoice(run,'Не сейчас');assert.equal(run('p.close'),run('before'));
+ run('S.year++;i.preference=3;askAffection(p,3)');clickChoice(run,'Я тоже хочу');
+ assert.equal(run('p.close'),run('before+2'));
+ run('askAffection(p,3)');assert.equal(run("document.querySelector('#modalWrap').hidden"),true);
+});
