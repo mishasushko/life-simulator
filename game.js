@@ -822,8 +822,8 @@ function render() {
   $('#ageBtn').disabled = !S.alive;
   // лог
   const L = $('#log');
-  const n = S.log.length;
-  L.innerHTML = S.log.map((b, idx) => `<div class="yr${idx === n - 1 ? ' last' : ''}"><div class="yr-age"><b>${b.age === 0 ? '0' : b.age}</b><small>${b.year}</small></div><div class="yr-body">${b.items.map(evHtml).join('')}${yearPhotoCards(b.year)}</div></div>`).join('');
+  L.innerHTML = chapterTimeline();
+  renderLifeHome();
 }
 const EMO_RE = /^((?:\p{Extended_Pictographic}|\p{Regional_Indicator})(?:[\uFE0F\u200D\u20E3]|\p{Extended_Pictographic}|\p{Regional_Indicator}|\p{Emoji_Modifier})*)\s*/u;
 function evHtml(i) {
@@ -1060,7 +1060,7 @@ function panelPeople() {
     const ps = S.people.filter(f); if (!ps.length) continue; any = true;
     const l = section(t);
     for (const p of ps) {
-      item(l, { e: p.alive ? (personPortrait ? personPortrait(p) : personEmoji(p)) : '🕯️', t: `${p.name}${p.surname ? ' ' + p.surname : ''}`, d: `${roleName(p)} · ${p.alive ? yrs(p.age) : 'скончал' + gv(p, 'ся', 'ась', 'ся(ась)')}${p.job && p.alive ? ' · ' + p.job : ''}`, bar: p.alive && p.role !== 'ex' ? p.close : null, onClick: p.alive ? () => personModal(p) : null });
+      item(l, { e: p.alive ? (personPortrait ? personPortrait(p) : personEmoji(p)) : '🕯️', t: `${p.name}${p.surname ? ' ' + p.surname : ''}`, d: `${roleName(p)} · ${p.alive ? yrs(p.age) : 'скончал' + gv(p, 'ся', 'ась', 'ся(ась)')}${p.job && p.alive ? ' · ' + p.job : ''}${p.relationshipMemory?.owner === S.relationshipIdentity && p.relationshipMemory?.entries?.length ? ' · '+p.relationshipMemory.entries.at(-1).text : ''}`, bar: p.alive && p.role !== 'ex' ? p.close : null, onClick: p.alive ? () => personModal(p) : null });
     }
   }
   const pets = S.pets.filter((p) => p.alive);

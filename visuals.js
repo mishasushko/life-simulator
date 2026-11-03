@@ -58,3 +58,79 @@ ageUp=function(){const year=S?.year;visualAge();if(S && S.year!==year && motionO
 function yearPhotoCards(year) {
   return (S.familyPhotos || []).filter(p=>p.year===year && p.generation===S.generation).map(photoFrame).join('');
 }
+
+function lifeChapter(age) {
+  if (age < 13) return 'Детство';
+  if (age < 18) return 'Юность';
+  if (age < 40) return 'Взросление';
+  if (age < 65) return 'Зрелость';
+  return 'Поздние годы';
+}
+function chapterTimeline() {
+  const chapters = new Map();
+  for (const b of S.log) {
+    const name = lifeChapter(b.age);
+    if (!chapters.has(name)) chapters.set(name, []);
+    chapters.get(name).push(b);
+  }
+  return [...chapters].map(([name, blocks]) => {
+    const current = name === lifeChapter(S.age);
+    const open = S.chapterOpen?.[name] ?? current;
+    const years = blocks.map(b => '<div class="yr'+(b.year===S.year?' last':'')+'"><div class="yr-age"><b>'+b.age+'</b><small>'+b.year+'</small></div><div class="yr-body">'+b.items.map(evHtml).join('')+yearPhotoCards(b.year)+'</div></div>').join('');
+    return '<details class="life-chapter" data-chapter="'+name+'" '+(open?'open':'')+'><summary>'+name+' <small>'+blocks[0].year+' — '+blocks.at(-1).year+'</small></summary>'+years+'</details>';
+  }).join('');
+}
+document.addEventListener('toggle', e => {
+  if (S && e.target.dataset?.chapter && e.target.isConnected) (S.chapterOpen ||= {})[e.target.dataset.chapter]=e.target.open;
+}, true);
+function renderLifeHome() {
+  const scene=S.prison?'prison':S.retired?'home':S.job?'office':S.edu.stage?'school':'home';
+  const header=$('.profile');
+  header.dataset.scene=scene;
+  const dream=S.narrative?.dreams.find(d=>!d.done&&!d.abandoned);
+  const title=LIFE_DREAMS.find(d=>d.id===dream?.id)?.name;
+  $('#sceneCaption').textContent=({home:'🏠 Дома',school:'📚 На учёбе',office:'💼 На работе',prison:'🔒 В заключении'})[scene]+' · '+S.city+(title?' · 🌠 '+title:'');
+  renderStatChanges();
+  const bar=$('#quickBar'); bar.innerHTML='';
+  for (const pin of S.quickPins || []) {
+    const b=document.createElement('button');
+    b.textContent=pinTitle(pin); b.onclick=()=>runQuickPin(pin); bar.appendChild(b);
+  }
+  const setup=document.createElement('button'); setup.textContent='⚙ Быстрые действия'; setup.onclick=()=>openPanel('quickpins'); bar.appendChild(setup);
+}
+function renderStatChanges() {
+  const node=$('#statChanges'), report=S.lifeSystems?.report;
+  if (!report || report.year!==S.year) { node.innerHTML=''; return; }
+  node.innerHTML=Object.entries({health:'Здоровье',happy:'Счастье',stress:'Стресс'}).map(([key,label])=>{
+    const rows=report.steps.filter(step=>step.changes[key]);
+    if (!rows.length) return '';
+    return '<details><summary>'+label+' '+lifeSigned(rows.reduce((n,row)=>n+row.changes[key],0))+'</summary>'+rows.map(row=>'<small>'+esc(row.label)+' '+lifeSigned(row.changes[key])+'</small>').join('')+'</details>';
+  }).join('');
+}
+function pinTitle(pin) {
+  if(pin.kind==='person') return '💬 '+(S.people.find(p=>p.id===pin.id)?.name || 'Знакомый');
+  return '🎯 '+(SKILLS.find(s=>s.id===pin.id)?.name || 'Увлечение');
+}
+function runQuickPin(pin) {
+  if (!S.alive) return;
+  if(pin.kind==='person') {
+    const p=S.people.find(p=>p.id===pin.id && p.alive);
+    if(p) personModal(p); else toast('Этот человек больше недоступен.');
+    return;
+  }
+  const skill=SKILLS.find(s=>s.id===pin.id);
+  if(!skill || S.prison || S.age<skill.min || (skill.yr && S.year<skill.yr) || S.practiced?.[pin.id]) { toast('Сейчас занятие недоступно.'); return; }
+  act(()=>practice(skill))();
+}
+EXTRA_TITLES.quickpins='⚡ Быстрые действия';
+EXTRA_PANELS.quickpins=function() {
+  const pins=S.quickPins ||= [];
+  const list=section('Выберите до двух действий');
+  const options=[...pins,...S.people.filter(p=>p.alive).map(p=>({kind:'person',id:p.id})),...SKILLS.filter(s=>S.age>=s.min && (!s.yr||s.yr<=S.year)).map(s=>({kind:'skill',id:s.id}))];
+  const seen=new Set();
+  for(const option of options) {
+    const key=option.kind+':'+option.id;if(seen.has(key)) continue;seen.add(key);
+    const index=pins.findIndex(p=>p.kind===option.kind && p.id===option.id);
+    item(list,{e:index>=0?'✓':'＋',t:pinTitle(option),disabled:index<0 && pins.length>=2,onClick:act(()=>{if(index>=0)pins.splice(index,1);else if(pins.length<2)pins.push(option);})});
+  }
+};

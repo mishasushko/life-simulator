@@ -91,7 +91,7 @@ const _lifePump = pump;
 pump = function () {
   if (S && $('#modalWrap').hidden && !Q.length && S.lifeSystems?.pending) {
     const x = lifeSystems(), r = x.pending;
-    x.report = r; delete x.pending; save();
+    x.report = r; delete x.pending; save(); renderStatChanges();
     // Death keeps its own final screen; the last report is available in the menu.
     if (S.alive && autoReport) return showModal({ e: '📅', title: `Итоги ${r.year} года`, html: lifeReportHTML(r), choices: [{ t: 'Продолжить', f: () => null }] });
   }

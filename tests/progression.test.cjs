@@ -599,3 +599,11 @@ test('annual summaries are silent by default and the menu switch persists', () =
   run('toggleAutoReport()');
   assert.equal(run('localStorage.getItem(REPORT_PREF)'),'off');
 });
+
+test('home screen renders age chapters and finalized annual changes without a popup', () => {
+  const {run}=game();
+  run("S.log=[{age:8,year:2008,items:[]},{age:14,year:2014,items:[]}];S.age=14;S.year=2014;S.chapterOpen={'Детство':false};renderLifeHome()");
+  assert.match(run('chapterTimeline()'),/Юность/);
+  run("lifeSystems().pending={year:2014,age:14,cash:[],steps:[{label:'Учёба',changes:{stress:4}}]};pump()");
+  assert.match(run("document.querySelector('#statChanges').innerHTML"),/Учёба/);
+});

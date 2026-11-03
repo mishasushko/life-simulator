@@ -518,3 +518,12 @@ html[data-life-motion=off] .aged{animation:none!important}
   .toast { left: auto; right: 16px; max-width: min(340px, 35vw); transform: translateY(-160%); }
   .toast.show { transform: translateY(0); }
 }
+.profile[data-scene]{position:relative;isolation:isolate;overflow:hidden}.profile[data-scene]::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(110deg,transparent 45%,#c3a06b44),repeating-linear-gradient(90deg,transparent 0 36px,#b1835914 36px 40px)}
+.profile[data-scene=school]::before{background:linear-gradient(115deg,transparent,#739a7d44),repeating-linear-gradient(0deg,transparent 0 15px,#68977722 15px 16px)}
+.profile[data-scene=office]::before{background:linear-gradient(120deg,transparent,#6789ad44),repeating-linear-gradient(90deg,transparent 0 27px,#6087ac22 27px 30px)}
+#sceneCaption{font-size:.78rem;color:var(--ink);padding:5px 0}
+#statChanges{display:flex;flex-wrap:wrap;gap:4px}#statChanges details{font-size:.75rem;padding:3px 7px;background:var(--surface);border-radius:8px}#statChanges small{display:block}.life-chapter>summary{cursor:pointer;font-weight:700;padding:9px}.life-chapter>summary small{color:var(--muted);font-weight:400}
+#quickBar{display:flex;grid-column:1/-1;gap:4px;justify-content:center}#quickBar button{font:inherit;font-size:11px;cursor:pointer;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 8px;max-width:38%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(min-width:861px){#quickBar{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);min-width:240px}}
+.item .r{overflow-wrap:anywhere}.side:has(#statChanges:empty) #statChanges{display:none}
+.profile .profile-top{position:relative}.profile .profile-top::after{position:absolute;right:0;bottom:0;font-size:2.5rem;opacity:.13;pointer-events:none}.profile[data-scene=school] .profile-top::after{content:"🏫"}.profile[data-scene=office] .profile-top::after{content:"🏢"}.profile[data-scene=home] .profile-top::after{content:"🏡"}
