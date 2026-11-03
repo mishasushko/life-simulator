@@ -79,13 +79,21 @@ function lifeReportHTML(r) {
     return `<details><summary>${esc(label)}: <b>${esc(lifeSigned(delta, key === 'money' || key === 'net'))}</b></summary>${parts.map(s => `<div class="muted">${esc(s.label)}: ${esc(lifeSigned(s.changes[key], key === 'money' || key === 'net'))}</div>`).join('')}</details>`;
   }).join('')}<div class="muted">Поступления и выплаты — движения денег, включая переводы и продажу имущества. Капитал учитывает также долги и переоценку активов.</div></div>`;
 }
+const REPORT_PREF = 'lifesim_auto_report';
+let autoReport = false;
+try { autoReport = localStorage.getItem(REPORT_PREF) === 'on'; } catch (_) {}
+function toggleAutoReport() {
+  autoReport = !autoReport;
+  try { localStorage.setItem(REPORT_PREF, autoReport ? 'on' : 'off'); } catch (_) {}
+  openPanel('menu');
+}
 const _lifePump = pump;
 pump = function () {
   if (S && $('#modalWrap').hidden && !Q.length && S.lifeSystems?.pending) {
     const x = lifeSystems(), r = x.pending;
     x.report = r; delete x.pending; save();
     // Death keeps its own final screen; the last report is available in the menu.
-    if (S.alive) return showModal({ e: '📅', title: `Итоги ${r.year} года`, html: lifeReportHTML(r), choices: [{ t: 'Продолжить', f: () => null }] });
+    if (S.alive && autoReport) return showModal({ e: '📅', title: `Итоги ${r.year} года`, html: lifeReportHTML(r), choices: [{ t: 'Продолжить', f: () => null }] });
   }
   return _lifePump();
 };
@@ -365,3 +373,5 @@ const _lifePanelPeople = panelPeople;
 panelPeople = function () { lifeLinks(section('Личные истории'), ['lifepaths', 'lifestories', 'legacy']); _lifePanelPeople(); };
 const _lifePanelJob = panelJob;
 panelJob = function () { lifeLinks(section('Планы и возможности'), ['lifeplan', 'adaptation', 'reputation']); _lifePanelJob(); };
+
+MENU_HOOKS.unshift(list => item(list, { e: '📅', t: 'Показывать итоги после каждого года', r: autoReport ? 'Вкл.' : 'Выкл.', onClick: toggleAutoReport }));
