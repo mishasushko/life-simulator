@@ -86,6 +86,21 @@ const MORE_COUNTRIES = [
   // Океания
   { id: 'fj', flag: '🇫🇯', name: 'Фиджи', names: 'en', cur: 'FJ$', rate: 0.025, wage: 0.5, cities: ['Сува', 'Нанди', 'Лаутока'], rel: ['Протестантизм', 'Индуизм'], life: 68, iso: '242' }
 ];
+/* Economic values are simulation parameters. */
+MORE_COUNTRIES.push(
+  {"id": "ad", "flag": "🇦🇩", "name": "Андорра", "names": "es", "cur": "€", "rate": 0.01, "wage": 1.9, "cities": ["Андорра-ла-Велья", "Эскальдес-Энгордань"], "rel": ["Католицизм"], "life": 83, "iso": "020"},
+  {"id": "li", "flag": "🇱🇮", "name": "Лихтенштейн", "names": "de", "cur": "CHF", "rate": 0.01, "wage": 2.7, "cities": ["Вадуц", "Шан"], "rel": ["Католицизм"], "life": 83, "iso": "438"},
+  {"id": "sm", "flag": "🇸🇲", "name": "Сан-Марино", "names": "it", "cur": "€", "rate": 0.01, "wage": 1.8, "cities": ["Сан-Марино", "Серравалле"], "rel": ["Католицизм"], "life": 83, "iso": "674"},
+  {"id": "mc", "flag": "🇲🇨", "name": "Монако", "names": "fr", "cur": "€", "rate": 0.01, "wage": 2.8, "cities": ["Монако"], "rel": ["Католицизм"], "life": 85, "iso": "492"},
+  {"id": "bh", "flag": "🇧🇭", "name": "Бахрейн", "names": "ar", "cur": "BHD", "rate": 0.004, "wage": 1.6, "cities": ["Манама", "Мухаррак"], "rel": ["Ислам"], "life": 79, "iso": "048"},
+  {"id": "hn", "flag": "🇭🇳", "name": "Гондурас", "names": "es", "cur": "HNL", "rate": 0.28, "wage": 0.55, "cities": ["Тегусигальпа", "Сан-Педро-Сула"], "rel": ["Католицизм"], "life": 73, "iso": "340"},
+  {"id": "ni", "flag": "🇳🇮", "name": "Никарагуа", "names": "es", "cur": "NIO", "rate": 0.4, "wage": 0.52, "cities": ["Манагуа", "Леон", "Гранада"], "rel": ["Католицизм"], "life": 74, "iso": "558"},
+  {"id": "sv", "flag": "🇸🇻", "name": "Сальвадор", "names": "es", "cur": "$", "rate": 0.011, "wage": 0.65, "cities": ["Сан-Сальвадор", "Санта-Ана"], "rel": ["Католицизм"], "life": 73, "iso": "222"},
+  {"id": "bs", "flag": "🇧🇸", "name": "Багамы", "names": "en", "cur": "BSD", "rate": 0.011, "wage": 1.4, "cities": ["Нассау", "Фрипорт"], "rel": ["Протестантизм"], "life": 75, "iso": "044"},
+  {"id": "tt", "flag": "🇹🇹", "name": "Тринидад и Тобаго", "names": "en", "cur": "TTD", "rate": 0.075, "wage": 1.1, "cities": ["Порт-оф-Спейн", "Сан-Фернандо"], "rel": ["Католицизм"], "life": 74, "iso": "780"},
+  {"id": "ml", "flag": "🇲🇱", "name": "Мали", "names": "wa", "cur": "XOF", "rate": 6.5, "wage": 0.4, "cities": ["Бамако", "Сегу"], "rel": ["Ислам"], "life": 62, "iso": "466"},
+  {"id": "bj", "flag": "🇧🇯", "name": "Бенин", "names": "wa", "cur": "XOF", "rate": 6.5, "wage": 0.45, "cities": ["Порто-Ново", "Котону"], "rel": ["Католицизм"], "life": 63, "iso": "204"}
+);
 for (const c of MORE_COUNTRIES) {
   if (COUNTRIES.some((x) => x.id === c.id)) continue;
   ISO_NUM[c.id] = c.iso; delete c.iso;
@@ -157,3 +172,4 @@ inflation = function (y = S.year, c = S.country) {
 Object.assign(SSM, { si: 2022, ee: 2024, mt: 2017, lu: 2015, uy: 2013, ec: 2019, cr: 2020, tw: 2019 });
 
 fillStartForm();
+

@@ -576,3 +576,15 @@ test('family photos keep the original faces and pass to the next generation', ()
   assert.equal(run('S.familyPhotos[0].people[1].age'),18);
   assert.match(run('photoFrame(S.familyPhotos[0])'),/Выпускной/);
 });
+
+test('new destinations support birth, names, map IDs and migration', () => {
+  const {run}=game();
+  for(const id of ['ad','li','sm','mc','bh','hn','ni','sv','bs','tt','ml','bj']){
+    run(`newLife({country:'${id}',year:2000});`);
+    assert.equal(run('S.country'),id);
+    assert.ok(run('C().cities.includes(S.city) && !!S.first && !!S.surname && !!ISO_NUM[S.country]'));
+    run(`S.age=30; S.money=1000000; couplePerformMove('by',null,false)`);
+    assert.equal(run('S.country'),'by');
+  }
+  assert.equal(run('COUNTRIES.length'),132);
+});
