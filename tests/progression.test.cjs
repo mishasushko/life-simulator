@@ -223,7 +223,368 @@ test('seeded full-lifespan runs reconcile reports and render all new panels', ()
       }
       assert.equal(run('S.lifeSystems.pending'),undefined);
       assert.equal(run('S.lifeSystems.report.cash.reduce((n,f)=>n+f.delta,0)'),run('S.money-yearMoneyBefore'));
-      run(`closeModal(); for(const panel of ['yearreport','lifeplan','lifepaths','lifestories','adaptation','reputation','legacy']) openPanel(panel); closeSheet();`);
+      run(`closeModal(); for(const panel of ['yearreport','lifeplan','lifepaths','lifestories','adaptation','reputation','legacy','dreams','childhood','workplace','familyevents','biography']) openPanel(panel); closeSheet();`);
     }
   }
+});
+
+function coupleGame() {
+  const g = game();
+  g.run(`S.age=30; S.gender='m'; S.money=1000000; S.people=[];
+    var p=makePerson('partner',{name:'Партнёр',gender:'f',age:28,close:80,country:S.country,status:'married',job:'Врач'}); S.people.push(p);
+    var c=coupleState(p); c.children='yes'; c.home='adventure'; c.career='balance'; Math.random=()=>0.1;`);
+  return g;
+}
+function clickChoice(run, text) { run(`document.querySelector('#modalActions').children.find(b=>b.textContent.includes(${JSON.stringify(text)})&&!b.disabled).onclick()`); }
+
+test('person dialog records quarrels and exposes memory without parsing action labels', () => {
+  const {run}=coupleGame();
+  run(`var friend=makePerson('friend',{age:30,close:80}); S.people.push(friend); personModal(friend);`);
+  clickChoice(run,'Поссориться');
+  assert.equal(run('relationshipHurt(friend)'),10);
+  assert.equal(run('relationshipState(friend).entries[0].kind'),'fight');
+  run('personModal(friend)'); clickChoice(run,'Воспоминания');
+  assert.match(run(`document.querySelector('#modalText').innerHTML`),/тяжёлую ссору/);
+});
+
+test('gifts and apologies cannot erase betrayal or immediately restore cooperation', () => {
+  const {run}=coupleGame();
+  run(`relationshipRemember(p,'betrayal','Предательство',0,30); p.close=50; personModal(p);`);
+  clickChoice(run,'Подарок');
+  assert.ok(run('p.close <= 53'));
+  assert.equal(run('relationshipHurt(p)'),30);
+  run('relationshipApologize(p); relationshipApologize(p)');
+  assert.equal(run('relationshipHurt(p)'),28);
+  assert.equal(run(`coupleOpinion(p,'children').agree`),false);
+});
+
+test('attention over different years heals wounds; fresh hurt blocks instant recovery', () => {
+  const {run}=coupleGame();
+  run(`relationshipRemember(p,'fight','Ссора',0,12); relationshipAction(p,'time',()=>{p.close+=5;}); S.year++; relationshipYear();`);
+  assert.equal(run('relationshipHurt(p)'),12);
+  run(`relationshipAction(p,'time',()=>{p.close+=5;}); S.year++; relationshipYear();`);
+  assert.equal(run('relationshipHurt(p)'),9);
+});
+
+test('memory storage is bounded without discarding unresolved damage', () => {
+  const {run}=coupleGame();
+  run(`relationshipRemember(p,'betrayal','Давняя обида',0,30); for(let i=0;i<50;i++){S.year++;relationshipRemember(p,'time','Хороший день',2);}`);
+  assert.equal(run('relationshipState(p).entries.length'),32);
+  assert.equal(run('relationshipHurt(p)'),30);
+});
+
+test('memories and partner preferences persist through save/load but do not become an heir\'s personal history', () => {
+  const {run}=coupleGame();
+  run(`relationshipRemember(p,'betrayal','Личная обида',0,30); save(); S=migrate(loadSave()); p=S.people[0]; c=coupleState(p);`);
+  assert.equal(run('relationshipHurt(p)'),30);
+  assert.equal(run('c.children'),'yes');
+  run(`S.relationshipIdentity='new-generation';`);
+  assert.equal(run('relationshipHurt(p)'),0);
+  assert.equal(run('relationshipTrust(p)'),50);
+});
+
+test('partner can refuse parenthood; agreeing delegates to the existing birth mechanics', () => {
+  for(const willing of [false,true]) {
+    const {run}=coupleGame();
+    run(`c.children=${JSON.stringify(willing?'yes':'no')}; tryBaby(p);`);
+    clickChoice(run,'стать родителями сейчас');
+    assert.equal(run('S.people.filter(v=>v.role==="child").length'),willing?1:0);
+    assert.equal(run('c.pending'),undefined);
+  }
+});
+
+test('delayed parenthood is a promise to talk, and can still be declined next year', () => {
+  const {run}=coupleGame();
+  run(`c.children='later'; requestCoupleDecision(p,'children');`);
+  clickChoice(run,'Подготовиться');
+  assert.equal(run('S.stat.kids'),0);
+  run(`S.year++;S.used={};requestCoupleDecision(p,'children');`);
+  assert.equal(run(`coupleOpinion(p,'children').agree`),true);
+  clickChoice(run,'Оставить всё');
+  assert.equal(run('S.stat.kids'),0);
+  assert.equal(run('c.preparation'),undefined);
+  assert.equal(run(`relationshipState(p).entries.some(e=>e.kind==='promise-kept:children')`),true);
+});
+
+test('pending conversations resume after reload and old callbacks cannot act twice', () => {
+  const {run}=coupleGame();
+  run(`requestCoupleDecision(p,'move','us'); var oldAction=document.querySelector('#modalActions').children[0].onclick; save(); S=migrate(loadSave()); p=S.people[0]; c=coupleState(p); Q=[]; closeModal(); requestCoupleDecision(p,'move','us');`);
+  clickChoice(run,'переехать вместе');
+  assert.equal(run('S.country'),'us');
+  const money=run('S.money'); run('oldAction()'); assert.equal(run('S.money'),money);
+});
+
+test('joint move requires consent and funds; solo move keeps partner abroad and records hurt', () => {
+  const {run}=coupleGame();
+  run(`c.home='roots';var before=S.money;requestHouseholdMove('us');`);
+  clickChoice(run,'переехать вместе');
+  assert.equal(run('S.country'),'by'); assert.equal(run('S.money'),run('before'));
+  run(`S.year++;S.used={};requestHouseholdMove('us');`);
+  clickChoice(run,'Переехать отдельно');
+  assert.equal(run('S.country'),'us'); assert.equal(run('p.country'),'by');
+  assert.equal(run('relationshipHurt(p)'),18);
+  run(`S.money=0;var country=S.country;couplePerformMove('fr',null,false);`);
+  assert.equal(run('S.country'),run('country'));
+});
+
+test('joint move updates family country and integrates with adaptation exactly once', () => {
+  const {run}=coupleGame();
+  run(`S.people.push(makePerson('child',{age:5,country:S.country}));var before=S.money;var cost=price(300000);requestHouseholdMove('us');`);
+  clickChoice(run,'переехать вместе');
+  assert.equal(run('S.money'),run('before-cost'));
+  assert.equal(run('p.country'),'us');
+  assert.equal(run('S.people[1].country'),'us');
+  assert.equal(run('lifeSystems().migration.country'),'us');
+  assert.equal(run(`S.log.flatMap(b=>b.items).filter(i=>i.t.startsWith('🛬 Новая страна')).length`),1);
+});
+
+test('family care affects real pay for two annual transitions and restores the previous plan', () => {
+  const {run}=coupleGame();
+  run(`S.people.push(makePerson('child',{age:5})); S.job={id:'dev',lvl:0,bonus:1,perf:50}; var salary=jobSalary(S.job); var initial=JSON.stringify(lifeSystems().plan); requestCoupleDecision(p,'care');`);
+  clickChoice(run,'Я сокращу');
+  assert.equal(run('lifeSystems().plan.work'),2);
+  assert.equal(run('jobSalary(S.job)'),Math.round(run('salary')*0.8));
+  run('S.year+=2;relationshipYear()');
+  assert.equal(run('JSON.stringify(lifeSystems().plan)'),run('initial'));
+});
+
+test('partner can decline a career pause; accepted pauses survive NPC career updates', () => {
+  const {run}=coupleGame();
+  run(`S.people.push(makePerson('child',{age:5}));c.career='ambition';requestCoupleDecision(p,'care');`);
+  clickChoice(run,'партнёру паузу');
+  assert.equal(run('p.job'),'Врач'); assert.equal(run('c.care'),undefined);
+  run(`S.year++;S.used={};c.career='balance';requestCoupleDecision(p,'care');`);
+  clickChoice(run,'партнёру паузу');
+  assert.equal(run('p.job'),'Перерыв в карьере');
+  run(`lifeNPC(p).progress=100;lifeNPC(p).next=S.year;lifePeopleYear();`);
+  assert.equal(run('p.job'),'Перерыв в карьере');
+  run('S.year+=2;relationshipYear()'); assert.equal(run('p.job'),'Врач');
+});
+
+test('care expiration preserves manual plan edits; invalid partners cannot resolve stale choices', () => {
+  const {run}=coupleGame();
+  run(`S.people.push(makePerson('child',{age:5}));coupleSetCare(p,'shared');lifeSystems().plan={work:1,family:3,study:3,rest:3};S.year+=2;relationshipYear();`);
+  assert.equal(run('lifeSystems().plan.work'),1);
+  run(`requestCoupleDecision(p,'children');p.alive=false;`);
+  clickChoice(run,'стать родителями сейчас');
+  assert.equal(run('S.people.filter(v=>v.role==="child").length'),1);
+});
+
+test('forgotten promises become specific memories; partners proactively ask to share childcare', () => {
+  const {run}=coupleGame();
+  run(`couplePromise(p,'move','us');S.year+=3;relationshipYear();`);
+  assert.equal(run('relationshipHurt(p)'),10);
+  run(`S.people.push(makePerson('child',{age:5}));lifeSystems().plan={work:6,family:1,study:2,rest:1};relationshipYear();`);
+  assert.equal(run('Q.length'),1);
+  assert.equal(run('c.pendingRequest'),true);
+  assert.equal(run(`document.querySelector('#modalWrap').hidden`),true,'annual hook only queues the request');
+});
+
+test('care agreements end after breakup or death without leaving a permanent workload reduction', () => {
+  for(const ending of ['breakup','death']) {
+    const {run}=coupleGame();
+    run(`S.people.push(makePerson('child',{age:5}));var initial=JSON.stringify(lifeSystems().plan);coupleSetCare(p,'player');`);
+    if(ending==='breakup') run(`relationshipAction(p,'breakup',()=>{p.role='ex';});`);
+    else run(`p.alive=false;relationshipYear();`);
+    assert.equal(run('JSON.stringify(lifeSystems().plan)'),run('initial'));
+    assert.equal(run('c.care'),undefined);
+  }
+});
+
+test('adoption still requires a valid partner and sufficient money after consent', () => {
+  const {run}=coupleGame();
+  run(`S.gender='f';requestCoupleDecision(p,'children');`);
+  clickChoice(run,'стать родителями сейчас');
+  assert.equal(run(`document.querySelector('#modalTitle').textContent`),'Усыновление');
+  run('S.money=0');clickChoice(run,'Усыновить');
+  assert.equal(run('S.stat.kids'),0);
+});
+
+test('annual reports reconcile money and relationship changes made during joint decisions', () => {
+  const {run}=coupleGame();
+  run(`var x=lifeSystems();x.pending={year:2001,age:1,steps:[],cash:[]};lifeObserveMoney();var moveCost=price(300000);requestCoupleDecision(p,'move','us');`);
+  clickChoice(run,'переехать вместе');
+  assert.equal(run('S.lifeSystems.pending'),undefined);
+  assert.equal(run('S.lifeSystems.report.cash.reduce((n,f)=>n+f.delta,0)'),run('-moveCost'));
+  assert.equal(run(`S.lifeSystems.report.steps.reduce((n,s)=>n+(s.changes['person:'+p.id]||0),0)`),5);
+});
+
+test('discovered infidelity in the existing event creates a lasting memory', () => {
+  const {run}=coupleGame();
+  run(`EVENTS.find(e=>e.run.toString().includes('Искушение')).run();pump();`);
+  clickChoice(run,'Поддаться');
+  assert.equal(run('relationshipHurt(p)'),30);
+  assert.equal(run('p.close'),30);
+  assert.equal(run(`relationshipState(p).entries[0].kind`),'betrayal');
+});
+
+test('supporting a close person\'s goal in the existing annual event is remembered', () => {
+  const {run}=coupleGame();
+  run(`lifeNPC(p).asked=0;lifePeopleYear();pump();`);
+  clickChoice(run,'Поддержать выбор');
+  assert.equal(run(`relationshipState(p).entries.some(e=>e.kind==='goal-support')`),true);
+});
+
+test('dream choice records completion once and preserves earlier chapters on revision', () => {
+  const {run}=game();
+  run(`S.age=18;chooseLifeDream('music');skills().music=80;var happy=S.stats.happy;checkLifeDream(false);var after=S.stats.happy;checkLifeDream(false);`);
+  assert.equal(run('narrativeState().dreams[0].done'),run('S.year'));
+  assert.equal(run('S.stats.happy'),run('after'));
+  run(`chooseLifeDream('world');chooseLifeDream('family');`);
+  assert.equal(run('narrativeState().dreams.at(-1).id'),'world');
+  run(`S.year+=5;chooseLifeDream('family');`);
+  assert.equal(run('narrativeState().dreams.at(-2).abandoned'),run('S.year'));
+  assert.equal(run('narrativeState().dreams[0].id'),'music');
+});
+
+test('peace dream requires five distinct consecutive adult years', () => {
+  const {run}=game();
+  run(`S.age=20;chooseLifeDream('peace');S.stats.happy=80;S.stats.health=80;S.stress=20;checkLifeDream(true);checkLifeDream(true);`);
+  assert.equal(run('narrativeDreamProgress("peace").value'),1);
+  run(`S.year++;S.stress=80;checkLifeDream(true);`);
+  assert.equal(run('narrativeDreamProgress("peace").value'),0);
+  run(`S.stress=20;for(let i=0;i<5;i++){S.year++;checkLifeDream(true);}`);
+  assert.equal(run('!!narrativeState().dreams[0].done'),true);
+});
+
+test('adult legacy saves do not invent childhood or apply retroactive upbringing', () => {
+  const {run}=game();
+  run(`delete S.narrative;S.age=40;var stats=JSON.stringify(S.stats);narrativeState();narrativeChildhoodYear();`);
+  assert.equal(run('narrativeState().origin.known'),false);
+  assert.equal(run('JSON.stringify(S.stats)'),run('stats'));
+  assert.match(run('narrativeBiographyHTML(narrativeBiographyData())'),/Сведений о прошлом детстве/);
+});
+
+test('childhood affects each future year once, and free clubs remain available without parental money', () => {
+  const {run}=game();
+  run(`S.age=8;var o=narrativeState().origin;o.style='strict';o.area='quiet';o.interest='music';skills().music=0;S.edu.grade=50;S.stats.happy=60;S.people.forEach(p=>p.money=0);narrativeChildhoodYear();narrativeChildhoodYear();`);
+  assert.equal(run('S.edu.grade'),52);
+  assert.equal(run('S.stats.happy'),59);
+  run('childhoodLesson(true)'); assert.equal(run('S.used.childhoodLesson'),undefined);
+  run('childhoodLesson(false)'); assert.equal(run('skillOf("music")'),3);
+  run('childhoodLesson(false)'); assert.equal(run('skillOf("music")'),3);
+});
+
+function workGame() {
+  const g=game();
+  g.run(`S.age=30;S.money=1000000;S.job={id:'dev',lvl:0,perf:80,years:3,lvlYears:3,bonus:1};
+    var randomSeed=19;Math.random=()=>{randomSeed=(randomSeed*1664525+1013904223)>>>0;return randomSeed/4294967296;};
+    var w=workplaceState();var colleague=S.people.find(p=>p.id===w.people[2]);`);
+  return g;
+}
+
+test('workplaces have stable people; a new employment keeps former contacts but rejects old projects', () => {
+  const {run}=workGame();
+  run('var ids=JSON.stringify(w.people);workplaceState();');
+  assert.equal(run('JSON.stringify(w.people)'),run('ids'));
+  run(`S.job={id:'dev',lvl:0,perf:50,years:0,lvlYears:0,bonus:1};S.stat.jobs++;workplaceState();var perf=S.job.perf;workplaceProject(w,colleague,'credit');`);
+  assert.equal(run('S.job.perf'),run('perf'));
+  assert.equal(run('narrativeState().formerWorkplaces.length'),1);
+  assert.equal(run('new Set(narrativeState().workplace.people).size'),4);
+});
+
+test('helping or taking credit changes actual colleague memories and performance', () => {
+  for(const choice of ['help','credit']) {
+    const {run}=workGame();
+    run(`workplaceProject(w,colleague,${JSON.stringify(choice)});var perf=S.job.perf;workplaceProject(w,colleague,'help');`);
+    assert.equal(run('S.job.perf'),run('perf'));
+    assert.equal(run('relationshipHurt(colleague)'),choice==='credit'?20:0);
+    assert.equal(run('relationshipState(colleague).entries[0].kind'),choice==='credit'?'stolen-credit':'work-help');
+  }
+});
+
+test('mentor and boss affect work; promotion can be accepted or passed to a colleague', () => {
+  for(const choice of ['accept','recommend']) {
+    const {run}=workGame();
+    run(`S.people.find(p=>p.id===w.people[0]).close=80;S.people.find(p=>p.id===w.people[1]).close=80;var before=S.job.perf;narrativeWorkYear();`);
+    assert.equal(run('S.job.perf'),run('before+4'));
+    run(`workplacePromotion(w,colleague,${JSON.stringify(choice)});`);
+    assert.equal(run('S.job.lvl'),choice==='accept'?1:0);
+  }
+});
+
+test('family invitations reflect recorded milestones and are deduplicated', () => {
+  const {run}=game();
+  run(`S.age=50;S.people=[makePerson('child',{age:18,name:'Ребёнок'})];var child=S.people[0];narrativeFamilyYear();`);
+  assert.equal(run('narrativeState().family.events.length'),0);
+  run(`child.schoolGraduatedYear=S.year;narrativeFamilyYear();narrativeFamilyYear();`);
+  assert.equal(run('narrativeState().family.events.length'),1);
+  run(`child.age=25;child.familyMarriedYear=S.year;narrativeFamilyYear();`);
+  assert.equal(run('narrativeState().family.events.filter(e=>e.kind==="wedding").length'),1);
+});
+
+test('family attendance checks funds, records a memory, and cannot spend twice', () => {
+  const {run}=coupleGame();
+  run(`var event=addFamilyOccasion(p,'anniversary');S.money=0;resolveFamilyOccasion(event,'organize');`);
+  assert.equal(run('event.status'),'pending');
+  run(`S.money=100000;var money=S.money;var fee=price(80000);resolveFamilyOccasion(event,'organize');resolveFamilyOccasion(event,'organize');`);
+  assert.equal(run('S.money'),run('money-fee'));
+  assert.equal(run('event.status'),'organize');
+  assert.equal(run(`relationshipState(p).entries.some(e=>e.kind==='family:'+event.id)`),true);
+});
+
+test('pending invitations survive reload; dead people and stale callbacks cannot impose costs', () => {
+  const {run}=coupleGame();
+  run(`var event=addFamilyOccasion(p,'jubilee');save();S=migrate(loadSave());p=S.people[0];var restored=narrativeState().family.events[0];var money=S.money;resolveFamilyOccasion(event,'organize');`);
+  assert.equal(run('S.money'),run('money'));
+  run(`p.alive=false;resolveFamilyOccasion(restored,'organize');`);
+  assert.equal(run('restored.status'),'cancelled');
+  assert.equal(run('S.money'),run('money'));
+});
+
+test('missed family invitations leave one lasting memory, with a free remote alternative', () => {
+  const {run}=coupleGame();
+  run(`var event=addFamilyOccasion(p,'jubilee');S.year++;narrativeFamilyYear();var hurt=relationshipHurt(p);narrativeFamilyYear();`);
+  assert.equal(run('event.status'),'missed');
+  assert.equal(run('relationshipHurt(p)'),run('hurt'));
+  run(`var other=addFamilyOccasion(p,'reunion');S.money=0;resolveFamilyOccasion(other,'remote');`);
+  assert.equal(run('other.status'),'remote'); assert.equal(run('S.money'),0);
+});
+
+test('biography uses recorded facts, escapes names and is available from the death screen', () => {
+  const {run}=coupleGame();
+  run(`S.first='<script>alert(1)</script>';narrativeNote('family','Реальная семейная встреча');S.age=70;die('Естественные причины');Q=[];closeModal();showDeath();`);
+  clickChoice(run,'Прочитать биографию');
+  assert.equal(run(`document.querySelector('#modalTitle').textContent`),'Биография');
+  assert.match(run(`document.querySelector('#modalText').innerHTML`),/Реальная семейная встреча/);
+  assert.equal(run(`document.querySelector('#modalText').innerHTML.includes('<script>')`),false);
+  assert.equal(run('narrativeState().finalBiography.age'),70);
+});
+
+test('succession carries a bounded family chronicle without inheriting personal dreams', () => {
+  const {run}=coupleGame();
+  run(`chooseLifeDream('world');narrativeNote('work','Семейный проект');var kid=makePerson('child',{age:25,name:'Наследник'});S.people.push(kid);continueAs(kid);`);
+  assert.equal(run('narrativeState().ancestors.length'),1);
+  assert.equal(run('narrativeState().dreams.length'),0);
+  assert.match(run('narrativeState().ancestors[0].summary'),/Семейный проект/);
+});
+
+test('workplace project resumes after reload and old callback cannot change the restored game', () => {
+  const {run}=workGame();
+  run(`S.year=w.since+3;narrativeWorkYear();var stale=w;var oldColleague=colleague;save();S=migrate(loadSave());Q=[];closeModal();w=workplaceState();var perf=S.job.perf;workplaceProject(stale,oldColleague,'credit');openWorkplaceEvent(w);pump();`);
+  assert.equal(run('S.job.perf'),run('perf'));
+  clickChoice(run,'Помочь коллеге');
+  assert.equal(run('S.job.perf'),run('Math.min(100,perf+3)'));
+  assert.equal(run('w.pending'),undefined);
+});
+
+test('family photos keep the original faces and pass to the next generation', () => {
+  const {run}=coupleGame();
+  run("var child=makePerson('child',{name:'Анна',age:18});S.people.push(child);var invitation=addFamilyOccasion(child,'graduation');resolveFamilyOccasion(invitation,'remote');");
+  assert.equal(run('S.familyPhotos.length'),1);
+  run('child.age++;save();S=migrate(loadSave());child=S.people.find(p=>p.role==="child");continueAs(child)');
+  assert.equal(run('S.familyPhotos[0].people[1].age'),18);
+  assert.match(run('photoFrame(S.familyPhotos[0])'),/Выпускной/);
+});
+
+test('new destinations support birth, names, map IDs and migration', () => {
+  const {run}=game();
+  for(const id of ['ad','li','sm','mc','bh','hn','ni','sv','bs','tt','ml','bj']){
+    run(`newLife({country:'${id}',year:2000});`);
+    assert.equal(run('S.country'),id);
+    assert.ok(run('C().cities.includes(S.city) && !!S.first && !!S.surname && !!ISO_NUM[S.country]'));
+    run(`S.age=30; S.money=1000000; couplePerformMove('by',null,false)`);
+    assert.equal(run('S.country'),'by');
+  }
+  assert.equal(run('COUNTRIES.length'),132);
 });

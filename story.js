@@ -289,7 +289,7 @@ YEAR_HOOKS.push(() => {
   } else if (!A.office && S.job && S.age >= 20 && S.age <= 50 && S.orient !== 'ace' && chance(0.05)) {
     const g = loveGender(); const name = randFirst(g); A.office = { step: 0 };
     ev('☕', 'Взгляды у кулера', `Коллега по имени ${name} явно проявляет к вам интерес. На корпоративе вы оказались рядом.`, [
-      { t: 'Ответить взаимностью', f: () => { if (partner()) { const p = partner(); if (chance(0.5)) { p.close = clamp(p.close - 40); A.office = { step: 9 }; return `${p.name} обо всём узнал(а). Скандал!`; } } A.office = { step: 1, g, name }; return 'Между вами пробежала искра…'; } },
+      { t: 'Ответить взаимностью', f: () => { if (partner()) { const p = partner(); if (chance(0.5)) { p.close = clamp(p.close - 40); relationshipRemember(p, 'betrayal', 'Я узнал о вашем романе на работе.', 0, 30); A.office = { step: 9 }; return `${p.name} обо всём узнал(а). Скандал!`; } } A.office = { step: 1, g, name }; return 'Между вами пробежала искра…'; } },
       { t: 'Держать дистанцию', f: () => { A.office = { step: 9 }; eff({ karma: 2 }); return 'Работа есть работа.'; } }
     ]);
   }
@@ -392,3 +392,4 @@ ACHIEVEMENTS.push(
 YEAR_HOOKS.push(() => {
   if (S.market && S.shares) { const v = Object.entries(S.shares).reduce((s, [t, n]) => s + (S.market[t] ? n * S.market[t].p : 0), 0); if (v >= 1e7) unlock('investor'); }
 });
+

@@ -155,7 +155,7 @@ function lifePeopleYear() {
   for (const p of candidates) {
     const n = lifeNPC(p), goal = LIFE_GOALS[n.goal];
     n.progress = clamp(n.progress + rnd(2, 6) + (n.support ? 3 : 0));
-    if (p.age >= 18 && S.year >= n.next) {
+    if (p.age >= 18 && S.year >= n.next && !(p.couple?.care?.who === 'partner' && S.year <= p.couple.care.until)) {
       n.next = S.year + rnd(3, 5);
       if (n.progress >= 30) { p.job = goal.job; log(`🌱 ${p.name}: цель «${goal.name}» привела к новой работе — ${p.job}.`, 'good'); }
       else if (chance(0.3)) { p.job = pick(NPC_JOBS); log(`💼 ${p.name} самостоятельно меняет работу: ${p.job}.`, 'info'); }
@@ -171,10 +171,11 @@ function lifePeopleYear() {
   const n = lifeNPC(p), goal = LIFE_GOALS[n.goal]; n.asked = S.year;
   const fee = price(60000);
   ev('🌱', `${p.name}: свой путь`, `Цель: ${goal.name}. ${p.name} просит поддержки. Характер: ${n.character}.`, [
-    { t: 'Поддержать выбор', f: () => { if (!p.alive) return 'Эта встреча уже невозможна.'; n.support = true; p.close = clamp(p.close + 10); lifeRep('family', 3); return `Вы поддержали цель ${p.name}. Решение о будущем остаётся за близким человеком.`; } },
-    { t: `Оплатить обучение (${fmt(fee)})`, disabled: S.money < fee, f: () => { if (!p.alive || S.money < fee) return 'Помочь сейчас не получилось.'; S.money -= fee; n.support = true; n.progress = clamp(n.progress + 20); p.close = clamp(p.close + 12); lifeRep('family', 4); return `Вы помогли ${p.name} приблизиться к цели.`; } },
+    { t: 'Поддержать выбор', f: () => { if (!p.alive) return 'Эта встреча уже невозможна.'; n.support = true; relationshipRemember(p, 'goal-support', 'Вы поддержали мой собственный выбор.', 6); p.close = clamp(p.close + 10); lifeRep('family', 3); return `Вы поддержали цель ${p.name}. Решение о будущем остаётся за близким человеком.`; } },
+    { t: `Оплатить обучение (${fmt(fee)})`, disabled: S.money < fee, f: () => { if (!p.alive || S.money < fee) return 'Помочь сейчас не получилось.'; S.money -= fee; n.support = true; relationshipRemember(p, 'goal-training', 'Вы помогли мне получить образование для моей цели.', 6); n.progress = clamp(n.progress + 20); p.close = clamp(p.close + 12); lifeRep('family', 4); return `Вы помогли ${p.name} приблизиться к цели.`; } },
     { t: 'Настоять на своём выборе', f: () => {
       if (!p.alive) return null;
+      relationshipRemember(p, 'goal-pressure', 'Вы пытались навязать мне свой жизненный путь.', 0, 15);
       p.close = clamp(p.close - (n.character === 'самостоятельный' ? 20 : 10)); lifeRep('family', -5);
       if (n.character === 'осторожный') { n.goal = (n.goal + 1) % LIFE_GOALS.length; n.progress = 0; return `${p.name} уступает, но прежнее увлечение осталось незавершённым.`; }
       return `${p.name} выбирает собственный путь. Разговор оставил обиду.`;
@@ -219,7 +220,7 @@ function lifeStartStory() {
 /* 4. All moves use one detection path, including historical forced migration. */
 function lifeMove(from) {
   const x = lifeSystems();
-  if (from === S.country) return;
+  if (from === S.country || (x.country === S.country && x.migration?.country === S.country)) return;
   x.country = S.country;
   const contacts = S.people.filter(p => p.alive && p.country === S.country && p.close >= 50).length;
   x.migration = { country: S.country, since: S.year, language: clamp(skillOf('lang') + contacts * 10), network: Math.min(60, contacts * 20), diploma: !['bachelor', 'master', 'phd'].includes(S.edu.level), residence: 0, done: false };

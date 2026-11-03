@@ -23,7 +23,8 @@ function randomLook(gender, country, parents) {
   const eyes = ps.length && chance(0.7) ? pick(ps).look.eyes : skin >= 3 ? rnd(0, 1) : rnd(0, 5);
   const styles = gender === 'm' ? ['short', 'buzz', 'side', 'curly', 'afro'] : gender === 'f' ? ['long', 'bob', 'bun', 'ponytail', 'curly', 'afro'] : ['short', 'bob', 'curly', 'side', 'long'];
   let hair = pick(styles); if (hair === 'afro' && skin < 4 && chance(0.7)) hair = pick(styles.filter((x) => x !== 'afro'));
-  return { skin, hairColor, eyes, hair, glasses: chance(0.18), beard: gender === 'm' && chance(0.35), shirt: rnd(0, SHIRTS.length - 1) };
+  const familyTrait = key => ps.length && chance(0.75) ? (pick(ps).look[key] ?? 1) : rnd(0, 2);
+  return { face: familyTrait('face'), brow: familyTrait('brow'), skin, hairColor, eyes, hair, glasses: chance(0.18), beard: gender === 'm' && chance(0.35), shirt: rnd(0, SHIRTS.length - 1) };
 }
 function shade(hex, k) { const n = parseInt(hex.slice(1), 16); let r = n >> 16, g = (n >> 8) & 255, b = n & 255; r = Math.round(Math.min(255, Math.max(0, r * k))); g = Math.round(Math.min(255, Math.max(0, g * k))); b = Math.round(Math.min(255, Math.max(0, b * k))); return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1); }
 function mix(a, b, t) { const x = parseInt(a.slice(1), 16), y = parseInt(b.slice(1), 16); const c = (s) => Math.round(((x >> s) & 255) * (1 - t) + ((y >> s) & 255) * t); return '#' + ((1 << 24) + (c(16) << 16) + (c(8) << 8) + c(0)).toString(16).slice(1); }
@@ -36,7 +37,7 @@ function portraitSVG(look, age, mood, gender) {
   const baby = age < 3, kid = age < 13, old = age >= 65;
   const shirt = SHIRTS[L.shirt] || SHIRTS[0];
   let hair = L.hair; if (baby) hair = 'tuft'; if (old && gender === 'm' && L.hair !== 'afro' && (L.skin + L.eyes) % 3 === 0) hair = 'bald';
-  const hy = baby ? 50 : 44, hrx = baby ? 25 : 21, hry = baby ? 24 : 24;
+  const hy = baby ? 50 : 44, hrx = (baby ? 25 : 21) + ((L.face ?? 1) - 1) * 2, hry = baby ? 24 : 24;
   const back = { long: `<path d="M27 40 Q26 78 34 86 L66 86 Q74 78 73 40 Z" fill="${hcD}"/>`, ponytail: `<path d="M68 38 Q86 48 78 74 Q72 62 66 52 Z" fill="${hcD}"/>`, bob: `<path d="M27 42 Q26 66 34 70 L66 70 Q74 66 73 42 Z" fill="${hcD}"/>`, afro: `<circle cx="50" cy="36" r="31" fill="${hcD}"/>`, curly: `<g fill="${hcD}"><circle cx="30" cy="42" r="8"/><circle cx="70" cy="42" r="8"/><circle cx="31" cy="54" r="7"/><circle cx="69" cy="54" r="7"/></g>` }[hair] || '';
   const top = {
     short: `<path d="M29 40 Q30 18 50 18 Q70 18 71 40 Q64 28 50 28 Q36 28 29 40 Z" fill="${hc}"/>`,
@@ -68,7 +69,7 @@ function portraitSVG(look, age, mood, gender) {
   const glasses = L.glasses && age >= 6 ? `<g fill="none" stroke="#2b2b33" stroke-width="1.8"><rect x="34" y="${ey - 5}" width="13" height="10" rx="4"/><rect x="53" y="${ey - 5}" width="13" height="10" rx="4"/><path d="M47 ${ey} h6"/></g>` : '';
   const nose = baby ? '' : `<path d="M50 ${ey + 3} q-2 5 1 6" stroke="${skinD}" stroke-width="1.6" fill="none" stroke-linecap="round"/>`;
   const body = baby ? `<path d="M26 100 Q28 78 50 76 Q72 78 74 100 Z" fill="${shirt}"/>` : `<path d="M18 100 Q20 76 50 74 Q80 76 82 100 Z" fill="${shirt}"/><path d="M42 74 L50 82 L58 74" fill="none" stroke="${shade(shirt, 0.75)}" stroke-width="2"/>`;
-  return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="portrait-svg">${back}${body}<rect x="44" y="${hy + 16}" width="12" height="12" rx="4" fill="${skinD}"/><ellipse cx="${50 - hrx}" cy="${hy + 2}" rx="4" ry="5.5" fill="${skinD}"/><ellipse cx="${50 + hrx}" cy="${hy + 2}" rx="4" ry="5.5" fill="${skinD}"/><ellipse cx="50" cy="${hy}" rx="${hrx}" ry="${hry}" fill="${skin}"/>${wrinkles}${cheeks}${beard}${eyes}${brows}${nose}${mouth}${glasses}${top}</svg>`;
+  return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="portrait-svg">${back}${body}<rect x="44" y="${hy + 16}" width="12" height="12" rx="4" fill="${skinD}"/><ellipse cx="${50 - hrx}" cy="${hy + 2}" rx="4" ry="5.5" fill="${skinD}"/><ellipse cx="${50 + hrx}" cy="${hy + 2}" rx="4" ry="5.5" fill="${skinD}"/><ellipse cx="50" cy="${hy}" rx="${hrx}" ry="${hry}" fill="${skin}"/>${wrinkles}${cheeks}${beard}${eyes}${brows}${nose}${mouth}${glasses}${top}<path d="M35 ${hy - 7} q5 -${(L.brow ?? 1)+1} 9 0 M56 ${hy - 7} q5 -${(L.brow ?? 1)+1} 9 0" fill="none" stroke="${hcD}" stroke-width="1.6"/></svg>`;
 }
 
 function ensureLooks() {
@@ -140,3 +141,4 @@ lifeCardCanvas = function () {
   }
   return c;
 };
+
