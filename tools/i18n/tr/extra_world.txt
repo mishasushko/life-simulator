@@ -1,0 +1,89 @@
+{0}. Урожай {1}%, продукты дороже.|{0}. Harvest {1}%, food is more expensive.
+Урожай {0}%|Harvest {0}%
+Индекс цен на еду {0}%. Доступные технологии: {1}|Food price index {0}%. Available technologies: {1}
+Коллекции стран|Country collections
+Завершённые жизни по континентам: {0}/6. Президентство: {1}/3 страны.|Lives completed by continent: {0}/6. Presidencies: {1}/3 countries.
+Рейтинг прохождений|Run rankings
+Потратить {0}? Это больше половины доступных денег.|Spend {0}? That's more than half of your available money.
+Европа|Europe
+Азия|Asia
+Африка|Africa
+Северная Америка|North America
+Южная Америка|South America
+Океания|Oceania
+Век пандемий|Age of pandemics
+Вечная зима|Eternal winter
+Жёсткая экономика|Harsh economy
+Вернуться к состоянию перед последним +1 год?|Go back to the state before the last +1 year?
+Вечерние курсы программирования|Evening programming courses
+Переобучение после 40|Retraining after 40
+Второе высшее|Second degree
+Все|All
+Хорошие|Good
+Плохие|Bad
+Деньги|Money
+События|Events
+Результаты|Results
+Вы записались на вечернюю программу.|You enrolled in an evening program.
+Вы подготовили новую работу к выставке.|You prepared a new piece for the exhibition.
+Выбор отложен. Нажмите +1, чтобы продолжить событие.|Choice postponed. Press +1 to continue the event.
+Генеративный ИИ|Generative AI
+Персональные компьютеры|Personal computers
+Радиовещание|Radio broadcasting
+Электромобили|Electric cars
+Громкость эффектов|Effects volume
+Размер текста|Text size
+До следующего перехода или перезагрузки|Until the next year or a page reload
+Отмотать последний переход года|Undo the last year
+Избранное|Favorites
+Клавиши 1–4 выбирают вариант события. Esc закрывает окно с кнопкой отмены. Пробел проживает год.|Keys 1–4 pick an event option. Esc closes a window that has a cancel button. Space lives a year.
+Климат и продовольствие|Climate and food
+Мир, технологии и обучение|World, technology and learning
+Компактный режим|Compact mode
+Уведомления|Notifications
+Отображение|Display
+Мутаторы · выбираются при рождении|Mutators · chosen at birth
+Навык +4, возможна травма|Skill +4, injury possible
+рейтинг {0}|rating {0}
+Найти раздел|Find a section
+Нет доступного снимка этой жизни.|No snapshot of this life is available.
+Новые настройки, поиск и избранное, перемотка с остановками, климат и технологии, образование взрослых, сезоны искусства, память поколений и мировые коллекции.|New settings, search and favorites, fast-forward with stops, climate and technology, adult education, art seasons, generational memory and world collections.
+Нужен первый диплом и новая специальность.|You need a first degree and a new field.
+Обучение и карьера|Learning and career
+Осталось лет обучения: {0}|Years of study left: {0}
+Улица в честь {0} · {1}|A street named after {0} · {1}
+Музей в честь {0} · {1}|A museum in honor of {0} · {1}
+Памятник в честь {0} · {1}|A monument to {0} · {1}
+Память семьи: {0}|Family memory: {0}
+Перегрузка кисти. Нужен сезон отдыха.|Strained wrist. You need a season of rest.
+Подготовиться к выставочному сезону|Prepare for the exhibition season
+Специалист|Specialist
+Ведущий специалист|Lead specialist
+Руководитель отдела|Head of department
+Полевой эколог|Field ecologist
+Эколог|Ecologist
+Руководитель природоохранного проекта|Head of conservation project
+Экология|Ecology
+Сейчас поступление недоступно.|Enrollment is unavailable right now.
+Спортивная карьера|Sports career
+Тренировки, травмы и соревнования|Training, injuries and competitions
+Вечерняя программа завершена.|Evening program completed.
+Выставочный сезон: рейтинг {0}/100.|Exhibition season: rating {0}/100.
+Распространяется новая технология: {0}.|A new technology is spreading: {0}.
+Из-за новых требований к автоматизации потребовалось переобучение.|New automation requirements forced you to retrain.
+Мир и возможности|World and opportunities
+Поиск по журналу|Journal search
+Настройки|Settings
+Что нового|What's new
+Волна инфекции затронула вашу семью.|A wave of infection hit your family.
+Вычет за образование: {0}.|Education tax deduction: {0}.
+близость ↑|closeness ↑
+счастье ↑|happiness ↑
+отношения завершатся|the relationship will end
+раздел имущества −{0}|property split −{0}
+Вы отложили переезд.|You postponed the move.
+Вы пока не оплатили участие.|You haven't paid to take part yet.
+Завершить отношения?|End the relationship?
+Совершить преступление? Возможны суд и тюрьма.|Commit a crime? You may face trial and prison.
+болезнь альцгеймера|Alzheimer's disease
+двойной агент|double agent

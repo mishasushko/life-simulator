@@ -10,7 +10,7 @@ const TUNES = {
   ach: [[523, .07], [659, .07], [784, .07], [1047, .16]], death: [[392, .22], [330, .22], [262, .45]], coin: [[988, .05], [1319, .12]]
 };
 sfx = function (type) {
-  if (!soundOn) return;
+  if (!soundOn || uxPrefs.volume === 0) return;
   try {
     actx = actx || new (window.AudioContext || window.webkitAudioContext)();
     if (actx.state === 'suspended') actx.resume();
@@ -18,7 +18,7 @@ sfx = function (type) {
     for (const [f, d] of TUNES[type] || []) {
       const o = actx.createOscillator(), g = actx.createGain();
       o.type = type === 'death' ? 'sine' : 'triangle'; o.frequency.value = f;
-      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(type === 'click' ? 0.04 : 0.1, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime((type === 'click' ? 0.04 : 0.1) * uxPrefs.volume / 100, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
       o.connect(g).connect(actx.destination); o.start(t); o.stop(t + d + 0.03); t += d * 0.9;
     }
     if (navigator.vibrate) navigator.vibrate(type === 'death' ? [60, 50, 200] : type === 'ach' ? [30, 40, 30] : type === 'age' ? 12 : 0);
@@ -144,3 +144,4 @@ MENU_HOOKS.push((l) => {
   item(l, { e: soundOn ? '🔊' : '🔇', t: soundOn ? 'Звук и вибрация: вкл' : 'Звук и вибрация: выкл', d: 'Нажмите, чтобы переключить', onClick: () => { soundOn = !soundOn; try { localStorage.setItem(SND_KEY, soundOn ? '1' : '0'); } catch (e) {} sfx('click'); refreshSheet(); } });
   if (installPrompt) item(l, { e: '📲', t: 'Установить как приложение', d: 'Играть офлайн с главного экрана', onClick: async () => { installPrompt.prompt(); try { await installPrompt.userChoice; } catch (e) {} installPrompt = null; refreshSheet(); } });
 });
+

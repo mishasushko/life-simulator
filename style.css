@@ -527,3 +527,9 @@ html[data-life-motion=off] .aged{animation:none!important}
 @media(min-width:861px){#quickBar{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);min-width:240px}}
 .item .r{overflow-wrap:anywhere}.side:has(#statChanges:empty) #statChanges{display:none}
 .profile .profile-top{position:relative}.profile .profile-top::after{position:absolute;right:0;bottom:0;font-size:2.5rem;opacity:.13;pointer-events:none}.profile[data-scene=school] .profile-top::after{content:"🏫"}.profile[data-scene=office] .profile-top::after{content:"🏢"}.profile[data-scene=home] .profile-top::after{content:"🏡"}
+
+.ux-control{display:block;margin:10px 0}.menu-entry{display:flex;align-items:center}.menu-entry[hidden]{display:none}.menu-entry>.item{flex:1}.menu-entry>button:last-child{padding:8px;color:var(--ink);background:var(--surface)}
+[data-unread=yes]::after{content:'!';color:white;background:#b34738;border-radius:50%;padding:0 .35em;font-weight:bold}
+html[data-compact=yes] .item,html[data-compact=yes] .ev{padding-block:3px}
+#sheetBody input[type=search]{width:100%;padding:10px;color:var(--ink);background:var(--surface);border:1px solid var(--line)}
+body{zoom:var(--ui-scale,1)}
