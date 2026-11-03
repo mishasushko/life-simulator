@@ -585,10 +585,10 @@ const EVENTS = [
       { t: 'Пригласить на свидание', f: () => chance(0.45 + S.stats.looks / 250) ? (addPartner(g, n), `${n} теперь ваша пара! 💕`) : (eff({ happy: -5 }), `${n} отказал(а).`) },
       { t: 'Не сейчас', f: () => 'Вы улыбнулись и пошли дальше.' }]); } },
   { min: 20, max: 70, w: 4, cond: () => partner()?.status === 'married', run: () => { const p = partner(); ev('🌹', 'Годовщина', `Сегодня годовщина вашей свадьбы. ${p.name} ждёт праздника.`, [
-      { t: `Ужин в ресторане (${fmt(price(15000))})`, f: () => { S.money -= price(15000); p.close = clamp(p.close + 15); eff({ happy: 8 }); return 'Романтичный вечер.'; } },
-      { t: 'Забыть о ней', f: () => { p.close = clamp(p.close - 20); return `${p.name} очень обидел${gv(p, 'ся', 'ась', 'ся(ась)')}.`; } }]); } },
+      { t: `Ужин в ресторане (${fmt(price(15000))})`, f: () => { S.money -= price(15000); p.close = clamp(p.close + 15); relationshipRemember(p, 'anniversary', 'Вы нашли время отметить нашу годовщину вместе.', 5); eff({ happy: 8 }); return 'Романтичный вечер.'; } },
+      { t: 'Забыть о ней', f: () => { p.close = clamp(p.close - 20); relationshipRemember(p, 'forgot-anniversary', 'Вы забыли о годовщине нашей свадьбы.', 0, 12); return `${p.name} очень обидел${gv(p, 'ся', 'ась', 'ся(ась)')}.`; } }]); } },
   { min: 25, max: 75, w: 3, cond: () => partner(), run: () => { const p = partner(); ev('😳', 'Искушение', 'Коллега на корпоративе откровенно вас соблазняет.', [
-      { t: 'Поддаться', f: () => { eff({ karma: -10, happy: 5 }); if (chance(0.5)) { p.close = clamp(p.close - 50); return `${p.name} всё узнал${gv(p, '', 'а', '(а)')}... Отношения на грани.`; } return 'Никто не узнал. Пока.'; } },
+      { t: 'Поддаться', f: () => { eff({ karma: -10, happy: 5 }); if (chance(0.5)) { p.close = clamp(p.close - 50); relationshipRemember(p, 'betrayal', 'Я узнал о вашей неверности. Доверие разрушено.', 0, 30); return `${p.name} всё узнал${gv(p, '', 'а', '(а)')}... Отношения на грани.`; } return 'Никто не узнал. Пока.'; } },
       { t: 'Остаться верным', f: () => { eff({ karma: 5 }); p.close = clamp(p.close + 5); return 'Вы сохранили верность.'; } }]); } },
   { min: 30, max: 90, w: 3, run: () => ev('🩺', 'Медосмотр', 'Врач рекомендует пройти полное обследование.', [
       { t: `Пройти (${fmt(price(30000))})`, f: () => { S.money -= price(30000); const n = S.diseases.length; S.diseases = S.diseases.filter((d) => !chance(0.5)); eff({ health: 5 }); return n ? 'Вовремя нашли и подлечили проблемы.' : 'Всё в порядке! Здоровье отличное.'; } },
@@ -1079,26 +1079,26 @@ function personEmoji(p) {
 function personModal(p) {
   const key = (a) => `${a}_${p.id}`;
   const ch = [];
-  const once = (a, fn) => () => { S.used[key(a)] = 1; return fn(); };
-  ch.push({ t: '☕ Провести время вместе', disabled: S.used[key('time')], f: once('time', () => { p.close = clamp(p.close + rnd(5, 12)); eff({ happy: rnd(2, 6) }); return `Вы чудесно провели время вместе. ${p.name} ${gv(p, 'доволен', 'довольна', 'доволен(льна)')}.`; }) });
-  if (S.age >= 14) ch.push({ t: `🎁 Подарок (${fmt(price(10000))})`, disabled: S.used[key('gift')], f: once('gift', () => { S.money -= price(10000); p.close = clamp(p.close + rnd(8, 15)); return `${p.name} в восторге от подарка!`; }) });
-  ch.push({ t: '💬 Поговорить по душам', disabled: S.used[key('talk')], f: once('talk', () => { p.close = clamp(p.close + rnd(2, 8)); eff({ happy: 2 }); return `Душевный разговор: ${p.name} ${gv(p, 'открылся', 'открылась', 'открылся(ась)')} вам.`; }) });
+  const once = (a, fn) => () => { if (S.used[key(a)]) return null; S.used[key(a)] = 1; return fn(); };
+  ch.push({ relationshipAction: 'time', t: '☕ Провести время вместе', disabled: S.used[key('time')], f: once('time', () => { p.close = clamp(p.close + rnd(5, 12)); eff({ happy: rnd(2, 6) }); return `Вы чудесно провели время вместе. ${p.name} ${gv(p, 'доволен', 'довольна', 'доволен(льна)')}.`; }) });
+  if (S.age >= 14) ch.push({ relationshipAction: 'gift', t: `🎁 Подарок (${fmt(price(10000))})`, disabled: S.used[key('gift')], f: once('gift', () => { S.money -= price(10000); p.close = clamp(p.close + rnd(8, 15)); return `${p.name} в восторге от подарка!`; }) });
+  ch.push({ relationshipAction: 'talk', t: '💬 Поговорить по душам', disabled: S.used[key('talk')], f: once('talk', () => { p.close = clamp(p.close + rnd(2, 8)); eff({ happy: 2 }); return `Душевный разговор: ${p.name} ${gv(p, 'открылся', 'открылась', 'открылся(ась)')} вам.`; }) });
   if ((p.role === 'mother' || p.role === 'father') && S.age >= 8) ch.push({ t: '💵 Попросить денег', disabled: S.used[key('money')], f: once('money', () => { if (chance(p.close / 140)) { const s = price(rnd(1, S.age < 18 ? 5 : 50) * 1000); S.money += s; return `${p.name} дал${gv(p, '', 'а', '(а)')} вам ${fmt(s)}.`; } p.close = clamp(p.close - 4); return `${p.name} отказал${gv(p, '', 'а', '(а)')}.`; }) });
   if (p.role === 'child' && S.age >= 18) ch.push({ t: `💸 Дать денег (${fmt(price(50000))})`, f: () => { S.money -= price(50000); p.close = clamp(p.close + 10); eff({ karma: 2 }); return `${p.name} благодарит вас!`; } });
   if (p.role === 'partner') {
     if (p.status === 'dating' && S.age >= 18) ch.push({ t: '💍 Сделать предложение', disabled: S.used[key('prop')], f: once('prop', () => { if (chance(p.close / 110)) { p.status = 'engaged'; eff({ happy: 15 }); return `${p.name} сказал${gv(p, '', 'а', '(а)')} «ДА»! 💍`; } p.close = clamp(p.close - 15); eff({ happy: -12 }); return `${p.name} не готов${gv(p, '', 'а', '(а)')} к такому шагу.`; }) });
     if (p.status === 'engaged') {
-      ch.push({ t: `💒 Пышная свадьба (${fmt(price(1500000))})`, f: () => { S.money -= price(1500000); p.status = 'married'; p.close = clamp(p.close + 15); unlock('married'); eff({ happy: 25 }); return `Свадьба века! Теперь вы в браке. 💒`; } });
-      ch.push({ t: '📝 Скромная роспись', f: () => { p.status = 'married'; unlock('married'); eff({ happy: 15 }); return `Вы расписались. Горько! 🥂`; } });
+      ch.push({ relationshipAction: 'wedding', t: `💒 Пышная свадьба (${fmt(price(1500000))})`, f: () => { S.money -= price(1500000); p.status = 'married'; p.close = clamp(p.close + 15); unlock('married'); eff({ happy: 25 }); return `Свадьба века! Теперь вы в браке. 💒`; } });
+      ch.push({ relationshipAction: 'wedding', t: '📝 Скромная роспись', f: () => { p.status = 'married'; unlock('married'); eff({ happy: 15 }); return `Вы расписались. Горько! 🥂`; } });
     }
     if (S.age >= 18 && S.age <= 55) ch.push({ t: '👶 Завести ребёнка', disabled: S.used.baby, f: () => { S.used.baby = 1; return tryBaby(p); } });
-    ch.push({ t: '🌹 Романтическое свидание', disabled: S.used[key('date')], f: once('date', () => { S.money -= price(8000); p.close = clamp(p.close + rnd(8, 16)); eff({ happy: 6 }); return 'Ужин при свечах удался. ❤️'; }) });
-    ch.push({ t: p.status === 'married' ? '💔 Развестись' : '💔 Расстаться', cls: 'danger', f: () => { const loss = p.status === 'married' ? Math.max(0, Math.round(S.money * 0.4)) : 0; S.money -= loss; p.role = 'ex'; p.status = ''; eff({ happy: -12 }); return `Отношения окончены: ${p.name}.${loss ? ` Раздел имущества: −${fmt(loss)}.` : ''}`; } });
+    ch.push({ relationshipAction: 'date', t: '🌹 Романтическое свидание', disabled: S.used[key('date')], f: once('date', () => { S.money -= price(8000); p.close = clamp(p.close + rnd(8, 16)); eff({ happy: 6 }); return 'Ужин при свечах удался. ❤️'; }) });
+    ch.push({ relationshipAction: 'breakup', t: p.status === 'married' ? '💔 Развестись' : '💔 Расстаться', cls: 'danger', f: () => { const loss = p.status === 'married' ? Math.max(0, Math.round(S.money * 0.4)) : 0; S.money -= loss; p.role = 'ex'; p.status = ''; eff({ happy: -12 }); return `Отношения окончены: ${p.name}.${loss ? ` Раздел имущества: −${fmt(loss)}.` : ''}`; } });
   }
   if (p.role === 'friend') ch.push({ t: '🚫 Перестать общаться', cls: 'danger', f: () => { p.role = 'ex_friend'; S.people = S.people.filter((x) => x !== p); return `${p.name} больше не в вашей жизни.`; } });
-  if (p.role !== 'partner') ch.push({ t: '😤 Поссориться', cls: 'danger', disabled: S.used[key('fight')], f: once('fight', () => { p.close = clamp(p.close - rnd(10, 25)); eff({ karma: -2 }); return `Громкая ссора. ${p.name} ${gv(p, 'обижен', 'обижена', 'обижен(а)')}.`; }) });
+  if (p.role !== 'partner') ch.push({ relationshipAction: 'fight', t: '😤 Поссориться', cls: 'danger', disabled: S.used[key('fight')], f: once('fight', () => { p.close = clamp(p.close - rnd(10, 25)); eff({ karma: -2 }); return `Громкая ссора. ${p.name} ${gv(p, 'обижен', 'обижена', 'обижен(а)')}.`; }) });
   ch.push({ t: 'Закрыть', f: () => null });
-  Q.push({ e: personPortrait ? personPortrait(p) : personEmoji(p), title: `${p.name}${p.surname ? ' ' + p.surname : ''}`, text: `${roleName(p)} · ${yrs(p.age)}${p.job ? ' · ' + p.job : ''}\nОтношения: ${p.close}%`, choices: ch });
+  Q.push({ personId: p.id, e: personPortrait ? personPortrait(p) : personEmoji(p), title: `${p.name}${p.surname ? ' ' + p.surname : ''}`, text: `${roleName(p)} · ${yrs(p.age)}${p.job ? ' · ' + p.job : ''}\nОтношения: ${p.close}%`, choices: ch });
   pump();
 }
 function tryBaby(p) {
@@ -1106,7 +1106,7 @@ function tryBaby(p) {
   const motherAge = S.gender === 'f' ? S.age : p.age;
   if (!bio || motherAge > 46) {
     Q.push({ e: '🍼', title: 'Усыновление', text: `Вы можете усыновить ребёнка. Оформление: ${fmt(price(400000))}.`, choices: [
-      { t: 'Усыновить', f: () => { S.money -= price(400000); return addChild(p, rnd(0, 6)); } }, { t: 'Не сейчас', f: () => null }] });
+      { t: 'Усыновить', disabled: S.money < price(400000), f: () => { if (!coupleValid(p) || S.money < price(400000)) return 'Сейчас усыновление недоступно: обстоятельства или средства изменились.'; S.money -= price(400000); return addChild(p, rnd(0, 6)); } }, { t: 'Не сейчас', f: () => null }] });
     return null;
   }
   if (chance(motherAge < 35 ? 0.6 : 0.3)) return addChild(p, 0);
@@ -1162,12 +1162,7 @@ function openCasino() {
   closeSheet(); pump();
 }
 function openEmigrate() {
-  Q.push({ e: '🛫', title: 'Куда переезжаем?', text: `Переезд стоит ${fmt(price(300000))}. Работа будет потеряна.`, choices: COUNTRIES.filter((c) => c.id !== S.country).map((c) => ({ t: `${c.flag} ${cname(c)}`, f: () => {
-    S.money -= price(300000); S.country = c.id; S.city = pick(c.cities); if (!S.visited.includes(c.id)) S.visited.push(c.id);
-    if (S.job) S.job = null;
-    unlock('emigrant'); eff({ happy: 10 });
-    return `${c.flag} Вы переехали: ${c.name}, город ${S.city}. Новая страница жизни!`;
-  } })).concat([{ t: 'Остаться', f: () => null }]) });
+  Q.push({ e: '🛫', title: 'Куда переезжаем?', text: `Переезд стоит ${fmt(price(300000))}. Работа будет потеряна. Если вы в паре, сначала обсудите решение вместе.`, choices: COUNTRIES.filter((c) => c.id !== S.country).map((c) => ({ t: `${c.flag} ${cname(c)}`, f: () => requestHouseholdMove(c.id) })).concat([{ t: 'Остаться', f: () => null }]) });
   closeSheet(); pump();
 }
 function openReligion() {
@@ -1336,7 +1331,7 @@ function countryModal(c) {
   const here = c.id === S.country;
   if (!here && S.age >= 18 && !S.prison) {
     ch.push({ t: `✈️ Слетать в отпуск (${fmt(price(180000))})`, disabled: S.used.travel || S.money < price(180000), f: () => { S.used.travel = 1; S.money -= price(180000); if (!S.visited.includes(c.id)) S.visited.push(c.id); eff({ happy: rnd(10, 18), smarts: 2 }); return `${c.flag} Вы отдохнули: ${pick(c.cities)}, ${cname(c)}.`; } });
-    ch.push({ t: `🛫 Переехать насовсем (${fmt(price(300000))})`, disabled: S.money < price(300000), f: () => { S.money -= price(300000); S.country = c.id; S.city = pick(c.cities); if (!S.visited.includes(c.id)) S.visited.push(c.id); if (S.job) S.job = null; unlock('emigrant'); eff({ happy: 10 }); return `${c.flag} Вы переехали: ${cname(c)}, город ${S.city}.`; } });
+    ch.push({ t: `🛫 Переехать насовсем (${fmt(price(300000))})`, disabled: S.money < price(300000), f: () => requestHouseholdMove(c.id) });
   }
   ch.push({ t: 'Закрыть', f: () => null });
   Q.push({ e: c.flag, title: cname(c), text: `${here ? 'Вы живёте здесь.\n' : ''}Города: ${c.cities.join(', ')}\nВалюта: ${c.cur} · уровень доходов ×${c.wage}\nПродолжительность жизни: ${c.life}\nОсновные религии: ${c.rel.join(', ')}`, choices: ch });
@@ -1413,3 +1408,4 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSheet
 fillStartForm();
 const existing = loadSave();
 if (existing && existing.alive) $('#continueBtn').hidden = false;
+
