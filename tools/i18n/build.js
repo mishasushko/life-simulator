@@ -22,8 +22,7 @@ function addT(ru, en) {
   T.push([parts, ph, en]);
 }
 let missing = 0;
-todo.forEach((e, i) => {
-  const en = tr[i]; if (en == null) { missing++; return; }
+function addAny(e, en, i) {
   const isHtml = /<[a-z!/][^>]*>/i.test(e.ru);
   if (!isHtml) return e.k === 't' ? addT(e.ru, en) : addS(e.ru, en);
   const rs = segs(e.ru);
@@ -34,8 +33,9 @@ todo.forEach((e, i) => {
     if (rc.length === es.length) { rc.forEach((r, j) => (/\{\d+\}/.test(r) ? addT : addS)(r, es[j])); return; }
   }
   warn.push(i + ' ' + rs.length + '/' + rc.length + '/' + es.length + ' ' + e.ru.slice(0, 80));
-});
-for (const line of fs.readFileSync('tr/extra.txt', 'utf8').split('\n')) { const i = line.indexOf('|'); if (i < 1) continue; const ru = line.slice(0, i).replace(/\\n/g, '\n'), en = line.slice(i + 1).replace(/\\n/g, '\n'); (/\{\d+\}/.test(ru) ? addT : addS)(ru, en); }
+}
+todo.forEach((e, i) => { const en = tr[i]; if (en == null) { missing++; return; } addAny(e, en, i); });
+for (const f of fs.readdirSync('tr').filter((f) => /^extra.*\.txt$/.test(f)).sort()) for (const line of fs.readFileSync('tr/' + f, 'utf8').split('\n')) { const i = line.indexOf('|'); if (i < 1) continue; const ru = line.slice(0, i).replace(/\\n/g, '\n'), en = line.slice(i + 1).replace(/\\n/g, '\n'); addAny({ ru, k: /\{\d+\}/.test(ru) ? 't' : 's' }, en, f); }
 // cities
 const cr = require(__dirname + '/cities.json'), ce = fs.readFileSync('cities_en.txt', 'utf8').trim().split(', ');
 const C = cr.map((c, i) => [c, ce[i]]);

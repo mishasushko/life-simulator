@@ -462,3 +462,26 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
 .work-rating { font-size: 20px; color: var(--warn); margin: 6px 0; }
 .work-rating b { color: var(--ink); font-size: 15px; margin-left: 6px; }
 .review { font-style: italic; padding: 6px 10px; border-left: 3px solid var(--accent-30); margin: 6px 0; font-size: 14px; }
+
+/* ---------- deep.js: трофеи, древо, аватар ---------- */
+.trophy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 12px; }
+.trophy { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 8px; border-radius: 16px; border: 1px solid var(--line, rgba(0,0,0,.08)); background: linear-gradient(160deg, rgba(255,214,102,.18), rgba(255,255,255,0)); color: inherit; font: inherit; cursor: pointer; text-align: center; }
+.trophy .tr-e { font-size: 34px; filter: drop-shadow(0 4px 8px rgba(200,150,0,.35)); }
+.trophy b { font-size: 13px; line-height: 1.2; }
+.trophy small { font-size: 11px; opacity: .65; }
+.ftree { display: flex; flex-direction: column; align-items: center; gap: 0; margin-top: 12px; overflow-x: auto; padding-bottom: 8px; }
+.frow { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.fline { width: 2px; height: 18px; background: var(--line, rgba(0,0,0,.15)); }
+.fnode { display: flex; flex-direction: column; align-items: center; min-width: 96px; max-width: 150px; padding: 8px 10px; border-radius: 14px; border: 1px solid var(--line, rgba(0,0,0,.1)); background: var(--card, #fff); color: inherit; font: inherit; cursor: pointer; }
+.fnode .fe { font-size: 26px; line-height: 1.1; }
+.fnode .fe svg { width: 40px; height: 40px; }
+.fnode b { font-size: 13px; }
+.fnode small { font-size: 11px; opacity: .65; }
+.fnode.me { border: 2px solid var(--accent, #ff5a36); box-shadow: 0 6px 18px rgba(255,90,54,.18); }
+.fnode.anc { opacity: .92; }
+.fnode.side { opacity: .8; }
+#avatar.aged { animation: avBump .55s ease; }
+@keyframes avBump { 0% { transform: scale(1); } 35% { transform: scale(1.12) rotate(-3deg); } 70% { transform: scale(.97) rotate(1deg); } 100% { transform: scale(1); } }
+#avatar svg { animation: avBreath 4s ease-in-out infinite; transform-origin: 50% 80%; }
+@keyframes avBreath { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
+@media (prefers-reduced-motion: reduce) { #avatar svg, #avatar.aged { animation: none; } }

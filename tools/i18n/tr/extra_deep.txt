@@ -1,0 +1,611 @@
+Странная просьба|A strange request
+Друг детства просит спрятать у вас тяжёлую коробку и ничего не спрашивать.|A childhood friend asks you to hide a heavy box and not ask any questions.
+🤐 Спрятать и молчать|🤐 Hide it and keep quiet
+Коробка уехала на антресоль. Вы стараетесь о ней не думать.|The box went up on the top shelf. You try not to think about it.
+👀 Тайком заглянуть|👀 Sneak a peek
+Внутри старые письма и пачка облигаций. Вы закрыли крышку, но запомнили всё.|Inside are old letters and a stack of bonds. You closed the lid but remembered everything.
+🙅 Отказать|🙅 Refuse
+Друг обиделся, но понял.|Your friend was hurt but understood.
+Саженец|A sapling
+Во дворе есть пустое место. Можно посадить дерево.|There's an empty spot in the yard. You could plant a tree.
+🌳 Посадить дуб|🌳 Plant an oak
+Вы посадили маленький дуб. Он едва достаёт вам до колена.|You planted a little oak. It barely reaches your knee.
+🤷 Не до того|🤷 No time for that
+Место так и осталось пустым.|The spot stayed empty.
+Незнакомец под дождём|A stranger in the rain
+У пожилого мужчины заглохла машина на трассе. Ливень, все проезжают мимо.|An old man's car has stalled on the highway. It's pouring, and everyone drives past.
+🛠️ Остановиться и помочь|🛠️ Stop and help
+Вы промокли до нитки, но машина завелась. Мужчина записал ваш номер.|You got soaked to the bone, but the car started. The man wrote down your number.
+🚗 Проехать мимо|🚗 Drive past
+Вы проехали мимо. Кто-нибудь поможет.|You drove past. Someone else will help.
+Письмо в будущее|A letter to the future
+В школе предлагают написать письмо себе сорокалетнему.|At school you're asked to write a letter to your forty-year-old self.
+✍️ Мечтаю стать богатым|✍️ I dream of being rich
+Письмо запечатано: «Дорогой я, надеюсь, ты уже миллионер».|The letter is sealed: "Dear me, I hope you're a millionaire by now."
+✍️ Мечтаю о большой семье|✍️ I dream of a big family
+Письмо запечатано: «Надеюсь, у тебя дома шумно и весело».|The letter is sealed: "I hope your home is noisy and full of fun."
+✍️ Мечтаю увидеть мир|✍️ I dream of seeing the world
+Письмо запечатано: «Надеюсь, твой паспорт весь в печатях».|The letter is sealed: "I hope your passport is full of stamps."
+✍️ Мечтаю о любимом деле|✍️ I dream of a job I love
+Письмо запечатано: «Надеюсь, ты занимаешься тем, что любишь».|The letter is sealed: "I hope you're doing what you love."
+Акции за копейки|Penny stocks
+Знакомый продаёт акции крошечной компании из гаража. Говорит, у них «гениальная идея».|An acquaintance is selling shares of a tiny garage company. He says they have a "brilliant idea".
+💸 Купить ({0})|💸 Buy ({0})
+Вы стали совладельцем компании, о которой никто не слышал.|You became a co-owner of a company nobody has heard of.
+🙄 Не верю|🙄 I don't buy it
+Вы вежливо отказались.|You politely declined.
+Ошибка на работе|A mistake at work
+Вы допустили ошибку в отчёте. Никто пока не заметил.|You made a mistake in a report. Nobody has noticed yet.
+🤫 Скрыть|🤫 Cover it up
+Вы тихо подправили цифры. Пронесло… пока.|You quietly fixed the numbers. Got away with it… for now.
+🙋 Признаться|🙋 Own up
+Начальник нахмурился, но оценил честность.|Your boss frowned but appreciated your honesty.
+Свидетель|The witness
+На ваших глазах дорогая машина сбила велосипедиста и уехала. Вы запомнили номер.|Right in front of you, an expensive car hit a cyclist and drove off. You memorized the plate.
+👮 Дать показания|👮 Testify
+Вы полдня провели в участке. Водителя нашли.|You spent half a day at the station. The driver was found.
+🤐 Промолчать|🤐 Stay silent
+Вы сделали вид, что ничего не видели.|You pretended you saw nothing.
+Обещание бабушке|A promise to grandma
+Бабушка просит пообещать, что вы будете приезжать к ней в деревню каждое лето.|Grandma asks you to promise to visit her in the village every summer.
+🤞 Обещаю|🤞 I promise
+Каждое лето теперь пахнет сеном и пирогами.|Every summer now smells of hay and pies.
+😬 Не хочу врать|😬 I don't want to lie
+Бабушка вздохнула и погладила вас по голове.|Grandma sighed and stroked your head.
+Новенький|The new kid
+Над тихим новеньким в классе издеваются. Он смотрит на вас.|The quiet new kid in class is being bullied. He looks at you.
+🛡️ Заступиться|🛡️ Stand up for him
+Вам досталось, но больше новенького не трогают. Его зовут Лёва.|You took a beating, but nobody touches the new kid anymore. His name is Leo.
+🙈 Не вмешиваться|🙈 Stay out of it
+Вы отвернулись. Новенький перевёлся через месяц.|You looked away. The new kid transferred a month later.
+Бросить всё ради мечты?|Drop everything for a dream?
+Вам предлагают уйти из университета и заняться своим делом мечты. Родители против.|You're offered a chance to leave university and pursue your dream project. Your parents are against it.
+🚀 Бросить учёбу|🚀 Drop out
+Вы забрали документы. Свобода пугает и окрыляет.|You took your papers back. Freedom is scary and exhilarating.
+📚 Доучиться|📚 Finish your degree
+Синица в руках. Вы остались на курсе.|A bird in the hand. You stayed in your program.
+Находка на чердаке|A find in the attic
+В старом доме вы нашли пачку чужих писем 1940-х годов с адресом.|In an old house you found a bundle of someone's letters from the 1940s with an address.
+📮 Найти адресатов|📮 Find the recipients
+Вы отправили запрос в архив. Посмотрим, что ответят.|You sent a request to the archive. Let's see what they say.
+🔥 Выбросить|🔥 Throw them away
+Старые письма отправились в мусор.|The old letters went in the trash.
+⏳ Друг детства вернулся за коробкой спустя годы и в благодарность перевёл вам {0}. «Ты единственный, кому я доверял».|⏳ Your childhood friend came back for the box years later and sent you {0} as thanks. "You're the only one I ever trusted."
+⏳ Та самая коробка оказалась уликой в старом деле. Полиция нашла её у вас. Штраф: {0}.|⏳ That box turned out to be evidence in an old case. The police found it at your place. Fine: {0}.
+⏳ Друг детства забрал коробку и долго смотрел вам в глаза. Похоже, он догадался, что вы её открывали.|⏳ Your childhood friend took the box and looked you in the eye for a long time. He seems to have guessed you opened it.
+ в городе {0}| in {0}
+⏳ Дуб, который вы посадили{0}, вырос огромным. Под ним играют чужие дети, а в кроне живут птицы.|⏳ The oak you planted{0} has grown huge. Other people's kids play under it, and birds live in its crown.
+⏳ Тот мужчина с трассы оказался владельцем крупной компании. Он нашёл вас и подарил {0} «за то, что не проехали мимо».|⏳ The man from the highway turned out to own a big company. He found you and gave you {0} "for not driving past".
+⏳ Вам пришла открытка: «Спасибо за тот дождливый день. Я рассказываю о вас внукам».|⏳ You received a postcard: "Thank you for that rainy day. I tell my grandchildren about you."
+⏳ Вы открыли письмо из детства. Мечта сбылась! Вы плакали и смеялись одновременно.|⏳ You opened your childhood letter. The dream came true! You laughed and cried at the same time.
+⏳ Вы открыли письмо из детства. Мечта пока не сбылась. Может, ещё не поздно?|⏳ You opened your childhood letter. The dream hasn't come true yet. Maybe it's not too late?
+⏳ Та гаражная компания стала гигантом! Ваши копеечные акции стоят {0}.|⏳ That garage company became a giant! Your penny shares are worth {0}.
+⏳ Компания из гаража выжила и выкупила вашу долю за {0}.|⏳ The garage company survived and bought out your share for {0}.
+⏳ Гаражная компания тихо закрылась. Акции превратились в красивую бумажку на память.|⏳ The garage company quietly closed. The shares are now a pretty piece of paper to remember it by.
+⏳ Аудит раскопал ту давнюю ошибку в отчёте. Вас уволили с должности «{0}».|⏳ An audit dug up that old mistake in the report. You were fired from the position of "{0}".
+⏳ Иногда ночью вы вспоминаете тот подправленный отчёт. Совесть не спит.|⏳ Sometimes at night you remember that doctored report. Your conscience never sleeps.
+⏳ Начальник вспомнил вашу честность и предложил повышение при первой возможности.|⏳ Your boss remembered your honesty and promised a promotion at the first opportunity.
+⏳ Бывший начальник дал вам блестящую рекомендацию.|⏳ Your former boss gave you a glowing recommendation.
+⏳ Велосипедист, которому вы помогли, разыскал вас. Его семья передала {0}, а сам он стал вашим другом: {1}.|⏳ The cyclist you helped tracked you down. His family gave you {0}, and he became your friend: {1}.
+⏳ В новостях показали того велосипедиста: он так и не встал с инвалидного кресла. Вы долго не могли уснуть.|⏳ The news showed that cyclist: he never got out of his wheelchair. You couldn't sleep for a long time.
+Бабушкин дом в деревне|Grandma's house in the village
+⏳ Бабушка оставила вам свой деревенский дом «за все те лета». Стоимость: {0}.|⏳ Grandma left you her village house "for all those summers". Value: {0}.
+⏳ Бабушка всё ещё ждёт вас каждое лето. Пироги такие же вкусные.|⏳ Grandma still waits for you every summer. The pies are just as good.
+⏳ Ваш врач в больнице оказался тем самым Лёвой из школы. Он вылечил вас лучше всех и отказался брать деньги.|⏳ Your doctor at the hospital turned out to be that same Leo from school. He treated you better than anyone and refused to take money.
+⏳ Лёва, за которого вы заступились в школе, теперь известный юрист. Он позвал вас на свою свадьбу и назвал «человеком, который всё изменил».|⏳ Leo, whom you stood up for at school, is now a famous lawyer. He invited you to his wedding and called you "the person who changed everything".
+⏳ Риск окупился! Ваше дело мечты выстрелило: {0} и тысячи поклонников.|⏳ The risk paid off! Your dream project took off: {0} and thousands of fans.
+⏳ Дело мечты так и не взлетело. Иногда вы думаете: «А если бы я тогда доучился…»|⏳ The dream project never took off. Sometimes you think: "What if I had finished my degree…"
+⏳ Нашлась внучка автора писем. Она приехала с цветами и рассказала, что прадед погиб на фронте. Эти письма — всё, что от него осталось.|⏳ The granddaughter of the letters' author was found. She came with flowers and told you her great-grandfather died at the front. These letters are all that's left of him.
+Смелый|Brave
+Легче даются риск, драки и преступления|Risk, fights and crime come easier
+Осторожный|Cautious
+Меньше травм и неприятностей, но и меньше удачи|Fewer injuries and troubles, but less luck too
+Ленивый|Lazy
+Счастливее, но работает хуже|Happier, but works worse
+Амбициозный|Ambitious
+Быстрее растёт по карьере, но больше стресса|Climbs the career ladder faster, but more stress
+Добрый|Kind
+Карма растёт, люди тянутся|Karma grows, people are drawn to you
+Жёсткий|Ruthless
+Карма падает, зато бизнес идёт бойчее|Karma drops, but business goes better
+Любознательный|Curious
+Ум растёт быстрее|Smarts grow faster
+Обаятельный|Charming
+Отношения крепче, легче на собеседованиях|Stronger relationships, easier job interviews
+Бережливый|Thrifty
+Тратит меньше, копит больше|Spends less, saves more
+Транжира|Spendthrift
+Радуется покупкам, но деньги утекают|Loves shopping, but money slips away
+Творческий|Creative
+Навыки творчества растут сами|Creative skills grow on their own
+Спортивный|Athletic
+Здоровье крепче|Stronger health
+Оптимист|Optimist
+Счастье держится высоко|Happiness stays high
+Меланхолик|Melancholic
+Счастье ниже, зато глубокие мысли и творчество|Lower happiness, but deep thoughts and creativity
+{0} Характер изменился: вы стали «{1}».|{0} Your character changed: you became "{1}".
+вещь|item
+вещи|items
+вещей|items
+🧸 Вам досталась коллекция родителя: {0} {1}.|🧸 You inherited your parent's collection: {0} {1}.
+🩹 Вы полезли туда, куда остальные боялись. Шрам на память.|🩹 You went where others were afraid to go. A scar to remember it by.
+😰 Вы отказались от авантюры. Друзья пошли без вас и отлично провели время.|😰 You passed on an adventure. Your friends went without you and had a great time.
+Пожар в подъезде|Fire in the building
+Из соседней квартиры валит дым, внутри кто-то кричит. Пожарные ещё едут.|Smoke is pouring out of the next apartment, and someone inside is screaming. The firefighters are still on their way.
+🔥 Броситься внутрь|🔥 Rush inside
+Вы вынесли соседку на руках. Про вас сняли сюжет в новостях!|You carried your neighbor out in your arms. The news did a story about you!
+Вы надышались дымом и попали в больницу. Соседку спасли пожарные.|You inhaled smoke and ended up in the hospital. The firefighters saved your neighbor.
+📞 Звонить 112 и ждать|📞 Call 911 and wait
+Пожарные приехали быстро. Все живы.|The firefighters arrived quickly. Everyone is alive.
+Кроличья нора|Rabbit hole
+Вы наткнулись на загадочную статью и не спали до утра, читая всё подряд.|You stumbled on a mysterious article and stayed up till morning reading everything.
+📚 Копать дальше|📚 Keep digging
+Неделя без сна, зато теперь вы эксперт в истории средневековых замков.|A week without sleep, but now you're an expert on medieval castles.
+😴 Лечь спать|😴 Go to bed
+Здоровый сон победил любопытство.|A good night's sleep beat curiosity.
+Распродажа!|Sale!
+Скидки до 70%. Корзина сама наполняется.|Up to 70% off. The cart fills itself.
+💳 Скупить всё ({0})|💳 Buy it all ({0})
+Три пакета одежды и робот-пылесос. Счастье!|Three bags of clothes and a robot vacuum. Bliss!
+🚪 Уйти|🚪 Leave
+Вы ушли с пустыми руками и тяжёлым сердцем.|You left empty-handed and heavy-hearted.
+Осенняя тоска|Autumn blues
+Дождь стучит по стеклу уже неделю.|Rain has been tapping on the window for a week.
+✍️ Написать стихи|✍️ Write poems
+Вышло пронзительно. Пожалуй, лучшее, что вы написали.|It came out piercing. Probably the best thing you've written.
+🧑‍⚕️ Сходить к психологу|🧑‍⚕️ See a therapist
+Стало легче. Оказывается, так бывает у многих.|You feel better. Turns out lots of people feel this way.
+Нужные люди|The right people
+На вечеринке вы разговорились с влиятельным человеком. Он явно очарован.|At a party you got talking to an influential person. They're clearly charmed.
+🤝 Попросить о помощи с карьерой|🤝 Ask for career help
+Через неделю начальник вызвал вас и намекнул на повышение.|A week later your boss called you in and hinted at a promotion.
+Вам предложили разовый проект на {0}.|You were offered a one-off project for {0}.
+🥂 Просто наслаждаться вечером|🥂 Just enjoy the evening
+Прекрасный вечер без корысти.|A lovely evening with no strings attached.
+🧠 Характер|🧠 Character
+<div class="muted">Ваш характер</div><div class="big">{0}</div><div class="muted">Черты меняются от поступков и образа жизни. Одновременно — не больше четырёх.</div>|<div class="muted">Your character</div><div class="big">{0}</div><div class="muted">Traits change with your actions and lifestyle. No more than four at a time.</div>
+Черты|Traits
+Все черты|All traits
+Характер|Character
+Гарвардский университет|Harvard University
+Массачусетский технологический институт|Massachusetts Institute of Technology
+Стэнфордский университет|Stanford University
+Оксфордский университет|University of Oxford
+Кембриджский университет|University of Cambridge
+Сорбонна|Sorbonne
+Цюрихский политехнический институт|ETH Zurich
+Токийский университет|University of Tokyo
+МГУ имени Ломоносова|Lomonosov Moscow State University
+Университет Цинхуа|Tsinghua University
+Национальный университет Сингапура|National University of Singapore
+Гейдельбергский университет|Heidelberg University
+стажировка в банке|an internship at a bank
+стажировка в лаборатории|an internship at a lab
+стажировка в IT-компании|an internship at an IT company
+стажировка в редакции|an internship at a newspaper
+стажировка в министерстве|an internship at a ministry
+стажировка на киностудии|an internship at a film studio
+стажировка в клинике|an internship at a clinic
+стажировка в международной организации|an internship at an international organization
+🎓 Академия|🎓 Academia
+Университет|University
+Магистратура|Master's program
+Аспирантура|PhD program
+Колледж|College
+Школа|School
+Не учитесь|Not studying
+ · 🎓 доктор наук| · 🎓 doctor of science
+ · докторская: ещё {0}| · habilitation: {0} more
+<div class="muted">Учёба</div><div class="big">{0}{1}</div><div class="muted">Стажировки: {2} · гранты: {3}{4}{5}</div><div class="muted">Топ-вуз даёт +30% к зарплате, каждая стажировка ещё +5%.</div>|<div class="muted">Studies</div><div class="big">{0}{1}</div><div class="muted">Internships: {2} · grants: {3}{4}{5}</div><div class="muted">A top university gives +30% salary, each internship another +5%.</div>
+Возможности|Opportunities
+Уже в этом году|Already this year
+Перевестись: {0}|Transfer: {0}
+Шанс ~{0}% · экзамены и эссе|Chance ~{0}% · exams and essays
+Обучение: {0} в год.|Tuition: {0} a year.
+Полная стипендия!|Full scholarship!
+🎉 Вас приняли: {0}! {1}|🎉 You were accepted: {0}! {1}
+📭 {0} ответил отказом. Конкурс был огромный.|📭 {0} turned you down. The competition was huge.
+Летняя {0}|Summer {0}
++опыт, +5% к будущей зарплате|+experience, +5% to future salary
+{0} Вы прошли: {1}{2}. Наставник обещал рекомендацию.|{0} You completed {1}{2}. Your mentor promised a recommendation.
+Семестр по обмену|Exchange semester
+{0} · новая страна и друзья|{0} · a new country and friends
+🌐 Полгода по обмену: {0} {1}. Новый друг: {2}.|🌐 Six months on exchange: {0} {1}. New friend: {2}.
+Подать на исследовательский грант|Apply for a research grant
+Шанс зависит от ума|The chance depends on smarts
+💶 Грант одобрен: {0}!|💶 Grant approved: {0}!
+💶 Заявку отклонили. Рецензент №2 снова недоволен.|💶 Application rejected. Reviewer #2 is unhappy again.
+Писать докторскую диссертацию|Write a habilitation thesis
+3 года работы, +10% к зарплате, звание доктора наук|3 years of work, +10% salary, the title of doctor of science
+📜 Вы начали докторскую. Впереди три года архивов и бессонных ночей.|📜 You started your habilitation. Three years of archives and sleepless nights ahead.
+Магистратура и аспирантура|Master's and PhD
+Поступление — в разделе «Работа» → «Учёба»|Admission is in "Work" → "Education"
+<div class="empty">Топ-вузы, стажировки и обмен доступны во время учёбы в университете.</div>|<div class="empty">Top universities, internships and exchanges are available while you study at university.</div>
+📜 Вы защитили докторскую диссертацию! Теперь вы доктор наук.|📜 You defended your habilitation thesis! You're now a doctor of science.
+Академия|Academia
+Топ-вузы, стажировки, гранты, докторская|Top universities, internships, grants, habilitation
+Раунд A|Series A
+Раунд B|Series B
+Раунд C|Series C
+Раунд D|Series D
+Агрессивный фонд|Aggressive fund
+Много денег, но заберут большую долю|Lots of money, but they take a big stake
+Бизнес-ангел|Business angel
+Меньше денег, мягкие условия, полезные советы|Less money, soft terms, useful advice
+Корпоративный инвестор|Corporate investor
+Связи и клиенты, средние условия|Connections and clients, average terms
+🚀 Венчурные раунды · пройдено {0}|🚀 Venture rounds · completed {0}
+<div class="empty">Все раунды пройдены. Дальше только IPO.</div>|<div class="empty">All rounds completed. Only an IPO is left.</div>
+Привлечь {0}|Raise {0}
+Выберите инвестора|Choose an investor
+Нужна оценка от {0} и год работы|Requires a valuation of {0} and a year in business
+Оценка компании «{0}»: {1}. Ваша доля: {2}%. Кого выберете?|"{0}" is valued at {1}. Your stake: {2}%. Who will you choose?
+🚀 {0} закрыт: +{1} в компанию. {2} получил {3}%, у вас осталось {4}%.|🚀 {0} closed: +{1} into the company. {2} got {3}%, you have {4}% left.
+Передумать|Change your mind
+выпустила революционный продукт|released a revolutionary product
+попала в скандал с утечкой данных|got caught in a data leak scandal
+сменила генерального директора|replaced its CEO
+отчиталась о рекордной прибыли|reported record profits
+объявила о массовых увольнениях|announced mass layoffs
+купила конкурента|acquired a competitor
+проиграла крупный судебный иск|lost a major lawsuit
+получила госконтракт|won a government contract
+отозвала бракованную продукцию|recalled a defective product
+вошла в список самых инновационных компаний|made the list of the most innovative companies
+выросли|rose
+упали|fell
+ Ваш пакет: {0}.| Your holding: {0}.
+📰 Биржа: «{0}» {1}. Акции {2} на {3}%.{4}|📰 Market: "{0}" {1}. Shares {2} by {3}%.{4}
+📰 Новости компаний|📰 Company news
+Потерявшийся ребёнок|A lost child
+У фонтана плачет маленький мальчик. Он потерял родителей и не говорит на вашем языке.|A little boy is crying by the fountain. He lost his parents and doesn't speak your language.
+🤝 Помочь найти родителей|🤝 Help find his parents
+Через час вы нашли его маму. Она обняла вас и подарила браслет ручной работы.|An hour later you found his mom. She hugged you and gave you a handmade bracelet.
+👮 Отвести в полицию|👮 Take him to the police
+Полицейские поблагодарили вас. Мальчика быстро нашли.|The police thanked you. The boy's parents were found quickly.
+Карта сокровищ|A treasure map
+Старый рыбак продаёт «настоящую пиратскую карту» острова.|An old fisherman is selling a "real pirate map" of the island.
+🏴‍☠️ Купить и искать|🏴‍☠️ Buy it and search
+Под пальмой вы откопали сундучок со старинными монетами! Коллекционер купил их за {0}.|Under a palm tree you dug up a chest of ancient coins! A collector bought them for {0}.
+Вы перекопали полпляжа и нашли только крышку от пива. Зато загорели.|You dug up half the beach and found only a bottle cap. At least you got a tan.
+Вы заблудились в мангровых зарослях и наглотались комаров.|You got lost in the mangroves and swallowed a lot of mosquitoes.
+😏 Не вестись|😏 Don't fall for it
+Рыбак пожал плечами и пошёл к следующим туристам.|The fisherman shrugged and moved on to the next tourists.
+Лавка антиквара|The antique shop
+В переулке пыльная лавка. Продавец шепчет, что эта ваза «из императорского дворца».|A dusty shop down an alley. The seller whispers that this vase is "from the imperial palace".
+Эксперт подтвердил: подлинник XVIII века! Аукцион принёс {0}.|An expert confirmed it: an 18th-century original! The auction brought in {0}.
+Дома на дне вазы вы нашли наклейку «Made in 2010». Ну хоть красивая.|At home you found a "Made in 2010" sticker on the bottom of the vase. At least it's pretty.
+🚶 Уйти|🚶 Walk away
+Вы ушли. Ваза проводила вас загадочным взглядом.|You left. The vase watched you go with a mysterious look.
+Метель на перевале|Blizzard on the pass
+До вершины два часа, но начинается метель. Гид советует переждать.|The summit is two hours away, but a blizzard is starting. The guide advises waiting it out.
+🏔️ Идти на вершину|🏔️ Push for the summit
+Вы стоите на вершине над облаками. Ради этого стоило жить!|You're standing on the summit above the clouds. This is what life is for!
+Метель сбила с пути. Вас нашли спасатели с обморожением.|The blizzard knocked you off course. Rescuers found you with frostbite.
+🛖 Переждать в хижине|🛖 Wait it out in the hut
+Ночь в хижине, чай из термоса и истории других альпинистов.|A night in the hut, tea from a thermos and stories from other climbers.
+Шторм|The storm
+Ночью лайнер попал в шторм. Экипаж просит пассажиров помочь с паникующими людьми.|At night the liner was caught in a storm. The crew asks passengers to help with panicking people.
+🦺 Помогать экипажу|🦺 Help the crew
+Вы всю ночь успокаивали людей. Капитан пожал вам руку и пригласил на мостик.|You spent all night calming people down. The captain shook your hand and invited you to the bridge.
+🛏️ Лежать в каюте|🛏️ Stay in your cabin
+Вас укачало так, что вы поклялись больше не плавать.|You got so seasick you swore never to sail again.
+Львица рядом|A lioness up close
+Львица подошла к джипу почти вплотную. Идеальный кадр.|A lioness came right up to the jeep. The perfect shot.
+📸 Снять крупным планом|📸 Take a close-up
+Фото облетело весь интернет! Вас называют фотографом года.|The photo went viral! They're calling you photographer of the year.
+Львица не оценила вспышку. Вас спас рейнджер, но шрам останется.|The lioness didn't appreciate the flash. A ranger saved you, but the scar will stay.
+🤫 Замереть|🤫 Freeze
+Львица посмотрела вам в глаза и ушла. Вы этого никогда не забудете.|The lioness looked you in the eye and walked away. You'll never forget it.
+Местная свадьба|A local wedding
+Вас случайно позвали на местную свадьбу. Танцы, музыка, сотня гостей.|You were invited to a local wedding by chance. Dancing, music, a hundred guests.
+💃 Танцевать до утра|💃 Dance till morning
+Лучшая ночь поездки! Новый друг: {0}.|The best night of the trip! New friend: {0}.
+🙏 Вежливо уйти|🙏 Politely leave
+Вы поздравили молодых и ушли спать.|You congratulated the couple and went to bed.
+Ночной рынок|The night market
+Торговец предлагает редкую вещицу, но цена кусается.|A merchant offers a rare trinket, but the price is steep.
+🗣️ Торговаться|🗣️ Haggle
+🏮 Редкий фонарик · 🌏|🏮 Rare lantern · 🌏
+Вы сбили цену втрое! Редкий фонарик теперь ваш.|You cut the price by two thirds! The rare lantern is yours.
+Торговец обиделся и закрыл лавку.|The merchant took offense and closed his stall.
+🍜 Просто поесть|🍜 Just eat
+Уличная еда оказалась лучшей в жизни.|The street food was the best of your life.
+Не тот поворот|A wrong turn
+Вы заблудились в незнакомом районе. Темнеет, телефон сел.|You got lost in an unfamiliar neighborhood. It's getting dark, and your phone is dead.
+🗣️ Спросить местных|🗣️ Ask the locals
+Местная бабушка проводила вас до отеля и накормила ужином.|A local grandma walked you to your hotel and fed you dinner.
+🧭 Ориентироваться по звёздам|🧭 Navigate by the stars
+Вы вышли к отелю и чувствуете себя настоящим путешественником.|You made it to the hotel and feel like a real traveler.
+Вы бродили до рассвета. Ноги гудят.|You wandered until dawn. Your feet are aching.
+Чёрная трасса|The black run
+Друзья подбивают спуститься по самой сложной трассе.|Your friends are egging you on to take the hardest slope.
+🔥 Поехать|🔥 Go for it
+Адреналин зашкаливает! Вы спустились без падений.|The adrenaline is off the charts! You made it down without falling.
+Вы кувыркались метров сто. Гипс на месяц.|You tumbled a hundred meters. A cast for a month.
+🍷 Глинтвейн на террасе|🍷 Mulled wine on the terrace
+Вы смотрели на падающих друзей с кружкой глинтвейна.|You watched your friends fall with a mug of mulled wine.
+Синематограф|The cinematograph
+В город приехал синематограф! На простыне двигаются живые картинки.|The cinematograph has come to town! Living pictures move on a bedsheet.
+Пойти на сеанс|Go to a screening
+Первый автомобиль|The first automobile
+По вашей улице впервые проехал автомобиль. Лошади в панике, дети в восторге.|An automobile drove down your street for the first time. The horses panicked, the kids were thrilled.
+Побежать следом|Run after it
+Чарльстон|The Charleston
+Вся молодёжь сходит с ума по новому танцу — чарльстону.|All the young people are crazy about the new dance, the Charleston.
+Выучить танец|Learn the dance
+Радио|Radio
+У соседей появилось радио. Весь подъезд собирается послушать концерт.|The neighbors got a radio. The whole building gathers to listen to a concert.
+Слушать вместе|Listen together
+Звуковые мультфильмы|Talking cartoons
+В кинотеатрах показывают первые звуковые мультфильмы.|Cinemas are showing the first cartoons with sound.
+Сходить в кино|Go to the movies
+Настольная игра «Монополия»|The board game "Monopoly"
+Новая игра про недвижимость ссорит целые семьи.|A new game about real estate is tearing whole families apart.
+Сыграть с семьёй|Play with the family
+Первое издание настольной игры|A first-edition board game
+Эра свинга|The swing era
+Биг-бенды играют свинг, танцплощадки забиты.|Big bands play swing, the dance halls are packed.
+На танцы!|Let's dance!
+Телевизор|Television
+В доме появился телевизор! Вечером вся улица приходит смотреть передачи.|A TV has appeared in your home! In the evenings the whole street comes to watch.
+Смотреть всем двором|Watch with the whole yard
+Рок-н-ролл|Rock and roll
+По радио крутят рок-н-ролл. Взрослые в ужасе, молодёжь в восторге.|The radio plays rock and roll. Adults are horrified, young people are thrilled.
+Танцевать твист|Dance the twist
+Модная кукла|A fashion doll
+Появилась модная кукла-манекенщица. Все девочки мечтают о ней.|A fashion model doll has come out. Every girl dreams of one.
+Купить и не открывать коробку|Buy it and keep it boxed
+Кукла 1959 года в коробке|A 1959 doll in its box
+Битломания|Beatlemania
+Ливерпульская четвёрка взорвала мир. Пластинки сметают с прилавков.|The Liverpool four have taken the world by storm. Records are flying off the shelves.
+Купить пластинку|Buy a record
+Виниловая пластинка 1960-х|A 1960s vinyl record
+Мини-юбки и клёш|Miniskirts and flares
+Мода сошла с ума: мини-юбки, брюки-клёш и цветы в волосах.|Fashion has gone wild: miniskirts, bell-bottoms and flowers in your hair.
+Обновить гардероб|Update your wardrobe
+Диско|Disco
+Зеркальный шар, блёстки и диско до утра.|A mirror ball, glitter and disco till dawn.
+На дискотеку|To the disco
+Космическая сага|The space saga
+Вышел фантастический фильм про далёкую галактику. Очереди в кинотеатры на квартал.|A sci-fi film about a galaxy far away came out. The cinema lines stretch around the block.
+Купить фигурку героя|Buy a hero action figure
+Фигурка из космической саги 1977|A 1977 space saga action figure
+Кубик Рубика|Rubik's Cube
+Все пытаются собрать разноцветный кубик. Почти ни у кого не выходит.|Everyone is trying to solve the colorful cube. Almost no one can.
+Собрать кубик|Solve the cube
+Игровые автоматы|Arcade machines
+В парке поставили игровые автоматы. За монетку можно спасать мир.|Arcade machines appeared in the park. For a coin you can save the world.
+Поставить рекорд|Set a high score
+Падающие блоки|Falling blocks
+Гениальная игра с падающими фигурками покорила мир.|A brilliant game with falling pieces has conquered the world.
+Играть до ночи|Play until night
+Видеомагнитофон|The VCR
+В видеосалоне крутят боевики. Переводчик гнусавит на все голоса.|The video parlor shows action movies. The voice-over translator does every voice in a nasal drone.
+Смотреть боевик|Watch an action movie
+Электронный питомец|The digital pet
+У всех на брелоке пищит электронный питомец, которого надо кормить.|Everyone has a beeping digital pet on their keychain that needs feeding.
+Завести|Get one
+Электронный питомец 1997 года|A 1997 digital pet
+Фильм про тонущий лайнер|The film about the sinking liner
+Весь мир рыдает в кинотеатрах над историей любви на тонущем корабле.|The whole world is sobbing in cinemas over a love story on a sinking ship.
+Коллекционные карточки|Trading cards
+Дети меняются карточками с карманными монстрами. Редкие стоят целое состояние.|Kids trade cards with pocket monsters. Rare ones are worth a fortune.
+Собрать редкую карточку|Get a rare card
+Голографическая карточка 1999|A 1999 holographic card
+Интернет-кафе|Internet café
+Открылось интернет-кафе. Час в сети — и вы на связи со всем миром.|An internet café opened. An hour online and you're connected to the whole world.
+Завести электронную почту|Get an email address
+Плеер на тысячу песен|A player with a thousand songs
+Вся музыка мира теперь помещается в кармане.|All the music in the world now fits in your pocket.
+Купить плеер|Buy the player
+Видеохостинги|Video sharing sites
+Люди выкладывают видео в интернет, и их смотрят миллионы.|People upload videos to the internet and millions watch them.
+Снять своё видео|Film your own video
+Смартфоны|Smartphones
+Телефон без кнопок! Всё управляется пальцем.|A phone without buttons! Everything is controlled with a finger.
+Купить смартфон|Buy a smartphone
+Смартфон первого поколения в коробке|A boxed first-generation smartphone
+Охота на монстров с телефоном|Monster hunting with your phone
+Люди бродят по городу с телефонами, ловя виртуальных монстров.|People wander the city with their phones, catching virtual monsters.
+Ловить всех!|Catch 'em all!
+Короткие видео|Short videos
+Все снимают пятнадцатисекундные танцы и залипают в ленту.|Everyone films fifteen-second dances and gets stuck in the feed.
+Снять тренд|Film a trend
+Нейросети|Neural networks
+Нейросеть пишет стихи, рисует и отвечает на любые вопросы.|A neural network writes poems, draws and answers any question.
+Освоить нейросети|Master AI
+Виртуальные миры|Virtual worlds
+Люди проводят вечера в общих виртуальных мирах.|People spend their evenings in shared virtual worlds.
+Купить VR-шлем|Buy a VR headset
+Марсианская мода|Martian fashion
+В моде всё марсианское: красные комбинезоны и «марсианский» сленг.|Everything Martian is in fashion: red jumpsuits and "Martian" slang.
+Влиться в тренд|Join the trend
+Генетические питомцы|Genetic pets
+В продаже светящиеся котики и мини-слоны.|Glowing kittens and mini-elephants are on sale.
+Посмотреть в зоомагазине|Take a look at the pet store
+звезда немого кино|a silent film star
+знаменитый джазмен|a famous jazzman
+кумир рок-н-ролла|a rock and roll idol
+звезда эстрады|a pop star
+голливудская звезда|a Hollywood star
+топовый блогер|a top blogger
+виртуальная поп-звезда|a virtual pop star
+чемпион мира по футболу|a world football champion
+знаменитый писатель|a famous writer
+{0} Вы на волне эпохи! «{1}» теперь в вашей коллекции. Кто знает, сколько она будет стоить лет через тридцать…|{0} You're riding the wave of the era! "{1}" is now in your collection. Who knows what it will be worth in thirty years…
+{0} Вы на волне эпохи! Об этом будете рассказывать внукам.|{0} You're riding the wave of the era! You'll tell your grandchildren about this.
+🙄 Не моё|🙄 Not my thing
+Вы пропустили модную волну. Потом ещё будете жалеть.|You missed the trend. You'll regret it later.
+Встреча со звездой|Meeting a star
+В кафе за соседним столиком сидит {0}. Никто вокруг не узнал.|At the next table in the café sits {0}. Nobody around has recognized them.
+✍️ Попросить автограф|✍️ Ask for an autograph
+Автограф: {0}|Autograph: {0}
+Звезда улыбнулась и расписалась на салфетке. Салфетка отправилась в коллекцию.|The star smiled and signed a napkin. The napkin went into your collection.
+☕ Заговорить по-человечески|☕ Talk like a normal person
+Вы проболтали два часа. Теперь у вас в друзьях настоящая знаменитость: {0}!|You chatted for two hours. Now you have a real celebrity friend: {0}!
+Вы поговорили о погоде и о жизни. Обычный человек, только очень уставший.|You talked about the weather and life. An ordinary person, just very tired.
+🤳 Тайком сфотографировать|🤳 Secretly take a photo
+Фото разлетелось по сети. Вам немного стыдно.|The photo spread across the internet. You feel a little ashamed.
+🧸 Коллекция|🧸 Collection
+<div class="muted">Вещи эпох</div><div class="big">{0}</div><div class="muted">Модные вещи, автографы и сувениры со временем дорожают. Можно продать коллекционеру.</div>|<div class="muted">Items of the eras</div><div class="big">{0}</div><div class="muted">Fashionable items, autographs and souvenirs grow in value over time. You can sell them to a collector.</div>
+Коллекция · {0}|Collection · {0}
+<div class="empty">Пока пусто. Ловите модные волны эпохи — вещи оттуда со временем станут раритетами.</div>|<div class="empty">Empty for now. Catch the trends of each era: those items will become rarities over time.</div>
+с {0} года · сейчас {1}|since {0} · now {1}
+Продать|Sell
+🧸 Коллекционер купил «{0}» за {1}.|🧸 A collector bought "{0}" for {1}.
+Коллекция|Collection
+{0} вещей эпох|{0} items of the eras
+<option value="iron">☠️ Железная жизнь</option>|<option value="iron">☠️ Iron life</option>
+☠️ Железная жизнь: случайная страна и год, бедность, одна попытка. Смерть окончательна.|☠️ Iron life: random country and year, poverty, one attempt. Death is final.
+<div class="death-extra"><div>☠️ Железная жизнь окончена. Лучший результат: {0}</div></div>|<div class="death-extra"><div>☠️ The iron life is over. Best result: {0}</div></div>
+☠️ Железные жизни|☠️ Iron lives
+Рекорды · {0}|Records · {0}
+<div class="empty">Выберите режим «☠️ Железная жизнь» на стартовом экране: случайный старт, бедность и никаких наследников.</div>|<div class="empty">Choose the "☠️ Iron life" mode on the start screen: a random start, poverty and no heirs.</div>
+Железные жизни|Iron lives
+Вы в железном режиме|You're in iron mode
+Рекорды хардкор-режима|Hardcore mode records
+Сирота 1920-х|Orphan of the 1920s
+Детский дом, голод и надежда|An orphanage, hunger and hope
+Наследник миллиардера|Billionaire's heir
+Золотая ложка и огромные ожидания|A silver spoon and huge expectations
+Беженец|Refugee
+Детство в стране, где идёт война|A childhood in a country at war
+Ребёнок-звезда|Child star
+Слава с пелёнок|Famous from the cradle
+Вундеркинд|Child prodigy
+Гениальный ум, но трудно с людьми|A brilliant mind, but people are hard
+Эмигрант в Америку|Emigrant to America
+Пароход, остров Эллис и новая жизнь|A steamship, Ellis Island and a new life
+Деревенский ребёнок|Country kid
+Ферма, свежий воздух и тяжёлый труд|A farm, fresh air and hard work
+Близнец|Twin
+У вас есть брат или сестра-близнец|You have a twin brother or sister
+Семья лотерейщиков|Lottery family
+Родители выиграют джекпот, когда вам будет 10|Your parents will win the jackpot when you're 10
+<label>Сценарий<select id="inScen"><option value="">Без сценария</option>{0}</select></label>|<label>Scenario<select id="inScen"><option value="">No scenario</option>{0}</select></label>
+🧺 Сценарий: вы остались сиротой. Детский дом стал вашим первым домом.|🧺 Scenario: you were left an orphan. An orphanage became your first home.
+Предприниматель|Entrepreneur
+🎩 Сценарий: вы родились в семье миллиардеров. В 18 лет откроется трастовый фонд.|🎩 Scenario: you were born into a family of billionaires. A trust fund opens when you turn 18.
+🧳 Сценарий: вы родились в стране, где вот-вот начнётся война.|🧳 Scenario: you were born in a country where war is about to break out.
+🎬 Сценарий: вас уже снимают в рекламе подгузников. Камера любит вас.|🎬 Scenario: you're already being filmed in diaper ads. The camera loves you.
+🧠 Сценарий: вы заговорили в полгода и читаете в два. Врачи разводят руками.|🧠 Scenario: you started talking at six months and reading at two. The doctors are baffled.
+🗽 Сценарий: семья копит на билеты в Америку.|🗽 Scenario: the family is saving up for tickets to America.
+🚜 Сценарий: вы родились на ферме. Петухи вместо будильника.|🚜 Scenario: you were born on a farm. Roosters instead of an alarm clock.
+👯 Сценарий: у вас есть близнец — {0}.|👯 Scenario: you have a twin: {0}.
+🎰 Сценарий: родители каждую неделю покупают лотерейный билет. Говорят, однажды повезёт.|🎰 Scenario: your parents buy a lottery ticket every week. They say one day they'll get lucky.
+🎩 Открылся трастовый фонд: {0}. Теперь всё зависит от вас.|🎩 Your trust fund has opened: {0}. Now everything is up to you.
+🧳 Семья бежала от войны. Новая родина: {0} {1}, город {2}. Всё имущество — два чемодана.|🧳 The family fled the war. New homeland: {0} {1}, city of {2}. All your belongings fit in two suitcases.
+Нью-Йорк|New York
+🗽 Две недели в трюме парохода, остров Эллис и статуя Свободы в тумане. Вы в Америке! {0}|🗽 Two weeks in the steamship's hold, Ellis Island and the Statue of Liberty in the fog. You're in America! {0}
+🐄 Утром доили корову, потом бегом в школу.|🐄 You milked the cow in the morning, then ran to school.
+🌾 Всё лето помогали на сенокосе.|🌾 You spent all summer helping with the haymaking.
+🐣 Вы выходили слабого цыплёнка.|🐣 You nursed a weak chick back to health.
+Семейная ферма|Family farm
+🚜 Родители передали вам семейную ферму. Стоимость: {0}.|🚜 Your parents handed the family farm over to you. Value: {0}.
+🎰 ДЖЕКПОТ! Родители выиграли {0}. Жизнь семьи перевернулась.|🎰 JACKPOT! Your parents won {0}. The family's life turned upside down.
+рекламе|an ad
+сериале|a TV series
+кино|a film
+клипе|a music video
+🎬 Съёмки в {0}: гонорар {1}.|🎬 Filming for {0}: a fee of {1}.
+🧠 Одноклассники считают вас странным. Зато вы решили задачу для 11 класса.|🧠 Your classmates think you're weird. But you solved an 11th-grade problem.
+🧠 Вас показали по телевизору как самого юного шахматного гения.|🧠 You were shown on TV as the youngest chess genius.
+🧠 Учителя не знают, чему вас ещё учить.|🧠 Your teachers don't know what else to teach you.
+Эхо прошлого|Echoes of the past
+Пережить 5 последствий старых решений|Live through 5 consequences of old decisions
+Акции из гаража|Garage stocks
+Разбогатеть на копеечных акциях|Get rich on penny stocks
+Мечтатель|Dreamer
+Бросить учёбу ради мечты и победить|Drop out for a dream and win
+Сложная натура|Complex nature
+Четыре черты характера одновременно|Four character traits at once
+Герой подъезда|Hero of the building
+Вынести человека из огня|Carry a person out of a fire
+Элита|Elite
+Поступить в топ-вуз мира|Get into a world top university
+Вечный стажёр|Eternal intern
+Пройти три стажировки|Complete three internships
+Доктор наук|Doctor of science
+Защитить докторскую|Defend a habilitation thesis
+Единорог|Unicorn
+Стартап дороже миллиарда долларов|A startup worth over a billion dollars
+Кладоискатель|Treasure hunter
+Найти сокровище по карте|Find treasure using a map
+Над облаками|Above the clouds
+Покорить вершину в метель|Reach a summit in a blizzard
+Искатель приключений|Adventurer
+Пройти 5 дорожных приключений|Complete 5 travel adventures
+Дух времени|Spirit of the times
+Поймать 8 модных волн эпохи|Catch 8 trends of the eras
+Хранитель эпох|Keeper of the eras
+Собрать 5 вещей эпох|Collect 5 items of the eras
+Раритет|Rarity
+Продать вещь эпохи за миллион|Sell an item of an era for a million
+Автограф|Autograph
+Получить автограф знаменитости|Get a celebrity's autograph
+Железный человек|Iron man
+Дожить до 80 в железной жизни|Live to 80 in an iron life
+По сценарию|By the script
+Начать жизнь со сценария|Start a life with a scenario
+Бессмертный|Immortal
+Дожить до 110 лет|Live to 110
+Кочевник|Nomad
+Пожить в 5 разных странах|Live in 5 different countries
+Искупление|Redemption
+Поднять карму со дна до 90+|Raise your karma from rock bottom to 90+
+Поздний родитель|Late parent
+Стать родителем после 55|Become a parent after 55
+Американские горки|Roller coaster
+Быть миллионером и уйти в долги|Be a millionaire and fall into debt
+Тройная корона|Triple crown
+Олимпийское золото, Нобелевка или президентство — любые два в одной жизни|Olympic gold, a Nobel Prize or the presidency: any two in one life
+Кошачья душа|Cat soul
+Четыре кошки одновременно|Four cats at once
+Отшельник|Hermit
+Дожить до 70 без друзей и партнёра|Live to 70 without friends or a partner
+??? Секретное|??? Secret
+Условие откроется, когда вы его выполните|The condition will be revealed once you meet it
+🏆 Витрина трофеев|🏆 Trophy showcase
+<div class="muted">Трофеи всех ваших жизней</div><div class="big">{0}</div><div class="muted">Сюда попадают главные победы: медали, премии, рекорды и легендарные поступки.</div>|<div class="muted">Trophies from all your lives</div><div class="big">{0}</div><div class="muted">Your greatest victories end up here: medals, prizes, records and legendary deeds.</div>
+<div class="empty">Витрина пуста. Выиграйте Олимпиаду, Нобелевку или доживите до 100 лет.</div>|<div class="empty">The showcase is empty. Win the Olympics, a Nobel Prize or live to 100.</div>
+Витрина трофеев|Trophy showcase
+{0} трофеев за все жизни|{0} trophies across all lives
+поколение|generation
+поколения|generations
+поколений|generations
+<div class="muted">Древо рода {0}</div><div class="big">{1} {2}</div><div class="muted">Нажмите на человека, чтобы узнать его историю.</div>|<div class="muted">The {0} family tree</div><div class="big">{1} {2}</div><div class="muted">Tap a person to learn their story.</div>
+Закрыть|Close
+Поколение {0}|Generation {0}
+Прожил{0} {1}|Lived {1}
+Профессия: {0}|Profession: {0}
+Капитал: {0}|Net worth: {0}
+Причина смерти: {0}|Cause of death: {0}
+Отношения: {0}%|Relationship: {0}%
+н.в.|present
+{0} {1}–{2} · это вы|{0} {1}–{2} · this is you
+Возраст: {0}|Age: {0}
+Характер: {0}|Character: {0}
+близнец|twin
+умер|died
+ · внуков: {0}| · grandchildren: {0}
+внук · {0}|grandchild · {0}
+Родитель: {0}|Parent: {0}
+<div class="empty">Детей пока нет. Династия продолжится, только если появится наследник.</div>|<div class="empty">No children yet. The dynasty will continue only if there's an heir.</div>
+Покойтесь с миром|Rest in peace
+гены долгожителей|longevity genes
+спортивная генетика|athletic genetics
+светлая голова|bright mind
+красота по наследству|inherited beauty
+абсолютный слух|perfect pitch
+близорукость|myopia
+слабое сердце|weak heart
+склонность к диабету|diabetes tendency
+онкологический риск|cancer risk
+риск альцгеймера|Alzheimer's risk
+аллергик|allergies
+гемофилия|hemophilia
+в этой жизни через {0}|in this life in {0}
+{0} ушл{1} от вас.|{0} left you.
+💔 {0} ушл{1} от вас.|💔 {0} left you.

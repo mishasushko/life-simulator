@@ -687,7 +687,7 @@ const RULES = [
   [/^новая!$/, () => 'new!'],
   [/^Все вызовы$/, () => 'All challenges'],
   [/^выполнено (\d+) из (\d+)$/, (m, a, b) => `${a} of ${b} completed`],
-  [/^Достижение: (.+)$/, (m, a) => `Achievement: ${tr(a)}`],
+  [/^Достижение: (.+)$/, (m, a) => `Achievement: ${trFull(a) ?? tr(a) ?? a}`],
   [/^Расходы на жизнь: (.+?)\.$/, (m, a) => `Living costs: ${a.replace('(с арендой)', '(with rent)').replace('пособие', 'benefits')}.`],
   [/^Вы родились (\d+) года в городе (.+), (.+)\.$/, (m, y, c, k) => `You were born in ${y} in ${c}, ${tr(k.replace(/^\S+\s/, ''))}.`],
   [/^Ваши родители: (.+)\.$/, (m, a) => `Your parents: ${a.replace(/ и /g, ' and ')}.`],
@@ -748,16 +748,20 @@ function capTr(x) {
   } finally { trDepth--; }
 }
 function trTpl(s, alt) {
+  let first = null;
   for (const t of EN_T) {
     if (alt && !t.lead) continue;
     if (t.anchor && !s.includes(t.anchor)) continue;
     const m = s.match(t.re); if (!m) continue;
-    if (t.weak && m.slice(1).some((c) => CYR_RE.test(c) && capTr(c) === c)) continue;
+    if (t.weak && m.slice(1).some((c) => CYR_RE.test(c) && !/^[а-яё()]{1,3}$/.test(c) && capTr(c) === c)) continue;
     const caps = {}; t.ph.forEach((n, i) => { caps[n] = m[i + 1]; });
-    const r = t.en.replace(/\{(\d+)\}/g, (_, n) => capTr(caps[n] == null ? '' : caps[n]));
-    return alt ? r.trim() : r;
+    let r = t.en.replace(/\{(\d+)\}/g, (_, n) => capTr(caps[n] == null ? '' : caps[n]));
+    if (alt) r = r.trim();
+    if (!CYR_RE.test(r)) return r;
+    if (first == null) first = r;
   }
-  return alt || s.startsWith(' ') ? null : trTpl(' ' + s, true);
+  if (!alt && !s.startsWith(' ')) { const r2 = trTpl(' ' + s, true); if (r2 != null && (first == null || !CYR_RE.test(r2))) return r2; }
+  return first;
 }
 const EMO_LEAD = /^((?:\p{Extended_Pictographic}|\p{Regional_Indicator})(?:[️‍⃣]|\p{Extended_Pictographic}|\p{Regional_Indicator}|\p{Emoji_Modifier})*\s*)/u;
 const TR_CACHE = new Map();
@@ -791,9 +795,10 @@ function trFull0(raw) {
   let post = '';
   const fm = fixMoney(s); if (fm !== s && !CYR_RE.test(fm)) return lead + pre + fm + tail;
   let out = tr(s);
-  if (out == null && pre && EN_T.length) { out = trTpl(pre + s); if (out != null) pre = ''; }
+  if (pre && EN_T.length && (out == null || CYR_RE.test(out))) { const o2 = trTpl(pre + s); if (o2 != null && (out == null || !CYR_RE.test(o2))) { out = o2; pre = ''; } }
   const et = s.match(EMO_TAIL); if (out == null && et && et[1].length < s.length) { post = et[1]; s = s.slice(0, -post.length); out = tr(s); }
   if (out == null && pre && EN_T.length) { out = trTpl(pre + s); if (out != null) pre = ''; }
+  let partial = null; if (out != null && CYR_RE.test(out) && EN_T.length) { partial = out; out = null; }
   if (out == null && s.includes(' · ')) { const parts = s.split(' · '); const t = parts.map((p) => (EN_T.length ? capTr(p) : tr(p) ?? p)); if (t.some((x, i) => x !== parts[i])) out = t.join(' · '); }
   if (out == null && /^(.+) \((.+)\)$/.test(s)) { const [, a, b] = s.match(/^(.+) \((.+)\)$/); const ta = tr(a); if (ta) out = `${ta} (${tr(b) ?? b})`; else if (EN_T.length) { const x = `${capTr(a)} (${capTr(b)})`; if (x !== s) out = x; } }
   if (out == null && EN_T.length && trDepth < 4) {
@@ -825,6 +830,7 @@ function trFull0(raw) {
     } finally { trDepth--; }
   }
   if (out == null && EN_T.length && s.length < 48 && NAME_RE.test(s) && isName(s)) out = translit(s);
+  if (out == null) out = partial;
   if (out == null) return null;
   out = fixMoney(out);
   return lead + pre + out + post + tail;
@@ -847,7 +853,13 @@ function startEnglish() {
   const p = document.querySelector('.hero p'); if (p) p.textContent = `From your first step to your last breath. ${COUNTRIES.length} countries, a century and a half of history and thousands of choices that all matter.`;
   trTree(document.body);
   new MutationObserver((ms) => { for (const m of ms) { if (m.type === 'characterData') trNode(m.target); else m.addedNodes.forEach(trTree); } }).observe(document.body, { childList: true, subtree: true, characterData: true });
-  const _toast = toast; toast = (t) => _toast(trFull(t) || t);
+  const _toast = toast; toast = (t) => {
+    if (typeof t === 'string' && t.endsWith('…') && S && S.log && S.log.length) {
+      const head = t.slice(0, -1); const its = S.log[S.log.length - 1].items;
+      for (let i = its.length - 1; i >= Math.max(0, its.length - 6); i--) if (typeof its[i].t === 'string' && its[i].t.startsWith(head)) { const f = trFull(its[i].t) || its[i].t; return _toast(f.length > 90 ? f.slice(0, 88) + '…' : f); }
+    }
+    _toast(trFull(t) || t);
+  };
 }
 
 /* ---------- Переключатель языка ---------- */
@@ -860,7 +872,7 @@ function setLang(l) { try { localStorage.setItem(LANG_KEY, l); } catch (e) {} lo
 })();
 MENU_HOOKS.push((l) => item(l, { e: '🌐', t: LANG === 'en' ? 'Язык: русский' : 'Language: English', d: LANG === 'en' ? 'Switch to Russian' : 'Переключить интерфейс на английский', onClick: () => setLang(LANG === 'en' ? 'ru' : 'en') }));
 if (LANG === 'en') {
-  const sc = document.createElement('script'); sc.src = 'en-data.js?v=14';
+  const sc = document.createElement('script'); sc.src = 'en-data.js?v=15';
   sc.onload = sc.onerror = () => startEnglish();
   document.head.appendChild(sc);
 }
