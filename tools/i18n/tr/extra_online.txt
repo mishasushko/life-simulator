@@ -1,0 +1,25 @@
+Мировая таблица|World leaderboard
+Мировая таблица ещё не подключена|The world leaderboard isn't connected yet
+Владельцу игры нужно указать адрес базы в online-config.js. Пока можно соревноваться через «Рекорды с друзьями».|The game owner needs to set the database address in online-config.js. For now you can compete via “Records with friends”.
+Ваше имя в таблице|Your name on the leaderboard
+не выбрано|not chosen
+После каждой жизни результат отправляется автоматически. Лучший результат каждого игрока занимает одно место.|After each life your result is sent automatically. Each player's best result takes one place.
+После каждой жизни результат можно отправить кнопкой на экране итогов. Лучший результат каждого игрока занимает одно место.|After each life you can send your result with the button on the summary screen. Each player's best result takes one place.
+Сменить имя|Change name
+Выбрать имя|Choose a name
+Не отправлять сам|Don't send automatically
+Отправлять сам|Send automatically
+За всё время|All time
+За неделю|This week
+Моя страна|My country
+Загрузка…|Loading…
+Здесь пока пусто. Станьте первым!|Nothing here yet. Be the first!
+Не удалось загрузить таблицу. Проверьте интернет и попробуйте ещё раз.|Couldn't load the leaderboard. Check your connection and try again.
+Лучшие жизни игроков со всего мира|The best lives of players worldwide
+В мировую таблицу|Send to world leaderboard
+Результат в мировой таблице: место {0}|Your result on the world leaderboard: place {0}
+Результат отправлен в мировую таблицу|Result sent to the world leaderboard
+Не удалось отправить результат. Проверьте интернет.|Couldn't send the result. Check your connection.
+Имя слишком короткое|The name is too short
+Имя в мировой таблице (2–20 символов):|Name on the world leaderboard (2–20 characters):
+Вставьте ссылку или код друга:|Paste your friend's link or code:

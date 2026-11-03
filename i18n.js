@@ -902,8 +902,13 @@ function setLang(l) { try { localStorage.setItem(LANG_KEY, l); } catch (e) {} lo
 })();
 MENU_HOOKS.push((l) => item(l, { e: '🌐', t: 'Язык · Language · Мова', d: (LANGS.find((x) => x[0] === LANG) || LANGS[0])[2], onClick: () => { closeSheet(); Q.push({ e: '🌐', title: 'Язык · Language · Мова', text: '', choices: LANGS.filter((x) => x[0] !== LANG).map(([id, , name]) => ({ t: name, f: () => { setLang(id); } })) }); pump(); } }));
 if (LANG === 'en' || LANG === 'uk') {
-  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=24';
+  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=25';
   sc.onload = sc.onerror = () => startEnglish();
   document.head.appendChild(sc);
 }
 
+/* prompt() не проходит через DOM-перевод: переводим текст вопроса вручную */
+(function () {
+  const p0 = window.prompt;
+  window.prompt = function (m, d) { if (LANG !== 'ru' && m) { try { m = trFull(String(m)) ?? m; } catch (e) {} } return p0.call(window, m, d); };
+})();
