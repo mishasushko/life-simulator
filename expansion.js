@@ -1,6 +1,6 @@
 'use strict';
 let currentExpansionEvent=null;
-const updateVersion='27';
+const updateVersion='28';
 function readLocal(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
 function writeLocal(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}
 const uxPrefs=Object.assign({font:100,volume:100,compact:false,toasts:true,favorites:[]},readLocal('life_interface',{}));
@@ -10,11 +10,14 @@ const normalToast=toast;
 toast=function(message){if(uxPrefs.toasts)normalToast(message);};
 document.addEventListener('keydown',event=>{
   if(!S || event.repeat || event.ctrlKey || event.metaKey || event.altKey || /INPUT|TEXTAREA|SELECT/.test(event.target?.tagName))return;
+  if(event.key==='/' && $('#modalWrap').hidden && S.alive){
+    event.preventDefault();openPanel('menu');$('#sheetBody').querySelector('input[type=search]')?.focus();return;
+  }
   if(!$('#modalWrap').hidden){
     if(/^[1-4]$/.test(event.key)){const b=$('#modalActions').children[Number(event.key)-1];if(b&&!b.disabled){event.preventDefault();b.click();}}
     if(event.key==='Escape'){
       const buttons=[...$('#modalActions').children];
-      const back=buttons.find(b=>/^(Закрыть|Отмена|Передумать|Не сейчас|Вернуться|Close|Cancel|Not now|Back|Return|Закрити|Скасувати|Не зараз|Повернутися)/.test(b.textContent));
+      const back=buttons.find(b=>/^(Закрыть|Отмена|Вернуться)/.test(b.textContent));
       if(back&&!back.disabled){event.preventDefault();back.click();}
       else if(S.alive && currentExpansionEvent){Q.unshift(currentExpansionEvent);closeModal();toast('Выбор отложен. Нажмите +1, чтобы продолжить событие.');}
     }
@@ -39,29 +42,102 @@ const badgeState=()=>S.alertTabs ||= {};
 function flagTab(panel){badgeState()[panel]=true;refreshBadges();}
 function refreshBadges(){for(const b of document.querySelectorAll('[data-panel]'))b.dataset.unread=S?.alertTabs?.[b.dataset.panel]?'yes':'no';}
 const openExpansionPanel=openPanel;
-openPanel=function(name){if(S?.alertTabs)delete S.alertTabs[name];refreshBadges();return openExpansionPanel(name);};
+let panelTrail = [];
+let goingBack = false;
+openPanel = function(name) {
+  const previous = currentPanel;
+  const body = $('#sheetBody');
+  if (!goingBack && previous && previous !== name && !$('#sheetWrap').hidden) {
+    panelTrail.push({name:previous,scroll:body.scrollTop});
+    if (panelTrail.length > 12) panelTrail.shift();
+  }
+  if (S?.alertTabs) delete S.alertTabs[name];
+  refreshBadges();
+  const result = openExpansionPanel(name);
+  if (panelTrail.length) {
+    const back = document.createElement('button');
+    back.className = 'btn ghost';back.textContent = '← Назад';
+    body.prepend(back);
+    back.onclick = () => {
+      const target = panelTrail.pop();
+      goingBack = true;
+      try { openPanel(target.name); body.scrollTop = target.scroll; }
+      finally { goingBack = false; }
+    };
+  }
+  return result;
+};
 function controlField(label,type,value,onchange){
   const box=document.createElement('label');box.className='ux-control';box.textContent=label+' ';
   const input=document.createElement('input');input.type=type;input.value=value;input.oninput=()=>onchange(input.value);box.appendChild(input);$('#sheetBody').appendChild(box);return input;
 }
-const menuWithoutSearch=panelMenu;
-panelMenu=function(){
+function searchMatches(query, text) {
+  const normalize = value => String(value).toLocaleLowerCase('ru').replace(/ё/g,'е').trim();
+  const haystack = normalize(text);
+  return normalize(query).split(/\s+/).every(word => haystack.includes(word));
+}
+let menuQuery = '';
+const menuWithoutSearch = panelMenu;
+panelMenu = function () {
   menuWithoutSearch();
-  const body=$('#sheetBody'),rows=[...body.querySelectorAll('button.item')];
-  const search=document.createElement('input');search.type='search';search.placeholder='Найти раздел';search.setAttribute('aria-label','Поиск по меню');body.prepend(search);
-  const favorites=section('Избранное');body.insertBefore(favorites,search.nextSibling);const heading=body.querySelectorAll('.section-title');const last=heading[heading.length-1];if(last)body.insertBefore(last,favorites);
-  for(const row of rows){
-    const name=row.querySelector('.t')?.textContent;if(!name)continue;
-    if(uxPrefs.favorites.includes(name))item(favorites,{e:'★',t:name,onClick:()=>row.click()});
-    const star=document.createElement('button');star.textContent=uxPrefs.favorites.includes(name)?'★':'☆';star.setAttribute('aria-label','Избранное: '+name);
-    const wrap=document.createElement('div');wrap.className='menu-entry';row.parentNode.insertBefore(wrap,row);wrap.append(row,star);
-    star.onclick=()=>{uxPrefs.favorites=uxPrefs.favorites.includes(name)?uxPrefs.favorites.filter(n=>n!==name):[...uxPrefs.favorites,name];applyInterface();openPanel('menu');};
+  const body = $('#sheetBody');
+  const rows = [...body.querySelectorAll('button.item')];
+  const favoriteList = section('Избранное');
+  const favoriteHeading = favoriteList.previousElementSibling;
+  const search = document.createElement('input');
+  search.type = 'search';
+  search.placeholder = 'Найти раздел по названию или описанию';
+  search.setAttribute('aria-label','Поиск по меню');
+  search.value = menuQuery;
+  const empty = document.createElement('p');
+  empty.textContent = 'Подходящих разделов нет. Попробуйте другое слово.';
+  body.prepend(empty);
+  body.prepend(favoriteList);
+  if (favoriteHeading) body.prepend(favoriteHeading);
+  body.prepend(search);
+  for (const row of rows) {
+    const name = row.querySelector('.t')?.textContent;
+    if (!name) continue;
+    const pinned = uxPrefs.favorites.includes(name);
+    if (pinned) item(favoriteList,{e:'★',t:name,disabled:row.disabled,onClick:()=>row.click()});
+    const star = document.createElement('button');
+    star.textContent = pinned ? '★' : '☆';
+    star.setAttribute('aria-label','Избранное: '+name);
+    star.setAttribute('aria-pressed',String(pinned));
+    const wrap = document.createElement('div');
+    wrap.className = 'menu-entry';
+    row.parentNode.insertBefore(wrap,row);
+    wrap.append(row,star);
+    star.onclick = () => {
+      uxPrefs.favorites = pinned ? uxPrefs.favorites.filter(n=>n!==name) : [...uxPrefs.favorites,name];
+      applyInterface();openPanel('menu');
+    };
   }
-  search.oninput=()=>{for(const row of rows)row.parentNode.hidden=!row.textContent.toLowerCase().includes(search.value.trim().toLowerCase());};
+  function filterMenu() {
+    menuQuery = search.value;
+    let count = 0;
+    for (const row of rows) {
+      const match = searchMatches(menuQuery,row.textContent);
+      row.parentNode.hidden = !match;
+      if (match) count++;
+    }
+    empty.hidden = count !== 0;
+    favoriteList.hidden = !!menuQuery.trim() || !favoriteList.children.length;
+    if (favoriteHeading) favoriteHeading.hidden = favoriteList.hidden;
+    for (const title of body.querySelectorAll('.section-title')) {
+      if (title === favoriteHeading) continue;
+      const sectionList = title.nextElementSibling;
+      if (sectionList?.querySelector('.menu-entry')) title.hidden = !sectionList.querySelector('.menu-entry:not([hidden])');
+    }
+  }
+  search.oninput = filterMenu;
+  filterMenu();
 };
+const closeSearchSheet = closeSheet;
+closeSheet = function () { menuQuery = ''; panelTrail = []; closeSearchSheet(); };
 Object.assign(EXTRA_TITLES,{options:'⚙ Настройки',journal:'📜 Поиск по журналу',worldplay:'🌍 Мир и возможности',release:'✨ Что нового'});
 EXTRA_PANELS.options=()=>{
-  card('Клавиши 1–4 выбирают вариант события. Esc закрывает окно с кнопкой отмены. Пробел проживает год.');
+  card('Клавиша / открывает поиск. Клавиши 1–4 выбирают вариант события. Esc закрывает окно с кнопкой отмены. Пробел проживает год.');
   const f=controlField('Размер текста','range',uxPrefs.font,v=>{uxPrefs.font=Number(v);applyInterface();});f.min=85;f.max=135;f.value=uxPrefs.font;
   const v=controlField('Громкость эффектов','range',uxPrefs.volume,x=>{uxPrefs.volume=Number(x);applyInterface();});v.min=0;v.max=100;
   const list=section('Отображение');
@@ -73,12 +149,12 @@ EXTRA_PANELS.journal=()=>{
   for(const [v,t] of [['all','Все'],['good','Хорошие'],['bad','Плохие'],['money','Деньги']]){const opt=document.createElement('option');opt.value=v;opt.textContent=t;select.appendChild(opt);}
   $('#sheetBody').appendChild(select);const list=section('Результаты');select.onchange=draw;
   function draw(){list.innerHTML='';for(const year of [...S.log].reverse())for(const e of year.items){
-    if(!e.t.toLowerCase().includes(input.value.toLowerCase()))continue;
+    if(!searchMatches(input.value,year.year+' '+e.t))continue;
     if(select.value==='money'?!/доход|денег|расход|ипотек|зарплат|плат[её]ж|налог|💸|💰|🧾/i.test(e.t):select.value!=='all'&&e.c!==select.value)continue;
     item(list,{e:'·',t:e.t,d:String(year.year)});
-  }}draw();
+  }if(!list.children.length)list.textContent='Нет событий по этому запросу.';}draw();
 };
-const releaseText='Новые настройки, поиск и избранное, перемотка с остановками, климат и технологии, образование взрослых, сезоны искусства, память поколений и мировые коллекции.';
+const releaseText='Quality of Life: возврат к предыдущему разделу с сохранением прокрутки, поиск по нескольким словам и году, клавиша / для поиска и безопасное откладывание событий по Esc.';
 EXTRA_PANELS.release=()=>card(releaseText);
 const releaseShowGame=showGame;
 showGame=function(){releaseShowGame();if(readLocal('life_release','')!==updateVersion){writeLocal('life_release',updateVersion);Q.push({e:'✨',title:'Что нового',text:releaseText});pump();}};
@@ -110,7 +186,7 @@ function worldClimate(){
 const worldYearMoney=yearMoney;
 yearMoney=function(){lifeMeasure('Климат и продовольствие',worldClimate);return worldYearMoney();};
 const eraSalary=jobSalary;
-jobSalary=function(job){if(!job)return eraSalary(job);const tech=technologies.filter(([year,,,id])=>S.year>=year && id===job.id);return Math.round(eraSalary(job)*(1+tech.length*.05));};
+jobSalary=function(job){const tech=technologies.filter(([year,,,id])=>S.year>=year && id===job.id);return Math.round(eraSalary(job)*(1+tech.length*.05));};
 function enrollAdult(id){
   const w=worldState(),degree=MAJORS.find(m=>m.id===id),fee=price(degree?120000:35000);
   if((id==='retrain'&&S.age<40)||S.age<18||S.prison||w.course||S.money<fee||S.edu.stage)return 'Сейчас поступление недоступно.';

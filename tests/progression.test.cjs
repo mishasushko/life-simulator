@@ -629,3 +629,9 @@ test('rejecting divorce does not change the partner or record a breakup',()=>{
   run('personModal(p)');clickChoice(run,'Развестись');assert.equal(run('p.role'),'partner');
   assert.equal(run("relationshipState(p).entries.some(e=>e.kind==='breakup')"),false);
 });
+
+test('menu and journal search match multiple words, years and е/ё',()=>{
+  const {run}=game();
+  assert.equal(run("searchMatches('2025 учеба','Учёба и работа · 2025')"),true);
+  assert.equal(run("searchMatches('2024 учеба','Учёба и работа · 2025')"),false);
+});
