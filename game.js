@@ -430,8 +430,8 @@ function yearPeople() {
       if (p.role === 'partner') { p.role = 'late'; }
       continue;
     }
-    if (p.role === 'child' && p.age === 18) { p.job = pick(NPC_JOBS); log(`🎓 ${p.name} ${gv(p, 'вырос и стал', 'выросла и стала', 'вырос(ла) и стал(а)')} самостоятельным человеком.`, 'info'); }
-    if (p.role === 'child' && p.age === 25 && chance(0.5)) { log(`💐 ${p.name} ${gv(p, 'женился', 'вышла замуж', 'вступил(а) в брак')}!`, 'good'); eff({ happy: 6 }); }
+    if (p.role === 'child' && p.age === 18) { p.schoolGraduatedYear = S.year; p.job = pick(NPC_JOBS); log(`🎓 ${p.name} ${gv(p, 'вырос и стал', 'выросла и стала', 'вырос(ла) и стал(а)')} самостоятельным человеком.`, 'info'); }
+    if (p.role === 'child' && p.age === 25 && chance(0.5)) { p.familyMarriedYear = S.year; log(`💐 ${p.name} ${gv(p, 'женился', 'вышла замуж', 'вступил(а) в брак')}!`, 'good'); eff({ happy: 6 }); }
     if (p.role === 'child' && p.age >= 24 && p.age <= 40 && chance(0.12)) {
       p.grandkids = (p.grandkids || 0) + 1;
       const gg = npcGender(); S.people.push(makePerson('grandchild', { gender: gg, age: 0, close: 80, surname: p.surname, parentName: p.name }));
@@ -1088,8 +1088,8 @@ function personModal(p) {
   if (p.role === 'partner') {
     if (p.status === 'dating' && S.age >= 18) ch.push({ t: '💍 Сделать предложение', disabled: S.used[key('prop')], f: once('prop', () => { if (chance(p.close / 110)) { p.status = 'engaged'; eff({ happy: 15 }); return `${p.name} сказал${gv(p, '', 'а', '(а)')} «ДА»! 💍`; } p.close = clamp(p.close - 15); eff({ happy: -12 }); return `${p.name} не готов${gv(p, '', 'а', '(а)')} к такому шагу.`; }) });
     if (p.status === 'engaged') {
-      ch.push({ relationshipAction: 'wedding', t: `💒 Пышная свадьба (${fmt(price(1500000))})`, f: () => { S.money -= price(1500000); p.status = 'married'; p.close = clamp(p.close + 15); unlock('married'); eff({ happy: 25 }); return `Свадьба века! Теперь вы в браке. 💒`; } });
-      ch.push({ relationshipAction: 'wedding', t: '📝 Скромная роспись', f: () => { p.status = 'married'; unlock('married'); eff({ happy: 15 }); return `Вы расписались. Горько! 🥂`; } });
+      ch.push({ relationshipAction: 'wedding', t: `💒 Пышная свадьба (${fmt(price(1500000))})`, f: () => { S.money -= price(1500000); p.status = 'married'; p.marriedYear = S.year; p.close = clamp(p.close + 15); unlock('married'); eff({ happy: 25 }); return `Свадьба века! Теперь вы в браке. 💒`; } });
+      ch.push({ relationshipAction: 'wedding', t: '📝 Скромная роспись', f: () => { p.status = 'married'; p.marriedYear = S.year; unlock('married'); eff({ happy: 15 }); return `Вы расписались. Горько! 🥂`; } });
     }
     if (S.age >= 18 && S.age <= 55) ch.push({ t: '👶 Завести ребёнка', disabled: S.used.baby, f: () => { S.used.baby = 1; return tryBaby(p); } });
     ch.push({ relationshipAction: 'date', t: '🌹 Романтическое свидание', disabled: S.used[key('date')], f: once('date', () => { S.money -= price(8000); p.close = clamp(p.close + rnd(8, 16)); eff({ happy: 6 }); return 'Ужин при свечах удался. ❤️'; }) });
