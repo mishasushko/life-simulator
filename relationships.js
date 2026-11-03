@@ -208,7 +208,7 @@ function requestCoupleDecision(p, topic, country) {
     choices.push({ t: 'Предложить партнёру паузу в карьере', f: finish(() => coupleOpinion(p, topic).agree ? coupleSetCare(p, 'partner') : coupleOpinion(p, topic).reason) });
   }
   choices.push({ t: 'Оставить всё как есть и уважить мнение партнёра', f: finish(() => { relationshipRemember(p, 'respect:' + topic, 'Вы выслушали мнение партнёра и не стали давить.', 3); return 'Вы завершили разговор без изменения планов.'; }) });
-  Q.push({ e: '🤝', title: { children: 'Общее решение: дети', move: 'Общее решение: переезд', care: 'Общее решение: семья и карьера' }[topic], text: `${p.name}: ${opinion.reason}${country ? `\nПредложение: ${cname(COUNTRIES.find(v => v.id === country))}.` : ''}\nДоверие: ${Math.round(relationshipTrust(p))}/100. Партнёр может согласиться или отказать.`, choices });
+  Q.push({ coupleScene: true, e: '🤝', title: { children: 'Общее решение: дети', move: 'Общее решение: переезд', care: 'Общее решение: семья и карьера' }[topic], text: `${p.name}: ${opinion.reason}${country ? `\nПредложение: ${cname(COUNTRIES.find(v => v.id === country))}.` : ''}\nДоверие: ${Math.round(relationshipTrust(p))}/100. Партнёр может согласиться или отказать.`, choices });
   save(); closeSheet(); pump();
   return null;
 }

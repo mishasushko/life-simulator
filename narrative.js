@@ -260,6 +260,7 @@ function resolveFamilyOccasion(event, choice) {
     eff({ happy: choice === 'remote' ? 2 : 6 });
   }
   narrativeNote('family', `${FAMILY_OCCASIONS[event.kind]}: ${p.name}. ${choice === 'skip' ? 'Вы не участвовали.' : choice === 'remote' ? 'Вы поздравили на расстоянии.' : 'Вы участвовали в празднике.'}`);
+  saveFamilyPhoto(event, p, choice);
   checkLifeDream(false);
   return choice === 'skip' ? 'Близкий человек запомнил ваше отсутствие.' : 'Ваше внимание осталось в семейной памяти.';
 }

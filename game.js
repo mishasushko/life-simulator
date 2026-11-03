@@ -823,7 +823,7 @@ function render() {
   // лог
   const L = $('#log');
   const n = S.log.length;
-  L.innerHTML = S.log.map((b, idx) => `<div class="yr${idx === n - 1 ? ' last' : ''}"><div class="yr-age"><b>${b.age === 0 ? '0' : b.age}</b><small>${b.year}</small></div><div class="yr-body">${b.items.map(evHtml).join('')}</div></div>`).join('');
+  L.innerHTML = S.log.map((b, idx) => `<div class="yr${idx === n - 1 ? ' last' : ''}"><div class="yr-age"><b>${b.age === 0 ? '0' : b.age}</b><small>${b.year}</small></div><div class="yr-body">${b.items.map(evHtml).join('')}${yearPhotoCards(b.year)}</div></div>`).join('');
 }
 const EMO_RE = /^((?:\p{Extended_Pictographic}|\p{Regional_Indicator})(?:[\uFE0F\u200D\u20E3]|\p{Extended_Pictographic}|\p{Regional_Indicator}|\p{Emoji_Modifier})*)\s*/u;
 function evHtml(i) {

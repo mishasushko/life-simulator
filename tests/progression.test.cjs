@@ -457,7 +457,7 @@ test('adult legacy saves do not invent childhood or apply retroactive upbringing
 
 test('childhood affects each future year once, and free clubs remain available without parental money', () => {
   const {run}=game();
-  run(`S.age=8;var o=narrativeState().origin;o.style='strict';o.area='quiet';o.interest='music';S.edu.grade=50;S.stats.happy=60;S.people.forEach(p=>p.money=0);narrativeChildhoodYear();narrativeChildhoodYear();`);
+  run(`S.age=8;var o=narrativeState().origin;o.style='strict';o.area='quiet';o.interest='music';skills().music=0;S.edu.grade=50;S.stats.happy=60;S.people.forEach(p=>p.money=0);narrativeChildhoodYear();narrativeChildhoodYear();`);
   assert.equal(run('S.edu.grade'),52);
   assert.equal(run('S.stats.happy'),59);
   run('childhoodLesson(true)'); assert.equal(run('S.used.childhoodLesson'),undefined);
@@ -566,4 +566,13 @@ test('workplace project resumes after reload and old callback cannot change the 
   clickChoice(run,'Помочь коллеге');
   assert.equal(run('S.job.perf'),run('Math.min(100,perf+3)'));
   assert.equal(run('w.pending'),undefined);
+});
+
+test('family photos keep the original faces and pass to the next generation', () => {
+  const {run}=coupleGame();
+  run("var child=makePerson('child',{name:'Анна',age:18});S.people.push(child);var invitation=addFamilyOccasion(child,'graduation');resolveFamilyOccasion(invitation,'remote');");
+  assert.equal(run('S.familyPhotos.length'),1);
+  run('child.age++;save();S=migrate(loadSave());child=S.people.find(p=>p.role==="child");continueAs(child)');
+  assert.equal(run('S.familyPhotos[0].people[1].age'),18);
+  assert.match(run('photoFrame(S.familyPhotos[0])'),/Выпускной/);
 });
