@@ -411,3 +411,54 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
 .card.diary p.good b { color: var(--good); }
 .card.diary p.bad b { color: var(--bad); }
 .item.me { background: var(--accent-12); border-radius: 12px; }
+
+/* ===== Мини-игры ===== */
+.chess { display: grid; grid-template-columns: repeat(8, 1fr); width: min(100%, 360px); aspect-ratio: 1; margin: 6px auto 8px; border-radius: 12px; overflow: hidden; border: 2px solid var(--line-strong); }
+.chess .sq { border: 0; padding: 0; display: grid; place-items: center; cursor: pointer; font: inherit; position: relative; }
+.chess .sq.lt { background: #f0e4cf; } .chess .sq.dk { background: #b58a63; }
+.chess .sq.last { box-shadow: inset 0 0 0 100px rgba(255, 214, 0, .28); }
+.chess .sq.sel { box-shadow: inset 0 0 0 3px var(--indigo); }
+.chess .sq.tg::after { content: ''; position: absolute; width: 28%; height: 28%; border-radius: 50%; background: rgba(91, 91, 247, .55); }
+.chess .pc { font-size: clamp(22px, 8.4vw, 38px); line-height: 1; }
+.chess .pc.w { color: #fff; text-shadow: 0 0 2px #000, 0 1px 2px #000, 0 0 1px #000; }
+.chess .pc.b { color: #1d1a2b; }
+.quiz-q { font-weight: 700; font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+.quiz-hint { background: var(--news-bg); color: var(--news-ink); border-radius: 12px; padding: 8px 10px; margin-bottom: 8px; font-size: 14px; }
+.quiz-ladder { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; font-size: 11px; }
+.quiz-ladder span { padding: 3px 7px; border-radius: 8px; background: var(--surface2); color: var(--muted); }
+.quiz-ladder span.ok { color: var(--good); }
+.quiz-ladder span.on { background: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.quiz-ladder span.safe { outline: 1px dashed var(--warn); }
+.race-note { font-weight: 600; margin-bottom: 8px; }
+.race-track { display: flex; justify-content: center; gap: 4px; font-size: 24px; margin: 8px 0; flex-wrap: wrap; }
+.race-track span.me { transform: scale(1.35); filter: drop-shadow(0 0 6px var(--accent)); }
+.fish-pond { height: 110px; border-radius: 16px; background: linear-gradient(180deg, #8fd3ff 0%, #3b8fd9 100%); position: relative; overflow: hidden; margin-bottom: 8px; }
+.fish-float { position: absolute; left: 50%; top: 40%; font-size: 22px; transform: translateX(-50%); animation: bob 1.6s ease-in-out infinite; }
+.fish-float.bite { animation: bite .25s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translate(-50%, 6px); } }
+@keyframes bite { 50% { transform: translate(-50%, 22px); } }
+.fish-bag { min-height: 28px; font-size: 22px; text-align: center; margin: 6px 0; }
+#fishHook { width: 100%; }
+
+/* ===== Генетика, школа, питомцы, спорт, творчество ===== */
+.genes { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.gene { display: flex; flex-direction: column; padding: 8px 10px; border-radius: 12px; font-weight: 600; }
+.gene small { font-weight: 400; color: var(--muted); }
+.gene.good { background: rgba(20, 147, 90, .1); } .gene.bad { background: var(--bad-10); }
+.report { display: grid; gap: 4px; margin: 8px 0; }
+.rc-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px dashed var(--line); }
+.rc-row b { font-family: var(--display); font-size: 18px; width: 28px; text-align: center; }
+.rc-row b.m5 { color: var(--good); } .rc-row b.m4 { color: var(--indigo); } .rc-row b.m3 { color: var(--warn); } .rc-row b.m2 { color: var(--bad); }
+.yearbook { display: flex; gap: 12px; align-items: center; }
+.yb-photo { width: 84px; height: 84px; flex: none; border-radius: 14px; overflow: hidden; background: var(--surface2); display: grid; place-items: center; font-size: 44px; filter: sepia(.35); }
+.yb-photo svg { width: 100%; height: 100%; }
+.yb-noms { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+.yb-noms span { font-size: 12px; padding: 3px 8px; border-radius: 999px; background: var(--accent-12); }
+.pet-bars { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; align-items: center; font-size: 13px; margin: 6px 0; }
+.medals { font-weight: 700; margin-top: 6px; }
+.bar-mini.heat em { background: var(--bad); }
+.will-st { display: flex; gap: 4px; margin-left: 6px; }
+.btn.sm { padding: 4px 10px; border-radius: 10px; font-size: 15px; min-width: 34px; }
+.work-rating { font-size: 20px; color: var(--warn); margin: 6px 0; }
+.work-rating b { color: var(--ink); font-size: 15px; margin-left: 6px; }
+.review { font-style: italic; padding: 6px 10px; border-left: 3px solid var(--accent-30); margin: 6px 0; font-size: 14px; }
