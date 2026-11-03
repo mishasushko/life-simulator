@@ -609,3 +609,39 @@
 в этой жизни через {0}|in this life in {0}
 {0} ушл{1} от вас.|{0} left you.
 💔 {0} ушл{1} от вас.|💔 {0} left you.
+Англо-бурская война|Second Boer War
+Филиппино-американская война|Philippine–American War
+Русско-японская война|Russo-Japanese War
+Мексиканская революция|Mexican Revolution
+Балканские войны|Balkan Wars
+Первая мировая война|World War I
+Гражданская война|Civil War
+Советско-польская война|Polish–Soviet War
+Греко-турецкая война|Greco-Turkish War
+Японо-китайская война|Second Sino-Japanese War
+Вторая мировая война|World War II
+Советско-финская и Вторая мировая|Winter War and World War II
+Великая Отечественная война|Great Patriotic War
+Индо-пакистанская война|Indo-Pakistani War
+Война за независимость Израиля|Israeli War of Independence
+Корейская война|Korean War
+Алжирская война|Algerian War
+Война во Вьетнаме|Vietnam War
+Шестидневная война|Six-Day War
+Война Судного дня|Yom Kippur War
+Афганская война|Soviet–Afghan War
+Фолклендская война|Falklands War
+Карабахская война|First Nagorno-Karabakh War
+Чеченская война|First Chechen War
+Вторая чеченская война|Second Chechen War
+Война в Косово|Kosovo War
+Война в Грузии|Russo-Georgian War
+Вторая карабахская война|Second Nagorno-Karabakh War
+Война в Украине|War in Ukraine
+Частичная мобилизация|Partial mobilization
+Войны за независимость|Wars of independence
+Ирано-иракская война|Iran–Iraq War
+Война в Персидском заливе|Gulf War
+Война за независимость Алжира|Algerian War of Independence
+Война за независимость Бангладеш|Bangladesh Liberation War
+Чакская война|Chaco War

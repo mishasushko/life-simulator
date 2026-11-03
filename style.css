@@ -485,3 +485,5 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
 #avatar svg { animation: avBreath 4s ease-in-out infinite; transform-origin: 50% 80%; }
 @keyframes avBreath { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
 @media (prefers-reduced-motion: reduce) { #avatar svg, #avatar.aged { animation: none; } }
+select.icon-btn.lang-btn { appearance: none; -webkit-appearance: none; text-align: center; text-align-last: center; padding: 0 4px; cursor: pointer; color: inherit; font-family: inherit; }
+select.icon-btn.lang-btn option { color: #111; background: #fff; }
