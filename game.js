@@ -854,6 +854,7 @@ function showModal(m) {
   choices.forEach((ch, i) => {
     const b = document.createElement('button');
     b.className = 'btn ' + (ch.cls || (i === 0 ? 'primary' : 'ghost'));
+    b.dataset.dismiss = /^(Закрыть|Отмена|Вернуться)/.test(ch.t) ? 'yes' : 'no';
     b.textContent = ch.t + (ch.preview ? ' · '+ch.preview : ''); b.title = i < 4 ? 'Клавиша '+(i+1) : ''; b.disabled = !!ch.disabled;
     b.onclick = () => {
       if ((ch.dangerPrompt || ch.expense) && !confirmAction(ch.dangerPrompt, ch.expense)) return;

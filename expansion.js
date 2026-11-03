@@ -17,7 +17,7 @@ document.addEventListener('keydown',event=>{
     if(/^[1-4]$/.test(event.key)){const b=$('#modalActions').children[Number(event.key)-1];if(b&&!b.disabled){event.preventDefault();b.click();}}
     if(event.key==='Escape'){
       const buttons=[...$('#modalActions').children];
-      const back=buttons.find(b=>/^(Закрыть|Отмена|Вернуться)/.test(b.textContent));
+      const back=buttons.find(b=>b.dataset.dismiss==='yes');
       if(back&&!back.disabled){event.preventDefault();back.click();}
       else if(S.alive && currentExpansionEvent){Q.unshift(currentExpansionEvent);closeModal();toast('Выбор отложен. Нажмите +1, чтобы продолжить событие.');}
     }
@@ -149,7 +149,7 @@ EXTRA_PANELS.journal=()=>{
   for(const [v,t] of [['all','Все'],['good','Хорошие'],['bad','Плохие'],['money','Деньги']]){const opt=document.createElement('option');opt.value=v;opt.textContent=t;select.appendChild(opt);}
   $('#sheetBody').appendChild(select);const list=section('Результаты');select.onchange=draw;
   function draw(){list.innerHTML='';for(const year of [...S.log].reverse())for(const e of year.items){
-    if(!searchMatches(input.value,year.year+' '+e.t))continue;
+    if(!searchMatches(input.value,year.year+' '+e.t+' '+(LANG==='ru'?'':trFull(e.t)||'')))continue;
     if(select.value==='money'?!/доход|денег|расход|ипотек|зарплат|плат[её]ж|налог|💸|💰|🧾/i.test(e.t):select.value!=='all'&&e.c!==select.value)continue;
     item(list,{e:'·',t:e.t,d:String(year.year)});
   }if(!list.children.length)list.textContent='Нет событий по этому запросу.';}draw();

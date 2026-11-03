@@ -635,3 +635,14 @@ test('menu and journal search match multiple words, years and е/ё',()=>{
   assert.equal(run("searchMatches('2025 учеба','Учёба и работа · 2025')"),true);
   assert.equal(run("searchMatches('2024 учеба','Учёба и работа · 2025')"),false);
 });
+
+test('QoL labels, accessibility text and release notes resolve in English and Ukrainian',()=>{
+  const {run}=game();
+  for(const [lang,back,key] of [['en','← Back','Key 3'],['uk','← Назад','Клавіша 3']]){
+    run(`LANG='${lang}';TR_CACHE.clear()`);
+    assert.equal(run("trFull('← Назад')"),back);
+    assert.equal(run("trFull('Клавиша 3')"),key);
+    assert.ok(run('trFull(releaseText)!==releaseText && !!trFull(releaseText)'));
+    assert.ok(run("!!trFull('Избранное: Поиск по меню')"));
+  }
+});
