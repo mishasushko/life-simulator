@@ -18,7 +18,7 @@ function skills() { S.skills = S.skills || {}; return S.skills; }
 function skillOf(id) { return skills()[id] || 0; }
 function jobSkill(jobId) { let best = 0; for (const s of SKILLS) if (s.jobs.includes(jobId)) best = Math.max(best, skillOf(s.id)); return best; }
 
-YEAR_HOOKS.push(() => {
+YEAR_HOOKS.push(function yearSkills() {
   if (!S.talent && S.age >= 1) S.talent = pick(SKILLS).id;
   if (S.age === 6 && !S.talentShown) {
     S.talentShown = true;
@@ -90,7 +90,7 @@ function gig(s) {
 
 /* ---------- Привычки и здоровье ---------- */
 function habits() { S.habits = S.habits || { smoke: 0, drink: 0, sleep: 'norm' }; if (S.stress == null) S.stress = 20; return S.habits; }
-YEAR_HOOKS.push(() => {
+YEAR_HOOKS.push(function yearHabits() {
   const h = habits();
   // стресс
   let ds = -4;
@@ -340,3 +340,4 @@ ACHIEVEMENTS.push(
   { id: 'donor', e: '🩸', t: 'Почётный донор', d: 'Сдать кровь 10 раз' },
   { id: 'topexam', e: '💯', t: 'Отличник', d: 'Набрать 90+ на выпускных экзаменах' }
 );
+

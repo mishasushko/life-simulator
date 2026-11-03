@@ -487,3 +487,10 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { #avatar svg, #avatar.aged { animation: none; } }
 select.icon-btn.lang-btn { appearance: none; -webkit-appearance: none; text-align: center; text-align-last: center; padding: 0 4px; cursor: pointer; color: inherit; font-family: inherit; }
 select.icon-btn.lang-btn option { color: #111; background: #fff; }
+
+
+/* Annual review stays readable on short mobile screens. */
+.life-report { text-align:left; max-height:50vh; overflow:auto; font-size:14px; }
+.life-report details { padding:10px 0; border-bottom:1px solid var(--line, #ddd); }
+.life-report summary { cursor:pointer; }
+.life-report details .muted { margin:6px 0; }
