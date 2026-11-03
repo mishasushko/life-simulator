@@ -55,7 +55,7 @@ test('all production scripts load; v1 save gets defaults without inventing a mov
 test('year report waits for event decisions and counts money exactly once', () => {
   const {run} = game();
   run(`S.age = 30; S.year = 2030; S.money = 1000000; S.stats.health = 100; S.skills = { music:50 }; S.genes = []; S.traits=[]; Math.random = () => 0.5;
-    var moneyBefore = S.money; ageUp();`);
+    autoReport=true; var moneyBefore = S.money; ageUp();`);
   assert.equal(run('S.age'), 31);
   // Drain all choices through the same handlers used by the production modal.
   for (let i = 0; i < 50 && run('!!S.lifeSystems.pending'); i++) run(`document.querySelector('#modalActions').children.find(b => !b.disabled).onclick()`);
@@ -70,7 +70,7 @@ test('year report waits for event decisions and counts money exactly once', () =
 
 test('queued decisions are included before summary and can change countries', () => {
   const {run} = game();
-  run(`var x = lifeSystems(); x.pending={year:2001,age:1,steps:[]};
+  run(`autoReport=true; var x = lifeSystems(); x.pending={year:2001,age:1,steps:[]};
     Q.push({title:'Test',choices:[{t:'Choose',f:()=>{S.money+=123; S.country='us';}}]}); pump();`);
   assert.equal(run('!!S.lifeSystems.pending'), true);
   run(`document.querySelector('#modalActions').children[0].onclick()`);
@@ -587,4 +587,15 @@ test('new destinations support birth, names, map IDs and migration', () => {
     assert.equal(run('S.country'),'by');
   }
   assert.equal(run('COUNTRIES.length'),132);
+});
+
+test('annual summaries are silent by default and the menu switch persists', () => {
+  const {run}=game();
+  run('lifeSystems().pending={year:2001,age:1,steps:[],cash:[]};pump()');
+  assert.equal(run("document.querySelector('#modalWrap').hidden"),true);
+  assert.equal(run('lifeSystems().report.year'),2001);
+  run('toggleAutoReport()');
+  assert.equal(run('localStorage.getItem(REPORT_PREF)'),'on');
+  run('toggleAutoReport()');
+  assert.equal(run('localStorage.getItem(REPORT_PREF)'),'off');
 });
