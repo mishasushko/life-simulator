@@ -6,16 +6,29 @@ function saveFamilyPhoto(event, person, choice) {
   const album = S.familyPhotos ||= [];
   if (album.some(photo => photo.id === event.id && photo.generation === S.generation)) return;
   ensureLooks();
-  album.push({ id:event.id, generation:S.generation, year:S.year, title:FAMILY_OCCASIONS[event.kind], choice,
+  album.push({ id:event.id, generation:S.generation, year:S.year, title:FAMILY_OCCASIONS[event.kind], choice, kind:event.kind, country:person.country || null,
     people:[photoPerson(S.first,S.look,S.age,S.gender,S.stats.happy),photoPerson(person.name,person.look,person.age,person.gender,person.close)],
     memory:relationshipState(person).entries.find(e=>e.kind==='family:'+event.id)?.text || '' });
   if (album.length > 80) album.shift();
 }
 const inheritAlbum = continueAs;
 continueAs = function(kid) { const photos = S.familyPhotos || []; inheritAlbum(kid); S.familyPhotos = photos.slice(); save(); };
+function sceneText(ru,en,uk) { return LANG === 'en' ? en : LANG === 'uk' ? uk : ru; }
+function graduationScene(event, person) {
+  const invitation = sceneText('Приглашение на выпускной','Graduation invitation','Запрошення на випускний');
+  const message = sceneText('Приходи на вручение диплома! Если не получится, я буду радоваться и весточке издалека.', 'Come to my graduation! If you can’t make it, I’d love to hear from you.', 'Приходь на вручення диплома! Якщо не зможеш, можна просто надіслати кілька теплих слів.');
+  return '<section class="grad-invite"><div class="grad-stage"><svg viewBox="0 0 360 150" preserveAspectRatio="none" aria-hidden="true"><rect width="360" height="150" fill="#263c46"/><path d="M104 0h130l38 121H66z" fill="#e6bf80" opacity=".26"/><path d="M0 0h76q-8 46-42 68l8 58H0zm360 0h-76q8 46 42 68l-8 58h42z" fill="#9a4955"/><path d="M9 0q17 51 24 65m318-65q-17 51-24 65" fill="none" stroke="#c76e72" stroke-width="5"/><path d="M0 115h360v35H0z" fill="#947450"/><path d="M0 127h360m-360 12h360" stroke="#67533f"/><path d="M50 12q130 38 260 0" fill="none" stroke="#e6cb92"/><g fill="#f8dc9b"><circle cx="90" cy="21" r="3"/><circle cx="145" cy="29" r="3"/><circle cx="213" cy="29" r="3"/><circle cx="268" cy="21" r="3"/></g></svg><div class="grad-portrait">'+personPortrait(person)+'</div></div><div class="grad-note"><small>'+esc(invitation)+' · '+event.year+'</small><strong>'+esc(person.name)+'</strong><p>'+esc(message)+'</p></div></section>';
+}
 function photoFrame(photo) {
   const faces = photo.people.map(p => '<figure>'+portraitSVG(p.look,p.age,p.mood,p.gender)+'<figcaption>'+esc(p.name)+'</figcaption></figure>').join('');
-  return '<article class="family-photo '+photoEra(photo.year)+'"><small>'+photo.year+' · поколение '+photo.generation+'</small><div class="photo-faces">'+faces+'</div><b>'+esc(photo.title)+'</b><details><summary>История снимка</summary><p>'+esc(photo.memory)+'</p><p>'+({attend:'Вы приехали на праздник.',organize:'Вы помогли организовать праздник.',remote:'Вы поздравили на расстоянии.'}[photo.choice])+'</p></details></article>';
+  const captions={
+    attend:sceneText('Вы были рядом в этот день.','You were there that day.','Ви були поруч цього дня.'),
+    organize:sceneText('Вы помогли устроить праздник.','You helped organize the celebration.','Ви допомогли влаштувати свято.'),
+    remote:sceneText('Вы поздравили на расстоянии.','You sent your congratulations from afar.','Ви привітали на відстані.')
+  };
+  const place=COUNTRIES.find(c=>c.id===photo.country);
+  const title=photo.kind==='graduation'?sceneText('Выпускной','Graduation','Випускний'):photo.title;
+  return '<article class="family-photo '+photoEra(photo.year)+'"><small>'+photo.year+' · '+sceneText('поколение','generation','покоління')+' '+photo.generation+'</small><div class="photo-faces">'+faces+'</div><b>'+esc(title)+'</b><details class="photo-reverse"><summary>'+sceneText('Перевернуть снимок','Turn photo over','Перевернути світлину')+'</summary><div><small>'+photo.year+(place?' · '+esc(place.flag)+' '+esc(place.name):'')+'</small><p>'+esc(captions[photo.choice] || '')+'</p><p>'+esc(photo.memory || '')+'</p></div></details></article>';
 }
 EXTRA_TITLES.photoalbum='📸 Семейный фотоальбом';
 EXTRA_PANELS.photoalbum=function() {

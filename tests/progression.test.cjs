@@ -629,3 +629,37 @@ test('rejecting divorce does not change the partner or record a breakup',()=>{
   run('personModal(p)');clickChoice(run,'Развестись');assert.equal(run('p.role'),'partner');
   assert.equal(run("relationshipState(p).entries.some(e=>e.kind==='breakup')"),false);
 });
+
+test('menu and journal search match multiple words, years and е/ё',()=>{
+  const {run}=game();
+  assert.equal(run("searchMatches('2025 учеба','Учёба и работа · 2025')"),true);
+  assert.equal(run("searchMatches('2024 учеба','Учёба и работа · 2025')"),false);
+});
+
+test('QoL labels, accessibility text and release notes resolve in English and Ukrainian',()=>{
+  const {run}=game();
+  for(const [lang,back,key] of [['en','← Back','Key 3'],['uk','← Назад','Клавіша 3']]){
+    run(`LANG='${lang}';TR_CACHE.clear()`);
+    assert.equal(run("trFull('← Назад')"),back);
+    assert.equal(run("trFull('Клавиша 3')"),key);
+    assert.ok(run('trFull(releaseText)!==releaseText && !!trFull(releaseText)'));
+    assert.ok(run("!!trFull('Избранное: Поиск по меню')"));
+  }
+});
+
+test('graduation invitation localizes the scene and preserves all four choices',()=>{
+  const {run}=coupleGame();
+  run("var kid=makePerson('child',{name:'<Анна>',age:18});S.people.push(kid);var invite=addFamilyOccasion(kid,'graduation');");
+  for(const [language,label] of [['ru','Приглашение на выпускной'],['en','Graduation invitation'],['uk','Запрошення на випускний']]){
+    run(`LANG='${language}';Q=[];openFamilyOccasion(invite)`);
+    assert.ok(run('Q[0].html').includes(label));
+    assert.ok(run('Q[0].html').includes('&lt;Анна&gt;'));
+    assert.equal(run('Q[0].choices.length'),4);
+  }
+});
+
+test('family guitar preserves its first owner and dated pictures through succession',()=>{
+ const {run}=coupleGame();run("S.money=1e6;buyGuitar();guitarMoment();var owner=S.first;var kid=makePerson('child',{age:21});S.people.push(kid);continueAs(kid);guitarMoment()");
+ assert.equal(run('homeHistory().guitar.owner'),run('owner'));
+ assert.equal(run('homeHistory().relicPhotos.length'),2);
+});

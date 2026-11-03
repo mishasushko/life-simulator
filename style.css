@@ -533,3 +533,6 @@ html[data-life-motion=off] .aged{animation:none!important}
 html[data-compact=yes] .item,html[data-compact=yes] .ev{padding-block:3px}
 #sheetBody input[type=search]{width:100%;padding:10px;color:var(--ink);background:var(--surface);border:1px solid var(--line)}
 body{zoom:var(--ui-scale,1)}
+.grad-invite{max-height:44vh;overflow:auto;border-radius:12px;background:#fff5df;color:#392d29;text-align:start}.grad-stage{height:clamp(74px,16vh,150px);position:relative;overflow:hidden}.grad-stage>svg{width:100%;height:100%}.grad-portrait{position:absolute;height:88%;bottom:3%;left:50%;transform:translateX(-50%)}.grad-portrait svg{height:100%;width:auto}.grad-note{padding:10px 14px}.grad-note small,.photo-reverse small{display:block;letter-spacing:.06em}.grad-note strong{font-family:Georgia,serif;font-size:1.2em}.grad-note p,.photo-reverse p{margin:5px 0}.photo-reverse>div{background:#fff4da;color:#473723;border-radius:4px;padding:12px;line-height:1.45}.photo-reverse summary{cursor:pointer;padding:6px 0}
+
+.keepsake-wall{background:repeating-linear-gradient(0deg,#b48a6422 0 2px,transparent 2px 20px);padding:12px;border:2px solid #a07751;border-bottom-width:7px}.memory-route{border-inline-start:3px solid #b78c61;padding-inline-start:10px}#memoryWall{max-width:100%;overflow-wrap:anywhere}

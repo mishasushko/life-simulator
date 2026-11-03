@@ -854,6 +854,7 @@ function showModal(m) {
   choices.forEach((ch, i) => {
     const b = document.createElement('button');
     b.className = 'btn ' + (ch.cls || (i === 0 ? 'primary' : 'ghost'));
+    b.dataset.dismiss = /^(Закрыть|Отмена|Вернуться)/.test(ch.t) ? 'yes' : 'no';
     b.textContent = ch.t + (ch.preview ? ' · '+ch.preview : ''); b.title = i < 4 ? 'Клавиша '+(i+1) : ''; b.disabled = !!ch.disabled;
     b.onclick = () => {
       if ((ch.dangerPrompt || ch.expense) && !confirmAction(ch.dangerPrompt, ch.expense)) return;
@@ -1326,6 +1327,7 @@ function panelMap() {
       .attr('d', path)
       .on('click', (e, d) => { const c = byNum[d.id]; if (c) countryModal(c); })
       .append('title').text((d) => byNum[d.id] ? `${byNum[d.id].flag} ${cname(byNum[d.id])}` : (d.properties && d.properties.name) || '');
+    drawPlaceRoute(svg,feats,path);
     const cur = feats.find((f) => f.id === ISO_NUM[S.country]);
     if (cur) { const [x, y] = path.centroid(cur); svg.append('text').attr('x', x).attr('y', y).attr('text-anchor', 'middle').attr('dominant-baseline', 'central').attr('font-size', 26).attr('class', 'pin').text('📍'); }
   }).catch(() => { box.innerHTML = '<div class="empty">Не удалось загрузить карту. Проверьте интернет.</div>'; });
