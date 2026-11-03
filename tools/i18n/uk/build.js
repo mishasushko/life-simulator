@@ -3,7 +3,7 @@ const fs = require('fs'); process.chdir(__dirname);
 const todo = fs.readFileSync('todo.txt', 'utf8').split('\n').map((l) => { const a = l.indexOf('|'), b = l.indexOf('|', a + 1); return { n: +l.slice(0, a), k: l.slice(a + 1, b), ru: l.slice(b + 1).replace(/\\n/g, '\n') }; });
 const tr = {};
 for (const f of fs.readdirSync('tr').sort()) for (const line of fs.readFileSync('tr/' + f, 'utf8').split('\n')) { const i = line.indexOf('|'); if (i < 1) continue; tr[+line.slice(0, i)] = line.slice(i + 1).replace(/\\n/g, '\n'); }
-const extra = fs.existsSync('extra.txt') ? fs.readFileSync('extra.txt', 'utf8').split('\n').filter((l) => l.includes('|')).map((l) => { const i = l.indexOf('|'); return { ru: l.slice(0, i), uk: l.slice(i + 1), k: /\{\d+\}/.test(l.slice(0, i)) ? 'T' : 'S' }; }) : [];
+const extra = fs.existsSync('extra.txt') ? fs.readFileSync('extra.txt', 'utf8').split('\n').filter((l) => l.includes('|')).map((l) => { const i = l.indexOf('|'); return { ru: l.slice(0, i).replace(/\\n/g, '\n'), uk: l.slice(i + 1).replace(/\\n/g, '\n'), k: /\{\d+\}/.test(l.slice(0, i)) ? 'T' : 'S' }; }) : [];
 const EMO = /^((?:\p{Extended_Pictographic}|\p{Regional_Indicator})(?:[️‍⃣]|\p{Extended_Pictographic}|\p{Regional_Indicator}|\p{Emoji_Modifier})*\s*)/u;
 const norm = (s) => { s = s.trim().replace(/^[·,]\s*/, ''); const m = s.match(EMO); if (m) s = s.slice(m[1].length); return s.trim(); };
 const S = new Map(), T = []; let missing = 0;

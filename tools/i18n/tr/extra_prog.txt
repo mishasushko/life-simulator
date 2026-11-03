@@ -1,0 +1,486 @@
+{0} (в памяти семьи)|{0} (in family memory)
+<span class="muted">Обиду ещё помнят: {0}</span>|<span class="muted">Still remembered as a hurt: {0}</span>
+{0} · поколение {1}|{0} · generation {1}
+Незавершённая мечта: {0}.|Unfinished dream: {0}.
++3 к собственному увлечению · раз в год|+3 to your own hobby · once a year
++5 к увлечению; нужны средства и поддержка родителей|+5 to hobby; needs money and your parents' support
+История снимка|Story behind the photo
+<b>Общее дело · {0}</b><div class="muted">С {1} года · {2}</div>|<b>Shared venture · {0}</b><div class="muted">Since {1} · {2}</div>
+<b>Первый снимок впереди</b><p>Примите семейное приглашение или поздравьте близкого на расстоянии. Здесь останутся портреты и история встречи.</p>|<b>The first photo is still ahead</b><p>Accept a family invitation or congratulate a loved one from afar. Portraits and the story of the gathering will be kept here.</p>
+<details><summary>Поступления: <b>{0}</b> · выплаты: <b>{1}</b></summary>{2}</details>|<details><summary>Income: <b>{0}</b> · payments: <b>{1}</b></summary>{2}</details>
+Поступления:|Income:
+· выплаты:|· payments:
+выплаты:|payments:
+Семейная хроника|Family chronicle
+<div class="big">10 долей времени на год</div><div class="muted">Изменения применятся при следующем +1 год. Работа: каждая доля сверх 4 даёт +10% зарплаты, +2 к результативности и +4 стресса; ниже 4 — обратный эффект. Близкие: каждая доля сверх 2 даёт +2 к отношениям. Учёба: сверх 2 даёт +2 к оценкам и практику таланта. Отдых: сверх 2 снижает стресс на 4 за долю; от 4 улучшает здоровье. В тюрьме план не применяется.</div>|<div class="big">10 shares of time per year</div><div class="muted">Changes apply at the next +1 year. Work: each share above 4 gives +10% salary, +2 performance and +4 stress; below 4 has the opposite effect. Loved ones: each share above 2 gives +2 to relationships. Study: above 2 gives +2 to grades and talent practice. Rest: above 2 lowers stress by 4 per share; from 4 it improves health. The plan does not apply in prison.</div>
+<div class="big">{0}</div><div class="muted">Традиция живёт {1} поколений. Семья: +1 к отношениям в год. Учёба: +1 к уму с 6 лет. Сообщество: +1 к городской репутации с 12 лет. Передаются до двух семейных знакомств и часть репутации. Семейный бизнес наследуется при доле от 50%, если её хватает на его стоимость.</div>|<div class="big">{0}</div><div class="muted">The tradition has lived for {1} generations. Family: +1 to relationships per year. Study: +1 to smarts from age 6. Community: +1 to city reputation from age 12. Up to two family acquaintances and part of the reputation are passed on. The family business is inherited with a share of 50% or more, if that share covers its value.</div>
+<div class="big">{0}</div><div class="muted">Язык: {1}% · знакомства: {2}% · диплом: {3} · статус проживания: {4}/3. Пока идёт адаптация, зарплата составляет 75–100% от обычной. Это игровые условия адаптации.</div>|<div class="big">{0}</div><div class="muted">Language: {1}% · connections: {2}% · diploma: {3} · residence status: {4}/3. During adaptation your salary is 75–100% of normal. These are the game's adaptation rules.</div>
+<div class="life-report">{0}<div class="muted">{1} год · {2}. Изменения за переход года и решения в событиях.</div>{3}<div class="muted">Поступления и выплаты — движения денег, включая переводы и продажу имущества. Капитал учитывает также долги и переоценку активов.</div></div>|<div class="life-report">{0}<div class="muted">Year {1} · {2}. Changes from the year transition and decisions in events.</div>{3}<div class="muted">Income and payments are money movements, including transfers and property sales. Net worth also accounts for debts and asset revaluation.</div></div>
+<div class="muted">Вы обещали вернуться к разговору {0} года.</div>|<div class="muted">You promised to return to the conversation in {0}.</div>
+<div class="muted">Выбор доступен с 6 лет. Неисполненную мечту можно сменить через пять лет. Исполненные цели остаются в биографии.</div>|<div class="muted">Available from age 6. An unfulfilled dream can be changed after five years. Fulfilled goals stay in your biography.</div>
+<div class="muted">Здесь появятся близкие от 6 лет.</div>|<div class="muted">Loved ones aged 6 and older will appear here.</div>
+<div class="muted">Итог появится после первого прожитого года.</div>|<div class="muted">The summary will appear after your first year.</div>
+<div class="muted">Наставник с близостью от 65 помогает учиться. Отношения с руководителем влияют на результативность. Совместные проекты и предложения повышения дают выбор между карьерой и поддержкой коллег.</div>|<div class="muted">A mentor with closeness of 65 or more helps you learn. Your relationship with your boss affects performance. Joint projects and promotion offers make you choose between your career and supporting colleagues.</div>
+<div class="muted">Новый коллектив появится, когда вы устроитесь на работу.</div>|<div class="muted">A new team will appear when you get a job.</div>
+<div class="muted">Общие воспоминания ещё впереди.</div>|<div class="muted">Shared memories are still ahead.</div>
+<div class="muted">От 75 доверия коллеги рекомендуют вас руководству раз в 5 лет. Семейный план и поддержка целей влияют на доверие близких. Городская репутация влияет на исход общего дела. От 75 доверия близкие могут помочь с долгами, а городское сообщество приглашает вас и знакомит с людьми раз в 5 лет. Преступления снижают доверие города и коллег.</div>|<div class="muted">With trust of 75 or more, colleagues recommend you to management once every 5 years. The family plan and support for goals affect your loved ones' trust. City reputation affects how a shared venture turns out. With trust of 75 or more, loved ones may help with debts, and the city community invites you and introduces you to people once every 5 years. Crimes lower the trust of the city and colleagues.</div>
+<div class="muted">Период адаптации начнётся после переезда в другую страну.</div>|<div class="muted">The adaptation period begins after you move to another country.</div>
+<div class="muted">План заботы действует до {0} года. {1}</div>|<div class="muted">The care plan lasts until {0}. {1}</div>
+<div class="muted">Сначала освободите время кнопкой «−»: оно перейдёт в отдых. Затем добавьте его нужному занятию. До 6 лет план не действует.</div>|<div class="muted">First free up time with the “−” button: it goes to rest. Then add it to the activity you want. The plan does not apply before age 6.</div>
+<div class="muted">Этот раздел доступен, когда вы и ваш партнёр достигли 18 лет.</div>|<div class="muted">This section is available once you and your partner are 18.</div>
+<div class="relationship-memory"><b>Доверие: {0}/100 · неразрешённые обиды: {1}</b><div class="muted">Подарки не стирают обиды. Извинения и внимание в разные годы постепенно помогают восстановить доверие.</div>{2}</div>|<div class="relationship-memory"><b>Trust: {0}/100 · unresolved hurts: {1}</b><div class="muted">Gifts don't erase hurt. Apologies and attention over different years gradually help rebuild trust.</div>{2}</div>
+ГЛАВА {0}|CHAPTER {0}
+<p>История начнёт заполняться новыми событиями.</p>|<p>The story will fill up with new events.</p>
+<p>Причина смерти: {0}.</p>|<p>Cause of death: {0}.</p>
+Предложение: {0}.|Proposal: {0}.
+{0} · {1} · {2} · отношения {3}%|{0} · {1} · {2} · relationship {3}%
+Вы вместе переехали: {0}, {1}.|You moved together: {0}, {1}.
+Вы переехали: {0}, {1}.|You moved: {0}, {1}.
+{0} выбирает собственный путь. Разговор оставил обиду.|{0} chooses their own path. The conversation left a hurt.
+{0} не успевает закончить проект. Ваш выбор повлияет на доверие и карьеру.|{0} can't finish the project in time. Your choice will affect trust and your career.
+{0} предлагает расширить ваш образовательный проект. Прошлое доверие и репутация повлияют на итог.|{0} suggests expanding your educational project. Past trust and reputation will affect the outcome.
+{0} приглашает вас на семейное событие {1} года. Можно поддержать лично или поздравить на расстоянии.|{0} invites you to a family event in {1}. You can support them in person or congratulate them from afar.
+{0} услышал{1} извинение. Доверие придётся подтверждать поступками.|{0} heard your apology. Trust will have to be proven with actions.
+{0} уступает, но прежнее увлечение осталось незавершённым.|{0} gives in, but the old hobby remains unfinished.
+{0} хочет, чтобы вы больше занимались школьными предметами. Вы хотите развивать собственный интерес.|{0} wants you to focus more on school subjects. You want to pursue your own interest.
+{0}: {1}{2}\nДоверие: {3}/100. Партнёр может согласиться или отказать.|{0}: {1}{2}\nTrust: {3}/100. Your partner may agree or refuse.
+{0}: нам нужно поговорить|{0}: we need to talk
+{0}: свой путь|{0}: their own path
+{0}\nДоверие: {1}/100|{0}\nTrust: {1}/100
+Доверие: {0}/100. Партнёр может согласиться или отказать.|Trust: {0}/100. Your partner may agree or refuse.
+Доверие: {0}/100|Trust: {0}/100
+Адаптация после переезда|Adapting after the move
+Баланс|Balance
+Бесплатный кружок|Free club
+Биография|Biography
+Близкие|Loved ones
+Близкий человек запомнил ваше отсутствие.|Your loved one remembered that you weren't there.
+Болезни и лечение|Illness and treatment
+Быт, долги и инвестиции|Household, debts and investments
+В семье появился ребёнок: {0}.|A child was born into the family: {0}.
+В споре об увлечениях вы выбрали школьную учёбу.|In the argument about hobbies, you chose schoolwork.
+В этом году вы сделали упор на учёбу.|This year you focused on your studies.
+В этом году вы уже обсудили этот вопрос.|You've already discussed this question this year.
+Ваш проект стал городской школой. Друг помнит вашу помощь.|Your project became a city school. Your friend remembers your help.
+Ваша рабочая нагрузка временно сокращена.|Your workload is temporarily reduced.
+Ваше внимание осталось в семейной памяти.|Your attention became part of the family's memory.
+Ваши коллеги|Your colleagues
+Вернуться к выбору другой мечты можно через пять лет.|You can choose a different dream in five years.
+Вернуться к итогам жизни|Back to life summary
+Вернуться к рабочему разговору|Return to the work conversation
+Взросление|Growing up
+Вкл.|On
+Включить анимацию|Turn animation on
+Внешность|Appearance
+Возможности до 18 лет|Opportunities before 18
+Возраст и образ жизни|Age and lifestyle
+Врач|Doctor
+Встреча родственников|Family reunion
+Встреча уже предложена.|A reunion has already been proposed.
+Вы вернулись к обещанному разговору вовремя.|You returned to the promised conversation on time.
+Вы вместе выбрали новый дом и переехали.|You chose a new home together and moved.
+Вы вместе договорились о временном перерыве в карьере партнёра.|You agreed together on a temporary career break for your partner.
+Вы вместе отпраздновали свадьбу.|You celebrated the wedding together.
+Вы вместе решили попробовать стать родителями.|You decided together to try to become parents.
+Вы выслушали без спешки.|You listened without rushing.
+Вы выслушали мнение партнёра и не стали давить.|You listened to your partner's view and didn't push.
+Вы договорились делить ответственность.|You agreed to share responsibility.
+Вы договорились подготовиться и вернуться к важному разговору через год.|You agreed to prepare and return to the important conversation in a year.
+Вы договорились разделить заботу о детях.|You agreed to share childcare.
+Вы завершили разговор без изменения планов.|You ended the conversation without changing plans.
+Вы заняли должность, на которую я тоже рассчитывал.|You took the position I was counting on too.
+Вы и {0} претендуете на следующую должность. Руководитель готов выслушать вашу рекомендацию.|You and {0} are both up for the next position. Your boss is ready to hear your recommendation.
+Вы нашли время и для школы, и для своего интереса.|You found time for both school and your own interest.
+Вы нашли время побыть вместе.|You found time to be together.
+Вы не вернулись к обещанному разговору.|You never returned to the promised conversation.
+Вы не участвовали.|You didn't take part.
+Вы освоились|You've settled in
+Вы отмахнулись от просьбы разделить заботу о детях.|You brushed off the request to share childcare.
+Вы отстояли собственное увлечение.|You stood up for your own hobby.
+Вы передали своё дело другу и сохранили связь с проектом.|You handed your venture to a friend and kept ties with the project.
+Вы переехали отдельно, хотя партнёр хотел остаться вместе.|You moved alone, although your partner wanted to stay together.
+Вы поговорили: неразрешённых обид сейчас нет.|You talked: there are no unresolved hurts right now.
+Вы подарили подарок.|You gave a gift.
+Вы поддержали карьеру коллеги {0}.|You supported the career of your colleague {0}.
+Вы поддержали мой собственный выбор.|You supported my own choice.
+Вы поддержали цель {0}. Решение о будущем остаётся за близким человеком.|You supported {0}'s goal. The decision about the future is theirs to make.
+Вы поздравили на расстоянии|You congratulated from afar
+Вы поздравили на расстоянии.|You congratulated them from afar.
+Вы познакомились с коллективом: {0}.|You met the team: {0}.
+Вы помогли {0} приблизиться к цели.|You helped {0} get closer to their goal.
+Вы помогли коллеге {0} с трудным проектом.|You helped your colleague {0} with a hard project.
+Вы помогли мне закончить сложный проект.|You helped me finish a hard project.
+Вы помогли мне получить образование для моей цели.|You helped me get an education for my goal.
+Вы помогли организовать праздник.|You helped organize the celebration.
+Вы помогли устроить праздник|You helped throw the celebration
+Вы потратили время, но заслужили доверие коллеги.|You spent the time, but earned your colleague's trust.
+Вы приехали на праздник.|You came to the celebration.
+Вы признали свою ошибку. На восстановление доверия нужно время.|You admitted your mistake. Rebuilding trust takes time.
+Вы приняли повышение: {0}. Коллеге нужно время привыкнуть.|You accepted the promotion: {0}. Your colleague needs time to get used to it.
+Вы присвоили результаты проекта коллеги {0}.|You took credit for your colleague {0}'s project.
+Вы присвоили себе результаты моей работы.|You took credit for my work.
+Вы пришли поддержать меня|You came to support me
+Вы продолжаете идти к этой мечте.|You keep moving toward this dream.
+Вы пропустили важное событие: {0}.|You missed an important event: {0}.
+Вы пытались навязать мне свой жизненный путь.|You tried to force your life path on me.
+Вы развивали своё увлечение.|You worked on your hobby.
+Вы разделили важный момент.|You shared an important moment.
+Вы разделили радость от успехов на занятиях.|You shared the joy of progress in class.
+Вы разошлись во взглядах. Друг открыл конкурирующий проект.|You disagreed. Your friend started a competing project.
+Вы рекомендовали коллегу. Собственное повышение придётся подождать.|You recommended your colleague. Your own promotion will have to wait.
+Вы рекомендовали меня руководителю, хотя могли выбрать себя.|You recommended me to the boss, though you could have chosen yourself.
+Вы решили вернуться к разговору через год. Решение о ребёнке или переезде пока не принято.|You decided to return to the conversation in a year. No decision on a child or a move has been made yet.
+Вы решили закончить отношения.|You decided to end the relationship.
+Вы решили сохранить свою мечту.|You decided to keep your dream.
+Вы смогли спокойно договориться об учёбе и увлечениях.|You calmly reached an agreement about school and hobbies.
+Вы сократили рабочую нагрузку, чтобы заботиться о детях.|You cut your workload to take care of the children.
+Вы сосредоточились на своей части работы.|You focused on your part of the work.
+Вы сохранили интерес, хотя договориться с родителем пока не удалось.|You kept your interest, though you couldn't reach an agreement with your parent yet.
+Вы уже живёте в этой стране.|You already live in this country.
+Вы устроили романтическое свидание.|You arranged a romantic date.
+Вы устроили тяжёлую ссору.|You started a bad fight.
+Вы участвовали в празднике.|You took part in the celebration.
+Выберите до двух действий|Choose up to two actions
+Выберите другую страну.|Choose another country.
+Выбрать мечту|Choose a dream
+Выбрать мечту можно с 6 лет.|You can choose a dream from age 6.
+Выкл.|Off
+Выключить анимацию|Turn animation off
+Выпускной|Graduation
+Где будем жить|Where we'll live
+Год вашей жизни|A year of your life
+Годовщина свадьбы|Wedding anniversary
+Годовые события|Yearly events
+Город|City
+Десять лет доверия: проект получил грант, а вы — надёжного союзника.|Ten years of trust: the project won a grant, and you gained a reliable ally.
+Дети и родительство|Children and parenthood
+Детство|Childhood
+Доверие и договорённости|Trust and agreements
+Договорённость действует два года. Меньше времени на работу означает меньшую зарплату. План можно изменить вручную.|The agreement lasts two years. Less time at work means a lower salary. You can change the plan manually.
+Жизнь завершилась в возрасте {0}. Причина: {1}.|Life ended at age {0}. Cause: {1}.
+Жить спокойно|Live a calm life
+За эти годы ваша жизнь изменилась. Можно сохранить цель или выбрать другую.|Your life has changed over these years. You can keep your goal or choose another.
+Забота о семье|Caring for the family
+Завершение жизни|End of life
+Заключение|Imprisonment
+Закрыть|Close
+Занятия с преподавателем|Lessons with a teacher
+Записанные условия с {0} года: {1}; {2}; {3}.|Recorded conditions since {0}: {1}; {2}; {3}.
+Здоровье|Health
+Знакомый|Acquaintance
+Зрелость|Maturity
+Исполнена мечта «{0}».|Dream fulfilled: “{0}”.
+Исполненные мечты: {0}. {1}|Fulfilled dreams: {0}. {1}
+Исполненные мечты: {0}.|Fulfilled dreams: {0}.
+История на 10 лет · {0} · взрослый друг|A 10-year story · {0} · adult friend
+Итоги {0} года|Summary of {0}
+К этому году новый дом: {0}, {1}.|New home as of this year: {0}, {1}.
+Капитал|Net worth
+Коллега|Colleague
+Коллеги|Colleagues
+Коллеги, наставник и рабочие решения|Colleagues, mentor and work decisions
+Конкурент|Rival
+Конкурент по работе|Work rival
+Круги доверия|Circles of trust
+Курсы языка|Language courses
+Личные истории|Personal stories
+Личные цели|Personal goals
+Личный путь|Personal path
+Любовь к учёбе|Love of learning
+Местный клуб знакомств|Local social club
+Мечта «{0}» была пересмотрена.|The dream “{0}” was reconsidered.
+Мечты и семейные события|Dreams and family events
+Много самостоятельности|Lots of independence
+Многолетние истории|Long-running stories
+Можно выбрать личную цель. Со временем её разрешено пересмотреть.|You can choose a personal goal. Over time you may reconsider it.
+Наставник|Mentor
+Настоять на своём выборе|Insist on your choice
+Начался период жизни на пенсии.|Your retirement years have begun.
+Не сейчас|Not now
+Не хватает денег.|Not enough money.
+Небольшое жильё|Small home
+Незавершённое решение|Unfinished decision
+Несколько давних обид остались неразрешёнными.|Several old hurts remain unresolved.
+Нет данных о детстве|No childhood data
+Нет живущих рядом родителей|No parents living nearby
+Новая история|New story
+Новая мечта: {0}.|New dream: {0}.
+Новый дом|New home
+Нужны взрослый друг, свободные средства и возможность работать над проектом.|You need an adult friend, spare money and the chance to work on the project.
+О чём вы мечтаете?|What do you dream of?
+Обеспеченная семья|Well-off family
+Образование|Education
+Обстоятельства изменились, встреча отменена.|Circumstances changed; the reunion was cancelled.
+Обстоятельства изменились. Этот разговор уже завершён или недоступен.|Circumstances changed. This conversation is already over or unavailable.
+Обстоятельства пары изменились.|The couple's circumstances have changed.
+Обстоятельства пары изменились. Обсудите переезд заново.|The couple's circumstances have changed. Discuss the move again.
+Обстоятельства семьи изменились.|The family's circumstances have changed.
+Обсудить|Discuss
+Обсудить вместе|Discuss together
+Обсудить расписание вместе|Discuss the schedule together
+Обсудить это можно со взрослым партнёром, когда вы на свободе.|You can discuss this with an adult partner while you're free.
+Общее дело: пятый год|Shared venture: fifth year
+Общее решение: дети|Joint decision: children
+Общее решение: переезд|Joint decision: moving
+Общее решение: семья и карьера|Joint decision: family and career
+Общие решения пары|The couple's joint decisions
+Общий рабочий проект|Joint work project
+Обычная нагрузка|Normal workload
+Овладеть музыкой|Master music
+Ограниченные средства|Limited means
+Одноклассник|Classmate
+Оживлённый район|Busy neighborhood
+Оплатить обучение ({0})|Pay for the course ({0})
+Основать образовательный проект с другом|Found an educational project with a friend
+Оставить всё как есть и уважить мнение партнёра|Leave things as they are and respect your partner's view
+Остаться при своей задаче|Stick to your own task
+Отдых|Rest
+Отношения|Relationships
+Отстоять своё увлечение|Stand up for your hobby
+Память отношений и договорённости пары|Relationship memory and the couple's agreements
+Партнёр временно сделал паузу в карьере.|Your partner took a temporary career break.
+Партнёр готов вместе планировать появление ребёнка.|Your partner is ready to plan for a child together.
+Партнёр готов временно сократить карьерную нагрузку ради семьи.|Your partner is ready to temporarily cut back on work for the family.
+Партнёр готов переехать вместе.|Your partner is ready to move together.
+Партнёр почувствовал, что его просьбу не услышали.|Your partner felt their request wasn't heard.
+Партнёр предлагает сначала разобраться с текущими трудностями.|Your partner suggests dealing with current difficulties first.
+Партнёр просит разделить заботу о детях и обсудить рабочую нагрузку.|Your partner asks to share childcare and discuss the workload.
+Партнёр хочет сохранить свою карьеру и предлагает разделить заботы.|Your partner wants to keep their career and suggests sharing the load.
+Партнёру важны привычный дом и близкие. Нужно подготовиться или выбрать другой путь.|Your partner values their familiar home and loved ones. You need to prepare or choose another path.
+Партнёру нужно время на подготовку к родительству.|Your partner needs time to prepare for parenthood.
+Первый школьный друг: {0}.|First school friend: {0}.
+Передать проект другу|Hand the project to your friend
+Переехать отдельно ({0}) · отношения −15|Move alone ({0}) · relationship −15
+Переосмыслить мечту?|Rethink your dream?
+Перерыв в карьере|Career break
+Питомцы|Pets
+Планы и возможности|Plans and opportunities
+Повышение или поддержка коллеги?|Promotion or supporting a colleague?
+Подготовиться и обсудить через год|Prepare and discuss in a year
+Поддержать выбор|Support the choice
+Поддерживающее воспитание|Supportive upbringing
+Подтвердить диплом|Validate your diploma
+Поздние годы|Later years
+Поздравить на расстоянии|Congratulate from afar
+Пока не знаю|Not sure yet
+Пока нет несовершеннолетних детей, которым нужен такой план заботы.|There are no minor children who need this care plan yet.
+Пока нет родственников, которых можно пригласить.|There are no relatives to invite yet.
+Показывать итоги после каждого года|Show a summary after each year
+Покойтесь с миром|Rest in peace
+Получено образование: {0}.|Education completed: {0}.
+Помочь городскому сообществу|Help the city community
+Помочь коллеге|Help your colleague
+Помочь с организацией ({0})|Help organize it ({0})
+Помочь сейчас не получилось.|You couldn't help right now.
+Помощь сообществу|Community help
+Попросить оплатить занятия|Ask them to pay for lessons
+Посетить десять стран.|Visit ten countries.
+Посмотреть другие цели|See other goals
+Потребовать полный контроль|Demand full control
+Практика и забывание навыков|Practice and skill decay
+Предложение уже неактуально.|The offer is no longer relevant.
+Предложить встречу родственников|Propose a family reunion
+Предложить партнёру паузу в карьере|Suggest a career break to your partner
+Предложить переехать вместе ({0})|Suggest moving together ({0})
+Предложить стать родителями сейчас|Suggest becoming parents now
+Предприниматель|Entrepreneur
+Представить результат как свою работу|Present the result as your own work
+Прежний коллектив · с {0} года|Former team · since {0}
+Привычки, сон, работа и стресс|Habits, sleep, work and stress
+Приглашение на событие «{0}» осталось без ответа.|The invitation to “{0}” went unanswered.
+Приглашения и семейная память|Invitations and family memory
+Приехать ({0})|Come ({0})
+Признать ошибку и извиниться|Admit the mistake and apologize
+Принять предложение|Accept the offer
+Продолжать свой путь|Keep to your path
+Продолжение семейной истории в возрасте {0}.|The family story continues at age {0}.
+Продолжить|Continue
+Продолжить начатый разговор|Continue the conversation
+Проект остался небольшим, но помог первым ученикам.|The project stayed small but helped its first students.
+Проект остался памятью о близком человеке.|The project remains a memory of a loved one.
+Проект продолжается, но доверия стало меньше.|The project goes on, but there is less trust.
+Пропустить|Skip
+Прошлое взрослого персонажа не реконструируется.|An adult character's past is not reconstructed.
+Прошлое не записано|The past was not recorded
+Пять взрослых лет подряд: счастье от 75, здоровье от 70, стресс не выше 35.|Five adult years in a row: happiness 75+, health 70+, stress no higher than 35.
+Работа|Work
+Работа и доходы|Work and income
+Работа: {0}.|Job: {0}.
+Работать в медицине на второй ступени карьеры или выше.|Work in medicine at career level two or higher.
+Раз в год · +6 к доверию города, +3 к счастью|Once a year · +6 city trust, +3 happiness
+Раз в пять лет · с 18 лет|Once every five years · from age 18
+Развивать вместе|Grow it together
+Развить музыкальный навык до 80.|Raise your music skill to 80.
+Разделим заботы и немного сократим мою нагрузку|Let's share the load and cut my workload a bit
+Район детства неизвестен|Childhood neighborhood unknown
+Распределение|Allocation
+Распределение времени|Time allocation
+Результат заметили, но коллега запомнил ваш поступок.|The result was noticed, but your colleague remembered what you did.
+Рекомендовать коллегу|Recommend your colleague
+Репутация и рекомендации|Reputation and recommendations
+Решения в событиях|Decisions in events
+Родитель пока не согласился, но вы объяснили, что вам важно.|Your parent hasn't agreed yet, but you explained what matters to you.
+Рождение в городе {0}.|Born in {0}.
+Руководитель|Boss
+С родителями найден компромисс об учёбе и увлечениях.|You found a compromise with your parents about school and hobbies.
+Самостоятельная жизнь близких|Loved ones' own lives
+Свадьба ребёнка|Child's wedding
+Сведений о прошлом детстве в этом сохранении нет.|This save has no record of a past childhood.
+Сейчас занятие недоступно.|This activity is unavailable right now.
+Сейчас не получится приехать или оплатить праздник. Можно поздравить на расстоянии.|You can't come or pay for the celebration right now. You can congratulate them from afar.
+Сейчас партнёр не хочет становиться родителем. Это решение нельзя принять за двоих.|Your partner doesn't want to become a parent right now. This decision can't be made for both of you.
+Сейчас переезд недоступен: нужны свобода действий и деньги на дорогу.|Moving is unavailable right now: you need freedom of action and money for the trip.
+Сейчас предложение о повышении недоступно.|The promotion offer is unavailable right now.
+Сейчас родители не могут оплатить занятия. Можно выбрать бесплатный кружок.|Your parents can't pay for lessons right now. You can choose a free club.
+Семейная традиция|Family tradition
+Семейная традиция: {0}.|Family tradition: {0}.
+Семейную встречу можно предложить раз в пять лет, начиная с 18 лет.|A family reunion can be proposed once every five years, starting at 18.
+Семейные главы|Family chapters
+Семейный фотоальбом|Family photo album
+Семейный юбилей|Family anniversary
+Семья и карьера|Family and career
+Случайные события|Random events
+Сначала завершите уже начатый разговор.|First finish the conversation you've already started.
+Сначала нужно восстановить доверие и обсудить неразрешённые обиды.|First you need to rebuild trust and talk through unresolved hurts.
+События близких|Loved ones' events
+События года|Events of the year
+События эпохи|Events of the era
+Создать большую дружную семью|Raise a big, close family
+Сокращённая|Reduced
+Сосредоточиться на школе|Focus on school
+Стать врачом|Become a doctor
+Стресс|Stress
+Строгие ожидания|Strict expectations
+Счастье|Happiness
+Тихий район|Quiet neighborhood
+Трое живых детей, минимум с двумя близость 70 или выше.|Three living children, with closeness of 70+ with at least two.
+У вас уже действует договорённость о нагрузке.|You already have a workload agreement in place.
+У вашей жизни появилась личная цель.|Your life now has a personal goal.
+Увидеть мир|See the world
+Увлечение|Hobby
+Ум|Smarts
+Умеренные средства|Moderate means
+Усиленная|Intense
+Условия детства|Childhood conditions
+Условия записаны с {0} года.|Conditions recorded since {0}.
+Учёба и хобби|Study and hobbies
+Учёба или увлечение?|School or hobby?
+Учёный|Scientist
+Художник|Artist
+Цели и характер|Goals and character
+Цель: {0}. {1} просит поддержки. Характер: {2}.|Goal: {0}. {1} asks for support. Character: {2}.
+Что помнит {0}|What {0} remembers
+Шаги адаптации|Adaptation steps
+Эта встреча уже невозможна.|This reunion is no longer possible.
+Эта мечта уже исполнена и сохранена в биографии.|This dream has already come true and is saved in your biography.
+Это занятие пока недоступно.|This activity isn't available yet.
+Это приглашение уже закрыто.|This invitation is already closed.
+Это событие уже осталось в прошлом.|This event is already in the past.
+Этот рабочий проект уже завершён или коллектив изменился.|This work project is already finished or the team has changed.
+Этот разговор уже невозможен.|This conversation is no longer possible.
+Этот человек больше недоступен.|This person is no longer available.
+Юность|Youth
+Я сокращу работу ради детей|I'll cut back on work for the kids
+{0} · {1} · доверие {2}|{0} · {1} · trust {2}
+{0} · {1} · ушёл из жизни|{0} · {1} · passed away
+{0} · исполнена в {1}|{0} · fulfilled in {1}
+вы отказались|you declined
+вы поздравили|you congratulated
+вы помогли|you helped
+вы приехали|you came
+вы пропустили|you missed
+готов менять нагрузку ради семьи|ready to change workload for the family
+готов обсуждать родительство сейчас|ready to discuss parenthood now
+ждёт ответа|awaiting reply
+карьерные ступени ещё не записаны|career levels not recorded yet
+наука|science
+нет|none
+общительный|sociable
+ожидает подтверждения|pending validation
+осторожный|cautious
+открыт к переезду|open to moving
+отменено|cancelled
+подтверждён / не требуется|validated / not required
+пока не записаны|not recorded yet
+пока не отмечены|not marked yet
+пока нет|none yet
+пока учится|still studying
+помощь людям|helping people
+прошло {0} лет из 10|{0} of 10 years passed
+самостоятельный|independent
+своё дело|own business
+сейчас|now
+сейчас не хочет детей|doesn't want children now
+спокойный|calm
+творчество|creativity
+требовательный|demanding
+ушёл из жизни|passed away
+характер пока не известен|character not known yet
+хочет подготовиться к родительству|wants to prepare for parenthood
+хочет сохранить карьеру|wants to keep their career
+ценит привычный дом|values the familiar home
+Высокая нагрузка оставляет мало сил на восстановление.|A heavy workload leaves little energy for recovery.
+План года|Year plan
+Быстрые действия|Quick actions
+Исполнена мечта: {0}!|Dream fulfilled: {0}!
+Личные мечты|Personal dreams
+{0}: цель «{1}» привела к новой работе — {2}.|{0}: the goal “{1}” led to a new job: {2}.
+Жизнь близких|Loved ones' lives
+Вас пригласили в местное сообщество. Новое знакомство: {0}.|You were invited into the local community. New acquaintance: {0}.
+Вы помогли соседям с общим делом.|You helped your neighbors with a shared cause.
+Семейные события|Family events
+В школе вы подружились с {0}.|At school you made friends with {0}.
+Детство и воспитание|Childhood and upbringing
+Диплом подтверждён после периода профессиональной адаптации.|Your diploma was validated after a period of professional adaptation.
+Дома|At home
+Адаптация завершена: вы освоились в новой стране.|Adaptation complete: you've settled into the new country.
+Рабочий коллектив|Work team
+Вы продолжаете семейное дело «{0}». Его стоимость учтена в вашей доле наследства.|You carry on the family business “{0}”. Its value counts toward your share of the inheritance.
+Отношения на расстоянии требуют больше внимания.|A long-distance relationship needs more attention.
+{0} помог вам в трудный год: {1}. Семейное доверие сохранилось.|{0} helped you in a hard year: {1}. Family trust endured.
+{0} самостоятельно меняет работу: {1}.|{0} changes jobs on their own: {1}.
+На работе|At work
+Последний итог года|Latest year summary
+Вы с {0} основали образовательный проект. Впереди десять лет совместной истории.|You and {0} founded an educational project. Ten years of shared story lie ahead.
+Прочитать биографию|Read the biography
+На учёбе|At school
+В заключении|In prison
+Вы сделали ещё один шаг к жизни в новой стране.|You took another step toward life in the new country.
+Новая страна: язык, подтверждение диплома, статус проживания и круг общения потребуют времени. Откройте «Адаптация после переезда».|New country: language, diploma validation, residence status and a social circle will take time. Open “Adapting after the move”.
+Временный план заботы о детях завершён. Нагрузку можно обсудить заново.|The temporary childcare plan has ended. The workload can be discussed again.
+Коллеги рекомендовали вас руководству: профессиональная репутация помогла карьере.|Colleagues recommended you to management: your professional reputation helped your career.
+Общие решения|Joint decisions
+Репутация|Reputation
+{0} помнит, что важный разговор был отложен и забыт.|{0} remembers that an important conversation was put off and forgotten.
+Воспоминания и доверие|Memories and trust
+{0} переезжает: {1}.|{0} is moving: {1}.
+Семейная традиция и {0} старых знакомств перешли следующему поколению.|The family tradition and {0} old acquaintances passed to the next generation.
+Семейное наследие|Family legacy
+Вы нашли время отметить нашу годовщину вместе.|You found time to celebrate our anniversary together.
+Вы забыли о годовщине нашей свадьбы.|You forgot our wedding anniversary.
+Я узнал о вашей неверности. Доверие разрушено.|I found out you were unfaithful. Trust is broken.
+Я узнал о вашем романе на работе.|I found out about your affair at work.
+Сейчас усыновление недоступно: обстоятельства или средства изменились.|Adoption is unavailable right now: circumstances or finances have changed.
+Переезд стоит {0}. Работа будет потеряна. Если вы в паре, сначала обсудите решение вместе.|Moving costs {0}. You will lose your job. If you're in a couple, discuss the decision together first.
+От первого шага до последнего вздоха. 132 страны, полтора века истории и тысячи решений, каждое из которых что-то меняет.|From the first step to the last breath. 132 countries, a century and a half of history and thousands of decisions, each of which changes something.
+Андорра|Andorra
+Лихтенштейн|Liechtenstein
+Сан-Марино|San Marino
+Монако|Monaco
+Бахрейн|Bahrain
+Гондурас|Honduras
+Никарагуа|Nicaragua
+Сальвадор|El Salvador
+Багамы|Bahamas
+Тринидад и Тобаго|Trinidad and Tobago
+Мали|Mali
+Бенин|Benin
+Известные профессиональные направления: {0}. Карьерные ступени: {1}.|Known professional fields: {0}. Career levels: {1}.
+Дети: {0}. Близкие люди: {1}.|Children: {0}. Loved ones: {1}.
+Исполненные мечты: {0}.{1}|Fulfilled dreams: {0}.{1}
+Главы жизни|Life chapters
+Конкурент по работе {0} {1} в возрасте {2}.|Work rival {0} {1} at the age of {2}.
+{0}–сейчас. {1}. {2}.|{0}–present. {1}. {2}.
+{0}–{1}. {2}. {3}.|{0}–{1}. {2}. {3}.
+Вы купили: {0} (в ипотеку)!|You bought: {0} (on a mortgage)!
+в ипотеку|on a mortgage
