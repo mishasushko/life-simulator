@@ -675,3 +675,13 @@ test('intimate choices require adults, opt-in and agreement from both partners',
  assert.equal(run('p.close'),run('before+2'));
  run('askAffection(p,3)');assert.equal(run("document.querySelector('#modalWrap').hidden"),true);
 });
+
+test('trust reaches 100, and prepared partners can retry after an unsuccessful year',()=>{
+  const {run}=coupleGame();
+  run("for(let i=0;i<10;i++)relationshipRemember(p,'good'+i,'Поддержка',5);");
+  assert.equal(run('relationshipTrust(p)'),100);
+  run("c.children='later';couplePromise(p,'children');S.year++;S.used={};Math.random=()=>0.9;requestCoupleDecision(p,'children')");
+  clickChoice(run,'стать родителями сейчас');assert.equal(run('S.stat.kids'),0);
+  run("S.year++;S.used={};Math.random=()=>0.1;requestCoupleDecision(p,'children')");
+  clickChoice(run,'стать родителями сейчас');assert.equal(run('S.stat.kids'),1);
+});

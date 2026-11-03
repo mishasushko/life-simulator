@@ -29,7 +29,7 @@ function relationshipRemember(p, kind, text, weight = 0, hurt = 0) {
 function relationshipHurt(p) { return Math.min(100, relationshipState(p).entries.reduce((n, e) => n + (e.hurt || 0), 0)); }
 function relationshipTrust(p) {
   const good = relationshipState(p).entries.filter(e => e.weight > 0 && S.year - e.year <= 10).reduce((n, e) => n + e.weight, 0);
-  return clamp(50 + Math.min(25, good) - relationshipHurt(p));
+  return clamp(50 + Math.min(50, good) - relationshipHurt(p));
 }
 function relationshipValid(p) { return S?.alive && p?.alive && S.people.includes(p); }
 function coupleValid(p) { return relationshipValid(p) && p.role === 'partner' && p === partner() && S.age >= 18 && p.age >= 18; }
@@ -95,12 +95,13 @@ function coupleState(p) {
 }
 function coupleOpinion(p, topic, destination) {
   const c = coupleState(p), hurt = relationshipHurt(p);
-  if (hurt >= 25 || relationshipTrust(p) < 35 || p.close < 40) return { agree: false, reason: 'Сначала нужно восстановить доверие и обсудить неразрешённые обиды.' };
+  if (hurt >= 25 || relationshipTrust(p) < 35) return { agree: false, reason: sceneText('Остались обиды. Обсудите их в разделе «Воспоминания и доверие».','There are unresolved hurts. Open Memories and trust to discuss them.','Залишилися образи. Обговоріть їх у розділі «Спогади й довіра».') };
+  if (p.close < 40) return { agree: false, reason: sceneText('Близость ниже 40. Проводите время вместе и поговорите по душам.','Closeness is below 40. Spend time together and have a heart-to-heart.','Близькість нижча за 40. Проведіть час разом і поговоріть щиро.') };
   if (topic === 'children') {
     const ready = c.preparation?.topic === topic && S.year >= c.preparation.ready;
     if (c.children === 'no') return { agree: false, reason: 'Сейчас партнёр не хочет становиться родителем. Это решение нельзя принять за двоих.' };
-    if (c.children === 'later' && !ready) return { agree: false, reason: 'Партнёру нужно время на подготовку к родительству.' };
-    if (S.prison || (S.money < 0 && !ready)) return { agree: false, reason: 'Партнёр предлагает сначала разобраться с текущими трудностями.' };
+    if (c.children === 'later' && !ready && !c.parenthoodReady) return { agree: false, reason: sceneText('Выберите подготовку, проживите год и снова обсудите детей.','Choose to prepare, advance one year, then discuss children again.','Оберіть підготовку, проживіть рік і знову обговоріть дітей.') };
+    if (S.prison || (S.money < 0 && !ready && !c.parenthoodReady)) return { agree: false, reason: 'Партнёр предлагает сначала разобраться с текущими трудностями.' };
     return { agree: true, reason: 'Партнёр готов вместе планировать появление ребёнка.' };
   }
   if (topic === 'move') {
@@ -194,6 +195,7 @@ function requestCoupleDecision(p, topic, country) {
     choices.push({ t: 'Предложить стать родителями сейчас', disabled: S.age > 55, f: finish(() => {
       const current = coupleOpinion(p, topic);
       if (!current.agree || S.age > 55) return current.reason;
+      c.parenthoodReady = true; // Keep the completed preparation even if conception takes several attempts.
       S.used.baby = 1;
       relationshipRemember(p, 'parenthood-consent', 'Вы вместе решили попробовать стать родителями.', 5);
       return _relationshipTryBaby(p);
