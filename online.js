@@ -25,7 +25,7 @@ function onlineScore() { return S.daily && S.dailyScore != null ? S.dailyScore :
 function onlineRow() {
   const sc = onlineScore();
   return {
-    pid: onlineMe().pid, nick: cleanNick(onlineMe().nick) || `${S.first} ${S.surname}`.slice(0, 20), score: Math.max(0, Math.min(3000, Math.round(sc))), grade: grade(sc),
+    pid: onlineMe().pid, nick: (cleanNick(`${S.first} ${S.surname}`) || cleanNick(onlineMe().nick) || 'Игрок').slice(0, 20), score: Math.max(0, Math.min(3000, Math.round(sc))), grade: grade(sc),
     age: Math.max(0, Math.min(130, S.age | 0)), country: String(S.country || '').slice(0, 6), flag: String(C().flag || '').slice(0, 16),
     born: S.birthYear, died: Math.max(S.year, S.birthYear), cause: String(S.cause || '').slice(0, 80), ach: Object.keys(S.ach || {}).length, kids: (S.stat && S.stat.kids) | 0,
     daily: S.daily || null, mode: [S.iron && 'iron', S.diff && S.diff !== 'normal' && S.diff, (S.generation || 1) > 1 && 'dynasty'].filter(Boolean).join(',').slice(0, 20) || null,
@@ -61,14 +61,16 @@ function askNick(then) {
 }
 
 /* ---------- Панель ---------- */
-const ONLINE_TABS = [['all', '🏆 За всё время'], ['week', '📅 За неделю'], ['daily', '🗓️ Ежедневный вызов'], ['country', '🌍 Моя страна']];
+const ONLINE_TABS = [['all', '🏆 За всё время'], ['week', '📅 За неделю'], ['daily', '🗓️ Ежедневный вызов'], ['country', '🌍 Моя страна'], ['mine', '👤 Мои жизни']];
 let onlineTab = 'all';
 async function onlineLoad(tab) {
   let q = 'lives?select=pid,nick,score,grade,age,flag,country,born,died,daily,mode,created_at&order=score.desc,created_at.asc&limit=200';
   if (tab === 'week') q += `&created_at=gte.${new Date(Date.now() - 7 * 864e5).toISOString()}`;
   if (tab === 'daily') q += `&daily=eq.${today()}`;
   if (tab === 'country') q += `&country=eq.${encodeURIComponent((S && S.country) || onlineMe().country || 'ru')}`;
+  if (tab === 'mine') q += `&pid=eq.${encodeURIComponent(onlineMe().pid)}`;
   const rows = await (await onlineFetch(q)).json();
+  if (tab === 'mine') return rows.slice(0, 50);
   const seen = new Set(), out = [];
   for (const r of rows) { if (seen.has(r.pid)) continue; seen.add(r.pid); out.push(r); if (out.length >= 50) break; }
   return out;
@@ -80,9 +82,8 @@ function onlineBody(B) {
     B.appendChild(el('<div class="card"><div class="big">Мировая таблица ещё не подключена</div><div class="muted">Владельцу игры нужно указать адрес базы в online-config.js. Пока можно соревноваться через «Рекорды с друзьями».</div></div>'));
     return;
   }
-  B.appendChild(el(`<div class="card"><div class="muted">Ваше имя в таблице</div><div class="big">${esc(me.nick || 'не выбрано')}</div><div class="muted">После каждой жизни результат ${me.auto ? 'отправляется автоматически' : 'можно отправить кнопкой на экране итогов'}. Лучший результат каждого игрока занимает одно место.</div></div>`));
+  B.appendChild(el(`<div class="card"><div class="big">Мировая таблица</div><div class="muted">${sceneText(`В таблицу попадает имя персонажа и годы его жизни. После каждой жизни результат ${me.auto ? 'отправляется автоматически' : 'можно отправить кнопкой на экране итогов'}. В общем рейтинге у каждого игрока одно место — его лучшая жизнь; все свои жизни — во вкладке «Мои жизни».`, `The table shows your character's name and lifespan. After each life the result is ${me.auto ? 'sent automatically' : 'sent with the button on the summary screen'}. In the overall ranking each player has one spot, their best life; all your lives are under “My lives”.`, `У таблицю потрапляє ім'я персонажа та роки його життя. Після кожного життя результат ${me.auto ? 'надсилається автоматично' : 'можна надіслати кнопкою на екрані підсумків'}. У загальному рейтингу кожен гравець має одне місце — своє найкраще життя; усі свої життя — у вкладці «Мої життя».`)}</div></div>`));
   btnRow(B, [
-    { t: me.nick ? '✏️ Сменить имя' : '✏️ Выбрать имя', f: () => askNick(() => onlineBody(B)) },
     { t: me.auto ? '⏸ Не отправлять сам' : '▶️ Отправлять сам', f: () => { me.auto = !me.auto; onlineSave(me); onlineBody(B); } }
   ]);
   // добавить завершённую жизнь вручную: текущую или из слотов сохранения
@@ -93,7 +94,7 @@ function onlineBody(B) {
     const l0 = el('<div class="list"></div>'); B.appendChild(el('<div class="section-title">Добавить жизнь в таблицу</div>')); B.appendChild(l0);
     for (const c of cands) item(l0, { e: '➕', t: `${c.life.first} ${c.life.surname}`, d: `${c.life.birthYear}–${c.life.year} · ${yrs(c.life.age)}`, onClick: () => {
       const go = () => { const keep = S, ks = typeof curSlot !== 'undefined' ? curSlot : null; S = c.life; if (c.slot && ks != null) curSlot = c.slot; onlineSubmit(false).then((ok) => { if (ks != null) curSlot = ks; S = keep; onlineBody(B); }); };
-      if (!onlineMe().nick) askNick(go); else go();
+      go();
     } });
   }
   const tabs = el('<div class="row-btns online-tabs"></div>'); B.appendChild(tabs);
@@ -121,7 +122,7 @@ MENU_HOOKS.push((l) => item(l, { e: '🌐', t: 'Мировая таблица', 
 })();
 
 /* ---------- Отправка после смерти ---------- */
-DEATH_HOOKS.push(() => { if (!onlineCfg()) return; const m = onlineMe(); if (S && S.country) { m.country = S.country; onlineSave(m); } if (onlineCfg() && m.auto && m.nick) setTimeout(() => onlineSubmit(true), 400); });
+DEATH_HOOKS.push(() => { if (!onlineCfg()) return; const m = onlineMe(); if (S && S.country) { m.country = S.country; onlineSave(m); } if (onlineCfg() && m.auto) setTimeout(() => onlineSubmit(true), 400); });
 const _showDeathOnline = showDeath;
 showDeath = function () {
   _showDeathOnline();
@@ -130,7 +131,7 @@ showDeath = function () {
   const b = document.createElement('button'); b.className = 'btn ghost'; b.id = 'onlineDeathBtn'; b.textContent = '🌐 В мировую таблицу';
   b.onclick = () => {
     const go = () => onlineSubmit(false).then((ok) => { if (ok) b.remove(); });
-    if (!onlineMe().nick) askNick(go); else go();
+    go();
   };
   A.insertBefore(b, A.lastChild);
 };
