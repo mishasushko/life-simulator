@@ -75,3 +75,16 @@ Selectividad|Selectividad
 С. Вьетнам|N. Vietnam
 Ю. Вьетнам|S. Vietnam
 Северный и Южный Вьетнам|North and South Vietnam
+деревянную саблю|a wooden sword
+кукольную колыбельку|a doll's cradle
+книжку с картинками|a picture book
+деревянный грузовик|a wooden truck
+кукольную посуду|a doll's tea set
+игрушечный грузовик|a toy truck
+кукольный домик|a dollhouse
+мяч|a ball
+набор солдатиков|a set of toy soldiers
+куклу с гардеробом|a doll with a wardrobe
+набор динозавров|a set of toy dinosaurs
+набор для рукоделия|a craft kit
+одеколон|cologne
