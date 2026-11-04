@@ -186,7 +186,7 @@ function worldClimate(){
 const worldYearMoney=yearMoney;
 yearMoney=function(){lifeMeasure('Климат и продовольствие',worldClimate);return worldYearMoney();};
 const eraSalary=jobSalary;
-jobSalary=function(job){const tech=technologies.filter(([year,,,id])=>S.year>=year && id===job.id);return Math.round(eraSalary(job)*(1+tech.length*.05));};
+jobSalary=function(job){if(!job)return eraSalary(job);const tech=technologies.filter(([year,,,id])=>S.year>=year && id===job.id);return Math.round(eraSalary(job)*(1+tech.length*.05));};
 function enrollAdult(id){
   const w=worldState(),degree=MAJORS.find(m=>m.id===id),fee=price(degree?120000:35000);
   if((id==='retrain'&&S.age<40)||S.age<18||S.prison||w.course||S.money<fee||S.edu.stage)return 'Сейчас поступление недоступно.';

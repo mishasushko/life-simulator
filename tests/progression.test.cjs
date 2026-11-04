@@ -685,3 +685,11 @@ test('trust reaches 100, and prepared partners can retry after an unsuccessful y
   run("S.year++;S.used={};Math.random=()=>0.1;requestCoupleDecision(p,'children')");
   clickChoice(run,'стать родителями сейчас');assert.equal(run('S.stat.kids'),1);
 });
+
+test('era salary wrapper tolerates no job, and new jobs have English names', () => {
+  const {run} = game();
+  assert.equal(run('jobSalary(null)'), 0);
+  const src = fs.readFileSync(path.join(root, 'i18n.js'), 'utf8');
+  for (const id of ['eco', 'era_radio', 'era_computer', 'era_electric', 'era_ai']) assert.match(src, new RegExp(`\\b${id}: \\['`), id);
+  assert.match(src, /window\.confirm = function/);
+});
