@@ -570,3 +570,11 @@ body{zoom:var(--ui-scale,1)}
 .sp-hist { display: grid; gap: 4px; max-height: 300px; overflow: auto; }
 .sp-row { display: grid; grid-template-columns: 46px 64px 54px 64px 1fr; gap: 6px; font-size: 13px; padding: 6px 8px; border-radius: 10px; background: var(--surface2); align-items: center; }
 .sp-row span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Подсказки новичку (onboarding.js) */
+.coach { position: fixed; left: 50%; bottom: calc(124px + env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(420px, calc(100% - 32px)); z-index: 25; background: var(--ink); color: var(--bg); border-radius: 16px; padding: 12px 14px; box-shadow: var(--shadow-lg); font-size: 14px; line-height: 1.4; display: flex; flex-direction: column; gap: 8px; animation: coachIn .3s ease-out; }
+.coach-a { display: flex; gap: 8px; justify-content: flex-end; }
+.coach button { border: 0; border-radius: 10px; padding: 6px 12px; font: inherit; font-weight: 700; cursor: pointer; }
+.coach-ok { background: var(--bg); color: var(--ink); }
+.coach-off { background: transparent; color: inherit; opacity: .7; }
+@keyframes coachIn { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
