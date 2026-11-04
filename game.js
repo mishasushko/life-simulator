@@ -476,7 +476,7 @@ function yearDiseases() {
   const s = S.stats;
   for (const d of [...S.diseases]) {
     const def = DISEASES.find((x) => x.id === d.id);
-    if (S.age < 18 && parentsAlive().length && chance(0.7)) { S.diseases = S.diseases.filter((x) => x !== d); log(`👩‍⚕️ Родители отвели вас к врачу. ${def.name} вылечена.`, 'good'); continue; }
+    if (S.age < 18 && parentsAlive().length && chance(0.7)) { S.diseases = S.diseases.filter((x) => x !== d); log(`👩‍⚕️ Родители отвели вас к врачу. Диагноз «${def.name}» снят, вы здоровы.`, 'good'); continue; }
     eff({ health: -Math.round(def.dmg * 0.7), happy: def.happy || 0, smarts: def.smarts || 0 });
     if (chance(def.heal)) { S.diseases = S.diseases.filter((x) => x !== d); log(`💪 Вы поправились: ${def.name.toLowerCase()} отступил${/а$|ь$/.test(def.name) ? 'а' : ''}.`, 'good'); }
   }

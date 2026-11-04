@@ -433,3 +433,26 @@ Selectividad|Selectividad
 милиционер|police officer
 🍎 У вас появилась любимая учительница: {0} ({1}). С ней урок пролетает незаметно.|🍎 You have a favorite teacher: {0} ({1}). Her classes fly by.
 Любимая учительница|Favorite teacher
+Мастер спорта|Master of Sport
+Сборная СССР|USSR national team
+Команда мастеров|Top-flight team
+Человек-момент|Clutch player
+Решить исход пяти ключевых моментов|Decide five clutch moments
+Коллекционер кубков|Cup collector
+Выиграть пять именных турниров|Win five named tournaments
+Капитан|Captain
+Стать капитаном команды|Become team captain
+Лицо бренда|Face of the brand
+Подписать спонсорский контракт|Sign a sponsorship deal
+Легионер|Playing abroad
+Перейти в зарубежный клуб|Move to a club abroad
+Тренер|Coach
+Стать тренером после карьеры|Become a coach after your career
+Наставник чемпионов|Mentor of champions
+Воспитать трёх чемпионов страны|Train three national champions
+Зал славы|Hall of Fame
+Попасть в Зал славы|Get into the Hall of Fame
+👩‍⚕️ Родители отвели вас к врачу. Диагноз «{0}» снят, вы здоровы.|👩‍⚕️ Your parents took you to the doctor. The {0} is gone and you are healthy.
+Родители отвели вас к врачу. Диагноз «{0}» снят, вы здоровы.|Your parents took you to the doctor. The {0} is gone and you are healthy.
+{0}, опытный {1}, предлагает стать вашим наставником.|{0}, an experienced {1}, offers to become your mentor.
+Наставник|Mentor

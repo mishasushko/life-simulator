@@ -72,7 +72,7 @@ YEAR_HOOKS.push(() => {
   // чемпионат мира / Олимпиада
   if (sp.lvl >= 3 && !sp.inj && !sp.ban) {
     if (d.ol && olympYear(S.year, d.ol)) olympEvent();
-    else if (chance(0.55)) { const sc = sp.rating + rnd(-15, 15); if (sc >= 93) { sp.worlds++; unlock('worldchamp'); S.money += Math.round(price(1500000) * moneyK()); S.fameBonus = (S.fameBonus || 0) + 5; eff({ happy: 15 }); log(`🏆 Вы — чемпион мира! ${d.n}, ${S.year}.`, 'good'); } else if (sc >= 82) log(`🏅 Чемпионат мира: вы в призёрах.`, 'good'); else log('🌍 Чемпионат мира: без медалей.', 'info'); }
+    else if (S.year >= (typeof wchFrom === 'function' ? wchFrom(d.id) : 1900) && chance(0.55)) { const sc = sp.rating + rnd(-15, 15); if (sc >= 93) { sp.worlds++; unlock('worldchamp'); S.money += Math.round(price(1500000) * moneyK()); S.fameBonus = (S.fameBonus || 0) + 5; eff({ happy: 15 }); log(`🏆 Вы — чемпион мира! ${d.n}, ${S.year}.`, 'good'); } else if (sc >= 82) log(`🏅 Чемпионат мира: вы в призёрах.`, 'good'); else log('🌍 Чемпионат мира: без медалей.', 'info'); }
   }
   if (S.age >= 36 && sp.lvl >= 1 && chance(0.25)) ev('🏁', 'Возраст берёт своё', 'Тело уже не то. Может, пора завершать карьеру?', [
     { t: 'Завершить красиво', f: () => { sp.retired = S.year; if (sp.lvl >= 3) S.fameBonus = (S.fameBonus || 0) + 4; return '🎙️ Вы провели прощальный матч и ушли под овации.'; } },
