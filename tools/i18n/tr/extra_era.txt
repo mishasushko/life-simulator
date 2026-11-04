@@ -591,3 +591,10 @@ Selectividad|Selectividad
 Погибла на войне|Killed in the war
 {0} {1} дома. Вам подарили: {2}.|{0} {1} at home. You were given: {2}.
 Уехать не удалось.|You could not leave.
+Рабочий|Worker
+рабочий|worker
+Ремесленник|Craftsman
+ремесленник|craftsman
+Городовой|Constable
+городовой|constable
+Кто-то подбросил вам в портфель записку с сердечком.|Someone slipped a note with a heart into your school bag.
