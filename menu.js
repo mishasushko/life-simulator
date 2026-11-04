@@ -1,6 +1,6 @@
 /* ===================== Главное меню: компактная форма, «Подробнее», плитки действий ===================== */
 (function () {
-  const form = document.getElementById('startForm'); if (!form) return;
+  const form = document.getElementById('startForm'); if (!form || typeof form.querySelector !== 'function' || typeof Element === 'undefined' || !Element.prototype.replaceWith) return;
   const q = (id) => document.getElementById(id);
   const lab = (id) => { const x = q(id); return x && x.closest('label'); };
   const row = (id) => { const l = lab(id); return l && l.parentElement.classList.contains('two') ? l.parentElement : l; };
