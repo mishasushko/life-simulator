@@ -598,6 +598,8 @@ function buildDataDict() {
 
 /* ---------- Правила для динамических строк ---------- */
 const yrsEn = (n) => `${n} ${+n === 1 ? 'year' : 'years'}`;
+const DATE_FIRST = /^(Вы родились \d+ [а-я]+ \d+ года|\d+ [а-я]+$|(?:🎂 )?\d+ [а-я]+ вам)/;
+const MON_EN = { января: 'January', февраля: 'February', марта: 'March', апреля: 'April', мая: 'May', июня: 'June', июля: 'July', августа: 'August', сентября: 'September', октября: 'October', ноября: 'November', декабря: 'December' };
 const RULES = [
   [/^(\d+) (?:год|года|лет)$/, (m, n) => yrsEn(n)],
   [/^С (\d+) (?:год|года|лет)$/, (m, n) => `From age ${n}`],
@@ -689,7 +691,10 @@ const RULES = [
   [/^выполнено (\d+) из (\d+)$/, (m, a, b) => `${a} of ${b} completed`],
   [/^Достижение: (.+)$/, (m, a) => `Achievement: ${trFull(a) ?? tr(a) ?? a}`],
   [/^Расходы на жизнь: (.+?)\.$/, (m, a) => `Living costs: ${a.replace('(с арендой)', '(with rent)').replace('пособие', 'benefits')}.`],
+  [/^Вы родились (\d+) (января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря) (\d+) года в городе (.+), (.+)\.$/, (m, d, mo, y, c, k) => { const kk = k.replace(/^\S+\s/, ''); return `You were born on ${MON_EN[mo]} ${d}, ${y} in ${trFull(c) ?? c}, ${trFull(kk) ?? tr(kk) ?? kk}.`; }],
   [/^Вы родились (\d+) года в городе (.+), (.+)\.$/, (m, y, c, k) => `You were born in ${y} in ${c}, ${tr(k.replace(/^\S+\s/, ''))}.`],
+  [/^(\d+) (января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)$/, (m, d, mo) => `${MON_EN[mo]} ${d}`],
+  [/^(?:🎂 )?(\d+) (января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря) вам исполнилось (.+)\.$/, (m, d, mo, a) => `On ${MON_EN[mo]} ${d} you turned ${tr(a) || a} old.`],
   [/^Ваши родители: (.+)\.$/, (m, a) => `Your parents: ${a.replace(/ и /g, ' and ')}.`],
   [/^Вы пошли в детский сад\.$/, () => 'You started kindergarten.'],
   [/^Вы пошли в первый класс!$/, () => 'You started first grade!'],
@@ -717,6 +722,7 @@ const RULES = [
 function tr(s) {
   if (!s) return s;
   if (EN.has(s)) return EN.get(s);
+  if (DATE_FIRST.test(s)) for (const [re, f] of RULES) { const m = s.match(re); if (m) return f(...m); }
   if (EN_T.length) { const t = trTpl(s); if (t != null) return t; }
   for (const [re, f] of RULES) { const m = s.match(re); if (m) return f(...m); }
   return null;
@@ -834,7 +840,7 @@ let NAME_SET = null;
 function isName(s) {
   if (!NAME_SET) {
     NAME_SET = new Set();
-    try { for (const k in NAMES) for (const f of ['m', 'f', 's']) for (const n of NAMES[k][f] || []) NAME_SET.add(n); } catch (e) {}
+    try { for (const k in NAMES) for (const f of ['m', 'f', 's', 'om', 'of']) for (const n of NAMES[k][f] || []) NAME_SET.add(n); } catch (e) {}
     try { for (const n of PET_NAMES) NAME_SET.add(n); } catch (e) {}
     try { for (const b in CITY_NAMES) { NAME_SET.add(b); for (const [, n] of CITY_NAMES[b]) NAME_SET.add(n); } } catch (e) {}
   }
@@ -932,7 +938,7 @@ function setLang(l) { try { localStorage.setItem(LANG_KEY, l); } catch (e) {} lo
 })();
 MENU_HOOKS.push((l) => item(l, { e: '🌐', t: 'Язык · Language · Мова', d: (LANGS.find((x) => x[0] === LANG) || LANGS[0])[2], onClick: () => { closeSheet(); Q.push({ e: '🌐', title: 'Язык · Language · Мова', text: '', choices: LANGS.filter((x) => x[0] !== LANG).map(([id, , name]) => ({ t: name, f: () => { setLang(id); } })) }); pump(); } }));
 if (LANG === 'en' || LANG === 'uk') {
-  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=34';
+  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=35';
   sc.onload = sc.onerror = () => startEnglish();
   document.head.appendChild(sc);
 }

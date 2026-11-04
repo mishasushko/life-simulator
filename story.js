@@ -188,7 +188,7 @@ YEAR_HOOKS.push(() => {
   }
   const r = S.people.find((p) => p.role === 'rival' && p.alive);
   if (r && S.age > 9 && chance(0.22)) {
-    const field = pick([['smarts', 'на контрольной', 'на экзамене', 'в карьере'], ['looks', 'на конкурсе красоты', 'в популярности', 'в соцсетях'], ['health', 'на физкультуре', 'в марафоне', 'в спортзале']]);
+    const field = pick([['smarts', 'на контрольной', 'на экзамене', 'в карьере'], ['looks', 'на конкурсе красоты', 'в популярности', S.year < 2006 ? 'в светском обществе' : 'в соцсетях'], ['health', 'на физкультуре', 'в марафоне', 'в спортзале']]);
     const where = S.age < 18 ? field[1] : S.age < 25 ? field[2] : field[3];
     if (S.stats[field[0]] + rnd(-20, 20) > r[field[0] === 'health' ? 'smarts' : field[0]] || chance(0.3)) { eff({ happy: 5 }); log(`😏 Вы обошли соперника (${r.name}) ${where}.`, 'good'); }
     else { eff({ happy: -5 }); log(`😒 ${r.name} снова обошёл вас ${where}.`, 'bad'); }
@@ -196,7 +196,7 @@ YEAR_HOOKS.push(() => {
   // соседи
   const hasNeighbors = S.people.some((p) => p.role === 'neighbor');
   if (S.age >= 20 && !hasNeighbors && chance(0.5)) {
-    const n = makePerson('neighbor', { age: S.age + rnd(-15, 25), close: rnd(30, 60), job: pick(NPC_JOBS) }); S.people.push(n);
+    const n = makePerson('neighbor', { age: S.age + rnd(-15, 25), close: rnd(30, 60), job: npcJob() }); S.people.push(n);
     log(`🏠 Вы познакомились с соседом: ${n.name}.`, 'info');
   }
   const nb = S.people.find((p) => p.role === 'neighbor' && p.alive);
@@ -273,7 +273,7 @@ YEAR_HOOKS.push(() => {
     else if (r < 0.35) { A.startup.step = 9; log(`💥 Стартап друга (${A.startup.friend}) закрылся. Ваши ${fmt(A.startup.sum)} сгорели.`, 'bad'); eff({ happy: -8 }); }
     else if (A.startup.years >= 5) { const back = Math.round(A.startup.sum * rf(1.2, 3)); S.money += back; A.startup.step = 9; log(`💼 Стартап друга вырос и выкупил вашу долю за ${fmt(back)}.`, 'good'); }
     else log(`🚀 Стартап друга (${A.startup.friend}) пока держится.`, 'info');
-  } else if (!A.startup && S.age >= 22 && S.age <= 55 && S.money > price(500000) && chance(0.06)) {
+  } else if (!A.startup && S.year >= 1985 && S.age >= 22 && S.age <= 55 && S.money > price(500000) && chance(0.06)) {
     const f = pick(alivePeople(['friend'])) || { name: randFirst() }; const sum = price(rnd(3, 15) * 100000);
     A.startup = { step: 0 };
     ev('🚀', 'Стартап друга', `${f.name} запускает стартап и просит вложить ${fmt(sum)} в обмен на долю.`, [
@@ -286,7 +286,7 @@ YEAR_HOOKS.push(() => {
     A.office.step = 9;
     if (chance(0.5)) { const p = addPartner(A.office.g, A.office.name); p.job = 'Коллега'; log(`💘 Роман на работе перерос в отношения: теперь вы пара с коллегой ${A.office.name}.`, 'good'); }
     else { S.job.perf = clamp(S.job.perf - 25); eff({ happy: -10 }); log('🙈 О романе узнал весь офис. Начальство недовольно, коллеги шепчутся.', 'bad'); if (chance(0.3)) { log('🚪 Вас попросили уйти «по собственному».', 'bad'); S.job = null; } }
-  } else if (!A.office && S.job && S.age >= 20 && S.age <= 50 && S.orient !== 'ace' && chance(0.05)) {
+  } else if (!A.office && S.year >= 1950 && S.job && S.age >= 20 && S.age <= 50 && S.orient !== 'ace' && chance(0.05)) {
     const g = loveGender(); const name = randFirst(g); A.office = { step: 0 };
     ev('☕', 'Взгляды у кулера', `Коллега по имени ${name} явно проявляет к вам интерес. На корпоративе вы оказались рядом.`, [
       { t: 'Ответить взаимностью', f: () => { if (partner()) { const p = partner(); if (chance(0.5)) { p.close = clamp(p.close - 40); relationshipRemember(p, 'betrayal', 'Я узнал о вашем романе на работе.', 0, 30); A.office = { step: 9 }; return `${p.name} обо всём узнал(а). Скандал!`; } } A.office = { step: 1, g, name }; return 'Между вами пробежала искра…'; } },
@@ -307,10 +307,10 @@ YEAR_HOOKS.push(() => {
     ]);
   }
   // 4. тайный родственник
-  if (!A.dna && S.age >= 25 && S.age <= 70 && chance(0.025)) {
+  if (!A.dna && S.year >= 2008 && S.age >= 25 && S.age <= 70 && chance(0.025)) {
     A.dna = { step: 9 };
     ev('🧬', 'ДНК-тест', 'Вы сделали ДНК-тест ради интереса. Система нашла совпадение: у вас есть сводный брат или сестра!', [
-      { t: 'Написать', f: () => { const g = npcGender(); const s2 = makePerson('sibling', { gender: g, age: S.age + rnd(-8, 8), close: rnd(30, 60), job: pick(NPC_JOBS) }); S.people.push(s2); eff({ happy: 10 }); return `Вы познакомились: ${s2.name}. Оказалось, вы очень похожи!`; } },
+      { t: 'Написать', f: () => { const g = npcGender(); const s2 = makePerson('sibling', { gender: g, age: S.age + rnd(-8, 8), close: rnd(30, 60), job: npcJob() }); S.people.push(s2); eff({ happy: 10 }); return `Вы познакомились: ${s2.name}. Оказалось, вы очень похожи!`; } },
       { t: 'Не ворошить прошлое', f: () => 'Вы закрыли вкладку.' }
     ]);
   }

@@ -19,7 +19,7 @@ function skillOf(id) { return skills()[id] || 0; }
 function jobSkill(jobId) { let best = 0; for (const s of SKILLS) if (s.jobs.includes(jobId)) best = Math.max(best, skillOf(s.id)); return best; }
 
 YEAR_HOOKS.push(function yearSkills() {
-  if (!S.talent && S.age >= 1) S.talent = pick(SKILLS).id;
+  if (!S.talent && S.age >= 1) S.talent = pick(SKILLS.filter((s) => !s.yr || s.yr <= S.year + 12)).id;
   if (S.age === 6 && !S.talentShown) {
     S.talentShown = true;
     const t = SKILLS.find((x) => x.id === S.talent);
@@ -276,10 +276,20 @@ const QUIZ = [
   ['Сколько сторон у шестиугольника?', ['6', '8', '5'], 0], ['Скорость света примерно…', ['300 000 км/с', '30 000 км/с', '3 000 км/с'], 0],
   ['Кто нарисовал «Мону Лизу»?', ['Леонардо да Винчи', 'Микеланджело', 'Рафаэль'], 0], ['Чему равно π до сотых?', ['3,14', '3,41', '3,12'], 0]
 ];
+/* Экзамены появлялись в разные годы: до этого — обычные вступительные */
+const EXAM_ERA = { ru: [[2009, 'ЕГЭ']], by: [[2004, 'ЦТ']], kz: [[2004, 'ЕНТ']], ua: [[2022, 'НМТ'], [2008, 'ЗНО']], us: [[1926, 'SAT']], ca: [[1926, 'SAT']], gb: [[1951, 'A-levels'], [1918, 'School Certificate']], ie: [[1925, 'Leaving Certificate']], cn: [[1977, 'Гаокао'], [1966, ''], [1952, 'Гаокао']], kr: [[1994, 'Сунын']], jp: [[1979, 'единый вступительный экзамен']], es: [[2017, 'EBAU'], [1975, 'Selectividad']], in: [[1961, 'JEE']] };
+function examNameAt(c, y) {
+  const r = EXAM_ERA[c];
+  if (r) { for (const [from, n] of r) if (y >= from) return n || 'вступительные экзамены'; return 'вступительные экзамены'; }
+  return EXAM_NAME[c] || 'выпускные экзамены';
+}
 const EXAM_NAME = { ru: 'ЕГЭ', by: 'ЦТ', kz: 'ЕНТ', ua: 'НМТ', us: 'SAT', ca: 'SAT', gb: 'A-levels', ie: 'Leaving Certificate', de: 'Abitur', at: 'Matura', ch: 'Matura', fr: 'Baccalauréat', be: 'выпускные экзамены', cn: 'Гаокао', kr: 'Сунын', jp: 'единый вступительный экзамен', it: 'Maturità', es: 'EBAU', in: 'JEE' };
 function shuffleQ(q) { const opts = q[1].map((t, i) => ({ t, ok: i === q[2] })); for (let i = opts.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [opts[i], opts[j]] = [opts[j], opts[i]]; } return opts; }
+// Вопросы, ответ на которые зависит от эпохи (Плутон был планетой в 1930–2005, полёт в космос — 1961 и т. д.)
+const QUIZ_ERA = { 'Сколько планет в Солнечной системе?': (y) => y < 1930 || y >= 2006, 'Сколько хромосом у человека?': (y) => y >= 1956, 'В каком году человек полетел в космос?': (y) => y >= 1962, 'Столица Австралии?': (y) => y >= 1927 };
+const quizFits = (q) => !S || !QUIZ_ERA[q] || QUIZ_ERA[q](S.year);
 function quiz(n, title, e, onDone) {
-  const qs = [...QUIZ].sort(() => Math.random() - 0.5).slice(0, n);
+  const qs = QUIZ.filter((q) => quizFits(q[0])).sort(() => Math.random() - 0.5).slice(0, n);
   let right = 0;
   const step = (i) => {
     if (i === n) return onDone(right);
@@ -291,7 +301,7 @@ function quiz(n, title, e, onDone) {
 }
 const _afterSchool = afterSchoolEvent;
 afterSchoolEvent = function () {
-  const ex = EXAM_NAME[S.country] || 'выпускные экзамены';
+  const ex = examNameAt(S.country, S.year);
   return { e: '📝', title: `Экзамен: ${ex}`, text: `Пора сдавать ${ex}. Ответьте на 5 вопросов: от результата зависит бюджетное место и стипендия.`, choices: [
     { t: 'Начать экзамен', f: () => { quiz(5, ex, '📝', (r) => {
       const score = clamp(Math.round(r * 16 + S.stats.smarts * 0.2 + rnd(-5, 5)));

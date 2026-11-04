@@ -133,7 +133,19 @@ function makePerson(role, o = {}) {
   return p;
 }
 const NPC_JOBS = ['Учитель', 'Инженер', 'Врач', 'Продавец', 'Водитель', 'Бухгалтер', 'Программист', 'Повар', 'Медсестра', 'Строитель', 'Менеджер', 'Юрист', 'Дизайнер', 'Полицейский', 'Фермер', 'Предприниматель', 'Архитектор', 'Фотограф', 'Безработный', 'Музыкант', 'Учёный', 'Пилот', 'Бариста', 'Журналист'];
+// Профессии родителей и знакомых — только те, что существуют в этом году
+const NPC_JOB_YR = { 'Программист': 1965, 'Дизайнер': 1950, 'Менеджер': 1960, 'Бариста': 1995, 'Пилот': 1920, 'Фотограф': 1900 };
+function npcJob() { const y = (S && S.year) || new Date().getFullYear(); return pick(NPC_JOBS.filter((j) => !NPC_JOB_YR[j] || y >= NPC_JOB_YR[j])); }
 
+const MONTHS_GEN = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+const MONTHS_NOM = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+const monthDays = (m, y) => new Date(y, m, 0).getDate();
+function birthDay(b, y) {
+  const m = b && b.m >= 1 && b.m <= 12 ? b.m | 0 : rnd(1, 12);
+  const d = b && b.d >= 1 ? Math.min(b.d | 0, monthDays(m, y)) : rnd(1, monthDays(m, y));
+  return { d, m };
+}
+const bdayText = (s = S) => (s && s.bday ? `${s.bday.d} ${MONTHS_GEN[s.bday.m - 1]}` : '');
 function newLife(opts = {}) {
   const country = opts.country || pick(COUNTRIES).id;
   const cObj = COUNTRIES.find((c) => c.id === country);
@@ -143,7 +155,7 @@ function newLife(opts = {}) {
   const sBase = opts.surname || pick(NAMES[cObj.names].s);
   S = {
     v: 1, first: opts.first || randFirst(gender, cObj.names), surnameBase: sBase,
-    gender, orient, religion, country, birthCountry: country, city: pick(cObj.cities),
+    gender, orient, religion, country, birthCountry: country, city: opts.city && cObj.cities.includes(opts.city) ? opts.city : pick(cObj.cities), bday: birthDay(opts.bday, opts.year || new Date().getFullYear()),
     age: 0, year: opts.year || new Date().getFullYear(), birthYear: opts.year || new Date().getFullYear(),
     alive: true, cause: '', money: 0,
     stats: { happy: rnd(60, 100), health: rnd(70, 100), smarts: rnd(10, 100), looks: rnd(10, 100) },
@@ -163,8 +175,8 @@ function newLife(opts = {}) {
     const sameSex = chance(0.05);
     const momG = 'f', dadG = sameSex ? 'f' : 'm';
     const pSur = sBase;
-    const mom = makePerson('mother', { gender: momG, age: rnd(19, 40), pool: cObj.names, job: pick(NPC_JOBS), surname: surnameFor(pSur, momG, cObj.names), money: rnd(0, 5) * 1e6 });
-    const dad = makePerson(sameSex ? 'mother' : 'father', { gender: dadG, age: rnd(20, 45), pool: cObj.names, job: pick(NPC_JOBS), surname: surnameFor(pSur, dadG, cObj.names), money: rnd(0, 5) * 1e6 });
+    const mom = makePerson('mother', { gender: momG, age: rnd(19, 40), pool: cObj.names, job: npcJob(), surname: surnameFor(pSur, momG, cObj.names), money: rnd(0, 5) * 1e6 });
+    const dad = makePerson(sameSex ? 'mother' : 'father', { gender: dadG, age: rnd(20, 45), pool: cObj.names, job: npcJob(), surname: surnameFor(pSur, dadG, cObj.names), money: rnd(0, 5) * 1e6 });
     S.people.push(mom, dad);
     const sib = wpick([{ v: 0, w: 40 }, { v: 1, w: 35 }, { v: 2, w: 18 }, { v: 3, w: 7 }]).v;
     for (let i = 0; i < sib; i++) {
@@ -176,7 +188,7 @@ function newLife(opts = {}) {
 
   newYearBlock();
   const parents = S.people.filter((p) => p.role === 'mother' || p.role === 'father');
-  log(`Вы родились ${S.year} года в городе ${S.city}, ${cObj.flag} ${cname(cObj)}.`);
+  log(`Вы родились ${bdayText()} ${S.year} года в городе ${S.city}, ${cObj.flag} ${cname(cObj)}.`);
   const nw0 = newsFor(S.year); if (nw0) log(`📰 ${nw0}`, 'news');
   if (parents.length) log(`Ваши родители: ${parents.map((p) => `${p.name} (${p.job.toLowerCase()})`).join(' и ')}.`, 'info');
   if (opts.generation > 1) log(`Поколение ${opts.generation} вашей династии.`, 'info');
@@ -430,7 +442,7 @@ function yearPeople() {
       if (p.role === 'partner') { p.role = 'late'; }
       continue;
     }
-    if (p.role === 'child' && p.age === 18) { p.schoolGraduatedYear = S.year; p.job = pick(NPC_JOBS); log(`🎓 ${p.name} ${gv(p, 'вырос и стал', 'выросла и стала', 'вырос(ла) и стал(а)')} самостоятельным человеком.`, 'info'); }
+    if (p.role === 'child' && p.age === 18) { p.schoolGraduatedYear = S.year; p.job = npcJob(); log(`🎓 ${p.name} ${gv(p, 'вырос и стал', 'выросла и стала', 'вырос(ла) и стал(а)')} самостоятельным человеком.`, 'info'); }
     if (p.role === 'child' && p.age === 25 && chance(0.5)) { p.familyMarriedYear = S.year; log(`💐 ${p.name} ${gv(p, 'женился', 'вышла замуж', 'вступил(а) в брак')}!`, 'good'); eff({ happy: 6 }); }
     if (p.role === 'child' && p.age >= 24 && p.age <= 40 && chance(0.12)) {
       p.grandkids = (p.grandkids || 0) + 1;
@@ -556,13 +568,13 @@ const EVENTS = [
       { t: 'Вызвать полицию', f: () => { eff({ health: -rnd(0, 15) }); return 'Оформили по закону. Страховка всё покрыла.'; } },
       { t: 'Скрыться с места', f: () => chance(0.5) ? (eff({ karma: -12 }), 'Вам удалось уехать незамеченным...') : (crimeCaught('Оставление места ДТП', 1), 'Вас нашли по камерам.') }]) },
   { min: 18, max: 85, w: 5, run: () => { const loss = Math.min(Math.max(S.money, 0), price(rnd(5, 60) * 1000)); S.money -= loss; log(`🦹 Вас ограбили на улице${loss ? ` и забрали ${fmt(loss)}` : ''}.`, 'bad'); eff({ happy: -8 }); } },
-  { min: 25, max: 85, w: 5, run: () => ev('📞', 'Звонок из «банка»', 'Вам звонят из «службы безопасности банка» и просят назвать код из СМС.', [
+  { min: 25, max: 85, w: 5, cond: () => S.year >= 2005, run: () => ev('📞', 'Звонок из «банка»', 'Вам звонят из «службы безопасности банка» и просят назвать код из СМС.', [
       { t: 'Назвать код', f: () => { const l = Math.max(0, Math.round(S.money * 0.5)); S.money -= l; eff({ happy: -12 }); return `Это были мошенники. Вы потеряли ${fmt(l)}.`; } },
       { t: 'Положить трубку', f: () => { eff({ smarts: 1 }); return 'Вы распознали мошенников. Молодец!'; } }]) },
-  { min: 22, max: 60, w: 5, cond: () => S.job, run: () => { const def = JOBS.find((j) => j.id === S.job.id); ev('📨', 'Хедхантер', `Конкурирующая компания предлагает вам должность «${def.titles[Math.min(S.job.lvl + 1, def.titles.length - 1)]}» с зарплатой на 30% выше.`, [
+  { min: 22, max: 60, w: 5, cond: () => S.job && S.year >= 1960, run: () => { const def = JOBS.find((j) => j.id === S.job.id); ev('📨', 'Хедхантер', `Конкурирующая компания предлагает вам должность «${def.titles[Math.min(S.job.lvl + 1, def.titles.length - 1)]}» с зарплатой на 30% выше.`, [
       { t: 'Принять', f: () => { S.job.lvl = Math.min(S.job.lvl + 1, def.titles.length - 1); S.job.bonus = (S.job.bonus || 1) * 1.1; S.job.lvlYears = 0; eff({ happy: 8 }); return 'Вы сменили компанию с повышением!'; } },
       { t: 'Остаться', f: () => { S.job.perf = clamp(S.job.perf + 10); return 'Вы остались. Начальство оценило лояльность.'; } }]); } },
-  { min: 25, max: 70, w: 4, run: () => ev('💡', 'Инвестиционный совет', 'Коллега уверяет, что новая монета «MoonCoin» вырастет в 100 раз.', [
+  { min: 25, max: 70, w: 4, cond: () => S.year >= 2013, run: () => ev('💡', 'Инвестиционный совет', 'Коллега уверяет, что новая монета «MoonCoin» вырастет в 100 раз.', [
       { t: `Вложить ${fmt(price(200000))}`, f: () => { S.money -= price(200000); if (chance(0.12)) { S.money += price(5000000); eff({ happy: 20 }); return 'Монета выстрелила! Вы заработали целое состояние! 🚀'; } eff({ happy: -8 }); return 'Монета обнулилась. Деньги сгорели.'; } },
       { t: 'Не рисковать', f: () => 'Вы прошли мимо.' }]) },
   { min: 18, max: 60, w: 4, run: () => ev('🏃', 'Марафон', 'В городе проходит марафон. Участвуете?', [
@@ -571,7 +583,7 @@ const EVENTS = [
   { min: 14, max: 60, w: 3, cond: () => S.year >= 2005, run: () => { const g = rnd(2000, 80000); S.followers += g; log(`🔥 Ваше видео стало вирусным! +${g.toLocaleString('ru-RU')} подписчиков.`, 'good'); eff({ happy: 8 }); } },
   { min: 25, max: 80, w: 3, cond: () => S.money > 0, run: () => { const f = Math.round(S.money * rf(0.05, 0.2)); S.money -= f; log(`🧾 Налоговая проверка нашла ошибки. Штраф: ${fmt(f)}.`, 'bad'); eff({ happy: -6 }); } },
   { min: 5, max: 90, w: 3, run: () => log(pick(['🛸 Вы видели странные огни в небе. НЛО?', '🌈 Вы увидели двойную радугу.', '👻 В вашем доме по ночам что-то скрипит.', '🍀 Вы нашли четырёхлистный клевер.', '⭐ Вы загадали желание на падающую звезду.', '🐈 Чёрная кошка перебежала вам дорогу.'])) },
-  { min: 18, max: 75, w: 4, run: () => ev('🎤', 'Конкурс талантов', 'По телевизору открыт кастинг в шоу талантов.', [
+  { min: 18, max: 75, w: 4, cond: () => S.year >= 1955, run: () => ev('🎤', 'Конкурс талантов', 'По телевизору открыт кастинг в шоу талантов.', [
       { t: 'Пойти на кастинг', f: () => chance(0.15 + S.stats.looks / 400) ? (S.followers += rnd(50000, 600000), S.money += price(1000000), eff({ happy: 18 }), 'Вы победили в шоу! Слава и приз! 🌟') : (eff({ happy: -5 }), 'Жюри сказало «нет». Ничего, бывает.') },
       { t: 'Смотреть по ТВ', f: () => 'Вы посмотрели шоу с попкорном.' }]) },
   { min: 18, max: 80, w: 4, run: () => ev('🐕', 'Бездомный пёс', 'У подъезда сидит голодный щенок и смотрит на вас.', [
@@ -650,7 +662,7 @@ function loveGender() {
   return npcGender();
 }
 function addPartner(g, name) {
-  const p = makePerson('partner', { gender: g, name, age: Math.max(16, S.age + rnd(-5, 5)), close: rnd(60, 90), job: S.age >= 20 ? pick(NPC_JOBS) : 'Учится', status: 'dating', money: rnd(0, 3) * 1e6 });
+  const p = makePerson('partner', { gender: g, name, age: Math.max(16, S.age + rnd(-5, 5)), close: rnd(60, 90), job: S.age >= 20 ? npcJob() : 'Учится', status: 'dating', money: rnd(0, 3) * 1e6 });
   S.people.push(p); S.stat.partners++;
   unlock('firstlove'); eff({ happy: 12 });
   return p;
@@ -728,7 +740,7 @@ const ACTIVITIES = [
   { id: 'volunteer', cat: 'Разум и дух', e: '🤲', t: 'Волонтёрство', d: '+карма', min: 12, run: () => { eff({ karma: rnd(4, 9), happy: rnd(3, 6) }); return ['🤲', 'Доброе дело', `Вы помогали ${pick(['в приюте для животных', 'в доме престарелых', 'на субботнике', 'в фонде помощи детям', 'на кухне для бездомных'])}.`]; } },
   { id: 'charity', cat: 'Разум и дух', e: '💝', t: 'Пожертвовать 10% капитала', d: '+карма, +счастье', min: 18, cond: () => S.money > 100000, run: () => { const d = Math.round(S.money * 0.1); S.money -= d; eff({ karma: 12, happy: 8 }); S.followers += Math.round(d / 1000); return ['💝', 'Благотворительность', `Вы пожертвовали ${fmt(d)}. Мир стал немного лучше.`]; } },
   // развлечения
-  { id: 'games', cat: 'Развлечения', e: '🎮', t: 'Видеоигры', d: '+счастье', min: 5, yr: 1975, run: () => { eff({ happy: rnd(3, 7), health: -1 }); return ['🎮', 'Геймер', `Вы прошли ${pick(['новую RPG', 'кооператив с друзьями', 'хоррор', 'гонки', 'стратегию на 200 часов'])}.`]; } },
+  { id: 'games', cat: 'Развлечения', e: '🎮', t: 'Видеоигры', d: '+счастье', min: 5, yr: 1977, cond: () => S.year >= (USSR.includes(S.country) ? 1988 : 1977), run: () => { eff({ happy: rnd(3, 7), health: -1 }); return ['🎮', 'Геймер', `Вы прошли ${pick(['новую RPG', 'кооператив с друзьями', 'хоррор', 'гонки', 'стратегию на 200 часов'])}.`]; } },
   { id: 'party', cat: 'Развлечения', e: '🎉', t: 'Вечеринка', d: 'Новые знакомства', min: 15, run: () => { eff({ happy: rnd(5, 12), health: -rnd(0, 4) }); if (chance(0.35)) { const f = makePerson('friend', { age: S.age + rnd(-3, 3), close: rnd(40, 70) }); S.people.push(f); return ['🎉', 'Вечеринка', `Вы отлично повеселились. Новый друг: ${f.name}!`]; } return ['🎉', 'Вечеринка', 'Было громко и весело!']; } },
   { id: 'concert', cat: 'Развлечения', e: '🎵', t: 'Концерт', d: '+счастье', min: 12, cost: 8000, run: () => { eff({ happy: rnd(6, 12) }); return ['🎸', 'Концерт', 'Вы сорвали голос, подпевая любимой группе.']; } },
   { id: 'travel', cat: 'Развлечения', e: '✈️', t: 'Путешествие', d: 'Новая страна', min: 18, cost: 180000, run: () => { const opts = COUNTRIES.filter((c) => c.id !== S.country); const c = pick(opts); if (!S.visited.includes(c.id)) S.visited.push(c.id); eff({ happy: rnd(10, 18), smarts: 2 }); return [c.flag, 'Путешествие', `Вы слетали в страну ${c.name} и посетили ${pick(c.cities)}. Посещено стран: ${S.visited.length}.`]; } },
@@ -742,7 +754,7 @@ const ACTIVITIES = [
   { id: 'casino', cat: 'Азарт и риск', e: '🎰', t: 'Казино', d: 'Удача любит смелых', min: 18, run: () => { setTimeout(openCasino, 30); return null; } },
   { id: 'lottery', cat: 'Азарт и риск', e: '🎟️', t: 'Лотерея', d: 'Шанс на джекпот', min: 18, cost: 500, run: () => { S.money += price(500); return ['🎟️', 'Лотерея', lottery()]; } },
   { id: 'theft', cat: 'Азарт и риск', e: '🧤', t: 'Мелкая кража', d: 'Риск тюрьмы', min: 12, crime: true, run: () => crime('Кража', 0.28, 3000, 40000, 1) },
-  { id: 'carjack', cat: 'Азарт и риск', e: '🚘', t: 'Угнать машину', d: 'Серьёзный риск', min: 16, crime: true, run: () => crime('Угон автомобиля', 0.45, 300000, 2500000, 3) },
+  { id: 'carjack', cat: 'Азарт и риск', e: '🚘', t: 'Угнать машину', d: 'Серьёзный риск', min: 16, yr: 1910, crime: true, run: () => crime('Угон автомобиля', 0.45, 300000, 2500000, 3) },
   { id: 'hack', cat: 'Азарт и риск', e: '💻', t: 'Хакерская атака', d: 'Нужен ум 75+', min: 15, yr: 1990, crime: true, cond: () => S.stats.smarts >= 75, run: () => crime('Кибермошенничество', 0.33, 500000, 15000000, 4) },
   { id: 'heist', cat: 'Азарт и риск', e: '🏦', t: 'Ограбить банк', d: 'Всё или ничего', min: 18, crime: true, run: () => crime('Вооружённое ограбление', 0.72, 5000000, 80000000, 9) },
   // жизнь
@@ -778,7 +790,7 @@ function findLove() {
   const g = loveGender(); const n = randFirst(g);
   const age = Math.max(16, S.age + rnd(-6, 6));
   const looks = rnd(20, 100);
-  Q.push({ e: '💘', title: 'Совпадение!', text: `${n}, ${yrs(age)}. Внешность: ${looks}/100. ${S.age >= 20 ? 'Профессия: ' + pick(NPC_JOBS).toLowerCase() + '.' : ''}`, choices: [
+  Q.push({ e: '💘', title: 'Совпадение!', text: `${n}, ${yrs(age)}. Внешность: ${looks}/100. ${S.age >= 20 ? 'Профессия: ' + npcJob().toLowerCase() + '.' : ''}`, choices: [
     { t: '💌 Пригласить на свидание', f: () => chance(0.35 + S.stats.looks / 200 - (looks - S.stats.looks) / 300) ? (Object.assign(addPartner(g, n), { age, looks }), `Свидание прошло чудесно! Вы теперь пара с ${n}. 💕`) : (eff({ happy: -4 }), `${n} больше не отвечает на сообщения.`) },
     { t: 'Листать дальше', f: () => 'Вы продолжили поиски.' }] });
   return null;
@@ -1200,6 +1212,7 @@ function panelProfile() {
   const l = section('О вас');
   item(l, { e: c.flag, t: cname(c), d: `Город: ${S.city} · валюта ${c.cur}` });
   item(l, { e: '📅', t: 'Дата рождения', d: `${S.birthYear} год · сейчас ${S.year}` });
+  if (S.bday) item(l, { e: '🎂', t: 'День рождения', d: bdayText() });
   item(l, { e: g.e, t: 'Пол', d: g.name });
   item(l, { e: o.e, t: 'Ориентация', d: o.name + (S.orient !== 'hetero' ? (S.out ? ' · открыто' : ' · скрыто') : '') });
   item(l, { e: r?.e || '🙏', t: 'Мировоззрение', d: S.religion });
@@ -1327,6 +1340,7 @@ function panelMap() {
       .attr('d', path)
       .on('click', (e, d) => { const c = byNum[d.id]; if (c) countryModal(c); })
       .append('title').text((d) => byNum[d.id] ? `${byNum[d.id].flag} ${cname(byNum[d.id])}` : (d.properties && d.properties.name) || '');
+    if (typeof drawEraMap === 'function') drawEraMap(svg, world, feats, path, byNum, cls);
     drawPlaceRoute(svg,feats,path);
     const cur = feats.find((f) => f.id === ISO_NUM[S.country]);
     if (cur) { const [x, y] = path.centroid(cur); svg.append('text').attr('x', x).attr('y', y).attr('text-anchor', 'middle').attr('dominant-baseline', 'central').attr('font-size', 26).attr('class', 'pin').text('📍'); }
@@ -1371,7 +1385,9 @@ $('#startForm').addEventListener('submit', (e) => {
     gender: $('#inGender').value || undefined,
     orient: $('#inOrient').value || undefined,
     religion: $('#inReligion').value || undefined,
-    year: clamp(parseInt($('#inYear').value, 10) || new Date().getFullYear(), 1900, 2060)
+    year: clamp(parseInt($('#inYear').value, 10) || new Date().getFullYear(), 1900, 2060),
+    city: ($('#inCity') && $('#inCity').value) || undefined,
+    bday: $('#inDay') && ($('#inDay').value || $('#inMonth').value) ? { d: +$('#inDay').value || 0, m: +$('#inMonth').value || 0 } : undefined
   });
   showGame();
 });
@@ -1384,6 +1400,7 @@ function migrate(s) {
   s.visited = Array.isArray(s.visited) && s.visited.length ? s.visited : [s.country];
   s.stat = Object.assign({ maxNet: 0, partners: 0, jobs: 0, kids: 0 }, s.stat || {});
   s.used = s.used || {}; s.ach = s.ach || {}; s.seen = s.seen || {};
+  if (!s.bday) s.bday = birthDay(null, s.birthYear || 2000);
   s.birthCountry = s.birthCountry || s.country; s.surnameBase = s.surnameBase || s.surname;
   if (!COUNTRIES.some((c) => c.id === s.country)) s.country = 'ru';
   if (!s.orient) s.orient = 'hetero'; if (!s.religion) s.religion = 'Атеизм'; if (!s.generation) s.generation = 1;

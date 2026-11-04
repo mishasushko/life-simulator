@@ -166,7 +166,7 @@ function lifePeopleYear() {
     if (p.age >= 18 && S.year >= n.next && !(p.couple?.care?.who === 'partner' && S.year <= p.couple.care.until)) {
       n.next = S.year + rnd(3, 5);
       if (n.progress >= 30) { p.job = goal.job; log(`🌱 ${p.name}: цель «${goal.name}» привела к новой работе — ${p.job}.`, 'good'); }
-      else if (chance(0.3)) { p.job = pick(NPC_JOBS); log(`💼 ${p.name} самостоятельно меняет работу: ${p.job}.`, 'info'); }
+      else if (chance(0.3)) { p.job = npcJob(); log(`💼 ${p.name} самостоятельно меняет работу: ${p.job}.`, 'info'); }
       if (p.role !== 'partner' && n.character === 'самостоятельный' && chance(0.2)) {
         p.country = pick(COUNTRIES).id;
         log(`🧳 ${p.name} переезжает: ${cname(COUNTRIES.find(c => c.id === p.country))}.`, 'info');
@@ -270,7 +270,7 @@ function lifeReputationYear() {
   }
   if (S.age >= 18 && !S.prison && x.rep.city >= 75 && S.year - (x.invitation || 0) >= 5) {
     x.invitation = S.year;
-    const friend = makePerson('friend', { age: Math.max(18, S.age + rnd(-5, 5)), close: 60, job: pick(NPC_JOBS), country: S.country });
+    const friend = makePerson('friend', { age: Math.max(18, S.age + rnd(-5, 5)), close: 60, job: npcJob(), country: S.country });
     S.people.push(friend); log(`🌳 Вас пригласили в местное сообщество. Новое знакомство: ${friend.name}.`, 'good');
   }
   if (S.age >= 18 && x.rep.work >= 75 && S.job && !S.prison && S.year - (x.recommendation || 0) >= 5) {

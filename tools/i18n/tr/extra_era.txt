@@ -1,0 +1,68 @@
+Город|City
+День рождения|Birthday
+🎲 Случайный город|🎲 Random city
+🎲 День|🎲 Day
+🎲 Месяц|🎲 Month
+День|Day
+Месяц|Month
+Январь|January
+Февраль|February
+Март|March
+Апрель|April
+Май|May
+Июнь|June
+Июль|July
+Август|August
+Сентябрь|September
+Октябрь|October
+Ноябрь|November
+Декабрь|December
+Российская империя|Russian Empire
+СССР|USSR
+Австро-Венгрия|Austria-Hungary
+Османская империя|Ottoman Empire
+Швеция и Норвегия|Sweden-Norway
+Великобритания|United Kingdom
+Югославия|Yugoslavia
+Сербия и Черногория|Serbia and Montenegro
+Чехословакия|Czechoslovakia
+Британская Индия|British India
+Пакистан|Pakistan
+Французский Индокитай|French Indochina
+Корея|Korea
+Эфиопия|Ethiopia
+ОАР|United Arab Republic
+Карта {0} года.|Map of {0}.
+Карта {0} года: {1}.|Map of {0}: {1}.
+вступительные экзамены|entrance exams
+Экзамен: вступительные экзамены|Exam: entrance exams
+ЗНО|ZNO
+School Certificate|School Certificate
+Selectividad|Selectividad
+транзисторный радиоприёмник|a transistor radio
+наручные часы|a wristwatch
+хрустальную вазу|a crystal vase
+патефонную пластинку|a gramophone record
+набор фарфоровых чашек|a set of porcelain cups
+🌧️ Дождливая осень. Много чая и книг.|🌧️ A rainy autumn. Lots of tea and books.
+🌧️ Дождливая осень. Много чая и телевизора.|🌧️ A rainy autumn. Lots of tea and TV.
+в светском обществе|in high society
+В старом доме вы нашли пачку чужих писем 1910-х годов с адресом.|In an old house you found a bundle of someone else's letters from the 1910s with an address.
+В старом доме вы нашли пачку чужих писем прошлого века с адресом.|In an old house you found a bundle of someone else's letters from the last century with an address.
+Вы наткнулись на загадочную статью в интернете и не спали до утра, читая всё подряд.|You stumbled upon a mysterious article online and stayed up all night reading everything.
+Вы наткнулись в библиотеке на загадочную книгу и не спали до утра, читая всё подряд.|You found a mysterious book in the library and stayed up all night reading everything.
+Три пакета одежды и новый пылесос. Счастье!|Three bags of clothes and a new vacuum cleaner. Bliss!
+Три свёртка одежды и новая шляпка. Счастье!|Three parcels of clothes and a new hat. Bliss!
+👑 Старинные документы в архиве показали: вы — дальний потомок королевской семьи! Вам прислали фамильный перстень и чек.|👑 Old archive documents revealed that you are a distant descendant of a royal family! You received a family ring and a cheque.
+Фото попало на первые полосы. Публика вас обожает.|The photo made the front pages. The public adores you.
+Интервью|Interview
+Вас зовут на интервью в самую популярную радиопередачу страны.|You're invited for an interview on the country's most popular radio show.
+Самая популярная газета страны хочет взять у вас интервью.|The country's most popular newspaper wants to interview you.
+Сенсация! Вас обсуждает вся страна.|A sensation! The whole country is talking about you.
+Подыграть ради славы|Play along for fame
+олимпиаду по программированию|a programming olympiad
+кулинарный конкурс|a cooking contest
+танцевальный конкурс|a dance contest
+конкурс бизнес-идей|a business ideas contest
+Дождливая осень. Много чая и книг.|A rainy autumn. Lots of tea and books.
+Дождливая осень. Много чая и телевизора.|A rainy autumn. Lots of tea and TV.

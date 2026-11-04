@@ -69,7 +69,7 @@ EXTRA_PANELS.home = function () {
   for (const p of nb) item(ln, { e: personEmoji(p), t: p.name, d: `Сосед · ${yrs(p.age)}${p.job ? ' · ' + p.job : ''}`, bar: p.close, onClick: () => personModal(p) });
   item(ln, { e: '🥂', t: 'Устроить новоселье для соседей', d: `${fmt(price(30000))} · познакомиться со всеми`, disabled: S.used.housewarm || S.money < price(30000), onClick: act(() => {
     S.used.housewarm = 1; S.money -= price(30000); const n = rnd(1, 3);
-    for (let i = 0; i < n; i++) S.people.push(makePerson('neighbor', { age: S.age + rnd(-20, 25), close: rnd(45, 70), job: pick(NPC_JOBS) }));
+    for (let i = 0; i < n; i++) S.people.push(makePerson('neighbor', { age: S.age + rnd(-20, 25), close: rnd(45, 70), job: npcJob() }));
     for (const p of S.people.filter((x) => x.role === 'neighbor')) p.close = clamp(p.close + 8);
     eff({ happy: 6 }); return `🥂 Новоселье удалось! Вы познакомились ещё с ${n} ${plural(n, ['соседом', 'соседями', 'соседями'])}.`;
   }) });
