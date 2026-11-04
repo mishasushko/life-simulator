@@ -85,6 +85,17 @@ function onlineBody(B) {
     { t: me.nick ? '✏️ Сменить имя' : '✏️ Выбрать имя', f: () => askNick(() => onlineBody(B)) },
     { t: me.auto ? '⏸ Не отправлять сам' : '▶️ Отправлять сам', f: () => { me.auto = !me.auto; onlineSave(me); onlineBody(B); } }
   ]);
+  // добавить завершённую жизнь вручную: текущую или из слотов сохранения
+  const cands = [];
+  if (S && !S.alive && S.onlineSent !== true && S.age != null) cands.push({ life: S, slot: null });
+  if (typeof readSlot === 'function') for (let n = 1; n <= 3; n++) { const L = readSlot(n); if (L && !L.alive && L.onlineSent !== true && L.age != null && !(S && L.id && L.id === S.id) && !cands.some((c) => c.life.first === L.first && c.life.birthYear === L.birthYear && c.life.surname === L.surname)) cands.push({ life: L, slot: n }); }
+  if (cands.length) {
+    const l0 = el('<div class="list"></div>'); B.appendChild(el('<div class="section-title">Добавить жизнь в таблицу</div>')); B.appendChild(l0);
+    for (const c of cands) item(l0, { e: '➕', t: `${c.life.first} ${c.life.surname}`, d: `${c.life.birthYear}–${c.life.year} · ${yrs(c.life.age)}`, onClick: () => {
+      const go = () => { const keep = S, ks = typeof curSlot !== 'undefined' ? curSlot : null; S = c.life; if (c.slot && ks != null) curSlot = c.slot; onlineSubmit(false).then((ok) => { if (ks != null) curSlot = ks; S = keep; onlineBody(B); }); };
+      if (!onlineMe().nick) askNick(go); else go();
+    } });
+  }
   const tabs = el('<div class="row-btns online-tabs"></div>'); B.appendChild(tabs);
   for (const [id, t] of ONLINE_TABS) { const b = el(`<button class="btn ${id === onlineTab ? 'primary' : 'ghost'}">${esc(t)}</button>`); b.onclick = () => { onlineTab = id; onlineBody(B); }; tabs.appendChild(b); }
   const l = el('<div class="list"><div class="empty">Загрузка…</div></div>'); B.appendChild(l);

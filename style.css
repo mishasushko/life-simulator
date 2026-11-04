@@ -567,3 +567,6 @@ body{zoom:var(--ui-scale,1)}
 .more-opts summary > span { white-space: nowrap; display: inline; flex: none; }
 .more-opts summary small { flex: 1; min-width: 0; }
 @media (max-width: 480px) { .more-opts summary small { font-size: 11px; } }
+.sp-hist { display: grid; gap: 4px; max-height: 300px; overflow: auto; }
+.sp-row { display: grid; grid-template-columns: 46px 64px 54px 64px 1fr; gap: 6px; font-size: 13px; padding: 6px 8px; border-radius: 10px; background: var(--surface2); align-items: center; }
+.sp-row span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

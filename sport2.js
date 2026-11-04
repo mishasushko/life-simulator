@@ -307,3 +307,31 @@ ACHIEVEMENTS.push(
   { id: 'legionnaire', e: '✈️', t: 'Легионер', d: 'Перейти в зарубежный клуб' }, { id: 'mentor0', e: '🧑‍🏫', t: 'Тренер', d: 'Стать тренером после карьеры' },
   { id: 'mentor', e: '🎓', t: 'Наставник чемпионов', d: 'Воспитать трёх чемпионов страны' }, { id: 'halloffame', e: '🏛️', t: 'Зал славы', d: 'Попасть в Зал славы' }
 );
+
+/* ---------- Моя спортивная статистика ---------- */
+YEAR_HOOKS.push(() => {
+  if (!S || !S.alive || !S.sport || S.sport.retired) return; const sp = S.sport;
+  if (sp.inj > 0 && !sp._injPrev) sp.injN = (sp.injN || 0) + 1; sp._injPrev = sp.inj > 0;
+  sp.hist = sp.hist || []; const k = spStat(sp)[0]; const tot = (sp.st && sp.st[k]) || 0;
+  const prev = sp.hist.length ? sp.hist[sp.hist.length - 1] : null;
+  if (prev && prev.y === S.year) return;
+  sp.hist.push({ y: S.year, a: S.age, r: Math.round(sp.rating || 0), l: sp.lvl, c: sp.club || '', n: tot - (prev ? prev.tot : 0), tot, g: sp.gold || 0, w: sp.worlds || 0 });
+  if (sp.hist.length > 40) sp.hist.shift();
+});
+function sportStatsModal() {
+  const sp = S.sport; if (!sp) return; const d = sportDef() || {}; const st = spStat(sp); const H = sp.hist || [];
+  const row = (a, b) => `<div><small>${a}</small><b>${b}</b></div>`;
+  const best = H.reduce((m, h) => (h.r > (m ? m.r : -1) ? h : m), null);
+  const tot = (sp.st && sp.st[st[0]]) || 0;
+  let html = `<div class="summary">${row(T3('Вид спорта', 'Sport', 'Вид спорту'), `${d.e || ''} ${esc(d.n || '')}`)}${row(T3('Уровень', 'Level', 'Рівень'), esc(SPORT_LVL[sp.lvl] || ''))}${row(T3('Рейтинг', 'Rating', 'Рейтинг'), Math.round(sp.rating || 0))}${row(T3('Сезонов', 'Seasons', 'Сезонів'), sp.years || H.length)}${row(`${st[1]} ${T3(st[2], st[3], st[4])}`, tot)}${row(T3('Титулы', 'Titles', 'Титули'), sp.titles || 0)}${row(T3('Чемпионаты мира', 'World titles', 'Чемпіонати світу'), sp.worlds || 0)}${row('🥇 🥈 🥉', `${sp.gold || 0} · ${sp.silver || 0} · ${sp.bronze || 0}`)}${row(T3('Кубки', 'Cups', 'Кубки'), (sp.cups || []).length)}${row(T3('Травмы', 'Injuries', 'Травми'), sp.injN || (sp.inj ? 1 : 0))}${best ? row(T3('Лучший сезон', 'Best season', 'Найкращий сезон'), `${best.y} · ${best.r}`) : ''}${sp.club ? row(T3('Клуб', 'Club', 'Клуб'), esc(sp.club)) : ''}</div>`;
+  if (H.length) html += `<div class="section-title" style="margin-top:14px">${T3('По сезонам', 'Season by season', 'По сезонах')}</div><div class="sp-hist">${H.slice().reverse().map((h) => `<div class="sp-row"><b>${h.y}</b><span>${yrs(h.a)}</span><span>⭐ ${h.r}</span><span>${st[1]} +${Math.max(0, h.n)}</span><span class="muted">${esc(h.c || SPORT_LVL[h.l] || '')}</span></div>`).join('')}</div>`;
+  else html += `<div class="empty">${T3('Статистика по сезонам появится после первого года в спорте.', 'Season stats appear after your first year in sport.', 'Статистика за сезонами з\'явиться після першого року в спорті.')}</div>`;
+  Q.push({ e: '📊', title: T3('Моя статистика', 'My stats', 'Моя статистика'), html }); pump();
+}
+const _panelSportStats = EXTRA_PANELS.sport;
+EXTRA_PANELS.sport = function () {
+  _panelSportStats();
+  if (!S.sport) return;
+  const B = $('#sheetBody'); const l = el('<div class="list"></div>'); const first = B.querySelector('.section-title, .list'); if (first) B.insertBefore(l, first); else B.appendChild(l);
+  item(l, { e: '📊', t: T3('Моя статистика', 'My stats', 'Моя статистика'), d: T3('Сезоны, рейтинг, медали, трофеи', 'Seasons, rating, medals, trophies', 'Сезони, рейтинг, медалі, трофеї'), onClick: () => sportStatsModal() });
+};

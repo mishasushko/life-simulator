@@ -559,3 +559,4 @@ Selectividad|Selectividad
 📞 Вызвать пожарных и ждать|📞 Call the fire brigade and wait
 Вызвать пожарных и ждать|Call the fire brigade and wait
 Вызвать пожарных|Call the fire brigade
+Добавить жизнь в таблицу|Add a life to the leaderboard

@@ -172,7 +172,7 @@ function newLife(opts = {}) {
 
   // родители
   if (!opts.noParents) {
-    const sameSex = chance(0.05);
+    const ssmY = typeof SSM !== 'undefined' ? SSM[cObj.id] : null; const sameSex = !!ssmY && S.year >= ssmY && chance(0.05);
     const momG = 'f', dadG = sameSex ? 'f' : 'm';
     const pSur = sBase;
     const mom = makePerson('mother', { gender: momG, age: rnd(19, 40), pool: cObj.names, job: npcJob(), surname: surnameFor(pSur, momG, cObj.names), money: rnd(0, 5) * 1e6 });
