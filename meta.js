@@ -112,7 +112,7 @@ function addFriendRec(r) {
 function myCode() { return b64u(JSON.stringify({ d: S.daily, n: S.playerName || `${S.first} ${S.surname}`, s: S.dailyScore, g: grade(S.dailyScore), f: C().flag, a: S.age, p: (S.nick || '') })); }
 function shareDaily() {
   const link = `${location.origin}${location.pathname}?r=${myCode()}`;
-  const text = `🗓️ Ежедневный вызов ${S.daily}: ${S.dailyScore} очков (${grade(S.dailyScore)}), прожил(а) ${yrs(S.age)}. Сможешь лучше?`;
+  const text = `🗓️ Ежедневный вызов ${S.daily}: ${S.dailyScore} очков (${grade(S.dailyScore)}), ${gv(S, 'прожил', 'прожила', 'прожил(а)')} ${yrs(S.age)}. Сможешь лучше?`;
   if (navigator.share) navigator.share({ title: 'Жизнь — симулятор', text, url: link }).catch(() => {});
   else navigator.clipboard.writeText(`${text} ${link}`).then(() => toast('🔗 Ссылка скопирована. Отправь её другу!'), () => prompt('Скопируйте ссылку:', link));
 }

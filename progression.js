@@ -166,7 +166,7 @@ function lifePeopleYear() {
     if (p.age >= 18 && S.year >= n.next && !(p.couple?.care?.who === 'partner' && S.year <= p.couple.care.until)) {
       n.next = S.year + rnd(3, 5);
       if (n.progress >= 30) { p.job = goal.job; log(`🌱 ${p.name}: цель «${goal.name}» привела к новой работе — ${p.job}.`, 'good'); }
-      else if (chance(0.3)) { p.job = npcJob(); log(`💼 ${p.name} самостоятельно меняет работу: ${p.job}.`, 'info'); }
+      else if (chance(0.3)) { p.job = npcJob(); jobForGender(p); log(`💼 ${p.name} самостоятельно меняет работу: ${p.job}.`, 'info'); }
       if (p.role !== 'partner' && n.character === 'самостоятельный' && chance(0.2)) {
         p.country = pick(COUNTRIES).id;
         log(`🧳 ${p.name} переезжает: ${cname(COUNTRIES.find(c => c.id === p.country))}.`, 'info');

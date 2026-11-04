@@ -163,7 +163,7 @@ hire = function (d, bonus) { return _hire2(d, bonus + (S.edu.abroad ? 0.08 : 0))
 YEAR_HOOKS.push(() => {
   if (S.edu.stage === 'school' && chance(0.15) && S.people.filter((p) => p.job === 'Одноклассник').length < 4) {
     const f = makePerson('friend', { age: S.age, close: rnd(45, 75), job: 'Одноклассник' }); S.people.push(f);
-    log(`🎒 Вы подружились с одноклассником: ${f.name}.`, 'good');
+    log(f.gender === 'f' ? `🎒 У вас появилась школьная подруга: ${f.name}.` : `🎒 У вас появился школьный друг: ${f.name}.`, 'good');
   }
   if ([28, 38, 48, 58].includes(S.age) && S.people.some((p) => p.job === 'Одноклассник' || p.role === 'rival')) {
     ev('🥂', 'Встреча выпускников', `Прошло ${S.age - 17} лет после школы. Бывшие одноклассники собираются в ресторане.`, [
@@ -184,20 +184,20 @@ YEAR_HOOKS.push(() => {
 YEAR_HOOKS.push(() => {
   if (S.age === 9 && !S.people.some((p) => p.role === 'rival')) {
     const r = makePerson('rival', { age: S.age, close: 15, job: 'Одноклассник' }); S.people.push(r);
-    log(`😤 У вас появился соперник в классе: ${r.name}. Вечно хочет быть лучше вас.`, 'info');
+    log(r.gender === 'f' ? `😤 У вас появилась соперница в классе: ${r.name}. Вечно хочет быть лучше вас.` : `😤 У вас появился соперник в классе: ${r.name}. Вечно хочет быть лучше вас.`, 'info');
   }
   const r = S.people.find((p) => p.role === 'rival' && p.alive);
   if (r && S.age > 9 && chance(0.22)) {
     const field = pick([['smarts', 'на контрольной', 'на экзамене', 'в карьере'], ['looks', 'на конкурсе красоты', 'в популярности', S.year < 2006 ? 'в светском обществе' : 'в соцсетях'], ['health', 'на физкультуре', 'в марафоне', 'в спортзале']]);
     const where = S.age < 18 ? field[1] : S.age < 25 ? field[2] : field[3];
-    if (S.stats[field[0]] + rnd(-20, 20) > r[field[0] === 'health' ? 'smarts' : field[0]] || chance(0.3)) { eff({ happy: 5 }); log(`😏 Вы обошли соперника (${r.name}) ${where}.`, 'good'); }
-    else { eff({ happy: -5 }); log(`😒 ${r.name} снова обошёл вас ${where}.`, 'bad'); }
+    if (S.stats[field[0]] + rnd(-20, 20) > r[field[0] === 'health' ? 'smarts' : field[0]] || chance(0.3)) { eff({ happy: 5 }); log(r.gender === 'f' ? `😏 Вы обошли соперницу (${r.name}) ${where}.` : `😏 Вы обошли соперника (${r.name}) ${where}.`, 'good'); }
+    else { eff({ happy: -5 }); log(r.gender === 'f' ? `😒 ${r.name} снова обошла вас ${where}.` : `😒 ${r.name} снова обошёл вас ${where}.`, 'bad'); }
   }
   // соседи
   const hasNeighbors = S.people.some((p) => p.role === 'neighbor');
   if (S.age >= 20 && !hasNeighbors && chance(0.5)) {
     const n = makePerson('neighbor', { age: S.age + rnd(-15, 25), close: rnd(30, 60), job: npcJob() }); S.people.push(n);
-    log(`🏠 Вы познакомились с соседом: ${n.name}.`, 'info');
+    log(n.gender === 'f' ? `🏠 Вы познакомились с соседкой: ${n.name}.` : `🏠 Вы познакомились с соседом: ${n.name}.`, 'info');
   }
   const nb = S.people.find((p) => p.role === 'neighbor' && p.alive);
   if (nb && chance(0.15)) {
@@ -209,11 +209,20 @@ YEAR_HOOKS.push(() => {
     else if (kind === 1) ev('💧', 'Потоп', `Вас затопил сосед сверху (${nb.name}).`, [
       { t: 'Потребовать компенсацию', f: () => { if (chance(nb.close / 100 + 0.3)) { S.money += price(80000); return 'Сосед извинился и всё оплатил.'; } nb.close = clamp(nb.close - 20); S.money -= price(80000); return 'Сосед отказался платить. Ремонт за ваш счёт.'; } },
       { t: 'Простить', f: () => { S.money -= price(80000); nb.close = clamp(nb.close + 15); eff({ karma: 4 }); return 'Вы сделали ремонт сами. Сосед в долгу.'; } }]);
-    else { nb.close = clamp(nb.close + 8); log(`🧂 ${nb.name} зашёл одолжить соль. Мило поболтали.`, 'info'); }
+    else { nb.close = clamp(nb.close + 8); log(nb.gender === 'f' ? `🧂 ${nb.name} зашла одолжить соль. Мило поболтали.` : `🧂 ${nb.name} зашёл одолжить соль. Мило поболтали.`, 'info'); }
   }
 });
 
 /* ---------- Соцсеть ---------- */
+// посты пишутся в форме «л(а)»: подставляем форму по полу автора
+function postFor(t, p) {
+  const f = p && p.gender === 'f', m = p && p.gender === 'm';
+  if (!f && !m) return t;
+  t = t.replace(/л\(а\)/g, f ? 'ла' : 'л').replace(/ся\(ась\)/g, f ? 'ась' : 'ся');
+  if (m) t = t.replace('Испекла пирог', 'Испёк пирог');
+  if (f) t = t.replace('👴', '👵');
+  return t;
+}
 const POSTS = {
   any: ['Какой чудесный день! ☀️', 'Кто-нибудь знает хорошего стоматолога?', 'Наконец-то отпуск! ✈️', 'Начал(а) бегать по утрам. День 1 🏃', 'Посмотрите на этот закат 🌅', 'Испекла пирог, получился кривым, но вкусным 🥧', 'Понедельник — день тяжёлый 😩', 'Новая стрижка! Как вам? 💇', 'Читаю отличную книгу, всем советую 📚', 'Кто на концерт в субботу? 🎸'],
   child: ['Получил(а) пятёрку! 📝', 'Мама не разрешает собаку 😭', 'Лучший день в лагере ⛺', 'Скоро каникулы!!! 🎉'],
@@ -228,7 +237,7 @@ YEAR_HOOKS.push(() => {
   for (let i = 0; i < Math.min(people.length, rnd(2, 5)); i++) {
     const p = pick(people);
     const pool = p.role === 'partner' ? POSTS.partner : p.role === 'rival' ? POSTS.rival : p.age < 16 ? POSTS.child : p.age > 60 ? POSTS.old : POSTS.any;
-    S.feed.unshift({ id: uid(), pid: p.id, who: p.name, role: roleName(p), e: personEmoji(p), text: pick(pool), likes: rnd(0, 120), year: S.year });
+    S.feed.unshift({ id: uid(), pid: p.id, who: p.name, role: roleName(p), e: personEmoji(p), text: postFor(pick(pool), p), likes: rnd(0, 120), year: S.year });
   }
   S.feed = S.feed.slice(0, 40);
 });
@@ -269,15 +278,15 @@ YEAR_HOOKS.push(() => {
   if (A.startup && A.startup.step === 1) {
     A.startup.years++;
     const r = Math.random();
-    if (A.startup.years >= 2 && r < 0.15) { const win = A.startup.sum * rnd(8, 25); S.money += win; A.startup.step = 9; unlock('angel'); log(`🚀 Стартап друга (${A.startup.friend}) купила крупная корпорация! Ваша доля: ${fmt(win)}.`, 'good'); eff({ happy: 25 }); }
-    else if (r < 0.35) { A.startup.step = 9; log(`💥 Стартап друга (${A.startup.friend}) закрылся. Ваши ${fmt(A.startup.sum)} сгорели.`, 'bad'); eff({ happy: -8 }); }
-    else if (A.startup.years >= 5) { const back = Math.round(A.startup.sum * rf(1.2, 3)); S.money += back; A.startup.step = 9; log(`💼 Стартап друга вырос и выкупил вашу долю за ${fmt(back)}.`, 'good'); }
-    else log(`🚀 Стартап друга (${A.startup.friend}) пока держится.`, 'info');
+    if (A.startup.years >= 2 && r < 0.15) { const win = A.startup.sum * rnd(8, 25); S.money += win; A.startup.step = 9; unlock('angel'); log(`🚀 Стартап ${A.startup.fg === 'f' ? 'подруги' : 'друга'} (${A.startup.friend}) купила крупная корпорация! Ваша доля: ${fmt(win)}.`, 'good'); eff({ happy: 25 }); }
+    else if (r < 0.35) { A.startup.step = 9; log(`💥 Стартап ${A.startup.fg === 'f' ? 'подруги' : 'друга'} (${A.startup.friend}) закрылся. Ваши ${fmt(A.startup.sum)} сгорели.`, 'bad'); eff({ happy: -8 }); }
+    else if (A.startup.years >= 5) { const back = Math.round(A.startup.sum * rf(1.2, 3)); S.money += back; A.startup.step = 9; log(`💼 Стартап ${A.startup.fg === 'f' ? 'подруги' : 'друга'} вырос и выкупил вашу долю за ${fmt(back)}.`, 'good'); }
+    else log(`🚀 Стартап ${A.startup.fg === 'f' ? 'подруги' : 'друга'} (${A.startup.friend}) пока держится.`, 'info');
   } else if (!A.startup && S.year >= 1985 && S.age >= 22 && S.age <= 55 && S.money > price(500000) && chance(0.06)) {
     const f = pick(alivePeople(['friend'])) || { name: randFirst() }; const sum = price(rnd(3, 15) * 100000);
     A.startup = { step: 0 };
     ev('🚀', 'Стартап друга', `${f.name} запускает стартап и просит вложить ${fmt(sum)} в обмен на долю.`, [
-      { t: 'Вложить', f: () => { S.money -= sum; A.startup = { step: 1, sum, friend: f.name, years: 0 }; return `Вы стали инвестором стартапа (${f.name}).`; } },
+      { t: 'Вложить', f: () => { S.money -= sum; A.startup = { step: 1, sum, friend: f.name, fg: f.gender, years: 0 }; return `Вы стали инвестором стартапа (${f.name}).`; } },
       { t: 'Отказаться', f: () => { A.startup = { step: 9 }; return 'Вы вежливо отказались.'; } }
     ]);
   }
@@ -289,7 +298,7 @@ YEAR_HOOKS.push(() => {
   } else if (!A.office && S.year >= 1950 && S.job && S.age >= 20 && S.age <= 50 && S.orient !== 'ace' && chance(0.05)) {
     const g = loveGender(); const name = randFirst(g); A.office = { step: 0 };
     ev('☕', 'Взгляды у кулера', `Коллега по имени ${name} явно проявляет к вам интерес. На корпоративе вы оказались рядом.`, [
-      { t: 'Ответить взаимностью', f: () => { if (partner()) { const p = partner(); if (chance(0.5)) { p.close = clamp(p.close - 40); relationshipRemember(p, 'betrayal', 'Я узнал о вашем романе на работе.', 0, 30); A.office = { step: 9 }; return `${p.name} обо всём узнал(а). Скандал!`; } } A.office = { step: 1, g, name }; return 'Между вами пробежала искра…'; } },
+      { t: 'Ответить взаимностью', f: () => { if (partner()) { const p = partner(); if (chance(0.5)) { p.close = clamp(p.close - 40); relationshipRemember(p, 'betrayal', gv(p, 'Я узнал о вашем романе на работе.', 'Я узнала о вашем романе на работе.'), 0, 30); A.office = { step: 9 }; return `${p.name} обо всём ${gv(p, 'узнал', 'узнала', 'узнал(а)')}. Скандал!`; } } A.office = { step: 1, g, name }; return 'Между вами пробежала искра…'; } },
       { t: 'Держать дистанцию', f: () => { A.office = { step: 9 }; eff({ karma: 2 }); return 'Работа есть работа.'; } }
     ]);
   }

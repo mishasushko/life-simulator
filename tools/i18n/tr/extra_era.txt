@@ -88,3 +88,66 @@ Selectividad|Selectividad
 набор динозавров|a set of toy dinosaurs
 набор для рукоделия|a craft kit
 одеколон|cologne
+🎒 У вас появилась школьная подруга: {0}.|You made a new school friend: {0}.
+🎒 У вас появился школьный друг: {0}.|You made a new school friend: {0}.
+😤 У вас появилась соперница в классе: {0}. Вечно хочет быть лучше вас.|You have a rival in class: {0}. She always wants to be better than you.
+😏 Вы обошли соперницу ({0}) {1}.|You beat your rival ({0}) {1}.
+😒 {0} снова обошла вас {1}.|{0} beat you again {1}.
+🏠 Вы познакомились с соседкой: {0}.|You met your neighbor: {0}.
+🧂 {0} зашла одолжить соль. Мило поболтали.|{0} dropped by to borrow some salt. You had a nice chat.
+🚀 Стартап подруги ({0}) купила крупная корпорация! Ваша доля: {1}.|A big corporation bought your friend's startup ({0})! Your share: {1}.
+💥 Стартап подруги ({0}) закрылся. Ваши {1} сгорели.|Your friend's startup ({0}) shut down. Your {1} went up in smoke.
+💼 Стартап подруги вырос и выкупил вашу долю за {0}.|Your friend's startup grew and bought out your share for {0}.
+🚀 Стартап подруги ({0}) пока держится.|Your friend's startup ({0}) is holding on for now.
+Я узнала о вашем романе на работе.|I found out about your office romance.
+Я узнал о вашем романе на работе.|I found out about your office romance.
+{0} обо всём узнал. Скандал!|{0} found out everything. A scandal!
+{0} обо всём узнала. Скандал!|{0} found out everything. A scandal!
+Начал бегать по утрам. День 1 🏃|Started running in the mornings. Day 1 🏃
+Начала бегать по утрам. День 1 🏃|Started running in the mornings. Day 1 🏃
+Получил пятёрку! 📝|Got an A! 📝
+Получила пятёрку! 📝|Got an A! 📝
+Научился пользоваться этой вашей соцсетью 👴|Finally learned how to use this social network of yours 👴
+Научилась пользоваться этой вашей соцсетью 👵|Finally learned how to use this social network of yours 👵
+Купил новую машину, просто так 😎|Bought a new car, just because 😎
+Купила новую машину, просто так 😎|Bought a new car, just because 😎
+Пробежал марафон 🏅|Ran a marathon 🏅
+Пробежала марафон 🏅|Ran a marathon 🏅
+Испёк пирог, получился кривым, но вкусным 🥧|Baked a pie: lopsided but tasty 🥧
+Старая знакомая {0} просит одолжить {1}.|An old acquaintance, {0}, asks to borrow {1}.
+{0} вернула долг с процентами!|{0} paid you back with interest!
+{0} вернул долг с процентами!|{0} paid you back with interest!
+{0} так и не вернула деньги.|{0} never paid the money back.
+{0} так и не вернул деньги.|{0} never paid the money back.
+{0} отказала.|{0} said no.
+{0} отказал.|{0} said no.
+Угадал идеально!|Nailed it perfectly!
+Угадала идеально!|Nailed it perfectly!
+👑 Бороться за титул «Королева бала»|👑 Compete for prom queen
+👑 Бороться за титул «Король бала»|👑 Compete for prom king
+👑 Вас выбрали королевой выпускного!|👑 You were crowned prom queen!
+👑 Вас выбрали королём выпускного!|👑 You were crowned prom king!
+🎒 В школе у вас появилась подруга: {0}.|At school you made a friend: {0}.
+🎒 В школе у вас появился друг: {0}.|At school you made a friend: {0}.
+Первая школьная подруга: {0}.|First school friend: {0}.
+Завершил карьеру|Retired from sport
+Завершила карьеру|Retired from sport
+Вам досталось, но больше новенького не трогают. Его зовут {0}.|You took a beating, but nobody touches the new kid anymore. His name is {0}.
+⏳ Ваш врач в больнице — тот самый {0} из школы. Он вылечил вас лучше всех и отказался брать деньги.|⏳ Your doctor at the hospital is that same {0} from school. He treated you better than anyone and refused to take money.
+⏳ {0}, за которого вы заступились в школе, теперь известный юрист. Он позвал вас на свою свадьбу и назвал «человеком, который всё изменил».|⏳ {0}, whom you stood up for at school, is now a famous lawyer. He invited you to his wedding and called you "the person who changed everything".
+пиратом|a pirate
+Медбрат|Nurse
+🎂 День рождения! {0} подарил вам {1}.|🎂 Birthday! {0} gave you {1}.
+🎂 День рождения! {0} подарила вам {1}.|🎂 Birthday! {0} gave you {1}.
+🎂 День рождения! {0} подарил вам {1}. Вы мечтали совсем о другом.|🎂 Birthday! {0} gave you {1}. You were dreaming of something else entirely.
+🎂 День рождения! {0} подарила вам {1}. Вы мечтали совсем о другом.|🎂 Birthday! {0} gave you {1}. You were dreaming of something else entirely.
+🎁 {0} подарил вам на день рождения {1}.|🎁 For your birthday {0} gave you {1}.
+🎁 {0} подарила вам на день рождения {1}.|🎁 For your birthday {0} gave you {1}.
+🎁 {0} подарил вам на день рождения {1}. Угадал идеально!|🎁 For your birthday {0} gave you {1}. Nailed it perfectly!
+🎁 {0} подарила вам на день рождения {1}. Угадала идеально!|🎁 For your birthday {0} gave you {1}. Nailed it perfectly!
+{0} вам отказала.|{0} turned you down.
+{0} вам отказал.|{0} turned you down.
+Бороться за титул «Королева бала»|Compete for prom queen
+Бороться за титул «Король бала»|Compete for prom king
+Вас выбрали королевой выпускного!|You were crowned prom queen!
+Вас выбрали королём выпускного!|You were crowned prom king!

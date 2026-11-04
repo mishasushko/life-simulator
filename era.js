@@ -162,3 +162,9 @@ ev = function (e, title, ...rest) {
   if (min && S && S.year < min) return;
   return _evEra(e, title, ...rest);
 };
+
+/* ---------- Профессия по полу: мужчина-медсестра — медбрат ---------- */
+function jobForGender(p) { if (p && p.gender === 'm' && p.job === 'Медсестра') p.job = 'Медбрат'; if (p && p.gender === 'f' && p.job === 'Медбрат') p.job = 'Медсестра'; return p; }
+const _makePersonJob = makePerson;
+makePerson = function (...a) { return jobForGender(_makePersonJob(...a)); };
+YEAR_HOOKS.unshift(() => { if (S && S.people) S.people.forEach(jobForGender); });

@@ -431,11 +431,11 @@ YEAR_HOOKS.push(() => {
   if (S.age < 18 && par.length && !S.prison) {
     const g = bdayGift(); const good = chance(0.8);
     eff({ happy: good ? rnd(2, 5) : -1 });
-    if (S.age <= 12 || chance(0.5)) log(`🎂 День рождения! ${par.length > 1 ? 'Родители подарили' : `${par[0].name} подарил${gv(par[0], '', 'а', '(а)')}`} вам ${g}.${good ? '' : ' Вы мечтали совсем о другом.'}`, good ? 'good' : '');
+    if (S.age <= 12 || chance(0.5)) log((par.length > 1 ? `🎂 День рождения! Родители подарили вам ${g}.` : gv(par[0], `🎂 День рождения! ${par[0].name} подарил вам ${g}.`, `🎂 День рождения! ${par[0].name} подарила вам ${g}.`, `🎂 День рождения! ${par[0].name} подарил(а) вам ${g}.`)) + (good ? '' : ' Вы мечтали совсем о другом.'), good ? 'good' : '');
   } else if (pt && chance(0.6) && !S.prison) {
     const g = bdayGift(); const great = chance(pt.close / 120);
     pt.close = clamp(pt.close + (great ? 2 : 0)); eff({ happy: great ? 5 : 1 });
-    log(`🎁 На день рождения ${pt.name} подарил${gv(pt, '', 'а', '(а)')} вам ${g}.${great ? ' Угадал(а) идеально!' : ''}`, great ? 'good' : '');
+    log(gv(pt, `🎁 ${pt.name} подарил вам на день рождения ${g}.`, `🎁 ${pt.name} подарила вам на день рождения ${g}.`, `🎁 ${pt.name} подарил(а) вам на день рождения ${g}.`) + (great ? gv(pt, ' Угадал идеально!', ' Угадала идеально!', ' Угадал(а) идеально!') : ''), great ? 'good' : '');
   }
   if (MILESTONE.includes(S.age) && !S.prison) {
     const friends = S.people.filter((p) => p.alive && ['friend', 'sibling', 'partner', 'child'].includes(p.role));
@@ -451,7 +451,7 @@ YEAR_HOOKS.push(() => {
   if (!S.prison && chance(0.3)) holidayEvent();
   // национальный праздник и местные традиции
   if (chance(0.12)) { const h = NAT_HOLIDAY[S.country]; if (h && S.year >= (h[2] || 0)) { eff({ happy: 2 }); log(`🎆 ${h[0]}: ${h[1]}.`, 'info'); } }
-  if (S.age >= 4 && S.age <= 12 && ['us', 'ca', 'gb', 'ie'].includes(S.country) && chance(0.25)) { eff({ happy: 4 }); log(`🎃 Хэллоуин! Вы нарядились ${pick(['вампиром', 'привидением', 'супергероем', 'тыквой', 'ведьмой'])} и собрали мешок конфет.`, 'good'); }
+  if (S.age >= 4 && S.age <= 12 && S.year >= 1935 && ['us', 'ca', 'gb', 'ie'].includes(S.country) && chance(0.25)) { eff({ happy: 4 }); log(`🎃 Хэллоуин! Вы нарядились ${pick(['вампиром', 'привидением', S.year >= 1940 ? 'супергероем' : 'пиратом', 'тыквой', 'ведьмой'])} и собрали мешок конфет.`, 'good'); }
   if (['ru', 'ua', 'by'].includes(S.country) && chance(0.08)) log('🥞 Масленица: блины, чучело и катание с горки.', 'info');
   if (S.country === 'in' && chance(0.1)) { eff({ happy: 3 }); log('🎨 Холи: вы вернулись домой разноцветным с головы до ног.', 'good'); }
   if (S.country === 'br' && S.age >= 16 && chance(0.12)) { eff({ happy: 5, health: -1 }); log('💃 Карнавал! Вы танцевали самбу всю ночь.', 'good'); }

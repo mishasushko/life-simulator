@@ -560,8 +560,8 @@ const EVENTS = [
   { min: 18, max: 90, w: 8, run: () => ev('👛', 'Находка', `Вы нашли на улице кошелёк. Внутри ${fmt(price(15000))} и документы.`, [
       { t: 'Вернуть владельцу', f: () => { eff({ karma: 8, happy: 4 }); if (chance(0.3)) { S.money += price(10000); return 'Владелец был так благодарен, что дал вознаграждение!'; } return 'Вы вернули кошелёк. Карма +'; } },
       { t: 'Забрать деньги', f: () => { eff({ karma: -8 }); S.money += price(15000); return 'Вы оставили деньги себе.'; } }]) },
-  { min: 18, max: 80, w: 7, run: () => { const f = randFirst(); ev('🤝', 'Просьба друга', `Старый знакомый ${f} просит одолжить ${fmt(price(100000))}.`, [
-      { t: 'Одолжить', f: () => { S.money -= price(100000); if (chance(0.55)) { S.money += price(110000); eff({ karma: 3 }); return `${f} вернул(а) долг с процентами!`; } eff({ karma: 3, happy: -4 }); return `${f} так и не вернул(а) деньги.`; } },
+  { min: 18, max: 80, w: 7, run: () => { const fg = chance(0.5) ? 'm' : 'f', f = randFirst(fg); ev('🤝', 'Просьба друга', `${fg === 'f' ? 'Старая знакомая' : 'Старый знакомый'} ${f} просит одолжить ${fmt(price(100000))}.`, [
+      { t: 'Одолжить', f: () => { S.money -= price(100000); if (chance(0.55)) { S.money += price(110000); eff({ karma: 3 }); return fg === 'f' ? `${f} вернула долг с процентами!` : `${f} вернул долг с процентами!`; } eff({ karma: 3, happy: -4 }); return (fg === 'f' ? `${f} так и не вернула деньги.` : `${f} так и не вернул деньги.`); } },
       { t: 'Отказать', f: () => 'Вы отказали.' }]); } },
   { min: 20, max: 85, w: 1.2, run: () => { const sum = price(rnd(3, 50) * 100000); S.money += sum; log(`📜 Дальний родственник оставил вам наследство: ${fmt(sum)}!`, 'good'); eff({ happy: 10 }); } },
   { min: 18, max: 85, w: 5, cond: () => S.assets.some((a) => a.type === 'car'), run: () => ev('🚗', 'Авария', 'Вы попали в ДТП на перекрёстке.', [
@@ -594,7 +594,7 @@ const EVENTS = [
       { t: 'С семьёй и общиной', f: () => { eff({ happy: 8, karma: 3 }); S.people.filter((p) => p.alive && ['mother', 'father', 'sibling', 'child', 'partner'].includes(p.role)).forEach((p) => (p.close = clamp(p.close + 5))); return 'Тёплый день с близкими.'; } },
       { t: 'Как обычный день', f: () => 'Вы провели день как обычно.' }]) },
   { min: 16, max: 60, w: 5, cond: () => !partner() && S.orient !== 'ace', run: () => { const g = loveGender(); const n = randFirst(g); ev('💘', 'Новое знакомство', `${n} (${S.age + rnd(-3, 3)}) явно с вами флиртует.`, [
-      { t: 'Пригласить на свидание', f: () => chance(0.45 + S.stats.looks / 250) ? (addPartner(g, n), `${n} теперь ваша пара! 💕`) : (eff({ happy: -5 }), `${n} отказал(а).`) },
+      { t: 'Пригласить на свидание', f: () => chance(0.45 + S.stats.looks / 250) ? (addPartner(g, n), `${n} теперь ваша пара! 💕`) : (eff({ happy: -5 }), g === 'f' ? `${n} вам отказала.` : g === 'm' ? `${n} вам отказал.` : `${n} отказал(а).`) },
       { t: 'Не сейчас', f: () => 'Вы улыбнулись и пошли дальше.' }]); } },
   { min: 20, max: 70, w: 4, cond: () => partner()?.status === 'married', run: () => { const p = partner(); ev('🌹', 'Годовщина', `Сегодня годовщина вашей свадьбы. ${p.name} ждёт праздника.`, [
       { t: `Ужин в ресторане (${fmt(price(15000))})`, f: () => { S.money -= price(15000); p.close = clamp(p.close + 15); relationshipRemember(p, 'anniversary', 'Вы нашли время отметить нашу годовщину вместе.', 5); eff({ happy: 8 }); return 'Романтичный вечер.'; } },

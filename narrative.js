@@ -89,8 +89,8 @@ function narrativeChildhoodYear() {
   if (S.age === 6 && !o.schoolFriend) {
     o.schoolFriend = true;
     const friend = makePerson('friend', { age: 6, close: 65, job: 'Одноклассник' }); S.people.push(friend);
-    narrativeNote('childhood', `Первый школьный друг: ${friend.name}.`);
-    log(`🎒 В школе вы подружились с ${friend.name}.`, 'good');
+    narrativeNote('childhood', friend.gender === 'f' ? `Первая школьная подруга: ${friend.name}.` : `Первый школьный друг: ${friend.name}.`);
+    log(friend.gender === 'f' ? `🎒 В школе у вас появилась подруга: ${friend.name}.` : `🎒 В школе у вас появился друг: ${friend.name}.`, 'good');
   }
   if (S.age === 10 && !o.discussion) {
     o.discussion = true;
