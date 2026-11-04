@@ -3,6 +3,11 @@
 const LANG_KEY = 'lifesim_lang';
 let LANG = 'ru';
 try { LANG = localStorage.getItem(LANG_KEY) || 'ru'; } catch (e) {}
+// Испанский и немецкий (бета): движок работает как английский, поверх кладётся словарь EN→ES/DE
+let LANG2 = null;
+if (LANG === 'es' || LANG === 'de') { LANG2 = LANG; LANG = 'en'; }
+let OV = null;
+const ovTr = (t) => { if (!OV || t == null) return t; const k = t.trim(); if (!k) return t; let r = OV[k]; if (r == null) { const m = k.match(/^([^\p{L}\p{N}]+?\s*)(\p{L}.*)$/u); if (m && OV[m[2]] != null) r = m[1] + OV[m[2]]; } return r == null ? t : t.replace(k, r); };
 
 const EN = new Map();
 const add = (ru, en) => { if (ru && en && !EN.has(ru)) EN.set(ru, en); };
@@ -900,7 +905,7 @@ function trFull0(raw) {
   return lead + pre + out + post + tail;
 }
 function trNode(n) {
-  const v = n.nodeValue; const t = trFull(v); if (t != null && t !== v) n.nodeValue = t;
+  const v = n.nodeValue; let t = trFull(v); if (OV) t = ovTr(t == null ? v : t); if (t != null && t !== v) n.nodeValue = t;
 }
 function trTree(root) {
   if (root.nodeType === 3) return trNode(root);
@@ -921,25 +926,34 @@ function startEnglish() {
       const head = t.slice(0, -1); const its = S.log[S.log.length - 1].items;
       for (let i = its.length - 1; i >= Math.max(0, its.length - 6); i--) if (typeof its[i].t === 'string' && its[i].t.startsWith(head)) { const f = trFull(its[i].t) || its[i].t; return _toast(f.length > 90 ? f.slice(0, 88) + '…' : f); }
     }
-    _toast(trFull(t) || t);
+    _toast(ovTr(trFull(t) || t));
   };
 }
 
 /* ---------- Переключатель языка ---------- */
-const LANGS = [['ru', 'RU', 'Русский'], ['en', 'EN', 'English'], ['uk', 'UA', 'Українська']];
+const LANGS = [['ru', 'RU', 'Русский'], ['en', 'EN', 'English'], ['uk', 'UA', 'Українська'], ['es', 'ES', 'Español (beta)'], ['de', 'DE', 'Deutsch (beta)']];
 function setLang(l) { try { localStorage.setItem(LANG_KEY, l); } catch (e) {} location.reload(); }
 (function () {
   const b = document.createElement('select');
   b.className = 'icon-btn lang-btn floating'; b.id = 'langBtn';
   b.setAttribute('aria-label', 'Language');
-  for (const [id, code, name] of LANGS) { const o = document.createElement('option'); o.value = id; o.textContent = code; o.title = name; if (id === LANG) o.selected = true; b.appendChild(o); }
+  for (const [id, code, name] of LANGS) { const o = document.createElement('option'); o.value = id; o.textContent = code; o.title = name; if (id === (LANG2 || LANG)) o.selected = true; b.appendChild(o); }
   b.onchange = () => setLang(b.value);
   document.getElementById('start').appendChild(b);
 })();
-MENU_HOOKS.push((l) => item(l, { e: '🌐', t: 'Язык · Language · Мова', d: (LANGS.find((x) => x[0] === LANG) || LANGS[0])[2], onClick: () => { closeSheet(); Q.push({ e: '🌐', title: 'Язык · Language · Мова', text: '', choices: LANGS.filter((x) => x[0] !== LANG).map(([id, , name]) => ({ t: name, f: () => { setLang(id); } })) }); pump(); } }));
+MENU_HOOKS.push((l) => item(l, { e: '🌐', t: 'Язык · Language · Мова', d: (LANGS.find((x) => x[0] === (LANG2 || LANG)) || LANGS[0])[2], onClick: () => { closeSheet(); Q.push({ e: '🌐', title: 'Язык · Language · Мова', text: '', choices: LANGS.filter((x) => x[0] !== (LANG2 || LANG)).map(([id, , name]) => ({ t: name, f: () => { setLang(id); } })) }); pump(); } }));
 if (LANG === 'en' || LANG === 'uk') {
-  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=40';
-  sc.onload = sc.onerror = () => startEnglish();
+  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=41';
+  sc.onload = sc.onerror = () => {
+    if (!LANG2) return startEnglish();
+    const s2 = document.createElement('script'); s2.src = LANG2 + '-data.js?v=41';
+    s2.onload = s2.onerror = () => { try { OV = { ...(LANG2 === 'es' ? ES_DATA : DE_DATA) }; } catch (e) { OV = {}; }
+      try { const dn = new Intl.DisplayNames([LANG2], { type: 'region' }); for (const c of COUNTRIES) { const en = COUNTRY_EN[c.id]; if (!en || OV[en]) continue; try { const v = dn.of(c.id.toUpperCase()); if (v && v !== c.id.toUpperCase()) { OV[en] = v; OV[en + ' (USSR)'] = v + (LANG2 === 'es' ? ' (URSS)' : ' (UdSSR)'); } } catch (e) {} } } catch (e) {} startEnglish(); document.documentElement.lang = LANG2;
+      document.title = LANG2 === 'es' ? 'Vida — simulador' : 'Leben — Simulator';
+      const hp = document.querySelector('.hero p'); if (hp) hp.textContent = LANG2 === 'es' ? `Del primer paso al último aliento. ${COUNTRIES.length} países, siglo y medio de historia y miles de decisiones que importan. Traducción en beta: parte del texto sigue en inglés.` : `Vom ersten Schritt bis zum letzten Atemzug. ${COUNTRIES.length} Länder, anderthalb Jahrhunderte Geschichte und tausende Entscheidungen, die zählen. Übersetzung in Beta: ein Teil des Textes ist noch Englisch.`;
+      trTree(document.body); };
+    document.head.appendChild(s2);
+  };
   document.head.appendChild(sc);
 }
 

@@ -291,7 +291,16 @@ const DISEASES = [
   { id:'hypertension', name:'Гипертония', dmg:4, cure:0.4, heal:0, minAge:35 },
   { id:'heart', name:'Болезнь сердца', dmg:10, cure:0.45, heal:0, minAge:45 },
   { id:'cancer', name:'Онкология', dmg:18, cure:0.4, heal:0.02, minAge:30 },
-  { id:'alzheimer', name:'Болезнь Альцгеймера', dmg:8, cure:0.05, heal:0, minAge:65, smarts:-8 }
+  { id:'alzheimer', name:'Болезнь Альцгеймера', dmg:8, cure:0.05, heal:0, minAge:65, smarts:-8 },
+  // болезни эпох
+  { id:'tb', name:'Туберкулёз', dmg:12, cure:0.85, heal:0.05, w:3, to:2100, oldW:1960 },
+  { id:'polio', name:'Полиомиелит', dmg:12, cure:0.2, heal:0.2, maxAge:14, to:1990, vax:'polio' },
+  { id:'measles', name:'Корь', dmg:6, cure:0.8, heal:0.7, maxAge:12, vax:'measles' },
+  { id:'smallpox', name:'Оспа', dmg:16, cure:0.3, heal:0.3, to:1977, vax:'smallpox' },
+  { id:'scarlet', name:'Скарлатина', dmg:7, cure:0.9, heal:0.5, maxAge:12, to:2100 },
+  { id:'typhus', name:'Тиф', dmg:15, cure:0.7, heal:0.3, to:1950, war:true },
+  { id:'spanish', name:'Испанка', dmg:20, cure:0.3, heal:0.4, from:1918, to:1920, w:10 },
+  { id:'covid', name:'Коронавирус', dmg:8, cure:0.85, heal:0.7, from:2020, to:2023, w:10, vax:'covid' }
 ];
 
 const ACHIEVEMENTS = [

@@ -28,7 +28,7 @@ let globalAch = loadAch();
 
 const C = () => COUNTRIES.find((c) => c.id === S.country) || COUNTRIES[0];
 const price = (x) => Math.round(x * (0.5 + 0.5 * C().wage));
-const wageOf = (x) => Math.round(x * C().wage);
+let wageOf = (x) => Math.round(x * C().wage);
 
 function fmt(base, cur) {
   const c = cur || C();
@@ -472,18 +472,44 @@ function yearPets() {
   }
 }
 
+// Медицина эпохи: насколько вероятно вылечить и насколько часто болезнь встречается
+const lerpY = (y, pts) => { if (y <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) if (y <= pts[i][0]) { const [y0, v0] = pts[i - 1], [y1, v1] = pts[i]; return v0 + (v1 - v0) * (y - y0) / (y1 - y0); } return pts[pts.length - 1][1]; };
+function cureAt(def) {
+  const y = S.year;
+  const anti = y < 1944 ? 0.4 : 1;
+  switch (def.id) {
+    case 'pneumonia': case 'scarlet': return def.cure * anti;
+    case 'tb': return y < 1947 ? 0.15 : y < 1960 ? 0.55 : def.cure;
+    case 'cancer': return lerpY(y, [[1900, 0.08], [1950, 0.2], [2000, 0.4], [2030, 0.55], [2060, 0.7]]);
+    case 'heart': return lerpY(y, [[1900, 0.12], [1960, 0.3], [2000, 0.45], [2050, 0.65]]);
+    case 'diabetes': return y < 1922 ? 0.01 : def.cure;
+    case 'hypertension': return y < 1950 ? 0.12 : def.cure;
+    case 'depression': return y < 1955 ? 0.2 : def.cure;
+    case 'alzheimer': return y >= 2035 ? 0.3 : def.cure;
+    case 'polio': return y < 1955 ? 0.1 : def.cure;
+    default: return def.cure;
+  }
+}
+function diseaseEraW(d) {
+  const y = S.year, rich = C().wage >= 1;
+  if (d.id === 'tb') return y < 1950 ? 2 : y < 1990 ? (rich ? 0.2 : 0.6) : (rich ? 0.05 : 0.4);
+  if (['polio', 'measles', 'scarlet'].includes(d.id)) return y < 1960 ? 1.5 : 0.3;
+  if (d.id === 'smallpox') return y < 1930 ? 1 : y < 1960 ? (rich ? 0.05 : 0.5) : 0.1;
+  if (d.id === 'typhus') return 1.5;
+  return 1;
+}
 function yearDiseases() {
   const s = S.stats;
   for (const d of [...S.diseases]) {
     const def = DISEASES.find((x) => x.id === d.id);
     if (S.age < 18 && parentsAlive().length && chance(0.7)) { S.diseases = S.diseases.filter((x) => x !== d); log(`👩‍⚕️ Родители отвели вас к врачу. Диагноз «${def.name}» снят, вы здоровы.`, 'good'); continue; }
     eff({ health: -Math.round(def.dmg * 0.7), happy: def.happy || 0, smarts: def.smarts || 0 });
-    if (chance(def.heal)) { S.diseases = S.diseases.filter((x) => x !== d); log(`💪 Вы поправились: ${def.name.toLowerCase()} отступил${/а$|ь$/.test(def.name) ? 'а' : ''}.`, 'good'); }
+    if (chance(def.heal)) { S.diseases = S.diseases.filter((x) => x !== d); log(`💪 Вы поправились: ${def.name.toLowerCase()} ${/[аяь]$/.test(def.name) ? 'отступила' : /о$/.test(def.name) ? 'отступило' : 'отступил'}.`, 'good'); }
   }
   const p = 0.05 + (100 - s.health) / 700 + (S.age > 50 ? (S.age - 50) / 250 : 0);
   if (chance(p)) {
-    const pool = DISEASES.filter((d) => (d.minAge || 0) <= S.age && !S.diseases.some((x) => x.id === d.id));
-    const wpool = pool.map((d) => ({ v: d, w: d.dmg > 12 ? 1 : d.dmg > 6 ? 3 : 8 }));
+    const pool = DISEASES.filter((d) => (d.minAge || 0) <= S.age && (d.maxAge == null || S.age <= d.maxAge) && (!d.from || S.year >= d.from) && (!d.to || S.year <= d.to) && (!d.war || (typeof warNow === 'function' && warNow())) && !(d.vax && (S.vax || []).includes(d.vax) && chance(0.95)) && !S.diseases.some((x) => x.id === d.id));
+    const wpool = pool.map((d) => ({ v: d, w: (d.w || (d.dmg > 12 ? 1 : d.dmg > 6 ? 3 : 8)) * diseaseEraW(d) }));
     if (wpool.length) {
       const d = wpick(wpool).v;
       S.diseases.push({ id: d.id, since: S.age });
@@ -624,7 +650,7 @@ const EVENTS = [
       { t: 'Пока подождать', f: () => { eff({ happy: -3 }); return 'Вы решили подождать подходящего момента.'; } }]) },
   { min: 30, max: 85, w: 3, cond: () => S.assets.some((a) => a.type === 'house'), run: () => ev('🔥', 'Пожар', 'В вашем доме загорелась проводка!', [
       { t: 'Тушить самому', f: () => chance(0.6) ? (eff({ karma: 2 }), 'Вы потушили огонь огнетушителем. Герой!') : (eff({ health: -15 }), damageHouse(0.3), 'Вы обожглись, дом пострадал.') },
-      { t: 'Звонить 112', f: () => { damageHouse(0.1); return 'Пожарные приехали быстро. Ущерб небольшой.'; } }]) },
+      { t: 'Вызвать пожарных', f: () => { damageHouse(0.1); return 'Пожарные приехали быстро. Ущерб небольшой.'; } }]) },
   { min: 5, max: 17, w: 4, cond: () => parentsAlive().length === 2 && !S.parentsDivorced, run: () => { if (chance(0.3)) { S.parentsDivorced = true; log('💔 Ваши родители развелись.', 'bad'); eff({ happy: -12 }); } } }
 ];
 
@@ -780,7 +806,7 @@ function treat(premium) {
   const cured = [];
   for (const d of [...S.diseases]) {
     const def = DISEASES.find((x) => x.id === d.id);
-    if (chance(premium ? Math.min(0.97, def.cure + 0.35) : def.cure)) { cured.push(def.name); S.diseases = S.diseases.filter((x) => x !== d); }
+    if (chance(premium ? Math.min(0.97, cureAt(def) + 0.35) : cureAt(def))) { cured.push(def.name); S.diseases = S.diseases.filter((x) => x !== d); }
   }
   eff({ health: premium ? rnd(8, 15) : rnd(2, 6) });
   return cured.length ? ['💊', 'Лечение', `Вылечено: ${cured.join(', ')}.`] : ['😔', 'Лечение', 'Лечение не помогло. Попробуйте ещё раз в следующем году.'];

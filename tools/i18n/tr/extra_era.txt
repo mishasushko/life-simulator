@@ -456,3 +456,106 @@ Selectividad|Selectividad
 Родители отвели вас к врачу. Диагноз «{0}» снят, вы здоровы.|Your parents took you to the doctor. The {0} is gone and you are healthy.
 {0}, опытный {1}, предлагает стать вашим наставником.|{0}, an experienced {1}, offers to become your mentor.
 Наставник|Mentor
+📖 Хроника жизни|📖 Life chronicle
+Хроника жизни|Life chronicle
+🏺 Семейные реликвии|🏺 Family heirlooms
+Семейные реликвии|Family heirlooms
+🗞️ Страна и быт|🗞️ Country and daily life
+Страна и быт|Country and daily life
+Переехать в другой город|Move to another city
+В своей стране: столица платит больше, провинция дешевле|Within your country: the capital pays more, the provinces cost less
+Новосёл|Newcomer
+Переехать в другой город|Move to another city
+Сгоревшая сберкнижка|Wiped-out savings
+Потерять сбережения в денежной реформе|Lose your savings in a currency reform
+Ветеран горячей точки|Combat veteran
+Вернуться со службы в горячей точке|Come back from service in a war zone
+Туберкулёз|Tuberculosis
+туберкулёз|tuberculosis
+Полиомиелит|Polio
+полиомиелит|polio
+Корь|Measles
+корь|measles
+Оспа|Smallpox
+оспа|smallpox
+Скарлатина|Scarlet fever
+скарлатина|scarlet fever
+Тиф|Typhus
+тиф|typhus
+Испанка|Spanish flu
+испанка|Spanish flu
+Коронавирус|COVID-19
+коронавирус|COVID-19
+Бухгалтер|Accountant
+Ведущая манекенщица|Lead fashion model
+Ведущий программист|Lead programmer
+Газетное дело|Newspapers
+Генерал милиции|Militia general
+Главный бухгалтер|Chief accountant
+Главный конструктор|Chief designer
+Главный художник|Art director
+Директор по экономике|Director of economics
+Директор универмага|Department store director
+Заведующий отделом|Department head
+Извоз|Cab trade
+Извозчик|Cabman
+Издатель газеты|Newspaper publisher
+Иллюстратор|Illustrator
+Инструктор райкома|District committee instructor
+Капитан милиции|Militia captain
+Клерк|Clerk
+Купец|Merchant
+Лейтенант милиции|Militia lieutenant
+Лихач|Fancy cabman
+Лицо дома моделей|Face of the fashion house
+Майор милиции|Militia major
+Манекенщица дома моделей|Fashion house model
+Манекенщица|Mannequin model
+Мастер|Foreman
+Мастерская|Workshop
+Милиция|Militia
+Министр|Minister
+Мода|Fashion
+Начальник отдела|Head of department
+Начальник планового отдела|Head of planning
+Начальник торга|Head of the trade trust
+Оформление|Design
+Партийная работа|Party work
+Первый секретарь обкома|First Secretary of the regional committee
+Подмастерье|Apprentice
+Полковник милиции|Militia colonel
+Президент банка|Bank president
+Приказчик|Shop assistant
+Программирование|Programming
+Программист|Programmer
+Продавец|Salesperson
+Редактор отдела|Section editor
+Репортёр|Reporter
+Руководитель мастерской|Head of the studio
+Секретарь горкома|City committee secretary
+Сержант милиции|Militia sergeant
+Слесарь|Fitter
+Советская торговля|Soviet retail
+Старший приказчик|Senior shop assistant
+Старший программист|Senior programmer
+Старший продавец|Senior salesperson
+Старший художник|Senior artist
+Старший экономист|Senior economist
+Торговля|Trade
+Управляющий лавкой|Shop manager
+Управляющий отделением|Branch manager
+Фельетонист|Columnist
+Финансовый директор|CFO
+Финансы|Finance
+Хозяин извоза|Cab company owner
+Хозяин магазина|Store owner
+Хозяин мастерской|Workshop owner
+Художественное оформление|Art and design
+Художественный руководитель|Artistic director
+Художник-оформитель|Commercial artist
+Член Политбюро|Politburo member
+Экономика и учёт|Economics and accounting
+Экономист|Economist
+📞 Вызвать пожарных и ждать|📞 Call the fire brigade and wait
+Вызвать пожарных и ждать|Call the fire brigade and wait
+Вызвать пожарных|Call the fire brigade

@@ -1,0 +1,582 @@
+(part-time)|(media jornada)|(Teilzeit)
++7% a year, no risk|+7% al año, sin riesgo|+7% pro Jahr, ohne Risiko
++approval|+aprobación|+Zustimmung
++approval, +karma|+aprobación, +karma|+Zustimmung, +Karma
++grades, +smarts|+notas, +inteligencia|+Noten, +Intelligenz
++happiness|+felicidad|+Glück
++happiness, treats depression|+felicidad, trata la depresión|+Glück, hilft gegen Depression
++health for the year|+salud durante el año|+Gesundheit für das Jahr
++health, +looks|+salud, +apariencia|+Gesundheit, +Aussehen
++health, some risk|+salud, algo de riesgo|+Gesundheit, etwas Risiko
++karma|+karma|+Karma
++karma, +fame|+karma, +fama|+Karma, +Ruhm
++karma, +happiness|+karma, +felicidad|+Karma, +Glück
++looks|+apariencia|+Aussehen
++lots of happiness|+mucha felicidad|+viel Glück
++money, risk of prison|+dinero, riesgo de cárcel|+Geld, Gefängnisrisiko
++performance, +health|+rendimiento, +salud|+Leistung, +Gesundheit
++smarts|+inteligencia|+Intelligenz
+11 companies, booms and busts|11 empresas, auges y caídas|11 Firmen, Booms und Crashs
+5 generations|5 generaciones|5 Generationen
+A bright light|Una luz brillante|Ein helles Licht
+A furry friend|Un amigo peludo|Ein pelziger Freund
+A goal for this life|Una meta para esta vida|Ein Ziel für dieses Leben
+A new acquaintance|Un nuevo conocido|Eine neue Bekanntschaft
+A new life abroad|Una nueva vida en el extranjero|Ein neues Leben im Ausland
+A prestigious university abroad|Una universidad prestigiosa en el extranjero|Eine renommierte Universität im Ausland
+A shot at film or TV|Una oportunidad en cine o TV|Eine Chance bei Film oder TV
+A shot at the jackpot|Una oportunidad de ganar el bote|Eine Chance auf den Jackpot
+About +5% on average, swings ±25%|Unos +5% de media, oscilaciones de ±25%|Etwa +5% im Schnitt, Schwankungen ±25%
+About you|Sobre ti|Über dich
+Accept|Aceptar|Annehmen
+Accident|Accidente|Unfall
+Achievements|Logros|Erfolge
+Achievements this life|Logros en esta vida|Erfolge in diesem Leben
+Activities|Actividades|Aktivitäten
+Address the nation|Dirigirse a la nación|Ansprache an die Nation
+Admit it and apologize|Admitirlo y pedir perdón|Zugeben und entschuldigen
+Adopt|Adoptar|Adoptieren
+Adoption|Adopción|Adoption
+Again|Otra vez|Nochmal
+Age|Edad|Alter
+Agent|Agente|Agent
+Agnosticism|Agnosticismo|Agnostizismus
+Agree|Aceptar|Zustimmen
+All or nothing|Todo o nada|Alles oder nichts
+Already applied this year|Ya lo solicitaste este año|Dieses Jahr schon beworben
+Already this year|Ya este año|Dieses Jahr schon
+An image with your life summary|Una imagen con el resumen de tu vida|Ein Bild mit deiner Lebensbilanz
+Appearance|Apariencia|Aussehen
+Apply|Solicitar|Bewerben
+Apply to the intelligence service|Solicitar entrar en inteligencia|Beim Geheimdienst bewerben
+Apply to university|Solicitar plaza en la universidad|An der Uni bewerben
+Argue|Discutir|Streiten
+Army|Ejército|Armee
+Army & intelligence|Ejército e inteligencia|Armee & Geheimdienst
+Around your country|Por tu país|Durch dein Land
+Asexual|Asexual|Asexuell
+Ask for a raise|Pedir un aumento|Gehaltserhöhung fordern
+Ask for money|Pedir dinero|Um Geld bitten
+Atheism|Ateísmo|Atheismus
+Automation|Automatización|Automatisierung
+Bachelor|Grado|Bachelor
+Balance|Saldo|Kontostand
+Bank deposit|Depósito bancario|Bankeinlage
+Be born →|Nacer →|Geboren werden →
+Beach holiday|Vacaciones en la playa|Strandurlaub
+Beard|Barba|Bart
+Beauty salon|Salón de belleza|Schönheitssalon
+Become a double agent|Hacerse agente doble|Doppelagent werden
+Birth year|Año de nacimiento|Geburtsjahr
+Bisexual|Bisexual|Bisexuell
+Blackjack|Blackjack|Blackjack
+Blue|Azul|Blau
+Body & health|Cuerpo y salud|Körper & Gesundheit
+Bond with coworkers|Hacer piña con los compañeros|Mit Kollegen anfreunden
+Boom|Auge|Boom
+Buddhism|Budismo|Buddhismus
+Build a new country|Construir un nuevo país|Ein neues Land aufbauen
+Build a skill and find friends|Desarrolla una habilidad y haz amigos|Eine Fähigkeit entwickeln und Freunde finden
+By country|Por país|Nach Land
+Call the police|Llamar a la policía|Die Polizei rufen
+Can multiply or go to zero|Puede multiplicarse o quedarse en cero|Kann sich vervielfachen oder auf null fallen
+Can visit|Se puede visitar|Kann besucht werden
+Cancel|Cancelar|Abbrechen
+Car crash|Accidente de coche|Autounfall
+Career|Carrera|Karriere
+Career paths|Trayectorias profesionales|Karrierewege
+Casino|Casino|Casino
+Catholicism|Catolicismo|Katholizismus
+Cause|Causa|Ursache
+Challenge|Reto|Herausforderung
+Challenges|Retos|Herausforderungen
+Chance of parole|Posibilidad de libertad condicional|Chance auf Bewährung
+Change crest|Cambiar el escudo|Wappen ändern
+Change gender|Cambiar de género|Geschlecht ändern
+Change pricing strategy|Cambiar la estrategia de precios|Preisstrategie ändern
+Change religion|Cambiar de religión|Religion wechseln
+Charity concert|Concierto benéfico|Benefizkonzert
+Cheap|Barato|Günstig
+Cheap · normal · premium|Barato · normal · prémium|Günstig · normal · Premium
+Chernobyl|Chernóbil|Tschernobyl
+Chess club|Club de ajedrez|Schachklub
+Children|Hijos|Kinder
+Choose a country:|Elige un país:|Wähle ein Land:
+Choose a faith|Elige una fe|Wähle einen Glauben
+Choose a major|Elige una carrera|Wähle ein Studienfach
+Choose a niche|Elige un nicho|Wähle eine Nische
+City council member|Concejal|Stadtrat
+Civilian|Civil|Zivilist
+Close|Cerrar|Schließen
+Close the business|Cerrar el negocio|Das Geschäft schließen
+Clothes|Ropa|Kleidung
+Clubs & sports|Clubes y deportes|Vereine & Sport
+Collapse of the USSR|Caída de la URSS|Zerfall der UdSSR
+College|Escuela técnica|Fachschule
+Coming out|Salir del armario|Coming-out
+Competitor|Competidor|Konkurrent
+Concert|Concierto|Konzert
+Confidently|Con seguridad|Selbstbewusst
+Conscript service|Servicio militar obligatorio|Wehrdienst
+Continue|Continuar|Weiter
+Continue as your child|Continuar como tu hijo|Als dein Kind weiterspielen
+Continue saved life|Continuar la vida guardada|Gespeichertes Leben fortsetzen
+Countries|Países|Länder
+Countries visited|Países visitados|Besuchte Länder
+Country|País|Land
+Country, faith, orientation, stats|País, fe, orientación, estadísticas|Land, Glaube, Orientierung, Werte
+Credit & score|Crédito y puntuación|Kredit & Score
+Credit score and loans|Historial crediticio y préstamos|Kreditwürdigkeit und Kredite
+Crest & traditions|Escudo y tradiciones|Wappen & Traditionen
+Crimes|Delitos|Verbrechen
+Crisis|Crisis|Krise
+Cryptocurrency|Criptomoneda|Kryptowährung
+Current challenge|Reto actual|Aktuelle Herausforderung
+Current progress will be deleted.|Se borrará el progreso actual.|Der aktuelle Fortschritt wird gelöscht.
+Cut prices|Bajar precios|Preise senken
+Cyber operation|Ciberoperación|Cyberoperation
+Daily challenge|Reto diario|Tägliche Herausforderung
+Date of birth|Fecha de nacimiento|Geburtsdatum
+Dating|Citas|Dating
+Dating app|App de citas|Dating-App
+Deal again|Repartir otra vez|Neu geben
+Deals|Tratos|Deals
+Death penalty abolished|Abolida la pena de muerte|Todesstrafe abgeschafft
+Decline|Rechazar|Ablehnen
+Deny everything|Negarlo todo|Alles abstreiten
+Deny it|Negarlo|Abstreiten
+Deposit 25% of cash|Depositar el 25% del efectivo|25% des Bargelds anlegen
+Destinations|Destinos|Reiseziele
+Director of intelligence|Director de inteligencia|Geheimdienstchef
+Dirty tricks|Juego sucio|Schmutzige Tricks
+Discharge|Licenciamiento|Entlassung
+Do nothing|No hacer nada|Nichts tun
+Doctor|Médico|Arzt
+Dodge the draft|Librarse de la mili|Sich dem Wehrdienst entziehen
+Donate 10% of your wealth|Donar el 10% de tu fortuna|10% deines Vermögens spenden
+Double|Doblar|Verdoppeln
+Draft notice|Citación militar|Einberufungsbescheid
+Dream city|Ciudad soñada|Traumstadt
+Drills|Maniobras|Übungen
+Drop out|Abandonar los estudios|Abbrechen
+Dynasty|Dinastía|Dynastie
+Dynasty goals|Metas de la dinastía|Ziele der Dynastie
+Earth is better|La Tierra es mejor|Die Erde ist besser
+Earth orbit|Órbita terrestre|Erdumlaufbahn
+Economy, wars, pandemics, laws|Economía, guerras, pandemias, leyes|Wirtschaft, Kriege, Pandemien, Gesetze
+Education|Educación|Bildung
+Elections|Elecciones|Wahlen
+Embellish your résumé|Adornar el currículum|Lebenslauf aufhübschen
+Emigrate|Emigrar|Auswandern
+Enlist as a contract soldier|Alistarse como soldado profesional|Als Zeitsoldat verpflichten
+Enough|Basta|Genug
+Entertainment|Ocio|Unterhaltung
+Escape|Fuga|Flucht
+Exes|Ex parejas|Ex-Partner
+Extract an agent|Evacuar a un agente|Einen Agenten herausholen
+Eye color|Color de ojos|Augenfarbe
+Faith and peace|Fe y paz|Glaube und Frieden
+Fame|Fama|Ruhm
+Fame level|Nivel de fama|Ruhmstufe
+Family|Familia|Familie
+Family business for 3 generations|Negocio familiar durante 3 generaciones|Familienbetrieb über 3 Generationen
+Family fund|Fondo familiar|Familienfonds
+Family symbol|Símbolo familiar|Familiensymbol
+Family tree|Árbol genealógico|Stammbaum
+Fast fame, risky for your reputation|Fama rápida, arriesgada para tu reputación|Schneller Ruhm, riskant für den Ruf
+Federal chancellor|Canciller federal|Bundeskanzler
+Feed|Muro|Feed
+Female|Mujer|Weiblich
+Field officer|Oficial de campo|Außendienstoffizier
+Fight corruption|Luchar contra la corrupción|Korruption bekämpfen
+Film a blog video|Grabar un vídeo para el blog|Ein Blogvideo drehen
+Find a distant relative|Encontrar a un pariente lejano|Einen entfernten Verwandten finden
+Find a partner|Encontrar pareja|Einen Partner finden
+Finish school first|Primero termina la escuela|Erst die Schule beenden
+Fire your PR agent|Despedir a tu agente de prensa|Deinen PR-Agenten feuern
+First name|Nombre|Vorname
+Flee the scene|Huir del lugar|Vom Tatort fliehen
+Followers|Seguidores|Follower
+Followers and income|Seguidores e ingresos|Follower und Einnahmen
+For celebrities|Para famosos|Für Prominente
+Forgive|Perdonar|Vergeben
+Fortune favors the bold|La fortuna sonríe a los audaces|Das Glück ist mit den Tüchtigen
+Found a dynasty|Fundar una dinastía|Eine Dynastie gründen
+Found your house|Funda tu casa|Gründe dein Haus
+Free and healthy|Libre y sano|Frei und gesund
+Friends|Amigos|Freunde
+Friends' feed, likes and posts|Muro de amigos, likes y publicaciones|Feed der Freunde, Likes und Posts
+Front line|Primera línea|Front
+Fund of 1B ₽|Fondo de 1.000 M ₽|Fonds von 1 Mrd. ₽
+Gambling & risk|Juego y riesgo|Glücksspiel & Risiko
+Game|Juego|Spiel
+Gender|Sexo|Geschlecht
+Gender identity|Identidad de género|Geschlechtsidentität
+Get a diploma (night school)|Sacar el título (escuela nocturna)|Abschluss machen (Abendschule)
+Get a pet|Tener una mascota|Ein Haustier holen
+Get vaccinated|Vacunarse|Sich impfen lassen
+Give an interview|Dar una entrevista|Ein Interview geben
+Glasses|Gafas|Brille
+Go|Ir|Los
+Go dancing|Ir a bailar|Tanzen gehen
+Go public (IPO)|Salir a bolsa (OPV)|An die Börse gehen (IPO)
+Go to a casting|Ir a un casting|Zu einem Casting gehen
+Go to college (3 years)|Ir a la escuela técnica (3 años)|Fachschule besuchen (3 Jahre)
+Go to the front|Ir al frente|An die Front gehen
+Go undercover|Infiltrarse|Verdeckt ermitteln
+Good behavior|Buena conducta|Gute Führung
+Governor|Gobernador|Gouverneur
+Grandchildren|Nietos|Enkel
+Graveyard & ranking|Cementerio y clasificación|Friedhof & Rangliste
+Gym|Gimnasio|Fitnessstudio
+Hacking|Hackeo|Hacking
+Hair color|Color de pelo|Haarfarbe
+Hairstyle|Peinado|Frisur
+Hang up|Colgar|Auflegen
+Happiest year|Año más feliz|Glücklichstes Jahr
+Happiness|Felicidad|Glück
+Happiness, health, money by year|Felicidad, salud y dinero por año|Glück, Gesundheit, Geld nach Jahren
+Hardest year|Año más duro|Schwerstes Jahr
+Have a child|Tener un hijo|Ein Kind bekommen
+Head of department|Jefe de departamento|Abteilungsleiter
+Health|Salud|Gesundheit
+Health & habits|Salud y hábitos|Gesundheit & Gewohnheiten
+Health 80+|Salud 80+|Gesundheit 80+
+Healthy eating|Comida sana|Gesunde Ernährung
+Heart attack|Infarto|Herzinfarkt
+Heart-to-heart talk|Charla sincera|Offenes Gespräch
+Heir|Heredero|Erbe
+Heirlooms|Reliquias familiares|Erbstücke
+Heterosexual|Heterosexual|Heterosexuell
+High school|Instituto|Oberschule
+Hinduism|Hinduismo|Hinduismus
+Hire an employee|Contratar a un empleado|Einen Mitarbeiter einstellen
+Historic events lived through|Acontecimientos históricos vividos|Erlebte historische Ereignisse
+History is passing you by so far|La historia aún pasa de largo|Die Geschichte zieht noch an dir vorbei
+Hit|Pedir carta|Karte
+Home!|¡A casa!|Nach Hause!
+Homeland|Patria|Heimat
+Homosexual|Homosexual|Homosexuell
+Honest campaign|Campaña honesta|Ehrlicher Wahlkampf
+House is 100 years old|La casa tiene 100 años|Das Haus ist 100 Jahre alt
+I don't believe in fairy tales|No creo en cuentos|Ich glaube nicht an Märchen
+I won't go|No iré|Ich gehe nicht
+I'll manage|Me las arreglaré|Ich schaffe das schon
+I'll pass|Paso|Ich passe
+Improve quality|Mejorar la calidad|Qualität verbessern
+Inspection|Inspección|Kontrolle
+Install as an app|Instalar como aplicación|Als App installieren
+Intelligence|Inteligencia|Geheimdienst
+Investments|Inversiones|Investitionen
+Investor|Inversor|Investor
+Islam|Islam|Islam
+Job interview|Entrevista de trabajo|Vorstellungsgespräch
+Job openings|Ofertas de empleo|Stellenangebote
+Jobs held|Trabajos|Bisherige Jobs
+Join a reality show|Entrar en un reality|Bei einer Reality-Show mitmachen
+Journalists|Periodistas|Journalisten
+Judaism|Judaísmo|Judentum
+Karma|Karma|Karma
+Keep|Quedárselo|Behalten
+Keep as is|Dejar como está|So lassen
+Keep the money|Quedarse el dinero|Das Geld behalten
+Key employee|Empleado clave|Schlüsselmitarbeiter
+Last name|Apellido|Nachname
+Laws in your country|Leyes de tu país|Gesetze in deinem Land
+Lay off an employee|Despedir a un empleado|Einen Mitarbeiter entlassen
+Learn a language|Aprender un idioma|Eine Sprache lernen
+Leave|Irse|Gehen
+Leave the country|Salir del país|Das Land verlassen
+Legend|Leyenda|Legende
+Lend|Prestar|Leihen
+Let them go|Dejarlos ir|Gehen lassen
+Library|Biblioteca|Bibliothek
+Life|Vida|Leben
+Life behind bars|Vida entre rejas|Leben hinter Gittern
+Life charts|Gráficos de la vida|Lebensdiagramme
+Life grade|Nota de la vida|Lebensnote
+Life statistics|Estadísticas de la vida|Lebensstatistik
+Lions, elephants and sunsets|Leones, elefantes y atardeceres|Löwen, Elefanten und Sonnenuntergänge
+Live|Vivir|Leben
+Loading map… 🌍|Cargando mapa… 🌍|Karte wird geladen… 🌍
+Local celebrity|Celebridad local|Lokale Berühmtheit
+Lockdown|Confinamiento|Lockdown
+Looks|Apariencia|Aussehen
+Looks required|Se requiere buena apariencia|Aussehen erforderlich
+Lottery|Lotería|Lotto
+Love|Amor|Liebe
+Love & social|Amor y vida social|Liebe & Soziales
+Luxury|Lujo|Luxus
+Make a friend|Hacer un amigo|Einen Freund finden
+Male|Hombre|Männlich
+Management|Gestión|Management
+Mars colony|Colonia en Marte|Marskolonie
+Master|Máster|Master
+Master's program|Programa de máster|Masterstudium
+Mayor|Alcalde|Bürgermeister
+Meditation|Meditación|Meditation
+Meet new people|Conocer gente nueva|Neue Leute kennenlernen
+Megastar|Megaestrella|Megastar
+Member of parliament|Diputado|Abgeordneter
+Meme|Meme|Meme
+Menu|Menú|Menü
+Military academy|Academia militar|Militärakademie
+Military conscription|Servicio militar obligatorio|Wehrpflicht
+Military record|Historial militar|Militärakte
+Mind & spirit|Mente y espíritu|Geist & Seele
+Minister|Ministro|Minister
+Miss the old days|Añorar los viejos tiempos|Den alten Zeiten nachtrauern
+Mobilization|Movilización|Mobilmachung
+Mode|Modo|Modus
+Modest and honest|Modesto y honrado|Bescheiden und ehrlich
+Money|Dinero|Geld
+Money and risk|Dinero y riesgo|Geld und Risiko
+Money from fans|Dinero de los fans|Geld von Fans
+Money ×2, treason risk|Dinero ×2, riesgo de traición|Geld ×2, Verratsrisiko
+Mountains & trekking|Montaña y senderismo|Berge & Trekking
+Move abroad|Mudarse al extranjero|Ins Ausland ziehen
+Move to another country|Mudarse a otro país|In ein anderes Land ziehen
+Museums, cafés, architecture|Museos, cafés, arquitectura|Museen, Cafés, Architektur
+Must have imagined it|Habrá sido una ilusión|Muss Einbildung gewesen sein
+My property|Mis bienes|Mein Besitz
+Natural causes|Causas naturales|Natürliche Ursachen
+Net worth|Patrimonio|Vermögen
+Never mind|Da igual|Egal
+New life|Nueva vida|Neues Leben
+New life?|¿Nueva vida?|Neues Leben?
+Niches|Nichos|Nischen
+No challenge|Sin reto|Keine Herausforderung
+No education|Sin estudios|Keine Bildung
+No, thanks|No, gracias|Nein, danke
+Nobody knows you|Nadie te conoce|Niemand kennt dich
+Non-binary|No binario|Nichtbinär
+Normal|Normal|Normal
+Not enough money 💸|No hay suficiente dinero 💸|Nicht genug Geld 💸
+Not in politics|Fuera de la política|Nicht in der Politik
+Not now|Ahora no|Nicht jetzt
+Nothing yet|Nada todavía|Noch nichts
+Now|Ahora|Jetzt
+Obey|Obedecer|Gehorchen
+Offer a bribe|Ofrecer un soborno|Bestechung anbieten
+Once in a lifetime|Una vez en la vida|Einmal im Leben
+Orientation|Orientación|Orientierung
+Orthodox Christianity|Cristianismo ortodoxo|Orthodoxes Christentum
+Other openings|Otras vacantes|Weitere Stellen
+Own business|Negocio propio|Eigenes Geschäft
+Pansexual|Pansexual|Pansexuell
+Paparazzi|Paparazzi|Paparazzi
+Party|Fiesta|Party
+Pass a reform|Aprobar una reforma|Eine Reform durchbringen
+Path to fame|Camino a la fama|Weg zum Ruhm
+Peace. No shooting anywhere 🕊️|Paz. No se dispara en ningún sitio 🕊️|Frieden. Nirgends wird geschossen 🕊️
+Peacekeeping mission|Misión de paz|Friedensmission
+Peak wealth|Fortuna máxima|Höchstes Vermögen
+People|Personas|Menschen
+Perform at an open mic|Actuar en un micro abierto|Bei einer Open Mic auftreten
+Pets|Mascotas|Haustiere
+Petty theft|Hurto|Kleindiebstahl
+PhD|Doctorado|Promotion
+PhD program|Programa de doctorado|Promotionsstudium
+Photo|Foto|Foto
+Pick a goal for this life|Elige una meta para esta vida|Wähle ein Ziel für dieses Leben
+Plastic surgery|Cirugía estética|Schönheitsoperation
+Play offline from your home screen|Juega sin conexión desde la pantalla de inicio|Offline vom Startbildschirm spielen
+Politics|Política|Politik
+Populism and promises|Populismo y promesas|Populismus und Versprechen
+Premium|Prémium|Premium
+President|Presidente|Präsident
+Prime minister|Primer ministro|Premierminister
+Prison library|Biblioteca de la cárcel|Gefängnisbibliothek
+Private clinic|Clínica privada|Privatklinik
+Professional army|Ejército profesional|Berufsarmee
+Profile|Perfil|Profil
+Prohibition|Ley seca|Prohibition
+Property|Bienes|Besitz
+Property & finance|Bienes y finanzas|Besitz & Finanzen
+Propose|Pedir matrimonio|Antrag machen
+Protects from scandals|Protege de los escándalos|Schützt vor Skandalen
+Protestantism|Protestantismo|Protestantismus
+Quit|Dejarlo|Aufhören
+Random|Aleatorio|Zufällig
+Random country|País aleatorio|Zufälliges Land
+Re-enlist|Reengancharse|Verlängern
+Real estate|Inmuebles|Immobilien
+Recruit an informant|Reclutar a un informante|Einen Informanten anwerben
+Red|Rojo|Rot
+Red carpet|Alfombra roja|Roter Teppich
+Refuse|Negarse|Ablehnen
+Relationships|Relaciones|Beziehungen
+Release merch|Lanzar merchandising|Merch herausbringen
+Religion|Religión|Religion
+Remember it|Recordarlo|Sich daran erinnern
+Requires smarts 75+|Requiere inteligencia 75+|Erfordert Intelligenz 75+
+Resign|Dimitir|Zurücktreten
+Resorts, cruises, safaris, mountains|Resorts, cruceros, safaris, montañas|Resorts, Kreuzfahrten, Safaris, Berge
+Rest in peace|Descanse en paz|Ruhe in Frieden
+Retire|Jubilarse|In Rente gehen
+Retirement|Jubilación|Ruhestand
+Retrain|Reciclarse|Umschulen
+Return it to the owner|Devolverlo a su dueño|Dem Besitzer zurückgeben
+Revolution|Revolución|Revolution
+Risk of prison|Riesgo de cárcel|Gefängnisrisiko
+Risky, but may boost your rating|Arriesgado, pero puede subir tu popularidad|Riskant, kann aber die Umfragewerte heben
+Rivals & neighbors|Rivales y vecinos|Rivalen & Nachbarn
+Rob a bank|Atracar un banco|Eine Bank ausrauben
+Romantic date|Cita romántica|Romantisches Date
+Roulette|Ruleta|Roulette
+Run for re-election|Presentarse a la reelección|Zur Wiederwahl antreten
+Run in the park|Correr en el parque|Im Park joggen
+Run!|¡Corre!|Lauf!
+Safari|Safari|Safari
+Sail!|¡Zarpar!|Ablegen!
+Same-sex marriage|Matrimonio igualitario|Gleichgeschlechtliche Ehe
+Saves money, hurts quality|Ahorra dinero, empeora la calidad|Spart Geld, schadet der Qualität
+Scandal|Escándalo|Skandal
+School & work|Escuela y trabajo|Schule & Arbeit
+Sea cruise|Crucero|Kreuzfahrt
+Self-care|Autocuidado|Selbstfürsorge
+Sell 30% of shares to the public|Vender el 30% de las acciones al público|30% der Aktien an die Börse bringen
+Sell a stake|Vender una participación|Anteile verkaufen
+Sell off what's left|Vender lo que queda|Den Rest verkaufen
+Serious risk|Riesgo serio|Ernstes Risiko
+Several countries at once|Varios países a la vez|Mehrere Länder auf einmal
+Share the result|Compartir el resultado|Ergebnis teilen
+Share your story|Comparte tu historia|Teile deine Geschichte
+Shinto|Sintoísmo|Shinto
+Show honest books|Mostrar las cuentas reales|Ehrliche Bücher zeigen
+Sikhism|Sijismo|Sikhismus
+Single life|Vida de soltero|Single-Leben
+Ski resort|Estación de esquí|Skigebiet
+Skills, contests, side gigs|Habilidades, concursos, trabajillos|Fähigkeiten, Wettbewerbe, Nebenjobs
+Skin tone|Tono de piel|Hautton
+Skip the exams|Saltarse los exámenes|Prüfungen auslassen
+Slots|Tragaperras|Spielautomaten
+Small registry wedding|Boda sencilla en el registro|Kleine standesamtliche Hochzeit
+Smarts|Inteligencia|Intelligenz
+Smarts 70+, university degree|Inteligencia 70+, título universitario|Intelligenz 70+, Hochschulabschluss
+Smoking ban in bars|Prohibido fumar en bares|Rauchverbot in Bars
+Snow and mulled wine|Nieve y vino caliente|Schnee und Glühwein
+Social network|Red social|Soziales Netzwerk
+Sound|Sonido|Ton
+Space tourism|Turismo espacial|Weltraumtourismus
+Special forces selection|Selección para fuerzas especiales|Auswahl für Spezialkräfte
+Spend time together|Pasar tiempo juntos|Zeit miteinander verbringen
+Spin again|Girar otra vez|Nochmal drehen
+Stable|Estable|Stabil
+Stand-up or songs|Monólogos o canciones|Stand-up oder Songs
+Star|Estrella|Star
+Start|Empezar|Starten
+Start a business|Montar un negocio|Ein Geschäft gründen
+Start a new life|Empezar una nueva vida|Ein neues Leben beginnen
+Start the exam|Empezar el examen|Prüfung beginnen
+Start working|Empezar a trabajar|Anfangen zu arbeiten
+Station chief|Jefe de estación|Residenturleiter
+Stats|Estadísticas|Werte
+Stay|Quedarse|Bleiben
+Steal a car|Robar un coche|Ein Auto stehlen
+Steal secret documents|Robar documentos secretos|Geheime Dokumente stehlen
+Step down gracefully|Retirarse con dignidad|Würdevoll abtreten
+Step into the beam|Entrar en el haz de luz|In den Lichtstrahl treten
+Stock exchange|Bolsa|Börse
+Stocks|Acciones|Aktien
+Stop talking|Dejar de hablar|Den Kontakt abbrechen
+Strategy|Estrategia|Strategie
+Stress, sleep, smoking, insurance|Estrés, sueño, tabaco, seguros|Stress, Schlaf, Rauchen, Versicherung
+Study abroad|Estudiar en el extranjero|Im Ausland studieren
+Study harder|Estudiar más|Fleißiger lernen
+Support the Reds|Apoyar a los rojos|Die Roten unterstützen
+Support the Whites|Apoyar a los blancos|Die Weißen unterstützen
+Surveillance|Vigilancia|Überwachung
+Take a gap year|Tomarse un año sabático|Ein Gap Year machen
+Take it|Cogerlo|Nehmen
+Take kickbacks|Aceptar comisiones|Schmiergeld nehmen
+Take part|Participar|Teilnehmen
+Talents & hobbies|Talentos y aficiones|Talente & Hobbys
+Talk show|Programa de entrevistas|Talkshow
+Taoism|Taoísmo|Taoismus
+Tell them the code|Decirles el código|Ihnen den Code sagen
+Tell your loved ones|Contárselo a tus seres queridos|Es deinen Liebsten erzählen
+The best treatment|El mejor tratamiento|Die beste Behandlung
+The country has conscription|El país tiene servicio militar obligatorio|Im Land gilt die Wehrpflicht
+The current one will be lost|Se perderá la actual|Das aktuelle geht verloren
+The double|El doble|Der Doppelgänger
+The envelope|El sobre|Der Umschlag
+The shelf is empty so far|La estantería aún está vacía|Das Regal ist noch leer
+The siege|El asedio|Die Belagerung
+The talking cat|El gato que habla|Die sprechende Katze
+Therapist|Psicólogo|Therapeut
+There's always a risk|Siempre hay riesgo|Ein Risiko gibt es immer
+Thought|Pensamiento|Gedanke
+Throw them out|Echarlos|Rauswerfen
+Trainee|Becario|Praktikant
+Trains, tents and new cities|Trenes, tiendas de campaña y nuevas ciudades|Züge, Zelte und neue Städte
+Travel|Viajar|Reisen
+Treat illnesses|Tratar enfermedades|Krankheiten behandeln
+Trip|Viaje|Reise
+Try|Intentar|Versuchen
+University|Universidad|Universität
+Vaccine|Vacuna|Impfstoff
+Vehicles|Vehículos|Fahrzeuge
+Very risky|Muy arriesgado|Sehr riskant
+Video games|Videojuegos|Videospiele
+Visit a temple|Visitar un templo|Einen Tempel besuchen
+Visited|Visitado|Besucht
+Volunteering|Voluntariado|Ehrenamt
+Wait|Esperar|Warten
+Wars in the world|Guerras en el mundo|Kriege in der Welt
+Well-known person|Persona conocida|Bekannte Person
+What's next?|¿Y ahora qué?|Wie geht es weiter?
+Where are we going?|¿Adónde vamos?|Wohin geht's?
+Where you've been and where to go|Dónde has estado y adónde ir|Wo du warst und wohin es gehen kann
+Win it back|Recuperarlo|Zurückgewinnen
+Win the debates|Ganar los debates|Die Debatten gewinnen
+Withdraw 10%|Retirar el 10%|10% abheben
+Women can vote|Las mujeres pueden votar|Frauen dürfen wählen
+Work|Trabajo|Arbeit
+Work harder|Trabajar más|Härter arbeiten
+Work on the home front|Trabajar en la retaguardia|An der Heimatfront arbeiten
+Work out in the yard|Hacer ejercicio en el patio|Im Hof trainieren
+World map|Mapa del mundo|Weltkarte
+World today|El mundo hoy|Die Welt heute
+Worldview|Visión del mundo|Weltanschauung
+Write an autobiography|Escribir una autobiografía|Eine Autobiografie schreiben
+Yes, start over|Sí, empezar de nuevo|Ja, neu beginnen
+You can buy property from age 18 🙂|Puedes comprar bienes a partir de los 18 🙂|Besitz kannst du ab 18 kaufen 🙂
+You can start a business at 18|Puedes montar un negocio a los 18|Ein Geschäft kannst du mit 18 gründen
+You're too little. Just grow! 🍼|Eres muy pequeño. ¡Tú crece! 🍼|Du bist noch zu klein. Wachs einfach! 🍼
+Your history chronicle|Tu crónica histórica|Deine Geschichtschronik
+from birth|desde el nacimiento|seit der Geburt
+in progress|en curso|läuft
+life simulator|simulador de vida|Lebenssimulator
+mortgage available|hipoteca disponible|Hypothek möglich
+year|año|Jahr
+your life|tu vida|dein Leben
+← Back to summary|← Volver al resumen|← Zurück zur Übersicht
+Life chronicle|Crónica de la vida|Lebenschronik
+📖 Life chronicle|📖 Crónica de la vida|📖 Lebenschronik
+Family heirlooms|Reliquias familiares|Familienerbstücke
+🏺 Family heirlooms|🏺 Reliquias familiares|🏺 Familienerbstücke
+Country and daily life|País y vida cotidiana|Land und Alltag
+🗞️ Country and daily life|🗞️ País y vida cotidiana|🗞️ Land und Alltag
+Move to another city|Mudarse a otra ciudad|In eine andere Stadt ziehen
+Prices|Precios|Preise
+A loaf of bread|Una barra de pan|Ein Laib Brot
+Milk|Leche|Milch
+Gasoline|Gasolina|Benzin
+City fare|Billete urbano|Stadtfahrschein
+Movie ticket|Entrada de cine|Kinokarte
+A new car|Un coche nuevo|Ein neues Auto
+Average monthly wage|Salario medio mensual|Durchschnittlicher Monatslohn
+Everyday life|Vida cotidiana|Alltag
+Communication|Comunicación|Kommunikation
+Vaccinations|Vacunas|Impfungen
+Ration cards|Cartillas de racionamiento|Lebensmittelkarten
+The book of your life|El libro de tu vida|Das Buch deines Lebens
+💾 Download the chronicle|💾 Descargar la crónica|💾 Chronik herunterladen
+Sports|Deportes|Sport
+Shop|Tienda|Laden
+Assets|Bienes|Besitz
+Age +1|Edad +1|Alter +1
+Save slot|Ranura de guardado|Speicherplatz
+Empty|Vacío|Leer
+new life|nueva vida|neues Leben
