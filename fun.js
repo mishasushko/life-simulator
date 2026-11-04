@@ -431,11 +431,11 @@ YEAR_HOOKS.push(() => {
   if (S.age < 18 && par.length && !S.prison) {
     const g = bdayGift(); const good = chance(0.8);
     eff({ happy: good ? rnd(2, 5) : -1 });
-    if (S.age <= 12 || chance(0.5)) log((par.length > 1 ? `🎂 День рождения! Родители подарили вам ${g}.` : gv(par[0], `🎂 День рождения! ${par[0].name} подарил вам ${g}.`, `🎂 День рождения! ${par[0].name} подарила вам ${g}.`, `🎂 День рождения! ${par[0].name} подарил(а) вам ${g}.`)) + (good ? '' : ' Вы мечтали совсем о другом.'), good ? 'good' : '');
+    if (S.age <= 12 || chance(0.5)) log((par.length > 1 ? `🎂 День рождения! Родители подарили вам ${g}.` : gv(par[0], `🎂 День рождения! ${par[0].name} подарил вам ${g}.`, `🎂 День рождения! ${par[0].name} подарила вам ${g}.`, `🎂 День рождения! Подарок от ${par[0].name}: ${g}.`)) + (good ? '' : ' Вы мечтали совсем о другом.'), good ? 'good' : '');
   } else if (pt && chance(0.6) && !S.prison) {
     const g = bdayGift(); const great = chance(pt.close / 120);
     pt.close = clamp(pt.close + (great ? 2 : 0)); eff({ happy: great ? 5 : 1 });
-    log(gv(pt, `🎁 ${pt.name} подарил вам на день рождения ${g}.`, `🎁 ${pt.name} подарила вам на день рождения ${g}.`, `🎁 ${pt.name} подарил(а) вам на день рождения ${g}.`) + (great ? gv(pt, ' Угадал идеально!', ' Угадала идеально!', ' Угадал(а) идеально!') : ''), great ? 'good' : '');
+    log(gv(pt, `🎁 ${pt.name} подарил вам на день рождения ${g}.`, `🎁 ${pt.name} подарила вам на день рождения ${g}.`, `🎁 Подарок на день рождения от ${pt.name}: ${g}.`) + (great ? gv(pt, ' Угадал идеально!', ' Угадала идеально!', ' Попадание в точку!') : ''), great ? 'good' : '');
   }
   if (MILESTONE.includes(S.age) && !S.prison) {
     const friends = S.people.filter((p) => p.alive && ['friend', 'sibling', 'partner', 'child'].includes(p.role));
