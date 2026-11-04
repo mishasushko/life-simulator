@@ -938,7 +938,7 @@ function setLang(l) { try { localStorage.setItem(LANG_KEY, l); } catch (e) {} lo
 })();
 MENU_HOOKS.push((l) => item(l, { e: '🌐', t: 'Язык · Language · Мова', d: (LANGS.find((x) => x[0] === LANG) || LANGS[0])[2], onClick: () => { closeSheet(); Q.push({ e: '🌐', title: 'Язык · Language · Мова', text: '', choices: LANGS.filter((x) => x[0] !== LANG).map(([id, , name]) => ({ t: name, f: () => { setLang(id); } })) }); pump(); } }));
 if (LANG === 'en' || LANG === 'uk') {
-  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=38';
+  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=39';
   sc.onload = sc.onerror = () => startEnglish();
   document.head.appendChild(sc);
 }

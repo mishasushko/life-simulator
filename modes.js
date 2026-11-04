@@ -236,18 +236,35 @@ EXTRA_PANELS.travel = function () {
   if (!sv.length) l2.appendChild(el('<div class="empty">Полка пока пустая</div>'));
   else l2.appendChild(el(`<div class="souv">${sv.map((x) => `<span>${esc(x)}</span>`).join('')}</div>`));
 };
+// Выбор города: названия по эпохе, город проживания не предлагаем для поездки по своей стране
+let TRIP_CITY = null;
+function tripCityPick(t, c, to) {
+  const all = [...new Set((to.cities || []).map((n) => cityAt(n, S.year)))].filter((n) => !(to.id === S.country && n === S.city));
+  if (all.length <= 1) { TRIP_CITY = all[0] || null; return doTrip(t, c, to); }
+  const seen = S.tripCities || [];
+  const shown = all.length > 8 ? all.slice().sort(() => Math.random() - 0.5).slice(0, 8) : all;
+  setTimeout(() => {
+    if (!S || !S.alive) return;
+    Q.push({ e: to.flag, title: `${t.e} ${cname(to)}`, text: 'В какой город поедете?', choices: shown.map((n) => ({ t: `🏙️ ${n}${seen.includes(n) ? '' : ' · впервые'}`, f: () => { TRIP_CITY = n; return doTrip(t, c, to); } }))
+      .concat([{ t: '🎲 Куда глаза глядят', f: () => { TRIP_CITY = pick(all); return doTrip(t, c, to); } }, { t: 'Отмена', f: () => null }]) });
+    pump();
+  }, 30);
+  return null;
+}
 function tripPick(t, c) {
-  if (t.id === 'home' || t.id === 'space') return act(() => doTrip(t, c, C()))();
+  if (t.id === 'space') return act(() => doTrip(t, c, C()))();
+  if (t.id === 'home') { const r = tripCityPick(t, c, C()); if (r) act(() => r)(); return; }
   const opts = (t.where || []).map((id) => COUNTRIES.find((x) => x.id === id)).filter((x) => x && x.id !== S.country && canTravelAbroad(x.id));
   if (!opts.length) { toast('Сейчас туда не попасть 🚫'); return; }
   const shown = opts.sort(() => Math.random() - 0.5).slice(0, 5);
-  Q.push({ e: t.e, title: t.t, text: 'Выберите страну:', choices: shown.map((x) => ({ t: `${x.flag} ${cname(x)}${S.visited.includes(x.id) ? '' : ' · новая!'}`, f: () => doTrip(t, c, x) })).concat([{ t: 'Отмена', f: () => null }]) });
+  Q.push({ e: t.e, title: t.t, text: 'Выберите страну:', choices: shown.map((x) => ({ t: `${x.flag} ${cname(x)}${S.visited.includes(x.id) ? '' : ' · новая!'}`, f: () => tripCityPick(t, c, x) })).concat([{ t: 'Отмена', f: () => null }]) });
   pump();
 }
 function doTrip(t, c, to) {
   S.used.trips = (S.used.trips || 0) + 1; S.money -= c;
   const isNew = !S.visited.includes(to.id); if (isNew) S.visited.push(to.id);
-  const city = t.id === 'space' ? 'орбита' : pick(to.cities);
+  const city = t.id === 'space' ? 'орбита' : (TRIP_CITY || cityAt(pick(to.cities), S.year)); TRIP_CITY = null;
+  if (t.id !== 'space') { S.tripCities = S.tripCities || []; if (!S.tripCities.includes(city)) S.tripCities.push(city); }
   S.souv = S.souv || []; const sv = `${pick(SOUVENIRS[t.k])} · ${t.id === 'space' ? '🌍' : to.flag}`; if (!S.souv.includes(sv)) S.souv.push(sv);
   eff({ happy: rnd(8, 16), smarts: rnd(0, 2) });
   if (t.id === 'mountain') eff({ health: rnd(2, 6) });

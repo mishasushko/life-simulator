@@ -151,3 +151,285 @@ Selectividad|Selectividad
 Бороться за титул «Король бала»|Compete for prom king
 Вас выбрали королевой выпускного!|You were crowned prom queen!
 Вас выбрали королём выпускного!|You were crowned prom king!
+Русский язык|Russian
+русский язык|Russian
+Украинский язык|Ukrainian
+украинский язык|Ukrainian
+Белорусский язык|Belarusian
+белорусский язык|Belarusian
+Казахский язык|Kazakh
+казахский язык|Kazakh
+Грузинский язык|Georgian
+грузинский язык|Georgian
+Армянский язык|Armenian
+армянский язык|Armenian
+Азербайджанский язык|Azerbaijani
+азербайджанский язык|Azerbaijani
+Узбекский язык|Uzbek
+узбекский язык|Uzbek
+Киргизский язык|Kyrgyz
+киргизский язык|Kyrgyz
+Таджикский язык|Tajik
+таджикский язык|Tajik
+Туркменский язык|Turkmen
+туркменский язык|Turkmen
+Литовский язык|Lithuanian
+литовский язык|Lithuanian
+Латышский язык|Latvian
+латышский язык|Latvian
+Эстонский язык|Estonian
+эстонский язык|Estonian
+Румынский язык|Romanian
+румынский язык|Romanian
+Немецкий язык|German
+немецкий язык|German
+Французский язык|French
+французский язык|French
+Итальянский язык|Italian
+итальянский язык|Italian
+Португальский язык|Portuguese
+португальский язык|Portuguese
+Японский язык|Japanese
+японский язык|Japanese
+Корейский язык|Korean
+корейский язык|Korean
+Китайский язык|Chinese
+китайский язык|Chinese
+Турецкий язык|Turkish
+турецкий язык|Turkish
+Хинди|Hindi
+хинди|Hindi
+Польский язык|Polish
+польский язык|Polish
+Чешский язык|Czech
+чешский язык|Czech
+Словацкий язык|Slovak
+словацкий язык|Slovak
+Нидерландский язык|Dutch
+нидерландский язык|Dutch
+Шведский язык|Swedish
+шведский язык|Swedish
+Финский язык|Finnish
+финский язык|Finnish
+Датский язык|Danish
+датский язык|Danish
+Норвежский язык|Norwegian
+норвежский язык|Norwegian
+Исландский язык|Icelandic
+исландский язык|Icelandic
+Греческий язык|Greek
+греческий язык|Greek
+Сербский язык|Serbian
+сербский язык|Serbian
+Хорватский язык|Croatian
+хорватский язык|Croatian
+Словенский язык|Slovene
+словенский язык|Slovene
+Боснийский язык|Bosnian
+боснийский язык|Bosnian
+Черногорский язык|Montenegrin
+черногорский язык|Montenegrin
+Македонский язык|Macedonian
+македонский язык|Macedonian
+Албанский язык|Albanian
+албанский язык|Albanian
+Болгарский язык|Bulgarian
+болгарский язык|Bulgarian
+Венгерский язык|Hungarian
+венгерский язык|Hungarian
+Монгольский язык|Mongolian
+монгольский язык|Mongolian
+Иврит|Hebrew
+иврит|Hebrew
+Персидский язык|Persian
+персидский язык|Persian
+Урду|Urdu
+урду|Urdu
+Бенгальский язык|Bengali
+бенгальский язык|Bengali
+Сингальский язык|Sinhala
+сингальский язык|Sinhala
+Непальский язык|Nepali
+непальский язык|Nepali
+Малайский язык|Malay
+малайский язык|Malay
+Индонезийский язык|Indonesian
+индонезийский язык|Indonesian
+Тайский язык|Thai
+тайский язык|Thai
+Вьетнамский язык|Vietnamese
+вьетнамский язык|Vietnamese
+Кхмерский язык|Khmer
+кхмерский язык|Khmer
+Лаосский язык|Lao
+лаосский язык|Lao
+Бирманский язык|Burmese
+бирманский язык|Burmese
+Филиппинский язык|Filipino
+филиппинский язык|Filipino
+Суахили|Swahili
+суахили|Swahili
+Английский язык|English
+английский язык|English
+Амхарский язык|Amharic
+амхарский язык|Amharic
+Мальтийский язык|Maltese
+мальтийский язык|Maltese
+Малагасийский язык|Malagasy
+малагасийский язык|Malagasy
+Арабский язык|Arabic
+арабский язык|Arabic
+Испанский язык|Spanish
+испанский язык|Spanish
+Латынь|Latin
+латынь|Latin
+Литературное чтение|Reading
+литературное чтение|reading
+Чтение|Reading
+чтение|reading
+Чистописание|Penmanship
+чистописание|penmanship
+Каллиграфия|Calligraphy
+каллиграфия|calligraphy
+Алгебра|Algebra
+алгебра|algebra
+Геометрия|Geometry
+геометрия|geometry
+Математический анализ|Calculus
+математический анализ|calculus
+Окружающий мир|The World Around Us
+окружающий мир|the world around us
+Природоведение|Nature Studies
+природоведение|nature studies
+Ботаника|Botany
+ботаника|botany
+Зоология|Zoology
+зоология|zoology
+Анатомия|Anatomy
+анатомия|anatomy
+Общая биология|General Biology
+общая биология|general biology
+Биология|Biology
+биология|biology
+География|Geography
+география|geography
+Логика|Logic
+логика|logic
+Обществоведение|Social Studies
+обществоведение|social studies
+Обществознание|Social Studies
+обществознание|social studies
+Граждановедение|Civics
+граждановедение|civics
+Политическое воспитание|Political Education
+политическое воспитание|political education
+Основы марксизма|Foundations of Marxism
+основы марксизма|foundations of marxism
+Мораль|Moral Education
+мораль|moral education
+Сюсин (мораль)|Shūshin (moral education)
+сюсин (мораль)|Shūshin (moral education)
+Закон Божий|Scripture
+закон божий|Scripture
+Религия|Religious Education
+религия|religious education
+Основы ислама|Islamic Studies
+основы ислама|islamic studies
+Религиозная культура и этика|Religious Culture and Ethics
+религиозная культура и этика|religious culture and ethics
+Танах|Tanakh
+танах|Tanakh
+Основы религиозных культур и светской этики|Religious Cultures and Secular Ethics
+основы религиозных культур и светской этики|religious cultures and secular ethics
+Санскрит|Sanskrit
+санскрит|Sanskrit
+Труд (технология)|Labor (Technology)
+труд (технология)|labor (technology)
+Домоводство|Home Economics
+домоводство|home economics
+Труд (мастерские)|Shop Class
+труд (мастерские)|shop class
+Столярное дело|Woodwork
+столярное дело|woodwork
+Трудовое обучение|Manual Training
+трудовое обучение|manual training
+Технология|Technology
+технология|technology
+Пение и рисование|Singing and Drawing
+пение и рисование|singing and drawing
+ИЗО|Art
+Музыка|Music
+музыка|music
+Музыка и рисование|Music and Art
+музыка и рисование|music and art
+Начальная военная подготовка|Basic Military Training
+начальная военная подготовка|basic military training
+Основы безопасности и защиты Родины|Safety and Homeland Defense
+основы безопасности и защиты родины|safety and homeland defense
+ОБЖ|Life Safety
+Информатика и вычислительная техника|Informatics and Computing
+информатика и вычислительная техника|informatics and computing
+Информатика|Computer Science
+информатика|computer science
+Программирование|Computing
+программирование|computing
+Финансовая грамотность|Financial Literacy
+финансовая грамотность|financial literacy
+Робототехника|Robotics
+робототехника|robotics
+Основы искусственного интеллекта|Introduction to AI
+основы искусственного интеллекта|introduction to ai
+Экология и климат|Ecology and Climate
+экология и климат|ecology and climate
+Космическая навигация|Space Navigation
+космическая навигация|space navigation
+Гимнастика|Gymnastics
+гимнастика|gymnastics
+Литература|Literature
+литература|literature
+Физика|Physics
+физика|physics
+Химия|Chemistry
+химия|chemistry
+Астрономия|Astronomy
+астрономия|astronomy
+История|History
+история|history
+Математика|Math
+математика|math
+Естествознание|Science
+естествознание|science
+Физкультура|PE
+физкультура|pe
+изо|art
+📚 С {0} класса в расписании новый предмет: {1}.|📚 From grade {0} there is a new subject on the timetable: {1}.
+📚 С {0} класса в расписании новые предметы: {1}, {2}.|📚 From grade {0} there are new subjects on the timetable: {1}, {2}.
+📚 С {0} класса в расписании новые предметы: {1}, {2}, {3}.|📚 From grade {0} there are new subjects on the timetable: {1}, {2}, {3}.
+📚 С {0} класса в расписании новые предметы: {1}, {2}, {3}, {4}.|📚 From grade {0} there are new subjects on the timetable: {1}, {2}, {3}, {4}.
+📚 С {0} класса в расписании новые предметы: {1}, {2}, {3}, {4}, {5}.|📚 From grade {0} there are new subjects on the timetable: {1}, {2}, {3}, {4}, {5}.
+📚 С {0} класса в расписании новые предметы: {1}, {2}, {3}, {4}, {5}, {6}.|📚 From grade {0} there are new subjects on the timetable: {1}, {2}, {3}, {4}, {5}, {6}.
+📚 С {0} класса в расписании новые предметы: {1}, {2}, {3}, {4}, {5}, {6}, {7}.|📚 From grade {0} there are new subjects on the timetable: {1}, {2}, {3}, {4}, {5}, {6}, {7}.
+📚 С {0} класса в расписании новые предметы: {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}.|📚 From grade {0} there are new subjects on the timetable: {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}.
+📚 С {0} класса в расписании новые предметы: {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}.|📚 From grade {0} there are new subjects on the timetable: {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}.
+🧠 Самая умная|🧠 Smartest
+🏅 Спортсменка выпуска|🏅 Athlete of the class
+😈 Главная хулиганка|😈 Biggest troublemaker
+🏆 Олимпиадница|🏆 Olympiad champion
+🤫 Самая загадочная|🤫 Most mysterious
+🍔 Королева столовой|🍔 Queen of the cafeteria
+💰 Скорее всего станет миллионершей|💰 Most likely to become a millionaire
+В какой город поедете?|Which city are you going to?
+🎲 Куда глаза глядят|🎲 Wherever the road takes me
+🏙️ {0} · впервые|🏙️ {0} · first time
+Снабженец|Supply clerk
+Завмаг|Store manager
+Колхозник|Collective farmer
+Крестьянин|Peasant
+Милиционер|Police officer
+снабженец|supply clerk
+завмаг|store manager
+колхозник|collective farmer
+крестьянин|peasant
+милиционер|police officer
+🍎 У вас появилась любимая учительница: {0} ({1}). С ней урок пролетает незаметно.|🍎 You have a favorite teacher: {0} ({1}). Her classes fly by.
+Любимая учительница|Favorite teacher

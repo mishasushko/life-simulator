@@ -241,7 +241,7 @@ YEAR_HOOKS.push(() => {
       const best = SUBJ.slice().sort((a, b) => sc.subj[b[0]] - sc.subj[a[0]])[0];
       const g = npcGender(); const nm = randFirst(g);
       sc.teacher = { name: nm, g, subj: best[0] };
-      log(`🍎 У вас появился любимый учитель: ${nm} (${best[2].toLowerCase()}). С ${g === 'f' ? 'ней' : 'ним'} урок пролетает незаметно.`, 'good');
+      log(g === 'f' ? `🍎 У вас появилась любимая учительница: ${nm} (${best[2].toLowerCase()}). С ней урок пролетает незаметно.` : `🍎 У вас появился любимый учитель: ${nm} (${best[2].toLowerCase()}). С ним урок пролетает незаметно.`, 'good');
     }
     if (chance(0.12)) {
       const k = rnd(0, 4);
@@ -289,7 +289,7 @@ EXTRA_PANELS.school = function () {
   const sc = S.school;
   if (!sc) { B.appendChild(el('<div class="empty">Школа начнётся в 6 лет.</div>')); return; }
   const rows = SUBJ.map(([id, e, n]) => `<div class="rc-row"><span>${e} ${n}${sc.teacher && sc.teacher.subj === id ? ' 🍎' : ''}</span><b class="m${mark(sc.subj[id])}">${mark(sc.subj[id])}</b></div>`).join('');
-  card(`<div class="muted">📒 Дневник${S.edu.stage === 'school' ? ` · ${Math.min(11, S.age - 5)} класс` : ' · выпуск ' + (sc.yearbook?.year || '')}</div><div class="report">${rows}</div>${sc.teacher ? `<div class="muted">Любимый учитель: ${esc(sc.teacher.name)}</div>` : ''}${sc.pres ? '<div class="muted">🏛️ Президент школы</div>' : ''}${sc.olymp.length ? `<div class="muted">🏆 Олимпиады: ${sc.olymp.map(esc).join(', ')}</div>` : ''}`);
+  card(`<div class="muted">📒 Дневник${S.edu.stage === 'school' ? ` · ${Math.min(11, S.age - 5)} класс` : ' · выпуск ' + (sc.yearbook?.year || '')}</div><div class="report">${rows}</div>${sc.teacher ? `<div class="muted">${sc.teacher.g === 'f' ? 'Любимая учительница' : 'Любимый учитель'}: ${esc(sc.teacher.name)}</div>` : ''}${sc.pres ? '<div class="muted">🏛️ Президент школы</div>' : ''}${sc.olymp.length ? `<div class="muted">🏆 Олимпиады: ${sc.olymp.map(esc).join(', ')}</div>` : ''}`);
   if (sc.yearbook) {
     const Y = sc.yearbook;
     B.appendChild(el(`<div class="section-title">Выпускной альбом ${Y.year}</div>`));

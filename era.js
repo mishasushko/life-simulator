@@ -168,3 +168,19 @@ function jobForGender(p) { if (p && p.gender === 'm' && p.job === 'Медсес�
 const _makePersonJob = makePerson;
 makePerson = function (...a) { return jobForGender(_makePersonJob(...a)); };
 YEAR_HOOKS.unshift(() => { if (S && S.people) S.people.forEach(jobForGender); });
+
+/* ---------- Профессии по стране и эпохе: в СССР не было менеджеров, фермеров и безработных ---------- */
+const ERA_SOV = ['ru', 'ua', 'by', 'kz', 'ge', 'am', 'az', 'uz', 'kg', 'tj', 'tm', 'lt', 'lv', 'ee', 'md'];
+const _npcJobEra = npcJob;
+npcJob = function () {
+  const c = S && S.country, y = (S && S.year) || 2000;
+  const sov = ERA_SOV.includes(c) && y >= 1922 && y < 1990;
+  for (let i = 0; i < 6; i++) {
+    let j = _npcJobEra();
+    if (sov) { if (j === 'Безработный') continue; j = { 'Менеджер': 'Снабженец', 'Предприниматель': 'Завмаг', 'Фермер': y >= 1930 ? 'Колхозник' : 'Крестьянин' }[j] || j; }
+    if (ERA_SOV.includes(c) && y < 1992 && y >= 1918 && j === 'Полицейский') j = 'Милиционер';
+    if (j === 'Полицейский' && ((c === 'ru' && y >= 1992 && y < 2011) || (c === 'by' && y >= 1992) || (c === 'ua' && y >= 1992 && y < 2015) || (['kz', 'uz', 'kg', 'tj', 'tm', 'az', 'am'].includes(c) && y >= 1992 && y < 2015))) j = 'Милиционер';
+    return j;
+  }
+  return 'Инженер';
+};
