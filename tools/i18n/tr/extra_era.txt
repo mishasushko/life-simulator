@@ -563,3 +563,30 @@ Selectividad|Selectividad
 👤 Мои жизни|👤 My lives
 Мои жизни|My lives
 Мировая таблица|World leaderboard
+🌧️ Сезон дождей: бегали босиком по тёплым лужам.|🌧️ Rainy season: you ran barefoot through warm puddles.
+🥭 Сезон фруктов: объедались манго прямо с дерева.|🥭 Fruit season: you gorged on mangoes straight from the tree.
+☀️ Каникулы: целыми днями играли на улице до заката.|☀️ Holidays: you played outside all day until sunset.
+⛈️ Ливень застал вас по дороге домой. Было весело!|⛈️ A downpour caught you on the way home. It was fun!
+🌴 Нашли во дворе огромного жука и показывали всем.|🌴 You found a huge beetle in the yard and showed it to everyone.
+🌧️ Сезон дождей выдался долгим.|🌧️ The rainy season dragged on.
+🌞 Жара стояла такая, что спасал только вентилятор.|🌞 It was so hot that only the fan saved you.
+🏖️ Удалось выбраться на побережье.|🏖️ You managed to get away to the coast.
+🌴 Вы впервые за долгое время гуляли без цели.|🌴 For the first time in ages you went for an aimless walk.
+🌱 Вы посадили зелень в горшках на балконе.|🌱 You planted herbs in pots on the balcony.
+🪑 Вечера на лавочке во дворе с соседями.|🪑 Evenings on the bench outside with the neighbors.
+🌞 Пережидали жару в тени с внуками.|🌞 You waited out the heat in the shade with your grandchildren.
+☀️ Каникулы у бабушки с дедушкой.|☀️ Holidays at your grandparents'.
+Сёгацу|Shōgatsu
+Японский Новый год: моти, первый визит в храм и открытки всем знакомым.|Japanese New Year: mochi, the first shrine visit and cards to everyone you know.
+Вайсакхи|Vaisakhi
+Праздник урожая: гурдвара, общая трапеза и танцы.|The harvest festival: the gurdwara, a shared meal and dancing.
+Буддийский Новый год|Buddhist New Year
+Храм, подношения монахам и шумные водяные битвы.|The temple, offerings to monks and noisy water fights.
+Курбан-байрам|Eid al-Adha
+Вся семья в сборе, угощение и подарки детям.|The whole family together, a feast and gifts for the children.
+Новый год|New Year
+Фейерверки, угощения и вся семья за одним столом.|Fireworks, treats and the whole family at one table.
+Идёт война. Женщин зовут добровольцами: медсёстрами, связистками, на заводы в тыл.|War is on. Women are called up as volunteers: nurses, signal operators, factory workers on the home front.
+Пойти на фронт добровольцем|Volunteer for the front
+Погибла на войне|Killed in the war
+{0} {1} дома. Вам подарили: {2}.|{0} {1} at home. You were given: {2}.

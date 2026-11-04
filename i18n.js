@@ -839,7 +839,11 @@ function trFull(raw) {
   TR_CACHE.set(raw, r); return r;
 }
 const CUR_EN = { сум: 'UZS', сом: 'KGS', лв: 'BGN', ден: 'MKD', дин: 'RSD', смн: 'TJS', риал: 'rial' };
-const fixMoney = (x) => LANG === 'uk' ? x.replace(/(\d) тыс\./g, '$1 тис.') : x.replace(/(\d) млрд/g, '$1B').replace(/(\d) млн/g, '$1M').replace(/(\d) тыс\./g, '$1K').replace(/(\d[MBK]?) (сум|сом|лв|ден|дин|смн|риал)(?![а-яё])/g, (m, a, c) => `${a} ${CUR_EN[c]}`);
+const ERA_CUR_TR = [['старых фр.', 'old francs', 'старих фр.'], ['бельг. фр.', 'BEF', 'бельг. фр.'], ['фин. марок', 'FIM', 'фін. марок'], ['кипр. £', 'CYP £', 'кіпр. £'], ['мальт. лир', 'MTL', 'мальт. лір'], ['ирл. £', 'IR£', 'ірл. £'], ['рейхсмарок', 'Reichsmarks', 'рейхсмарок'], ['марок', 'marks', 'марок'], ['фр.', 'francs', 'фр.'], ['лир', 'lire', 'лір'], ['песет', 'pesetas', 'песет'], ['эскудо', 'escudos', 'ескудо'], ['реалов', 'réis', 'реалів'], ['гульд.', 'guilders', 'гульд.'], ['шилл.', 'schillings', 'шил.'], ['крон', 'kronen', 'крон'], ['драхм', 'drachmas', 'драхм'], ['толаров', 'tolars', 'толарів'], ['литов', 'litai', 'літів'], ['латов', 'lati', 'латів'], ['кун', 'kuna', 'кун'], ['руб.', 'rub.', 'руб.'], ['крб.', 'krb.', 'крб.']];
+const ERA_CUR_RE = new RegExp('(\\d[MBK]?|млн|млрд|тис\\.) (' + ERA_CUR_TR.map((x) => x[0].replace(/[.£]/g, (m) => '\\' + m)).join('|') + ')(?![а-яё])', 'g');
+const fixEraCur = (x) => x.replace(ERA_CUR_RE, (m, a, c) => { const t = ERA_CUR_TR.find((r) => r[0] === c); return `${a} ${t ? t[LANG === 'uk' ? 2 : 1] : c}`; });
+const fixMoney0 = (x) => LANG === 'uk' ? x.replace(/(\d) тыс\./g, '$1 тис.') : x.replace(/(\d) млрд/g, '$1B').replace(/(\d) млн/g, '$1M').replace(/(\d) тыс\./g, '$1K').replace(/(\d[MBK]?) (сум|сом|лв|ден|дин|смн|риал)(?![а-яё])/g, (m, a, c) => `${a} ${CUR_EN[c]}`);
+const fixMoney = (x) => fixEraCur(fixMoney0(x));
 const EMO_TAIL = /(\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator})(?:[️‍⃣]|\p{Extended_Pictographic}|\p{Regional_Indicator}|\p{Emoji_Modifier})*)$/u;
 let NAME_SET = null;
 function isName(s) {
@@ -943,7 +947,7 @@ function setLang(l) { try { localStorage.setItem(LANG_KEY, l); } catch (e) {} lo
 })();
 MENU_HOOKS.push((l) => item(l, { e: '🌐', t: 'Язык · Language · Мова', d: (LANGS.find((x) => x[0] === (LANG2 || LANG)) || LANGS[0])[2], onClick: () => { closeSheet(); Q.push({ e: '🌐', title: 'Язык · Language · Мова', text: '', choices: LANGS.filter((x) => x[0] !== (LANG2 || LANG)).map(([id, , name]) => ({ t: name, f: () => { setLang(id); } })) }); pump(); } }));
 if (LANG === 'en' || LANG === 'uk') {
-  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=44';
+  const sc = document.createElement('script'); sc.src = (LANG === 'uk' ? 'uk-data.js' : 'en-data.js') + '?v=45';
   sc.onload = sc.onerror = () => {
     if (!LANG2) return startEnglish();
     const s2 = document.createElement('script'); s2.src = LANG2 + '-data.js?v=41';

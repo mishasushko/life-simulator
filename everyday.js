@@ -102,7 +102,7 @@ function leaderNow(c = S.country, y = S.year) {
   let cur = null; for (const r of list) if (y >= r[0]) cur = r;
   if (!cur) return null;
   const last = list[list.length - 1];
-  if (cur === last && y > 2026 && y - Math.max(2026, last[0]) >= 0) {
+  if (cur === last && y > 2026 && y - Math.max(2026, last[0]) >= 0 && /президент|премьер|канцлер|председатель|секретарь/.test(last[2])) {
     // будущее: новые лидеры раз в 6 лет
     const k = Math.floor((y - 2027) / 6); S.futureLeaders = S.futureLeaders || {};
     const id = `${c}:${k}`;
@@ -354,6 +354,9 @@ YEAR_HOOKS.push(() => {
     if (S.firsts.includes(id) || S.year < a) continue;
     const late = isSovNow() ? 10 : C().wage < 0.6 ? 8 : 0;
     if (S.year < a + late) continue;
+    // родился, когда вещь уже была в каждом доме — без «первого телевизора»
+    if (S.birthYear > b + late + 5) { S.firsts.push(id); continue; }
+    if (['mobile', 'smart'].includes(id) && S.age < 10) continue;
     if (chance(S.year >= b + late ? 0.6 : 0.2)) { S.firsts.push(id); log(`${e} ${T3(ru, en, uk)}`, 'good'); eff({ happy: 3 }); }
   }
 });
@@ -374,3 +377,30 @@ EXTRA_PANELS.country = function () {
   if ((S.vax || []).length) item(l2, { e: '💉', t: T3('Прививки', 'Vaccinations', 'Щеплення'), d: String(S.vax.length) });
 };
 MENU_HOOKS.push((l) => item(l, { e: '🗞️', t: T3('Страна и быт', 'Country and daily life', 'Країна і побут'), d: T3('Кто у власти, цены, карточки, связь', 'Who is in power, prices, rationing, phones', 'Хто при владі, ціни, картки, зв\'язок'), onClick: () => openPanel('country') }));
+
+/* ====================== Валюта эпохи ====================== */
+// До евро, гривны и т. п. показываем деньги в тогдашней валюте: [страна, до года (не включая), символ, множитель к нынешней валюте]
+const ERA_CUR = {
+  de: [[1924, 'марок', 1.956], [1948, 'рейхсмарок', 1.956], [2002, 'DM', 1.956]], fr: [[1960, 'старых фр.', 656], [2002, 'фр.', 6.56]], it: [[2002, 'лир', 1936]], es: [[2002, 'песет', 166]], pt: [[1911, 'реалов', 200000], [2002, 'эскудо', 200]],
+  nl: [[2002, 'гульд.', 2.2]], be: [[2002, 'бельг. фр.', 40.3]], lu: [[2002, 'фр.', 40.3]], at: [[1925, 'крон', 13760], [2002, 'шилл.', 13.76]], ie: [[2002, 'ирл. £', 0.79]], fi: [[2002, 'фин. марок', 5.95]],
+  gr: [[2002, 'драхм', 340]], sk: [[2009, 'крон', 30]], si: [[2007, 'толаров', 240]], lt: [[2015, 'литов', 3.45]], lv: [[2014, 'латов', 0.7]], ee: [[2011, 'крон', 15.6]], cy: [[2008, 'кипр. £', 0.585]], mt: [[2008, 'мальт. лир', 0.43]], hr: [[2023, 'кун', 7.5]]
+};
+const RUB_LANDS = ['ru', 'ua', 'by', 'kz', 'ge', 'am', 'az', 'uz', 'kg', 'tj', 'tm', 'lt', 'lv', 'ee', 'md'];
+function eraCur(c, y) {
+  if (!c) return null;
+  if (RUB_LANDS.includes(c.id) && c.id !== 'ru' && c.id !== 'by') {
+    const sov = y <= 1991 && !(['lt', 'lv', 'ee'].includes(c.id) && y >= 1918 && y < 1940);
+    const ru = COUNTRIES.find((x) => x.id === 'ru');
+    if (sov && ru) return { cur: 'руб.', rate: ru.rate };
+    if (c.id === 'ua' && y >= 1992 && y < 1996) return { cur: 'крб.', rate: c.rate * (y === 1992 ? 100 : 10000) };
+  }
+  const L = ERA_CUR[c.id]; if (!L) return null;
+  for (const [to, cur, k] of L) if (y < to) return { cur, rate: c.rate * k };
+  return null;
+}
+const _fmtEra = fmt;
+fmt = function (base, cur) {
+  if (cur || typeof S === 'undefined' || !S || !S.year) return _fmtEra(base, cur);
+  const c = C(); const e = eraCur(c, S.year);
+  return e ? _fmtEra(base, { ...c, cur: e.cur, rate: e.rate }) : _fmtEra(base);
+};
