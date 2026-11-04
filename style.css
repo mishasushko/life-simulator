@@ -542,3 +542,8 @@ body{zoom:var(--ui-scale,1)}
 .map-era-note { font-size: 12px; margin: -4px 2px 10px; }
 .date-pair { display: grid; grid-template-columns: .8fr 1.5fr; gap: 6px; }
 .start-form .date-pair select { padding-left: 10px; padding-right: 24px; background-position: calc(100% - 13px) 52%, calc(100% - 8px) 52%; }
+.world path.era-split { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 3 2; pointer-events: none; }
+.world path.era-part { fill: var(--ink); opacity: .22; pointer-events: none; }
+.world path.hist-c { pointer-events: none; stroke: var(--map-sea); stroke-width: .5; }
+.world path.hist-c.dep { opacity: .72; }
+.world.hist > path.c { stroke: none; }

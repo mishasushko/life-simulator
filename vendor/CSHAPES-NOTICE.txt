@@ -1,0 +1,10 @@
+vendor/cshapes.json — historical country borders 1886–2019, simplified for this game.
+
+Source: CShapes 2.0 (Gleditsch & Ward version), ETH Zürich / ICR.
+Schvitz, G., Girardin, L., Rüegger, S., Weidmann, N. B., Cederman, L.-E., Gleditsch, K. S. (2022).
+"Mapping the International System, 1886-2019: The CShapes 2.0 Dataset". Journal of Conflict Resolution 66(1).
+https://icr.ethz.ch/data/cshapes/
+
+Licensed under the GNU General Public License, version 2 or later.
+Changes: filtered to polygons valid after 1900-01-01, simplified (mapshaper 6% weighted),
+fields reduced to s/e (start/end YYYYMMDD), n (name), o (owner gwcode), st (status), g (gwcode).

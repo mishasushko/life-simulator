@@ -66,3 +66,12 @@ Selectividad|Selectividad
 конкурс бизнес-идей|a business ideas contest
 Дождливая осень. Много чая и книг.|A rainy autumn. Lots of tea and books.
 Дождливая осень. Много чая и телевизора.|A rainy autumn. Lots of tea and TV.
+ФРГ|West Germany
+ГДР|East Germany
+Северный Вьетнам|North Vietnam
+Южный Вьетнам|South Vietnam
+ФРГ и ГДР|West and East Germany
+Северный Вьетнам и Южный Вьетнам|North and South Vietnam
+С. Вьетнам|N. Vietnam
+Ю. Вьетнам|S. Vietnam
+Северный и Южный Вьетнам|North and South Vietnam
