@@ -590,3 +590,4 @@ Selectividad|Selectividad
 Пойти на фронт добровольцем|Volunteer for the front
 Погибла на войне|Killed in the war
 {0} {1} дома. Вам подарили: {2}.|{0} {1} at home. You were given: {2}.
+Уехать не удалось.|You could not leave.

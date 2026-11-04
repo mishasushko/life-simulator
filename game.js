@@ -683,8 +683,9 @@ function loveGender() {
   const o = S.orient, g = S.gender;
   const opp = g === 'm' ? 'f' : g === 'f' ? 'm' : npcGender();
   if (o === 'hetero') return opp;
-  if (o === 'homo') return g === 'nb' ? (chance(0.5) ? 'nb' : npcGender()) : g;
-  if (o === 'pan') return chance(0.1) ? 'nb' : npcGender();
+  const nbOk = S.year >= 2010;
+  if (o === 'homo') return g === 'nb' ? (nbOk && chance(0.5) ? 'nb' : npcGender()) : g;
+  if (o === 'pan') return nbOk && chance(0.1) ? 'nb' : npcGender();
   return npcGender();
 }
 function addPartner(g, name) {
