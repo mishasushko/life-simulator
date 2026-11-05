@@ -643,3 +643,22 @@ button.item:not(:disabled):active { transform: scale(.985); }
 .map-zoom button { width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 18px; font-weight: 700; line-height: 1; cursor: pointer; box-shadow: var(--shadow); }
 .map-zoom button:hover { border-color: var(--line-strong); }
 .map-zoom button:active { transform: scale(.92); }
+
+/* ===== v53: сцены событий, одежда, тема эпохи ===== */
+html[data-era] body { transition: background-color .6s ease; }
+.modal-scene { position: relative; height: 128px; margin: -4px 0 6px; border-radius: 20px; overflow: hidden; display: grid; place-items: center; }
+.modal-scene[hidden] { display: none; }
+.modal-scene .scene-bg { position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 110%, var(--sc1), var(--sc2) 70%); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .modal-scene .scene-bg { background: radial-gradient(120% 90% at 50% 110%, color-mix(in srgb, var(--sc1) 30%, #1b1b26), #1b1b26 75%); } }
+:root[data-theme="dark"] .modal-scene .scene-bg { background: radial-gradient(120% 90% at 50% 110%, color-mix(in srgb, var(--sc1) 30%, #1b1b26), #1b1b26 75%); }
+.modal-scene .sc-main { position: relative; font-size: 64px; line-height: 1; filter: drop-shadow(0 6px 10px rgba(0,0,0,.15)); animation: scPop .5s cubic-bezier(.2,1.4,.4,1) both; }
+.modal-scene .sc-d { position: absolute; font-size: 26px; opacity: .9; animation: scFloat 3.2s ease-in-out infinite; }
+.modal-scene .sc-d0 { left: 14%; top: 18%; }
+.modal-scene .sc-d1 { right: 14%; top: 22%; animation-delay: -.8s; }
+.modal-scene .sc-d2 { left: 24%; bottom: 12%; font-size: 22px; animation-delay: -1.6s; }
+.modal-scene .sc-d3 { right: 24%; bottom: 14%; font-size: 20px; animation-delay: -2.4s; }
+.modal-scene[data-scene="death"] .sc-d, .modal-scene[data-scene="war"] .sc-d { opacity: .6; }
+@keyframes scPop { from { transform: scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes scFloat { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-8px) rotate(4deg); } }
+@media (max-width: 520px) { .modal-scene { height: 104px; } .modal-scene .sc-main { font-size: 52px; } .modal-scene .sc-d { font-size: 20px; } }
+@media (prefers-reduced-motion: reduce) { .modal-scene .sc-main, .modal-scene .sc-d { animation: none; } }
