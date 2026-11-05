@@ -99,7 +99,7 @@ panelMenu = function () {
     const name = row.querySelector('.t')?.textContent;
     if (!name) continue;
     const pinned = uxPrefs.favorites.includes(name);
-    if (pinned) item(favoriteList,{e:'★',t:name,disabled:row.disabled,onClick:()=>row.click()});
+    if (pinned) item(favoriteList,{e:row.querySelector('.ico')?.textContent||'★',t:name,disabled:row.disabled,onClick:()=>row.click()});
     const star = document.createElement('button');
     star.textContent = pinned ? '★' : '☆';
     star.setAttribute('aria-label','Избранное: '+name);

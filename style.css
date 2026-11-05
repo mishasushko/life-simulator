@@ -604,3 +604,34 @@ body{zoom:var(--ui-scale,1)}
 .keepsake-wall:empty { display: none; }
 /* поиск в меню */
 .menu-search, #menuSearch { width: 100%; font: inherit; font-size: 15px; border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px; background: var(--surface); color: var(--ink); outline: none; }
+
+/* ---------- Анимации (v50) ---------- */
+.anim-in { animation: itemIn .42s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--ai, 0) * 28ms); }
+@keyframes itemIn { from { opacity: 0; transform: translateY(12px) scale(.985); } }
+.money-float { position: absolute; left: 100%; top: 0; margin-left: 8px; font-weight: 800; font-size: 14px; white-space: nowrap; pointer-events: none; animation: moneyFloat 1.4s cubic-bezier(.2,.8,.2,1) forwards; }
+.money-float.up { color: var(--good); } .money-float.down { color: var(--bad); }
+@keyframes moneyFloat { 0% { opacity: 0; transform: translateY(6px); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-26px); } }
+.ring.ring-up .ring-c { animation: ringUp .7s cubic-bezier(.2,.8,.2,1.3); }
+.ring.ring-down .ring-c { animation: ringDown .6s ease; }
+@keyframes ringUp { 40% { transform: scale(1.14); filter: drop-shadow(0 0 8px rgba(43,182,115,.55)); } }
+@keyframes ringDown { 20%, 60% { transform: translateX(-3px); } 40%, 80% { transform: translateX(3px); } }
+.confetti { position: fixed; left: 0; right: 0; bottom: 30%; height: 0; pointer-events: none; z-index: 60; }
+.confetti i { position: absolute; width: 8px; height: 12px; border-radius: 2px; }
+.age-btn { position: relative; overflow: visible; }
+.age-ripple { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: rgba(255,255,255,.55); pointer-events: none; animation: ripple .6s ease-out forwards; }
+@keyframes ripple { to { transform: scale(14); opacity: 0; } }
+.age-btn:not(:disabled) { animation: agePulse 2.8s ease-in-out infinite; }
+@keyframes agePulse { 0%, 100% { box-shadow: 0 10px 24px rgba(255,90,54,.35); } 50% { box-shadow: 0 10px 34px rgba(255,90,54,.6); } }
+.yr.last { animation: rise .5s cubic-bezier(.2,.8,.2,1) both; }
+.item { transition: transform .15s ease, box-shadow .2s ease, border-color .2s; }
+@media (hover: hover) { button.item:not(:disabled):hover { transform: translateY(-1px); box-shadow: var(--shadow); } }
+button.item:not(:disabled):active { transform: scale(.985); }
+.modal-card, .modal { animation-timing-function: cubic-bezier(.2,.9,.25,1.25); }
+/* избранное в меню: аккуратная звёздочка внутри карточки */
+.menu-entry { position: relative; display: block !important; }
+.menu-entry > .item { width: 100%; padding-right: 52px; }
+.menu-entry > button:last-child { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; padding: 0 !important; border-radius: 50%; border: 0; background: transparent !important; color: var(--ink-25, #bbb) !important; font-size: 18px; line-height: 1; cursor: pointer; transition: color .2s, transform .2s, background .2s; }
+.menu-entry > button:last-child:hover { background: var(--surface2) !important; color: var(--muted) !important; }
+.menu-entry > button[aria-pressed=true]:last-child { color: #f5b301 !important; }
+.menu-entry > button[aria-pressed=true]:last-child:active, .menu-entry > button:last-child:active { transform: translateY(-50%) scale(1.3); }
+@media (prefers-reduced-motion: reduce) { .anim-in, .yr.last, .age-btn, .ring .ring-c { animation: none !important; } }
