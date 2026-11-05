@@ -635,3 +635,11 @@ button.item:not(:disabled):active { transform: scale(.985); }
 .menu-entry > button[aria-pressed=true]:last-child { color: #f5b301 !important; }
 .menu-entry > button[aria-pressed=true]:last-child:active, .menu-entry > button:last-child:active { transform: translateY(-50%) scale(1.3); }
 @media (prefers-reduced-motion: reduce) { .anim-in, .yr.last, .age-btn, .ring .ring-c { animation: none !important; } }
+/* зум карты */
+.world { touch-action: none; cursor: grab; }
+.world:active { cursor: grabbing; }
+.world path { vector-effect: non-scaling-stroke; }
+.map-zoom { position: absolute; right: 10px; bottom: 10px; display: grid; gap: 4px; z-index: 2; }
+.map-zoom button { width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 18px; font-weight: 700; line-height: 1; cursor: pointer; box-shadow: var(--shadow); }
+.map-zoom button:hover { border-color: var(--line-strong); }
+.map-zoom button:active { transform: scale(.92); }

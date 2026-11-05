@@ -134,6 +134,7 @@ function syncSubjects(quiet) {
   sc.names = sc.names || {};
   for (const [id, , n] of list) { if (!quiet && sc.names[id] && sc.names[id] !== n && !added.includes(n)) added.push(n); sc.names[id] = n; }
   SUBJ.length = 0; list.forEach((x) => SUBJ.push(x));
+  sc.list = list.map((x) => x.slice());
   return added;
 }
 
@@ -146,7 +147,15 @@ YEAR_HOOKS.unshift(() => {
   if (added.length) log(`📚 С ${schoolGrade()} класса в расписании ${added.length > 1 ? 'новые предметы' : 'новый предмет'}: ${added.join(', ')}.`, 'info');
 });
 const _panelSchoolCur = EXTRA_PANELS.school;
-EXTRA_PANELS.school = function () { if (S.school && S.edu.stage === 'school') syncSubjects(true); return _panelSchoolCur(); };
+// После выпуска показываем предметы, которые реально изучались (а не дефолтный список)
+function restoreSubjects() {
+  const sc = S.school; if (!sc || !sc.subj) return;
+  const ids = Object.keys(sc.subj); if (!ids.length) return;
+  const known = {}; for (const x of (sc.list || []).concat(SUBJ)) known[x[0]] = x;
+  const list = ids.map((id) => known[id] || [id, '📘', (sc.names && sc.names[id]) || id]);
+  SUBJ.length = 0; list.forEach((x) => SUBJ.push(x));
+}
+EXTRA_PANELS.school = function () { if (S.school && S.edu.stage === 'school') syncSubjects(true); else restoreSubjects(); return _panelSchoolCur(); };
 
 // Номинации выпускного альбома — по полу
 const YB_FEM = { '🧠 Самый умный': '🧠 Самая умная', '🏅 Спортсмен выпуска': '🏅 Спортсменка выпуска', '😈 Главный хулиган': '😈 Главная хулиганка', '🏆 Олимпиадник': '🏆 Олимпиадница', '🤫 Самый загадочный': '🤫 Самая загадочная', '🍔 Король столовой': '🍔 Королева столовой', '💰 Скорее всего станет миллионером': '💰 Скорее всего станет миллионершей' };

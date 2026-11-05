@@ -1373,9 +1373,33 @@ function panelMap() {
       .append('title').text((d) => byNum[d.id] ? `${byNum[d.id].flag} ${cname(byNum[d.id])}` : (d.properties && d.properties.name) || '');
     if (typeof drawEraMap === 'function') drawEraMap(svg, world, feats, path, byNum, cls);
     drawPlaceRoute(svg,feats,path);
-    const cur = feats.find((f) => f.id === ISO_NUM[S.country]);
+    let cur = feats.find((f) => f.id === ISO_NUM[S.country]);
+    if (cur && cur.geometry && cur.geometry.type === 'MultiPolygon') cur = { type: 'Feature', geometry: { type: 'Polygon', coordinates: cur.geometry.coordinates.slice().sort((a, b) => d3.geoArea({ type: 'Polygon', coordinates: b }) - d3.geoArea({ type: 'Polygon', coordinates: a }))[0] } };
     if (cur) { const [x, y] = path.centroid(cur); svg.append('text').attr('x', x).attr('y', y).attr('text-anchor', 'middle').attr('dominant-baseline', 'central').attr('font-size', 26).attr('class', 'pin').text('📍'); }
+    enableMapZoom(svg, box, W, H);
   }).catch(() => { box.innerHTML = '<div class="empty">Не удалось загрузить карту. Проверьте интернет.</div>'; });
+}
+// Зум карты: колесо мыши, щипок, перетаскивание, кнопки + / − / ⟲
+function enableMapZoom(svg, box, W, H) {
+  if (!d3.zoom) return;
+  const node = svg.node(); const g = svg.append('g').attr('class', 'zoom-layer');
+  for (const ch of [...node.childNodes]) if (ch !== g.node()) g.node().appendChild(ch);
+  const pin = g.select('text.pin');
+  const zoom = d3.zoom().scaleExtent([1, 12]).translateExtent([[0, 0], [W, H]])
+    .filter((e) => (e.type === 'wheel' ? true : !e.button))
+    .on('zoom', (e) => { g.attr('transform', e.transform); const k = e.transform.k; pin.attr('font-size', 26 / Math.sqrt(k));
+      g.selectAll('text:not(.pin)').each(function () { const t = d3.select(this); if (this.dataset.fs == null) this.dataset.fs = parseFloat(t.attr('font-size') || getComputedStyle(this).fontSize) || 12; t.attr('font-size', this.dataset.fs / k); t.style('font-size', null); t.style('stroke-width', null); }); g.selectAll('circle').each(function () { if (this.dataset.r == null) this.dataset.r = this.getAttribute('r') || 4; this.setAttribute('r', this.dataset.r / Math.sqrt(k)); });
+      box.classList.toggle('zoomed', k > 1.01); });
+  svg.call(zoom).on('dblclick.zoom', null);
+  node.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
+  const ctl = el('<div class="map-zoom"><button type="button" aria-label="Приблизить">+</button><button type="button" aria-label="Отдалить">−</button><button type="button" aria-label="Сбросить масштаб">⟲</button></div>');
+  const [bin, bout, brs] = ctl.querySelectorAll('button');
+  bin.onclick = () => svg.transition().duration(300).call(zoom.scaleBy, 1.6);
+  bout.onclick = () => svg.transition().duration(300).call(zoom.scaleBy, 1 / 1.6);
+  brs.onclick = () => svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity);
+  box.style.position = 'relative'; box.appendChild(ctl);
+  // сразу немного приблизить к своей стране
+  const pt = pin.node(); if (pt) { const x = +pt.getAttribute('x'), y = +pt.getAttribute('y'); svg.call(zoom.transform, d3.zoomIdentity.translate(W / 2, H / 2).scale(1.6).translate(-x, -y)); }
 }
 function countryModal(c) {
   const ch = [];
