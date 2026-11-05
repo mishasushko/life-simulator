@@ -933,6 +933,10 @@ function closeSheet() { $('#sheetWrap').hidden = true; currentPanel = null; }
 function el(html) { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstChild; }
 function section(title) { $('#sheetBody').appendChild(el(`<div class="section-title">${title}</div>`)); const l = el('<div class="list"></div>'); $('#sheetBody').appendChild(l); return l; }
 function item(list, { e, t, d, r, onClick, disabled, bar }) {
+  // заголовок начинается с эмодзи, а иконки нет — переносим эмодзи в иконку
+  if ((!e || e === '•' || e === '·') && typeof t === 'string') { const m = t.match(/^(\p{Extended_Pictographic}\uFE0F?(?:\u200D\p{Extended_Pictographic}\uFE0F?)*)\s+(.+)$/su); if (m) { e = m[1]; t = m[2]; } }
+  if (!e || e === '•' || e === '·') e = '•';
+  else if (typeof t === 'string' && t.startsWith(e + ' ')) t = t.slice(e.length + 1);
   const tag = onClick ? 'button' : 'div';
   const n = el(`<${tag} class="item"><span class="ico">${e}</span><span class="txt"><div class="t">${esc(t)}</div>${d ? `<div class="d">${esc(d)}</div>` : ''}${bar != null ? `<div class="bar-mini"><em style="width:${bar}%"></em></div>` : ''}</span>${r ? `<span class="r">${esc(r)}</span>` : ''}</${tag}>`);
   if (onClick) { n.onclick = onClick; n.disabled = !!disabled; }

@@ -578,3 +578,29 @@ body{zoom:var(--ui-scale,1)}
 .coach-ok { background: var(--bg); color: var(--ink); }
 .coach-off { background: transparent; color: inherit; opacity: .7; }
 @keyframes coachIn { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+/* ---------- Полировка UI (v49) ---------- */
+/* тосты не закрывают имя героя: на телефоне — над доком */
+@media (max-width: 860px) {
+  .toast { top: auto; bottom: calc(118px + env(safe-area-inset-bottom)); transform: translate(-50%, 30px); }
+  .toast.show { transform: translate(-50%, 0); }
+  #quickBar { margin-bottom: 24px; }
+  #quickBar:empty { display: none; }
+}
+/* «!» на кнопках дока — бейдж в углу, а не строкой под подписью */
+.dock-btn { position: relative; }
+.dock-btn[data-unread=yes]::after { position: absolute; top: 2px; right: calc(50% - 22px); width: 16px; height: 16px; padding: 0; display: grid; place-items: center; font-size: 11px; line-height: 1; border: 2px solid var(--surface); }
+/* лента: цветные записи читаются, но не кричат */
+.ev.good, .ev.bad { font-weight: 500; }
+/* поля ввода и селекты внутри шторки */
+#sheetBody input[type=search], #sheetBody input[type=text], #sheetBody input:not([type]), #sheetBody select {
+  width: 100%; font: inherit; font-size: 15px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px; outline: none; transition: border-color .15s, box-shadow .15s; }
+#sheetBody select { appearance: none; -webkit-appearance: none; padding-right: 34px; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px; background-repeat: no-repeat; margin: 8px 0 4px; }
+#sheetBody input:focus, #sheetBody select:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-15); }
+.ux-control { display: grid; gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin: 10px 0 6px; }
+.ux-control:has(input[type=range]) { grid-template-columns: 1fr minmax(120px, 45%); align-items: center; text-transform: none; letter-spacing: 0; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 12px 14px; margin: 6px 0; }
+.ux-control input[type=range] { width: 100%; accent-color: var(--accent); }
+/* пустая стена воспоминаний не рисует пустую рамку */
+.keepsake-wall:empty { display: none; }
+/* поиск в меню */
+.menu-search, #menuSearch { width: 100%; font: inherit; font-size: 15px; border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px; background: var(--surface); color: var(--ink); outline: none; }
