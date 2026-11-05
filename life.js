@@ -293,7 +293,7 @@ EXTRA_PANELS.school = function () {
   if (sc.yearbook) {
     const Y = sc.yearbook;
     B.appendChild(el(`<div class="section-title">Выпускной альбом ${Y.year}</div>`));
-    card(`<div class="yearbook"><div class="yb-photo">${typeof playerPortrait === 'function' ? playerPortrait() : avatar()}</div><div><div class="big">${esc(S.first)} ${esc(S.surname)}</div><div class="muted">${esc(Y.quote)}</div><div class="yb-noms">${Y.noms.map((n) => `<span>${esc(n)}</span>`).join('')}</div><div class="muted">Средний балл: ${Y.avg}${sc.medal ? ' · 🥇 золотая медаль' : ''}${sc.promKing ? ' · 👑 король/королева бала' : ''}</div></div></div>`);
+    card(`<div class="yearbook"><div class="yb-photo">${typeof playerPortrait === 'function' ? playerPortrait() : avatar()}</div><div><div class="big">${esc(S.first)} ${esc(S.surname)}</div><div class="muted">${esc(Y.quote)}</div><div class="yb-noms">${Y.noms.map((n) => `<span>${esc(n)}</span>`).join('')}</div><div class="muted">Средний балл: ${Y.avg}${sc.medal ? ' · 🥇 золотая медаль' : ''}${sc.promKing ? (S.gender === 'f' ? ' · 👑 королева бала' : ' · 👑 король бала') : ''}</div></div></div>`);
   }
   if (S.edu.stage !== 'school' || S.prison) return;
   const l = section('Этот год');

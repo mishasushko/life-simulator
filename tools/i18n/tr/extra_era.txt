@@ -601,3 +601,6 @@ Selectividad|Selectividad
 🎁 Подарок на день рождения от {0}: {1}. Попадание в точку!|🎁 A birthday present from {0}: {1}. Spot on!
 🎂 День рождения! Подарок от {0}: {1}.|🎂 Birthday! A present from {0}: {1}.
 Попадание в точку!|Spot on!
+
+король бала|prom king
+королева бала|prom queen

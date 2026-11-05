@@ -453,7 +453,7 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
 .yb-photo { width: 84px; height: 84px; flex: none; border-radius: 14px; overflow: hidden; background: var(--surface2); display: grid; place-items: center; font-size: 44px; filter: sepia(.35); }
 .yb-photo svg { width: 100%; height: 100%; }
 .yb-noms { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
-.yb-noms span { font-size: 12px; padding: 3px 8px; border-radius: 999px; background: var(--accent-12); }
+.yb-noms span { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; color: inherit; background: color-mix(in srgb, currentColor 14%, transparent); border: 1px solid color-mix(in srgb, currentColor 28%, transparent); }
 .pet-bars { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; align-items: center; font-size: 13px; margin: 6px 0; }
 .medals { font-weight: 700; margin-top: 6px; }
 .bar-mini.heat em { background: var(--bad); }
