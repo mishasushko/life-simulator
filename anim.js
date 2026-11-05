@@ -23,8 +23,8 @@
       if (pm && lastMoney != null && S.money !== lastMoney) {
         const d = S.money - lastMoney; const f = document.createElement('span');
         f.className = 'money-float ' + (d > 0 ? 'up' : 'down'); f.textContent = (d > 0 ? '+' : '−') + fmt(Math.abs(d)).replace(/^−/, '');
-        pm.parentNode.style.position = 'relative'; pm.parentNode.appendChild(f); setTimeout(() => f.remove(), 1500);
-        pm.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.08)' }, { transform: 'scale(1)' }], { duration: 450, easing: 'cubic-bezier(.2,.8,.2,1.2)' });
+        pm.parentNode.style.position = 'relative'; pm.parentNode.appendChild(f); setTimeout(() => f.remove(), 950);
+        pm.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.08)' }, { transform: 'scale(1)' }], { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1.2)' });
       }
       for (const ring of document.querySelectorAll('.ring[data-k]')) {
         const k = ring.dataset.k, v = S.stats[k], o = lastStats[k];
@@ -48,9 +48,9 @@
     for (let i = 0; i < 36; i++) {
       const p = document.createElement('i'); p.style.background = cols[i % cols.length]; p.style.left = 50 + (Math.random() * 30 - 15) + '%'; box.appendChild(p);
       const x = (Math.random() - 0.5) * 520, y = -(180 + Math.random() * 260), rot = Math.random() * 720;
-      p.animate([{ transform: 'translate(0,0) rotate(0)', opacity: 1 }, { transform: `translate(${x * 0.6}px, ${y}px) rotate(${rot / 2}deg)`, opacity: 1, offset: 0.45 }, { transform: `translate(${x}px, ${y + 420}px) rotate(${rot}deg)`, opacity: 0 }], { duration: 1500 + Math.random() * 700, easing: 'cubic-bezier(.15,.7,.4,1)', fill: 'forwards' });
+      p.animate([{ transform: 'translate(0,0) rotate(0)', opacity: 1 }, { transform: `translate(${x * 0.6}px, ${y}px) rotate(${rot / 2}deg)`, opacity: 1, offset: 0.45 }, { transform: `translate(${x}px, ${y + 420}px) rotate(${rot}deg)`, opacity: 0 }], { duration: 900 + Math.random() * 700, easing: 'cubic-bezier(.15,.7,.4,1)', fill: 'forwards' });
     }
-    setTimeout(() => box.remove(), 2400);
+    setTimeout(() => box.remove(), 1500);
   }
   window.lifeConfetti = confetti;
   // 5. Кнопка «+1 год»: волна от нажатия
@@ -61,5 +61,5 @@
   });
   // 6. Экран игры появляется плавно
   const _sg = typeof showGame === 'function' ? showGame : null;
-  if (_sg) showGame = function () { const r = _sg.apply(this, arguments); const g = document.getElementById('game'); if (g && !calm()) g.animate([{ opacity: 0, transform: 'scale(.985)' }, { opacity: 1, transform: 'none' }], { duration: 380, easing: 'ease-out' }); return r; };
+  if (_sg) showGame = function () { const r = _sg.apply(this, arguments); const g = document.getElementById('game'); if (g && !calm()) g.animate([{ opacity: 0, transform: 'scale(.985)' }, { opacity: 1, transform: 'none' }], { duration: 200, easing: 'ease-out' }); return r; };
 })();

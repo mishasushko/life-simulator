@@ -212,9 +212,9 @@ input, select { font: inherit; color: inherit; }
 .card-p.back { background: var(--indigo); color: #fff; font-size: 30px; }
 
 /* ============ Шторка ============ */
-.sheet-wrap, .modal-wrap { position: fixed; inset: 0; background: var(--scrim); z-index: 10; display: flex; align-items: flex-end; justify-content: center; animation: fade .2s; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+.sheet-wrap, .modal-wrap { position: fixed; inset: 0; background: var(--scrim); z-index: 10; display: flex; align-items: flex-end; justify-content: center; animation: fade .12s; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
 .sheet-wrap[hidden], .modal-wrap[hidden] { display: none; }
-.sheet { width: 100%; max-width: 680px; max-height: 86dvh; display: flex; flex-direction: column; background: var(--bg); border-radius: 28px 28px 0 0; box-shadow: var(--shadow-lg); animation: up .32s cubic-bezier(.2,.8,.2,1); }
+.sheet { width: 100%; max-width: 680px; max-height: 86dvh; display: flex; flex-direction: column; background: var(--bg); border-radius: 28px 28px 0 0; box-shadow: var(--shadow-lg); animation: up .2s cubic-bezier(.2,.8,.2,1); }
 .sheet-grip { width: 44px; height: 5px; border-radius: 9px; background: var(--line); margin: 10px auto 0; }
 .sheet-head { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 6px; }
 .sheet-head h2 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 21px; letter-spacing: -.02em; }
@@ -245,7 +245,7 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
 
 /* ============ Модалка ============ */
 .modal-wrap { align-items: center; padding: 16px; z-index: 20; }
-.modal { width: 100%; max-width: 420px; max-height: 92dvh; overflow-y: auto; padding: 30px 22px 20px; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow-lg); animation: pop .3s cubic-bezier(.2,.8,.2,1.2); }
+.modal { width: 100%; max-width: 420px; max-height: 92dvh; overflow-y: auto; padding: 30px 22px 20px; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow-lg); animation: pop .18s cubic-bezier(.2,.8,.2,1.2); }
 .modal-emoji { font-size: 40px; width: 80px; height: 80px; margin: 0 auto; border-radius: 26px; display: grid; place-items: center; background: var(--surface2); border: 1px solid var(--line); }
 .modal-emoji:empty { display: none; }
 .modal h3 { margin: 16px 0 8px; font-family: var(--display); font-weight: 600; font-size: 21px; letter-spacing: -.02em; }
@@ -480,7 +480,7 @@ button.item:disabled { opacity: .45; cursor: not-allowed; }
 .fnode.me { border: 2px solid var(--accent, #ff5a36); box-shadow: 0 6px 18px rgba(255,90,54,.18); }
 .fnode.anc { opacity: .92; }
 .fnode.side { opacity: .8; }
-#avatar.aged { animation: avBump .55s ease; }
+#avatar.aged { animation: avBump .3s ease; }
 @keyframes avBump { 0% { transform: scale(1); } 35% { transform: scale(1.12) rotate(-3deg); } 70% { transform: scale(.97) rotate(1deg); } 100% { transform: scale(1); } }
 #avatar svg { animation: avBreath 4s ease-in-out infinite; transform-origin: 50% 80%; }
 @keyframes avBreath { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
@@ -606,23 +606,23 @@ body{zoom:var(--ui-scale,1)}
 .menu-search, #menuSearch { width: 100%; font: inherit; font-size: 15px; border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px; background: var(--surface); color: var(--ink); outline: none; }
 
 /* ---------- Анимации (v50) ---------- */
-.anim-in { animation: itemIn .42s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--ai, 0) * 28ms); }
+.anim-in { animation: itemIn .22s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--ai, 0) * 12ms); }
 @keyframes itemIn { from { opacity: 0; transform: translateY(12px) scale(.985); } }
-.money-float { position: absolute; left: 100%; top: 0; margin-left: 8px; font-weight: 800; font-size: 14px; white-space: nowrap; pointer-events: none; animation: moneyFloat 1.4s cubic-bezier(.2,.8,.2,1) forwards; }
+.money-float { position: absolute; left: 100%; top: 0; margin-left: 8px; font-weight: 800; font-size: 14px; white-space: nowrap; pointer-events: none; animation: moneyFloat .9s cubic-bezier(.2,.8,.2,1) forwards; }
 .money-float.up { color: var(--good); } .money-float.down { color: var(--bad); }
 @keyframes moneyFloat { 0% { opacity: 0; transform: translateY(6px); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-26px); } }
-.ring.ring-up .ring-c { animation: ringUp .7s cubic-bezier(.2,.8,.2,1.3); }
-.ring.ring-down .ring-c { animation: ringDown .6s ease; }
+.ring.ring-up .ring-c { animation: ringUp .4s cubic-bezier(.2,.8,.2,1.3); }
+.ring.ring-down .ring-c { animation: ringDown .35s ease; }
 @keyframes ringUp { 40% { transform: scale(1.14); filter: drop-shadow(0 0 8px rgba(43,182,115,.55)); } }
 @keyframes ringDown { 20%, 60% { transform: translateX(-3px); } 40%, 80% { transform: translateX(3px); } }
 .confetti { position: fixed; left: 0; right: 0; bottom: 30%; height: 0; pointer-events: none; z-index: 60; }
 .confetti i { position: absolute; width: 8px; height: 12px; border-radius: 2px; }
 .age-btn { position: relative; overflow: visible; }
-.age-ripple { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: rgba(255,255,255,.55); pointer-events: none; animation: ripple .6s ease-out forwards; }
+.age-ripple { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: rgba(255,255,255,.55); pointer-events: none; animation: ripple .4s ease-out forwards; }
 @keyframes ripple { to { transform: scale(14); opacity: 0; } }
 .age-btn:not(:disabled) { animation: agePulse 2.8s ease-in-out infinite; }
 @keyframes agePulse { 0%, 100% { box-shadow: 0 10px 24px rgba(255,90,54,.35); } 50% { box-shadow: 0 10px 34px rgba(255,90,54,.6); } }
-.yr.last { animation: rise .5s cubic-bezier(.2,.8,.2,1) both; }
+.yr.last { animation: rise .25s cubic-bezier(.2,.8,.2,1) both; }
 .item { transition: transform .15s ease, box-shadow .2s ease, border-color .2s; }
 @media (hover: hover) { button.item:not(:disabled):hover { transform: translateY(-1px); box-shadow: var(--shadow); } }
 button.item:not(:disabled):active { transform: scale(.985); }
@@ -651,7 +651,7 @@ html[data-era] body { transition: background-color .6s ease; }
 .modal-scene .scene-bg { position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 110%, var(--sc1), var(--sc2) 70%); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .modal-scene .scene-bg { background: radial-gradient(120% 90% at 50% 110%, color-mix(in srgb, var(--sc1) 30%, #1b1b26), #1b1b26 75%); } }
 :root[data-theme="dark"] .modal-scene .scene-bg { background: radial-gradient(120% 90% at 50% 110%, color-mix(in srgb, var(--sc1) 30%, #1b1b26), #1b1b26 75%); }
-.modal-scene .sc-main { position: relative; font-size: 64px; line-height: 1; filter: drop-shadow(0 6px 10px rgba(0,0,0,.15)); animation: scPop .5s cubic-bezier(.2,1.4,.4,1) both; }
+.modal-scene .sc-main { position: relative; font-size: 64px; line-height: 1; filter: drop-shadow(0 6px 10px rgba(0,0,0,.15)); animation: scPop .28s cubic-bezier(.2,1.4,.4,1) both; }
 .modal-scene .sc-d { position: absolute; font-size: 26px; opacity: .9; animation: scFloat 3.2s ease-in-out infinite; }
 .modal-scene .sc-d0 { left: 14%; top: 18%; }
 .modal-scene .sc-d1 { right: 14%; top: 22%; animation-delay: -.8s; }
